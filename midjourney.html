@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>midjourney – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./DeepSeek.html"> 
+<span class="menu-text">DeepSeek</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./midjourney.html" aria-current="page"> 
+<span class="menu-text">Midjourney</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/woman-by-midjourney.webp" class="img-fluid figure-img"></p>
+<figcaption>Woman generated by MidJourney</figcaption>
+</figure>
+</div>
+<p>🎨 The Anatomy of MidJourney: How State-of-the-Art Diffusion Models Paint from Noise</p>
+<p>A comprehensive deep dive into how Midjourney Transforms Noise into Stunning Art using latent diffusion</p>
+<p>Introduction</p>
+<p>MidJourney is among the most advanced and artistically compelling generative image models in the world. Its outputs have a distinct style – dreamlike, surreal, richly composed – and it’s become the go-to AI for millions seeking stunning visual content from nothing more than text prompts.While MidJourney isn’t open source, its architecture is widely understood. Like Stable Diffusion, it’s a state-of-the-art diffusion model built on a class of architectures known as latent diffusion models – a design that denoises abstract noise in a latent space over many steps, guided by a U-Net backbone and a joint text to image encoder.</p>
+<p>while the exact training dataset, number of denoising steps, and model weights remain undisclosed , we know the DNA of the architecture. relies on:</p>
+<p>• A U-Net architecture with convolutional layers (not transformers),</p>
+<p>• CLIP or CLIP-like frozen text encoders for prompt conditioning,</p>
+<p>• Tens of millions (likely billions) of training images scraped from the public web,</p>
+<p>• And aesthetic tuning via human preference, reinforcement learning, and internal heuristics.</p>
+<p>This article breaks down what we do know about how MidJourney works – layer by layer – showing how it translates language into visual structure, how it denoises images step by step, and why its aesthetic outputs feel so distinct compared to other diffusion models.</p>
+<p>By the end, you’ll understand the core of how MidJourney turns chaos into creativity – even if the exact recipe remains locked away.</p>
+<p>What is stable diffusion ?</p>
+<p>At the core of MidJourney and other generative image models lies a type of architecture called a Denoising Diffusion Probabilistic Model (DDPM). Here’s how it works:</p>
+<p>During training, machine learning engineers feed the model billions of real images, often gathered using large-scale web crawlers. The model learns by adding Gaussian noise to each image, step by step, until it’s nearly indistinguishable from static. Then, it is trained to reverse this process – predicting and gradually removing the noise until the original image is reconstructed. This teaches the model the underlying structure of images – how to build form, color, and texture from chaos.</p>
+<p>But during inference, the model starts with nothing but random noise. There are no real images here. Instead, it applies what it learned during training to reverse the noise – using text prompts as guidance – and generate entirely new images that never existed before. The model’s weights, which encode patterns learned from billions of examples, shape this noise into something meaningful. That’s why you can type “a dragon made of glass flying over Tokyo at night,” and the model sculpts the noise into a visually coherent result.</p>
+<p>So yes, noise happens during both training and inference – but for opposite reasons: training adds noise to learn; inference removes it to create.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/multi-step-diffusion.webp" class="img-fluid figure-img"></p>
+<figcaption>multi step diffusion</figcaption>
+</figure>
+</div>
+<p>🛠 Training vs ⚡ Inference:why denoising only happens only once</p>
+<p>Before we dive further into how diffusion works, it’s important to clarify a common point of confusion:</p>
+<p>The noising and denoising of an image process only happens during training – not during inference.</p>
+<p>Here’s the key distinction:</p>
+<p>⸻</p>
+<p>🔧 Training Phase</p>
+<p>When machine learning engineers build and optimize the model</p>
+<p>• Goal: Teach the model to understand and generate patterns</p>
+<p>• Process Includes:</p>
+<p>• Forward and backward passes</p>
+<p>• Loss calculation and gradient descent</p>
+<p>• Architecture design (e.g., CNNs like U-Net)</p>
+<p>• Huge datasets (often billions of images scraped from the web)</p>
+<p>• Specialized hardware: GPUs, TPUs</p>
+<p>• What Happens:</p>
+<p>The model is shown clean images → noise is added over many steps → the model learns to reverse that noise by predicting it step by step.</p>
+<p>🧠 The model is literally learning to “paint backward” from noise.</p>
+<p>⸻</p>
+<p>⚡ Inference Phase</p>
+<p>When the trained model is used by users to generate outputs</p>
+<p>• Goal: Apply what it learned to generate new content</p>
+<p>• What Happens:</p>
+<p>• You give the model a text prompt</p>
+<p>• It starts from random noise and runs a forward pass through the frozen model</p>
+<p>• Each step of denoising is now deterministic (learned during training)</p>
+<p>• No weights are updated – it’s just applying learned functions</p>
+<p>💡 During inference, the model is not learning anything new or doing any backpropagation. It’s not adding or removing noise from labeled images anymore – it’s just using what it already learned to generate something new from raw Gaussian noise the same used during training but no image is being denoised, it uses the patterns learned to shape the noise itself into imagery.</p>
+<p>⸻</p>
+<p>🧩 So What’s Really Happening in MidJourney?</p>
+<p>When you prompt MidJourney with:</p>
+<p>“A cathedral in the clouds, rendered in soft watercolor, with rainbow light spilling through”</p>
+<p>…it’s not browsing images or altering real ones.</p>
+<p>Instead, it’s:</p>
+<p>• Starting from pure noise</p>
+<p>• Running that noise through a series of learned denoising steps</p>
+<p>• Mapping your prompt to abstract visual features embedded in the model’s weights</p>
+<p>• Combining those abstract visual elements( patterns)into something entirely new</p>
+<p>🧠 Your prompt activates the learned statistical space of concepts – not individual images. MidJourney generates new content by sampling from this space via reverse diffusion.</p>
+<p>At the core of MidJourney and other generative image models lies a type of architecture called a Denoising Diffusion Probabilistic Model (DDPM). Here’s how it works:</p>
+<p>During training, machine learning engineers feed the model billions of real images, gathered using large-scale web crawlers. The model learns by adding Gaussian noise to each image, step by step, until it’s nearly indistinguishable from static. Then, it is trained to reverse this process – predicting and gradually removing the noise until the original image is reconstructed. This teaches the model the underlying structure of images – how to build form, color, and texture from chaos.</p>
+<p>But during inference, the model starts with nothing but random noise. There are no real images here. Instead, it applies what it learned during training to reverse the noise – using text prompts as guidance – and generate entirely new images that never existed before. The model’s weights, which encode patterns learned from billions of examples, shape this noise into something meaningful. That’s why you can type “a dragon made of glass flying over Tokyo at night,” and the model sculpts the noise into a visually coherent result.</p>
+<p>So yes, noise happens during both training and inference – but for opposite reasons: training adds noise to learn; inference removes it to create.</p>
+<p>🌀 Denoising: Reversing Entropy into Order</p>
+<p>At the heart of diffusion models like MidJourney is a reversal of entropy.</p>
+<p>During training, the model learns to take an image and add Gaussian noise step by step – a process that gradually destroys structure and increases entropy. The image becomes more and more chaotic, eventually approaching pure noise.</p>
+<p>Then the model is trained to reverse that:</p>
+<p>• From pure noise to structure</p>
+<p>• From chaos to coherence</p>
+<p>• From randomness to realism or artistry</p>
+<p>This process of iterative denoising is what gives diffusion models their signature look – gradually layering in detail, composition, lighting, and texture across tens or hundreds of steps.</p>
+<p>It’s not just image generation – it’s structured entropy reversal, step by step, guided by learned visual priors and your input prompt.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pure-noise-process.webp" class="img-fluid figure-img"></p>
+<figcaption>Pure Noise Process</figcaption>
+</figure>
+</div>
+<p>Note:State-of-the-art diffusion models perform tens to hundreds of iterative noising and denoising steps. Each step is dependent on the last, allowing the model to progressively extract a full spectrum of visual features. This staged refinement maximizes image fidelity while optimizing compute usage – enabling the model to produce high-quality results efficiently.</p>
+<p>Understanding the U-Net Architecture in MidJourney</p>
+<p>At the core of MidJourney’s image generation process lies the U-Net architecture, a convolutional neural network (CNN) designed especially for image-to-image tasks, such as denoising in diffusion models.</p>
+<p>Key Features of U-Net:</p>
+<p>Here’s a polished and complete breakdown of the U-Net architecture section for your Anatomy of MidJourney article – incorporating everything from convolution and batch normalization to channels, max pooling, and flattening:</p>
+<p>🧠 Core Architecture: U-Net (The Backbone of MidJourney’s Diffusion Process)</p>
+<p>While MidJourney doesn’t release its exact model weights or layer count, we know it uses a U-Net – based diffusion model, similar in spirit to Stable Diffusion. This architecture is made up of convolutional neural network (CNN) blocks designed to compress and reconstruct images – perfect for the task of turning noise into coherent visuals.</p>
+<p>Here’s what makes up the U-Net:</p>
+<p>⸻</p>
+<p>🔹 1. Convolutional Layers</p>
+<p>• Use kernels to scan across the image and extract low-level patterns (edges, textures, shapes).</p>
+<p>• These filters learn hierarchical features – basic at first, complex as you go deeper.</p>
+<p>Channels (Feature Maps)</p>
+<p>• Each convolutional layer outputs a stack of channels – think of them as layers of filters:</p>
+<p>• Early layers: detect textures, edges.</p>
+<p>• Deeper layers: detect objects, styles, structures.</p>
+<p>• Number of channels typically increases deeper into the U-Net (e.g., 32 → 64 → 128 → 256 → …), allowing richer representations.</p>
+<p>⸻</p>
+<p>🔹 2. ReLU Activations</p>
+<p>RELU itself is about combining patterns from the sense feed-forward layer that precedes it and adding a positive bias to the end result</p>
+<p>• It doesn’t make negatives positive (like absolute value would).</p>
+<p>• It suppresses negatives entirely by zeroing them out.</p>
+<p>• So the output becomes sparser, and biased toward positive activation values – yes.</p>
+<p>• ReLU(x) =</p>
+<p>• 0 if x &lt; 0</p>
+<p>• x if x ≥ 0</p>
+<p>So if a dense layer outputs -3 → ReLU sets it to 0.</p>
+<p>If a dense layer outputs +3 → ReLU keeps it.</p>
+<p>No randomness. Just a simple function.</p>
+<p>ReLU. is a simple, deterministic non-linear activation function that filters out all negative values and passes positive ones through unchanged – introducing non-linearity and sparsity into the network. This pushes the output distribution toward positive values and helps the model learn selectively activated patterns. This non-linearity is what lets deep networks learn complex patterns and functions.</p>
+<p>⸻</p>
+<p>🔹 3. Batch Normalization</p>
+<p>• Normalizes the output of layers across the batch dimension (i.e., across all images in a training batch).</p>
+<p>• Ensures consistent gradient flow and faster convergence.</p>
+<p>• Keeps features centered (mean ≈ 0) and standardized (std ≈ 1).</p>
+<p>⸻</p>
+<p>🔹 4. Max Pooling</p>
+<p>• Downsamples spatial dimensions (e.g., 128×128 → 64×64), keeping the most important features.</p>
+<p>• Helps the model focus on what patterns exist, rather than where they are.</p>
+<p>• Used in the encoder side of U-Net to progressively reduce resolution and increase semantic abstraction.</p>
+<p>⸻</p>
+<p>🔹 5.Upsampling + Skip Connections</p>
+<p>• On the decoder side, the model upsamples the spatial resolution (e.g., 64×64 → 128×128).</p>
+<p>• Skip connections bring in feature maps from earlier layers at the same resolution, giving the model:</p>
+<p>• Precise spatial details lost during downsampling</p>
+<p>• Contextual depth from earlier abstraction layers</p>
+<p>⸻</p>
+<p>🔹 6.Final Output Layers</p>
+<p>• Final convolutional layers convert the decoded feature maps into an image prediction (RGB pixels).</p>
+<p>• During training, this is compared to the original image for loss computation.</p>
+<p>• During inference, it’s one of many iterative denoising steps toward a final image.</p>
+<p>Note:</p>
+<p>🔹 Flattening Layers</p>
+<p>• Sometimes used to convert 3D feature maps (e.g., 64×64×128) into 1D vectors for passing into fully connected layers.</p>
+<p>• May appear in hybrid or older designs, though many modern U-Nets are fully convolutional and skip this step.</p>
+<p>Are NOT used in stable diffusion models</p>
+<p>🧠 Where It’s Common:</p>
+<p>• In early CNNs for classification (e.g., LeNet, AlexNet, VGG)</p>
+<p>• Where the goal is to map feature maps into class logits</p>
+<p>❌ Where It’s Rare or Unnecessary:</p>
+<p>• In modern generative models like Stable Diffusion and MidJourney, which are fully convolutional.</p>
+<p>• These use U-Net architectures, which don’t flatten – they preserve spatial structure throughout the encoder and decoder for pixel-accurate generation.</p>
+<p>🔧 Why Flattening ≠ Useful in Generation:</p>
+<p>• Flattening destroys spatial resolution.</p>
+<p>• For generation (not classification), you want to preserve structure, not collapse it.</p>
+<p>✅ So yes – you’re right: Flattening is outdated for image generation models like Stable Diffusion or MidJourney.</p>
+<p>It can be omitted in your breakdown unless you’re referencing legacy hybrid designs.</p>
+<p>🎯 What is CLIP:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/how-clip-works.webp" class="img-fluid figure-img"></p>
+<figcaption>How CLIP Works</figcaption>
+</figure>
+</div>
+<p>What Is CLIP? (Contrastive Language – Image Pretraining)</p>
+<p>CLIP is the text encoder that powers models like MidJourney, DALL·E, and Stable Diffusion. It was created by OpenAI to help neural networks understand how text and images relate.</p>
+<p>🎯 What CLIP Does:</p>
+<p>CLIP learns to embed both images and text prompts into the same vector space – meaning both a sentence and an image can be represented as points in the same high-dimensional world.</p>
+<p>📐 CLIP is trained using contrastive loss, which:</p>
+<p>• Pulls matching image-text pairs closer in the embedding space</p>
+<p>• Pushes apart mismatched pairs</p>
+<p>This forces the model to learn semantic alignment – understanding that “a red apple on a table” refers to visual patterns common in apple images.</p>
+<p>CLIP learns to embed (i.e., convert) both images and text prompts into the same vector space – meaning both a sentence and an image can be represented as points in the same high-dimensional world.</p>
+<p>Once trained, this allows a model to:</p>
+<p>• Compare how closely a sentence matches an image</p>
+<p>• Generate or retrieve images that are semantically similar to a text prompt</p>
+<p>While models like MidJourney generate images from pure noise, the denoising process is steered by CLIP – which maps your text prompt into a semantic space that clusters around billions of images seen during training. So in effect, the model samples from an abstract, high-dimensional distribution of image concepts aligned with your prompt – not from pixels, but from learned associations. This is why it can create coherent and aesthetically tuned images that ‘match’ your input prompt.</p>
+<p>🧱 Core Building Blocks of Diffusion U-Net Models (like MidJourney)</p>
+<p>Just like how transformers are mostly made of repeated foundational blocks – e.g., Multi-Head Attention, LayerNorm,dense layers, residuals – diffusion models, especially U-Net – based architectures, are built on repeated CNN blocks, with only one major unique function:</p>
+<p>⸻</p>
+<p>✅ Fundamental CNN Components (Repeated Many Times):</p>
+<p>These make up 90 – 95% of the architecture in models like MidJourney, Stable Diffusion, DALL·E 2, etc.:</p>
+<p>• Convolutional Layers</p>
+<p>• Extract localized visual patterns (edges, textures, shapes).</p>
+<p>• Controlled by kernels, strides, and channels.</p>
+<p>• ReLU Activations</p>
+<p>• Adds non-linearity; allows deep networks to learn complex mappings.</p>
+<p>• Batch Normalization</p>
+<p>• Normalizes each batch to stabilize and accelerate training.</p>
+<p>• Mean = 0, standard deviation = 1.</p>
+<p>• Max Pooling</p>
+<p>• Downsamples the feature map by taking the strongest signal in each region.</p>
+<p>•</p>
+<p>• Used at bottlenecks or when transitioning to fully connected parts of the network.</p>
+<p>• Skip (Residual) Connections</p>
+<p>• Merge encoder and decoder features for better reconstruction.</p>
+<p>• Prevent loss of fine-grained detail.</p>
+<p>These blocks are stacked deeply, sometimes 30 – 70 layers deep learning on resolution and training goals.this is why SOTA deep learning models are often 90 + layers deep.</p>
+<p>⸻</p>
+<p>🌫️ The Only Truly Unique Function of Diffusion Models:</p>
+<p>➤ Gaussian Noising Along the Markov Chain</p>
+<p>This is what makes diffusion models diffusion models:</p>
+<p>• During training:</p>
+<p>• Clean images are gradually corrupted with Gaussian noise over T time steps (a forward Markov chain).</p>
+<p>• The model learns to reverse this corruption – denoising step-by-step.</p>
+<p>• During inference:</p>
+<p>• The model starts with pure noise and reverses the chain using the learned denoising function.</p>
+<p>• Over T steps, it constructs a clean, high-quality image from scratch – conditioned on the text prompt.</p>
+<p>💡 So unlike DeepSeek or GPT-style transformers – which have attention heads, routing gates, and MoE modules – diffusion models have no “standout” block other than this noise-to-image probabilistic inversion process.</p>
+<p><img src="images/image-with-gaussian-noise.webp" class="img-fluid" alt="Image with Gaussian Noise"> <img src="images/post-noise-woman by-MJ.webp" class="img-fluid" alt="Post-Noise Woman by MidJourney"></p>
+<p>Loss Function &amp; Optimization (Training-Time Only)</p>
+<p>While MidJourney’s full training process isn’t publicly detailed, its methods are not truly proprietary – they follow known deep learning techniques. If MidJourney had discovered a fundamentally superior optimization method beyond backpropagation and reinforcement learning, it would likely be public by now. In cutting-edge AI, companies race to show innovation.</p>
+<p>Instead, what makes MidJourney special is likely not architectural novelty, but rather scale, precision, and aesthetic tuning:</p>
+<p>Loss Function</p>
+<p>Like other diffusion models, MidJourney likely uses denoising score matching as its core loss, where the model predicts noise added to an image during training. • This is a standard mean squared error (MSE) between actual and predicted noise: L = In diffusion models like MidJourney, the loss function primarily trains the model to predict and remove noise progressively at each timestep during the denoising process. • At each denoising step, the model tries to estimate the noise that was added to the latent representation (or image),</p>
+<p>• The noise loss measures how well the model’s prediction of that noise matches the actual noise added,</p>
+<p>• By minimizing this loss during training, the model learns to reverse the noising process, transforming random noise into a coherent image step-by-step,</p>
+<p>• This leads to clearer, sharper, and more accurate final outputs because the model can better reconstruct meaningful patterns instead of residual noise,</p>
+<p>• The better the model becomes at noise prediction/removal, the better its latent embeddings capture visual concepts, allowing for richer, more detailed images.</p>
+<p>• The goal: make the model better at removing noise at every timestep – allowing the final output to emerge clearly from pure static, which results in better pattern embeddings and thus better images. Optimization</p>
+<p>MidJourney almost certainly uses backpropagation with Adam or AdamW optimizer. • What likely sets it apart is: • A larger-scale training dataset (billions of image-text pairs) • Massive compute budget • Possibly finely-tuned prompt conditioning, using CLIP or a similar embedding model • Highly curated training images with an emphasis on aesthetic patterns 🔹 Reinforcement Learning &amp; Aesthetic Optimization</p>
+<p>MidJourney is known for the distinctive beauty and style of its outputs. This likely doesn’t come purely from denoising loss – it’s almost certainly refined using:</p>
+<p>ML engineers perform Human Preference Reinforcement MidJourney gathers implicit feedback from its user base (e.g., upvotes, usage frequency, etc.) • It likely applies Reinforcement Learning from Human Feedback (RLHF), similar to what OpenAI does with ChatGPT – except here the reward signal may be tied to image quality, artistic preference, or prompt alignment. Unlike text-based RLHF, the reward here isn’t about factual accuracy – it’s about visual coherence, style, Unlike text-based RLHF, the reward here isn’t about factual accuracy – it’s about visual coherence, style, and emotional impact. MidJourney’s outputs feel more artistic than competitors’ because it’s likely trained to prioritize artistic structure and composition above realism or strict prompt literalism.This works by makiing the model focus prioritize patterns in their weights that are most conducive to beauty and polished art.</p>
+<p>🎨 MidJourney Generation Pipeline: From Prompt to Photorealism ( Inference)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Unet-encoder-decoder.webp" class="img-fluid figure-img"></p>
+<figcaption>UNet Encoder-Decoder Diagram</figcaption>
+</figure>
+</div>
+<p>Note: this is NOT drawn to scale, actual state of the art deep learning models are a series of foundation blocks repeated dozens of times over as stated earlier. This exists as visual conception only.</p>
+<p>Though MidJourney’s precise weights and training data are not open source , its underlying architecture and workflow are based on denoising diffusion models – especially U-Net – based architectures enhanced with prompt conditioning and cross-attention mechanisms.</p>
+<p>Here’s a complete stage-by-stage overview of how your text prompt is transformed into a high-fidelity image:</p>
+<p>⸻</p>
+<p>🔹 Stage 1: Input Prompt → Text Embedding</p>
+<p>• You provide a prompt (e.g., “a cyberpunk dragon flying over Tokyo”).</p>
+<p>• MidJourney encodes this prompt using a powerful language encoder – likely CLIP’s text encoder or a similar transformer model.</p>
+<p>• The output is a dense vector embedding that captures the semantic and stylistic meaning of your prompt (not just word-level meaning, but artistic tone, color, mood, etc.).</p>
+<p>• This embedding will guide every stage of image construction.</p>
+<p>⸻</p>
+<p>🔹 Stage 2: Gaussian Noise Initialization</p>
+<p>• During inference (generation), MidJourney starts with pure random Gaussian noise – essentially visual static.</p>
+<p>• The model will now iteratively refine this noise to form a coherent image conditioned on the prompt embedding.</p>
+<p>⸻</p>
+<p>🔹 Stage 3: Conditioned Denoising Loop (The Core Diffusion Process)</p>
+<p>MidJourney runs this loop for tens to hundreds of denoising steps, gradually sculpting the noise into an image:</p>
+<p>🔸 Step 1: Downsampling Path (Encoder)</p>
+<p>• The noisy image is passed through several convolutional layers in the encoder path of the U-Net.</p>
+<p>• With each layer:</p>
+<p>• Max pooling reduces spatial resolution.</p>
+<p>• Channel depth increases – from 32 → 64 → 128 → … → 1024. This happens naturally as the model extracts more features from the image</p>
+<p>• ReLU activations and batch normalization keep features expressive and stable.</p>
+<p>• Prompt conditioning may occur via cross-attention (e.g., the model pays attention to prompt-relevant features).</p>
+<p>• This compresses the noisy image into a dense latent representation capturing high-level structure and composition.</p>
+<p>⸻</p>
+<p>🔸 Step 2: Bottleneck (Compressed Representation)</p>
+<p>• The deepest part of the U-Net: where spatial resolution is lowest and semantic abstraction is highest.</p>
+<p>• Here, the model holds a compact understanding of the future image’s shape, lighting, perspective, etc.</p>
+<p>• This is where global coherence forms (e.g., aligning the dragon, cityscape, and mood from the prompt).</p>
+<p>⸻</p>
+<p>🔸 Step 3: Upsampling Path (Decoder with Skip Connections)</p>
+<p>• The model now upsamples the latent features back into an image – step by step, increasing resolution:</p>
+<p>• 16×16 → 32×32 → 64×64 → 128×128 → 256×256 → 512×512</p>
+<p>• At each step:</p>
+<ol type="1">
+<li><p>The decoder upsamples the latent tensor.</p></li>
+<li><p>It then concatenates this with the matching resolution feature map from the encoder path (skip connections).</p></li>
+<li><p>These merged features are passed through convolutional layers again.</p></li>
+</ol>
+<p>💡 Why skip connections matter:</p>
+<p>They allow the model to combine:</p>
+<p>• High-level semantic features (from deep layers)</p>
+<p>• With low-level spatial precision (from early layers)</p>
+<p>This blending is crucial for generating sharp, coherent images that match the prompt.</p>
+<p>⸻</p>
+<p>🔹 Stage 4: Final Image Output</p>
+<p>• The last convolutional layers map the final high-res tensor into a 3-channel RGB image.</p>
+<p>• This image is your final output, completely generated from noise, but precisely shaped by:</p>
+<p>• Billions of image-text pairs seen in training which are stored in the vector space( its neurons )</p>
+<p>• The patterns captured in its CNN layers</p>
+<p>• The meaning embedded in your prompt</p>
+<p>Mini version</p>
+<p>Your Prompt →</p>
+<p>CLIP Text Encoder →</p>
+<p>Gaussian Conditioned Noise →</p>
+<p>U-Net (Downsample( max pooling layers do this) → Bottleneck( this is where the fundamental blacks like convokutiinal layers, RELU, Batch Normalization, residual layers come into play and are repeated dozens of times again and again in a row )→ Upsample + Skip Connections) →</p>
+<p>Denoised Output →</p>
+<p>Final Image</p>
+<p>Notes:</p>
+<p>The skip connections allow detailed features from early layers to influence later reconstruction – crucial for preserving structure.it concatinates patterns from earlier layers</p>
+<p>• The CLIP embedding conditions each denoising step, guiding the model toward semantic alignment with the prompt.</p>
+<p>• The model starts from noise at inference time, not from a corrupted image – this is reverse entropy in action.</p>
+<p>• Encoder compresses the image into a latent representation.</p>
+<p>• Decoder reconstructs the image from that.</p>
+<p>• The skip connections let the decoder “peek” at earlier high-resolution features to recover:</p>
+<p>• Edges</p>
+<p>• Spatial layout</p>
+<p>• Texture</p>
+<p>• Fine detail lost during downsampling</p>
+<p>This is Second in the flagship “Anatomy of AI” series</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
