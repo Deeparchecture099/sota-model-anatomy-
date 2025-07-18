@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>veo3 – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./DeepSeek.html"> 
+<span class="menu-text">DeepSeek</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./midjourney.html"> 
+<span class="menu-text">Midjourney</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./veo3.html" aria-current="page"> 
+<span class="menu-text">Veo 3</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/multiple-vidoes-generated-by-veo3.webp" class="img-fluid figure-img"></p>
+<figcaption>Multiple videos generated by Veo3</figcaption>
+</figure>
+</div>
+<p>The Anatomy of Veo 3:DeepMind’s Audiovisual Diffusion Model</p>
+<p>How 3D Convolution, Unified Latents, and Prompt Control Power the Future of Video Generation</p>
+<p>🔹 Introduction</p>
+<p>Veo 3 is one of the most advanced video generation models ever created – a 3D latent diffusion model capable of generating realistic, coherent, and high-resolution video from simple text prompts. Built on the same exact foundational principles as image diffusion models like Stable Diffusion or MidJourney, Veo 3 pushes those ideas into the temporal domain, operating not just across pixels but across time.</p>
+<p>Where traditional diffusion models reconstruct single frames, Veo 3 generates entire video sequences – frame by frame, moment by moment – within a latent 3D space. This added temporal dimension introduces new challenges in coherence, memory, alignment, and detail, which Veo 3 overcomes through architectural and training innovations that make it a frontier model in multimodal AI.</p>
+<p>This article breaks down how Veo 3 works: from its spatiotemporal latent U-Net backbone, to its use of Gaussian noising across video embeddings, to the inference pipeline that turns static prompts into vivid motion. We’ll explore why 3D latent diffusion works, how it’s trained, and what this tells us about the future of generative models beyond text and images.</p>
+<p>🔊 Audio in SOTA AI: No Longer Standalone</p>
+<p>In modern, state-of-the-art (SOTA) models, audio is no longer treated as a separate modality. Instead, it’s fused directly into the latent space of video models, aligned and synchronized over time.</p>
+<p>When ML engineers or researchers. today say a model “understands video,” what they really mean is that it can process:</p>
+<p>• Visual frames (images),</p>
+<p>• Temporal structure (motion, continuity),</p>
+<p>• Audio signals (waveforms or spectrograms).</p>
+<p>Together, these form a single unified representation of video. There’s no longer an artificial split – video = vision + time + sound.</p>
+<p>This latent fusion reflects how humans experience media: not as isolated images or sounds, but as continuous multisensory flows. AI models like Veo 3 aim to replicate this same integration – processing sight, sound, and motion as one dynamic stream, which makes the modality of video the go to for video generation and embodied models.</p>
+<p>⸻</p>
+<p>🎤 Standalone Audio: Now a Narrow Use Case</p>
+<p>Standalone audio models (e.g., for ASR or TTS) still exist, but they serve limited functions:</p>
+<p>• ASR (Automatic Speech Recognition): Maps waveform to text.</p>
+<p>• TTS (Text-to-Speech): Maps tokens to waveform.</p>
+<p>These are statistical mapping tasks, not comprehension. The model doesn’t “understand” speech – it learns to associate acoustic patterns with symbol sequences. There’s no reasoning, memory, or modality fusion.</p>
+<p>🧠 Why 3D Diffusion Matters</p>
+<p>Veo 3 is fundamentally a Stable Diffusion model – only extended to process video. Its real innovation isn’t a new architecture type, but a smarter embedding strategy:</p>
+<p>→ 3D latent embeddings, which allow the model to jointly process patterns over time, space, and sound.</p>
+<p>Veo 3 is very similar architecturally to MidJourney only it uses 3d layers</p>
+<p>Just like DeepSeek’s MoE innovation centered on a new routing layer added to a mostly-standard transformer stack, Veo 3’s power lies not in reinventing diffusion – but in adapting it to dynamic data.</p>
+<p>⸻</p>
+<p>📉 From 2D Images to 3D Video</p>
+<p>Traditional Stable Diffusion models operate in 2D latent space – i.e., (Channels × Height × Width). This works for static images, but collapses under the demands of video, which requires:</p>
+<p>• Temporal consistency: Frame-to-frame continuity in object placement, motion, lighting, and style.</p>
+<p>• Spatial coherence: Every frame must preserve perspective, geometry, and object persistence.</p>
+<p>• Audio alignment: Sound must sync naturally with the visual timeline – especially for speech, music, and events.</p>
+<p>⸻</p>
+<p>🧠 Enter: 3D Latent Embeddings</p>
+<p>Veo 3’s breakthrough is expanding the embedding space to include time as an explicit axis:</p>
+<p>→ (Channels × Time × Height × Width)</p>
+<p>This allows the model to learn:</p>
+<p>• How objects evolve across frames</p>
+<p>• How audio syncs with motion</p>
+<p>• How scenes retain identity over time</p>
+<p>This is not trivial. It turns every denoising step into a spatiotemporal optimization, requiring:</p>
+<p>• A vastly more complex noise schedule</p>
+<p>• Higher-dimensional convolutional layers (3D CNNs)</p>
+<p>• Latent compression strategies (e.g., VAEs) to make the compute tractable</p>
+<p>⸻</p>
+<p>💡 It’s Still Diffusion – Just Smarter</p>
+<p>At its core, Veo still applies the classic diffusion process:</p>
+<ol type="1">
+<li><p>Add noise to a video latent</p></li>
+<li><p>Train a U-Net to denoise it over many steps</p></li>
+<li><p>Reverse that process at inference to generate content</p></li>
+</ol>
+<p>But instead of 2D latent images, it’s denoising entire video sequences – with a unified embedding of text, motion, sound, and space. This fusion is what makes the output coherent and lifelike.</p>
+<p>🧠 U-Net Architecture in Veo 3 (3D Video Version)</p>
+<p>U-Net Architecture in Veo 3 (Spatiotemporal + Audio Embedding 3D Video Version)</p>
+<p>Veo 3 uses a 3D U-Net to guide the denoising process across space and time. Structurally, it’s nearly identical to the U-Net used in 2D diffusion models – the only major change is that all operations now happen on spatiotemporal latents (video = height × width × time).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/video-of-girl-in-mystical-forest.webp" class="img-fluid figure-img"></p>
+<figcaption>Video of girl in mystical forest</figcaption>
+</figure>
+</div>
+<p>Here’s what makes up the 3D U-Net in Veo:</p>
+<p>⸻</p>
+<p>🔹 1. 3D Convolutional Layers</p>
+<p>• Use 3D kernels to extract patterns across height, width, and time but on feature maps that also encode audio cues.</p>
+<p>• Filters scan the volume, capturing:</p>
+<p>• Spatial features (e.g., texture, shape, object edges)</p>
+<p>• Temporal features (e.g., motion continuity, transitions)</p>
+<p>• As in 2D U-Nets, features become more abstract and semantically rich in deeper layers.</p>
+<p>but on feature maps that also encode audio cues.</p>
+<p>• These layers learn to associate:</p>
+<p>• Visual movement with corresponding sound (e.g., lips moving with speech)</p>
+<p>• Rhythmic or scene-based audio features (e.g., footsteps, ambient sound)</p>
+<p>• Audio is fused into the latent volume – not processed separately.</p>
+<p>Channels (Feature Maps)</p>
+<p>• Each layer outputs multiple 3D channels:</p>
+<p>• Early layers: detect static features (edges, color blobs)</p>
+<p>• Deeper layers: detect motion flow, object tracking, lighting continuity</p>
+<p>• Channels increase with depth: 32 → 64 → 128 → 256 → …</p>
+<p>• Temporal-aware channels ( because they are part of a convolutional layer with 3d embeddings) allow. Hailuo to understand motion and continuity natively.</p>
+<p>• Some channels are now explicitly tuned to audio-modulated patterns.</p>
+<p>• E.g., waveform dynamics, spectral cues, or voice-emotion alignment.</p>
+<p>• Deep layers may encode complex audiovisual relationships:</p>
+<p>• Laughing + smiling</p>
+<p>• Explosion + camera shake + sound boom</p>
+<p>⸻</p>
+<p>🔹 2. ReLU Activations</p>
+<p>RELU itself is about combining patterns from the sense feed-forward layer that precedes it and adding a positive bias to the end result</p>
+<p>It doesn’t make negatives positive (like absolute value would). • It suppresses negatives entirely by zeroing them out. • So the output becomes sparser, and biased toward positive activation values – yes. • ReLU(x) = • 0 if x &lt; 0 • x if x ≥ 0 So if a dense layer outputs -3 → ReLU sets it to 0. If a dense layer outputs +3 → ReLU keeps it. No randomness. Just a simple function. ReLU. is a simple, deterministic non-linear activation function that filters out all negative values and passes positive ones through unchanged – introducing non-linearity and sparsity into the network. This pushes the output distribution toward positive values and helps the model learn selectively activated patterns. This non-linearity is what lets deep networks learn complex patterns and functions. • Help generate diverse outputs, even from the same prompt, due to-deterministic but non linear feature activations.</p>
+<p>• Enable non-linear transformations of the combined non-linear visual dynamics (e.g., motion, visual + audio features, lighting changes). visual + audio features</p>
+<p>• Contribute to Veo’s ability to create outputs with synced motion and sound dynamics.</p>
+<p>⸻</p>
+<p>🔹 3. Batch Normalization</p>
+<p>• Normalizes feature maps across the batch of observations.</p>
+<p>• Keeps training stable by maintaining mean ≈ 0 and std ≈ 1 across spatiotemporal activations.</p>
+<p>• Crucial when training on high-dimensional video latents where signal variance can spike.</p>
+<p>• Normalizes all channels – including those encoding audio features – across the batch.</p>
+<p>• Stabilizes training over large-scale audiovisual tensors.</p>
+<p>⸻</p>
+<p>🔹 4. 3D Max Pooling</p>
+<p>Downsamples across spatial and temporal dimensions, but retains sound-aligned features embedded per frame.</p>
+<p>• Downsamples the spatial and/or temporal resolution – often halving each axis.</p>
+<p>• Focuses on salient patterns while discarding irrelevant noise.</p>
+<p>• Helps compress rich information into lower-resolution semantic maps.</p>
+<p>• Ensures that essential spatial, motion, and acoustic patterns are preserved even at lower resolutions.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹 5.</p>
+<p>Upsampling + Skip Connections( 2 separate layers but work together )</p>
+<p>• In the decoder, the latent is gradually upsampled (restoring spatial and temporal resolution).</p>
+<p>• Skip connections concatenate feature maps from earlier encoder layers.</p>
+<p>• Bring back fine-grained spatial details lost during downsampling</p>
+<p>• Combine low-level precision with high-level semantic context</p>
+<p>• These connections are the backbone of reconstruction in video diffusion – preserving object shapes, motion paths, and transitions across frames.</p>
+<p>These now carry audio-aligned visual information from earlier layers.</p>
+<p>• The skip connections help the decoder align:</p>
+<p>• Early spatial details (shape, color)</p>
+<p>• Motion traces (object trajectory)</p>
+<p>• Audio-driven cues (e.g., matching a bark to a dog’s open mouth)</p>
+<p>⸻</p>
+<p>🔹 6.Final Output Layers</p>
+<p>• Final 3D convolution maps the reconstructed latent to pixel space.</p>
+<p>• During training: Compared to ground-truth video to compute loss.</p>
+<p>• During inference: This is one frame group in a multi-step reverse noise trajectory – the model gets progressively clearer, frame-by-frame.</p>
+<p>• Final convolution maps unified audiovisual latent into a coherent video.</p>
+<p>• Video = Spatial frames + Motion + Aligned audio.</p>
+<p>• During inference: Each step improves both visual clarity and sound consistency.</p>
+<p>Veo 3’s U-Net denoises video + audio together – treating them as one coherent experience, just like how humans perceive the world. Every convolution, skip connection, and upsampling block operates on unified audiovisual latents, enabling:</p>
+<p>• Synchronized speech and lip movement</p>
+<p>• Emotion-aware sound design</p>
+<p>• Coherent scene ambiance (visual + audio)</p>
+<p>• Time-aware convolutional blocks</p>
+<p>• Temporal skip connections</p>
+<p>• Spatiotemporal denoising layers</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/CLIP-in-veo3.webp" class="img-fluid figure-img"></p>
+<figcaption>CLIP in Veo 3</figcaption>
+</figure>
+</div>
+<p>video=vison+time+sound</p>
+<p>ow CLIP Guides Sampling in Video Diffusion Models</p>
+<p>In modern video generation systems like Veo 3 or Sora, text prompts don’t just sit at the front of the pipeline – they actively guide the sampling process across the entire reverse diffusion trajectory. This is possible due to the multimodal fusion architecture behind models like CLIP (Contrastive Language-Image Pretraining) or CLIP-inspired modules adapted to video.</p>
+<p>Text-to-Video Embedding Fusion CLIP aligns visual and textual data in the same embedding space. When extended to video models:</p>
+<p>• Visual tokens = extracted from video frames (via ViT or similar vision backbones)</p>
+<p>• Text tokens = derived from prompts (via T5, GPT-style, or CLIP’s own text encoder)</p>
+<p>• The model learns which textual descriptions correspond to which visual patterns over time</p>
+<p>For video generation, these embeddings are not just matched – they are fused into the latent space used by the denoising U-Net.</p>
+<ol start="2" type="1">
+<li>Conditioning Sampling with CLIP Guidance</li>
+</ol>
+<p>Once the model starts sampling noise latents in the diffusion process:</p>
+<p>• The fused embedding acts as a conditioning signal</p>
+<p>• This guidance signal biases the sampling trajectory toward areas in latent space that match the semantic meaning of the prompt</p>
+<p>• Effectively, the prompt shapes the generation at every denoising timestep</p>
+<p>This is similar in spirit to classifier-free guidance (CFG), but more semantically aligned, because CLIP encodes much richer multimodal relationships.</p>
+<ol start="3" type="1">
+<li>CLIP-like Fusion Enables Alignment</li>
+</ol>
+<p>Because CLIP embeds language and visuals into a shared space, the model can:</p>
+<p>• Interpret what “a tiger running through snow at sunset” should look like</p>
+<p>• Sample from regions in latent space where such patterns exist across frames and time</p>
+<p>• Maintain temporal consistency, spatial coherence, and audio alignment (when present)</p>
+<p>This results in generation that’s not just realistic – but faithful to the prompt at a fine-grained level.</p>
+<p>🧠 Note on Architecture:</p>
+<p>Veo 3’s U-Net operates in spatiotemporal + audio space, meaning it preserves spatial, temporal, and acoustic continuity throughout the denoising process.</p>
+<p>Unlike older models that flattened feature maps for dense layers, Veo 3 maintains full 3D structure at every layer. This ensures the model generates videos where motion, space, and sound stay synchronized – a key advantage over earlier generation systems.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3D-Unet.webp" class="img-fluid figure-img"></p>
+<figcaption>3D U-Net</figcaption>
+</figure>
+</div>
+<p>Note: this is NOT drawn to scale, actual state of the art 3d diffusion models often have 100+ layers with a series of max pooling, residual, batch normalization, convolutional,dense, RELU layers stacked in a row. This is for visual representation only</p>
+<p>⸻</p>
+<p>🎬 The Denoising Pipeline: From Prompt to Video in Veo 3</p>
+<p>At its core, Veo 3 is a 3D latent diffusion model, meaning it generates videos by reversing noise across space, time, and audio – not just pixel-wise. The process begins with pure noise and unfolds over many refinement steps, guided by a text prompt.</p>
+<p>⸻</p>
+<p>🔹 Step 1: Prompt Embedding (Text → Latent Guidance)</p>
+<p>• A user types a prompt like:</p>
+<p>“A lion walking through a golden savanna at sunset, with ambient nature sounds.”</p>
+<p>• This prompt is passed into a powerful text encoder, likely a CLIP-like model fine-tuned on video-text pairs.</p>
+<p>• The encoder outputs a dense semantic embedding, which represents the prompt’s meaning and guides the entire video generation process.</p>
+<p>✅ Why this matters:</p>
+<p>The model doesn’t “understand” words – it maps them to a multi-dimensional vector that captures how the text should feel, move, and sound in video form.</p>
+<p>⸻</p>
+<p>🔹 Step 2: Noise Initialization (Latent Space Start)</p>
+<p>• Veo 3 starts with pure Gaussian noise in a latent space shaped like:</p>
+<p>[Channels, Frames, Height, Width]</p>
+<p>• This latent space is multi-modal: it encodes not just video frames, but temporal structure and audio embeddings.</p>
+<p>• This is not RGB pixels yet – it’s a compact, high-dimensional representation of a video.</p>
+<p>🎧 Remember:</p>
+<p>Audio is already embedded into this latent – Veo 3 learns to co-model sound and motion over time. There’s no need to model it separately.</p>
+<p>⸻</p>
+<p>🔹 Step 3: Conditioned Denoising (U-Net Iterations)</p>
+<p>This is the core of Veo 3’s magic – a large 3D U-Net refines the noisy latent over dozens or hundreds of steps.</p>
+<p>🔧 U-Net Internals (Each Step):</p>
+<ol type="1">
+<li>Downsampling</li>
+</ol>
+<p>• Uses 3D convolutions + max pooling to shrink resolution while expanding channels.</p>
+<p>• Captures high-level patterns: motion arcs, scene layout, audio cadence.</p>
+<ol start="2" type="1">
+<li>Bottleneck</li>
+</ol>
+<p>• The deepest layer of the U-Net.</p>
+<p>• Composed of stacked convolutional layers, ReLU, Batch Normalization, and residual connections.</p>
+<p>• This is where the model detects global structures like rhythm, spatial continuity, and scene tone.</p>
+<ol start="3" type="1">
+<li>Upsampling + Skip Connections</li>
+</ol>
+<p>• Spatial resolution is gradually restored using upsampling layers.</p>
+<p>• Skip connections bring in features from earlier layers – preserving detail lost during downsampling.</p>
+<p>• These connections are essential for generating crisp, temporally consistent results.</p>
+<p>🎯 Key Insight:</p>
+<p>This denoising stage reverses entropy – turning chaos (random noise) into structured meaning.</p>
+<p>Each step brings the latent closer to something semantically aligned with the prompt.</p>
+<p>⸻</p>
+<p>🔹 Step 4: Output Projection (Latent → Video)</p>
+<p>• Once the latent has been fully denoised, it is passed through a decoder that maps the latent to actual video frames.</p>
+<p>• Audio is either reconstructed from the audio channels of the latent or synthesized in parallel via a dedicated audio decoder (if present).</p>
+<p>• The result: a fully rendered RGB video + synchronized soundtrack.</p>
+<p>Fundamental CNN Components (Repeated Many Times):</p>
+<p>These make up 90 – 95% of the architecture in models like MidJourney, Stable Diffusion, DALL·E 2, Hailuo, runway, veo 3 etc.:</p>
+<p>3D Convolutional Layers in the case of video generation • Extract localized visual patterns (edges, textures, shapes)+ time, and sound. • Controlled by kernels, strides, and channels. • ReLU Activations • Adds non-linearity; allows deep networks to learn complex mappings. • Batch Normalization • Normalizes each batch to stabilize and accelerate training. • Mean = 0, standard deviation = 1. • Max Pooling • Downsamples the feature map by taking the strongest signal in each region. • • Used at bottlenecks or when transitioning to fully connected parts of the network. • Skip (Residual) Connections • Merge encoder and decoder features for better reconstruction. • Prevent loss of fine-grained detail. These blocks are stacked deeply, sometimes 30 – 70 layers deep learning on resolution and training goals.this is why SOTA deep learning models are often 90 + layers deep. ⸻</p>
+<p>✅ Summary: The Pipeline at a Glance</p>
+<p>Text Prompt</p>
+<p>. ↓</p>
+<p>CLIP-style Text Encoder</p>
+<p>. ↓</p>
+<p>Semantic Embedding</p>
+<p>. ↓</p>
+<p>Gaussian Latent Noise</p>
+<p>. ↓</p>
+<p>3D U-Net</p>
+<p>. ↳ Downsample → Bottleneck → Upsample + Skip Connections</p>
+<p>. ↓</p>
+<p>Denoised Latent</p>
+<p>. ↓</p>
+<p>Decoder</p>
+<p>. ↓</p>
+<p>Final Video (with Sound)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/woman-generated-by-veo3.webp" class="img-fluid figure-img"></p>
+<figcaption>Woman generated by Veo 3</figcaption>
+</figure>
+</div>
+<p>Generated by veo 3</p>
+<p>🔸 Video’s Richness Comes at a Cost</p>
+<p>Video is the most information-dense modality – combining space, time, motion, and sound – which makes it the ideal training ground for world modeling. But that same richness makes it the hardest to model. The input dimensions of video (especially with high resolution, long duration, and audio) are massive.Even state-of-the-art generative models like Sora and Veo 3 can only produce video in short bursts – typically under one minute – before quality degrades or coherence breaks.Why? Because the computational demands of processing and generating high-fidelity video over time are still immense. Training on video is also harder: unlike static images, video requires modeling temporal continuity, physical realism, and synchronized audio – all within an enormous latent space. Video is where AI learns the structure of reality – but it’s also where today’s models hit their computational limits. That richness is exactly what makes video the ideal domain for video generation and world modeling – but also the hardest to generate.</p>
+<p>🎥 Even frontier models like Veo 3 and Sora are typically limited to generating clips at most 1 minute and and usually less. Beyond that, quality drops, motion becomes erratic, and coherence breaks down.</p>
+<p>The Bottleneck:</p>
+<p>Training generative video models at this scale requires:</p>
+<p>• Enormous compute budgets</p>
+<p>• Optimized 3D latent architectures</p>
+<p>• Smart sampling and memory handling</p>
+<p>• Massive, diverse video + audio datasets</p>
+<p>Even with all that, we’re still far from true long-form generation.</p>
+<p>Until architectures can scale efficiently across space, time, and sound,</p>
+<p>→ long, coherent, simulation-level videos will remain just out of reach – even at the frontier.</p>
+<p>🎯 9. Why This Matters</p>
+<p>Veo 3 isn’t just another step in generative modeling – it’s part of a paradigm shift:</p>
+<p>From generating isolated images or text → to modeling the flow of reality itself.</p>
+<p>⸻</p>
+<p>🔸 A Frontier in Video Generation</p>
+<p>Veo 3 pushes diffusion modeling into 3D latent space, enabling high-fidelity video generation that spans:</p>
+<p>• Space (visual realism, object placement),</p>
+<p>• Time (temporal continuity, motion),</p>
+<p>• Sound (synchronized audio alignment with events).</p>
+<p>It captures not just what’s in a scene, but how that scene evolves – frame by frame, second by second, with increasing semantic depth.</p>
+<p>This is the next frontier after LLMs and image models:</p>
+<p>→ Models that simulate unfolding events, not just describe them.</p>
+<p>This is why Veo 3 and similar models matter:</p>
+<p>They’re training grounds for AI to internalize the logic of the real world – to go from static reasoning to dynamic, embodied understanding.</p>
+<p>⸻</p>
+<p>🧠 Loss Function &amp; Optimization (Training-Time Only)</p>
+<p>While Veo 3’s exact training pipeline hasn’t been made public, it almost certainly follows the same principles used across state-of-the-art diffusion models. What distinguishes these models is not some radically new loss function – it’s how effectively they scale and apply known techniques across the spatiotemporal and audiovisual domains.</p>
+<p>⸻</p>
+<p>🔹 Loss Function: Predicting Noise – But Now in 3D</p>
+<p>Like Stable Diffusion and MidJourney, Veo 3 likely uses denoising score matching as its core training objective.</p>
+<p>The model learns to predict the noise that was added to video latents during the forward diffusion process.</p>
+<p>The core loss is still a mean squared error (MSE):</p>
+<p>L = </p>
+<p>Where:</p>
+<p>• x_t: the noised latent video at timestep t</p>
+<p>• : sampled Gaussian noise</p>
+<p>• _: the model’s prediction of the noise</p>
+<p>• c: the conditioning (e.g., text prompt, image input)</p>
+<p>The model is trained to reverse the Markov chain of noise added to videos – just like in image diffusion – but applied to 3D tensors (video = frames × height × width), often with audio embeddings fused into the latent space.</p>
+<p>At each step:</p>
+<p>• The model predicts the noise that was added,</p>
+<p>• Loss is computed on that prediction,</p>
+<p>• Over time, it learns to denoise more precisely – frame by frame, moment by moment.</p>
+<p>The only difference: instead of denoising a static image, Veo 3 denoises a temporal sequence of frames, preserving motion, scene continuity, and audio alignment.</p>
+<p>⸻</p>
+<p>🔹 Optimization: Backpropagation at Scale</p>
+<p>Like most cutting-edge models, Veo 3 almost certainly uses:</p>
+<p>• Backpropagation</p>
+<p>• An adaptive optimizer like Adam or AdamW</p>
+<p>• A learning rate scheduler to manage convergence over tens of thousands of steps</p>
+<p>The key differences lie not in how it optimizes, but in what it’s optimizing over:</p>
+<p>• Massive video-text-audio datasets (likely scraped from public content or synthetic corpora)</p>
+<p>• 3D latent spaces with high memory demands</p>
+<p>• Fused conditioning signals (e.g., prompt + image + audio)</p>
+<p>Veo 3 may also benefit from:</p>
+<p>• FP16 / bfloat16 precision training</p>
+<p>• Gradient checkpointing for memory efficiency</p>
+<p>• DDP or ZeRO-style parallelism across huge GPU clusters</p>
+<p>⸻</p>
+<p>🔹 Reinforcement Learning for Temporal Coherence and Aesthetic Quality</p>
+<p>Just as MidJourney likely uses RLHF to guide its aesthetic tuning, Veo 3 probably applies a similar process for:</p>
+<p>• Motion stability</p>
+<p>• Scene consistency</p>
+<p>• Prompt alignment</p>
+<p>• Audio-visual sync</p>
+<p>User interactions (e.g., prompt rerolls, positive feedback) could serve as soft reward signals. Additionally:</p>
+<p>• Human feedback may be used to penalize bad generations (e.g., glitchy motion, out-of-sync audio)</p>
+<p>• Preference modeling can prioritize outputs with stronger emotional or cinematic resonance</p>
+<p>This allows the model to not just “remove noise,” but to learn patterns of realistic, engaging, and coherent video sequences.</p>
+<p>This section frames Veo 3 as more than a content tool – it’s a simulation backbone for the future of physical and virtual agency.</p>
+<p>🔁 Diffusion Loss Functions Are Universally Shared Across Modalities</p>
+<p>Whether you’re training:</p>
+<p>• 🌁 A 2D diffusion model (e.g., Stable Diffusion,midjourney )</p>
+<p>• 🎥 A 3D video diffusion model (e.g., Veo 3, Hailuo)</p>
+<p>• 🧠 Even audio diffusion models (e.g., AudioLDM)</p>
+<p>…the core objective remains the same:</p>
+<p>🎯 Predict the noise added at each step of a Markov forward process using MSE (or a related denoising loss).</p>
+<p>This means:</p>
+<p>• ✅ Same U-Net style architecture (with dimension-specific Conv blocks)</p>
+<p>• ✅ Same time-step conditioning</p>
+<p>• ✅ Same reverse process using noise prediction</p>
+<p>• ✅ Same optimization: backpropagation + AdamW or variants</p>
+<p>• ✅ Same high-level training loop</p>
+<p>Even models like Veo 3 or Hailuo, which generate temporally coherent video, still use the same denoising loss – just applied to 3D tensors that span width × height × time × channels. The only difference is that the input is larger and more complex( video which includes: vision+ time+ sound )but the. structure innterme of layers and sequence is unchanged.</p>
+<p>⸻</p>
+<p>💡 Human RL (Reinforcement Learning)</p>
+<p>And yes – Reinforcement Learning from Human Feedback (RLHF) or curated preference modeling (as used in OpenAI’s video &amp; image models) comes after this main denoising process, as a form of reward alignment or ranking optimization. This layer is added only if:</p>
+<p>• The outputs are being ranked/scored by humans</p>
+<p>• You want to bias the model toward user preference (e.g., smooth motion, aesthetic lighting, natural pacing)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Midjourney-VS-Veo3.webp" class="img-fluid figure-img"></p>
+<figcaption>MidJourney vs Veo 3</figcaption>
+</figure>
+</div>
+<p>⸻its exactly the same minus a 2d embedding space vs a 3D one.</p>
+<p>🔸 New Frontiers in Multimodal Creativity</p>
+<p>Video models open the door to creative workflows never before possible:</p>
+<p>• Prompt-to-video storytelling</p>
+<p>• Procedural content generation for games and simulations</p>
+<p>• Cinematic video generation from script-level guidance</p>
+<p>• AI-generated visual education, science explainers, or dream sequences</p>
+<p>As diffusion-based video models mature, they will radically change how content is created – from filmmaking and education to design, gaming, and simulation.</p>
+<p>Veo 3 isn’t just about video generation.</p>
+<p>It’s about teaching machines to understand and recreate the temporal structure of the real world —</p>
+<p>A core requirement for truly intelligent systems.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
