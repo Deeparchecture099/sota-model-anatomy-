@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>jepa – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./DeepSeek.html"> 
+<span class="menu-text">DeepSeek</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./midjourney.html"> 
+<span class="menu-text">Midjourney</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./veo3.html"> 
+<span class="menu-text">Veo 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./JEPA.html" aria-current="page"> 
+<span class="menu-text">JEPA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/world-modeling.webp" class="img-fluid figure-img"></p>
+<figcaption>World Modeling in JEPA</figcaption>
+</figure>
+</div>
+<p>The Anatomy of JEPA: The Architecture Behind embedded Predictive Representation Learning</p>
+<p>How Yann LeCun’s Vision for World Modeling Could Reshape Deep Learning</p>
+<p>🌎 🌏 🌍 What Is a World Model?</p>
+<p>A world model is an internal representation that allows an AI model to simulate, predict, and reason about its environment – without direct interaction at every step. Rather than reacting blindly to inputs, a system with a world model can “imagine” future events, understand causal relationships, and plan actions based on predicted outcomes.</p>
+<p>At its core, a world model enables:</p>
+<p>• Prediction: Anticipating what will happen next (e.g.&nbsp;if an object falls, rolls, or stops).</p>
+<p>• Latent Understanding: Representing not just what things look like, but what they are and how they behave.</p>
+<p>• Planning &amp; Simulation: Performing mental rollouts to test different actions before committing to one.</p>
+<p>• Temporal Reasoning: Understanding how events unfold over time – a critical skill for embodied AI and agents.</p>
+<p>Think of it as the AI equivalent of “common sense” + an imagination.</p>
+<p>⸻</p>
+<p>🔍 Why World Models Matter in Deep Learning</p>
+<p>Most neural networks today are reactive – they process input and produce output without an internal mental model. In contrast, a world model allows the AI to detach from input and simulate forward, generalize across time and modality, and reason abstractly.</p>
+<p>This is essential for:</p>
+<p>• AI powered Robotics</p>
+<p>• Self-driving cars</p>
+<p>• AI agents in simulated or game environments</p>
+<p>• Generalized agents that demonstrate true physical intuition</p>
+<p>⸻</p>
+<p>🧠 How JEPA Fits In</p>
+<p>JEPA (Joint Embedding Predictive Architecture) trains models to learn the latent dynamics of data – not by reconstructing it, but by predicting internal representations of masked information. This is crucial for world modeling because:</p>
+<p>• It avoids pixel-level overfitting</p>
+<p>• Focuses on abstract, predictive understanding</p>
+<p>• Enables agents to learn without explicit action labels or fine-tuned supervision</p>
+<p>In other words: JEPA teaches models to imagine what’s missing – and to do it intelligently.</p>
+<p>LeCun describes a world model as “an abstract digital twin of reality that an AI can use to understand the world, predict the consequences of its actions, and plan accordingly. It essentially acts as a simulator of the relevant aspects of the world for the AI to interact with.”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/digital-twin-of-Earth.webp" class="img-fluid figure-img"></p>
+<figcaption>Digital Twin of Earth</figcaption>
+</figure>
+</div>
+<p>🔍 What the Transformer Encoder Actually Does in JEPA</p>
+<p>At the heart of JEPA lies a deep stack of Transformer encoder blocks, which operate over video as a unified signal – ts sole modality is video which it self combines vision, sound, and time. These layers extract structured patterns across all three dimensions of video.</p>
+<p>Here’s how it works, step by step:</p>
+<p>⸻</p>
+<p>🔹 1. 1. Encoder (Vision Transformer / CNN variant)</p>
+<p>• Takes raw video (or video patches)</p>
+<p>• Converts them into latent embeddings (vectors in ℝⁿ) which are coordinates in the vector space that represent features and are grouped bawe on similar patterns</p>
+<p>• This is where clustering and representation learning happen</p>
+<ol start="2" type="1">
+<li>Tokenization Layer</li>
+</ol>
+<p>• The video is split into spatiotemporal patches (like 3D tokens)</p>
+<p>• Each patch becomes a token – a vector input to the model</p>
+<ol start="3" type="1">
+<li>Positional Encoding</li>
+</ol>
+<p>• Adds temporal and spatial ordering to each patch</p>
+<p>• Tells the model where each patch comes from in the sequence</p>
+<p>• Just like GPT does with language tokens, transformers are modality agnostic so does this with every modality</p>
+<p>4.Multi-Headed Self-Attention (MHA)</p>
+<p>Each attention head acts like a specialist, extracting a distinct signal from the video:</p>
+<p>🖼️ Vision Heads:</p>
+<p>• Color &amp; Lighting</p>
+<p>• Edges &amp; Textures</p>
+<p>• Geometric shapes</p>
+<p>• Anatomical structure</p>
+<p>• Visual style &amp; animation cues</p>
+<p>🔊 Sound Heads:</p>
+<p>• Rhythm: Patterns of timing and emphasis (e.g., footsteps, music tempo)</p>
+<p>• Melody: Sequential pitch patterns (e.g., speech intonation, alarms)</p>
+<p>• Timbre: Texture of sound (e.g., metal clang vs soft thud)</p>
+<p>• Harmonics: Rich frequency relationships in voices or environments</p>
+<p>🕒 Temporal Heads:</p>
+<p>• How these patterns evolve over time</p>
+<p>• Detecting motion, continuity, cause-effect, scene changes</p>
+<p>💡 These heads work in parallel, attending to different aspects of the same data and learning cross-modal interactions.</p>
+<p>⸻</p>
+<p>🔹 5.Residual Connection (Post-Attention)</p>
+<p>The outputs of all heads are concatenated and passed forward, but not in isolation.</p>
+<p>A residual connection wraps around the attention output:</p>
+<p>• It adds the original input to the transformed features</p>
+<p>• Prevents vanishing gradients</p>
+<p>• Preserves low-level details alongside high-level abstractions</p>
+<p>⸻</p>
+<p>🔹 6.Layer Normalization (LayerNorm)</p>
+<p>This layer standardizes the combined output across all features in the sample:</p>
+<p>• Mean = 0</p>
+<p>• Standard deviation = 1</p>
+<p>📦 Applied per individual video embedding, not across the batch.</p>
+<p>Why?</p>
+<p>Because normalization makes learning stable and helps the model avoid overfitting to unusual variance in one part of the video.</p>
+<p>RELU layers are between each dense layer to ensure the greduents between them are passed to the next layer without loss of features as its goal is to upwards bound the gradients if its below 0</p>
+<p>⸻</p>
+<p>🔹 7.Feedforward Dense layers</p>
+<p>Each token (video patch or audio segment) is passed through the same position-wise MLP:</p>
+<p>• Dense → ReLU → Dense</p>
+<p>• Applies non-linearity and learns deeper feature interactions</p>
+<p>• Output = a refined feature for that slice of the video/audio/time combo</p>
+<p>💡 The MLP doesn’t “see” the whole video – it just transforms one patch at a time. But because these layers are stacked after MHA, they benefit from global attention context.</p>
+<p>❌ What’s Missing?</p>
+<p>No decoder.</p>
+<p>• No module to convert latent embeddings back to pixels</p>
+<p>• No softmax over vocabulary</p>
+<p>• No pixel-space rendering</p>
+<p>• No diffusion or deconvolution stack</p>
+<p>Because JEPA’s output is meant to be send to not by humans.</p>
+<p>• The “video” it generates is an abstract, vector-based forecast of what’s likely to happen next</p>
+<p>• That forecast gets passed to:</p>
+<p>• 🚘 A self-driving car planner</p>
+<p>• 🚁 A drone or helicopter trajectory model</p>
+<p>• 🤖 A robotic arm’s policy head</p>
+<p>• Not to a screen</p>
+<p>🔁 This Full Block Repeats ~Numerious Times</p>
+<p>The sequence above – MHA → Residual → Norm → MLP → Residual → Norm – is repeated many times (sometimes 24, 48, or more layers deep), continually refining the video’s internal representation. State of the art models are often 90- 100+ layers deep for this reason</p>
+<p>⸻</p>
+<p>✅ The Final Output: A Compressed, High-Dimensional Latent</p>
+<p>This full process produces a single embedded representation of the entire video:</p>
+<p>• Spatial structure</p>
+<p>• Audio rhythm and tonality</p>
+<p>• Causal flow over time</p>
+<p>• Scene consistency</p>
+<p>• Physical plausibility</p>
+<p>This latent is then passed to the context encoder and the rest of JEPA’s prediction pipeline during training – or used directly during inference for embodied decision-making.</p>
+<p>⸻</p>
+<p>🧠 1. Hierarchical Abstraction ( as with all deep learning models )</p>
+<p>Think of the first layers as seeing:</p>
+<p>• “That’s a bright red patch.”</p>
+<p>• “That sound is a short, sharp pulse.”</p>
+<p>• “Those two frames show a hand moving.”</p>
+<p>Later layers can build on that:</p>
+<p>• “The red patch is part of a cup.”</p>
+<p>• “The pulse is a knocking sound near a surface.”</p>
+<p>• “The motion pattern is a reaching hand preparing to grasp.”</p>
+<p>🧠 Each block builds on the outputs of the one before, learning higher-level concepts and interactions.</p>
+<p>⸻</p>
+<p>🧩 2. Attention Is Dynamic</p>
+<p>Multi-head attention doesn’t memorize connections in one pass.</p>
+<p>• In early layers, attention heads may just find local relationships (e.g.&nbsp;edges, shapes, sounds).</p>
+<p>• Deeper heads may find intermodal and temporal causality:</p>
+<p>“The knock came just before the cup fell.”</p>
+<p>“The shadow moved, so the light source changed.”</p>
+<p>🎯 These are emergent, not hardcoded – they only emerge after multiple cycles of computation.</p>
+<p>⸻</p>
+<p>🔄 3. Residual + Norm Doesn’t Flatten or Merge – It Stabilizes</p>
+<p>Residual connections don’t compress the signal into “one meaning.”</p>
+<p>They preserve all features and pass forward both the original and transformed signals.</p>
+<p>LayerNorm doesn’t finalize the representation either – it just keeps learning stable at each layer by keeping the norm and deviations manageable across deep neural networks</p>
+<p>The model still has to learn across many steps how to combine, align, and abstract features which is why these layers are so emphasized.</p>
+<p>⸻</p>
+<p>⚙️ 4. Video Is Complex Across Modalities</p>
+<p>Video isn’t static:</p>
+<p>• Things appear, disappear, move, interact</p>
+<p>• Sound and vision interact asynchronously</p>
+<p>• Temporal logic unfolds gradually</p>
+<p>That level of dynamic reasoning needs depth.</p>
+<p>Shallow transformers might only capture short-term or surface correlations. Deep stacks capture world dynamics – essential for things like JEPA or world models.</p>
+<p>Role of Each Repetition Description</p>
+<p>Layer 1 – 3 Learn basic patterns (edges, motion, color, pitch)</p>
+<p>Layer 4 – 8 Combine patterns into coherent objects, rhythms, scene elements</p>
+<p>Layer 9 – 16+ Model interactions between objects across time</p>
+<p>Final layers Build causal and predictive representations</p>
+<p>🔊 Audio in SOTA AI: No Longer Standalone</p>
+<p>In modern, state-of-the-art (SOTA) models, audio is no longer treated as a separate modality. Instead, it’s fused directly into the latent space of video models, aligned and synchronized over time.</p>
+<p>When ML engineers or researchers. today say a model “understands video,” what they really mean is that it can process:</p>
+<p>Visual frames (images), • Temporal structure (motion, continuity), • Audio signals (waveforms or spectrograms). Together, these form a single unified representation of video. There’s no longer an artificial split – video = vision + time + sound. This latent fusion reflects how humans experience media: not as isolated images or sounds, but as continuous multisensory flows. AI models like Veo 3 aim to replicate this same integration – processing sight, sound, and motion as one dynamic stream, which makes the modality of video the go to for video generation and embodied models. ⸻ 🎤 Standalone Audio: Now a Narrow Use Case Standalone audio models (e.g., for ASR or TTS) still exist, but they serve limited functions: • ASR (Automatic Speech Recognition): Maps waveform to text. • TTS (Text-to-Speech): Maps tokens to waveform. These are statistical mapping tasks, not comprehension. The model doesn’t “understand” speech – it learns to associate acoustic patterns with symbol sequences. There’s no reasoning, memory, or modality fusion. 🧠 JEPA’s Core Innovation: Predicting Embeddings, Not Tokens</p>
+<p>Traditional autoregressive models (like GPT or diffusion models) attempt to directly predict observable tokens – pixels in an image, words in a sentence, or frames and audio in a video. While powerful, this forces them to model the raw data distribution, often including noise and low-level variability irrelevant to high-level understanding.</p>
+<p>JEPA (Joint Embedding Predictive Architecture) breaks from this pattern.</p>
+<p>Instead of predicting raw data tokens, JEPA learns to predict embeddings – dense, abstract representations that encode meaningful structure, not surface details.This is still pattern recognition but at the latent level.</p>
+<p>This shift has two major implications:</p>
+<p>• 📦 Abstraction Over Appearance: Rather than modeling every pixel, JEPA learns to represent the essence of the world – object permanence, physics, temporal flow – as compressed latent embeddings.</p>
+<p>• ⚡️ Efficiency: Predicting in latent space is far more efficient and generalizable than pixel-by-pixel prediction. It also avoids wasting capacity on irrelevant low-level detail.</p>
+<p>⸻</p>
+<p>🧱 The Two Core Blocks: Context Encoder + Predictor</p>
+<p>JEPA’s architecture centers on two major components:</p>
+<p>Context Encoder • Takes in a large portion of the input (e.g.&nbsp;the first 80% of a video). • Produces a high-level latent embedding of what has occurred so far – capturing spatial, temporal, and semantic structure. • This embedding is not used to reconstruct input, but to build a predictive prior about what should happen next. 2. Predictor</p>
+<p>• Receives the context embedding and learns to predict the future embedding – i.e., what the latent state of the remaining 20% (future) should be.</p>
+<p>• Crucially, it does not see the future frames or tokens directly – only their embeddings.</p>
+<p>• The predictor acts like a world simulator: it learns the dynamics of how the world evolves in embedding space.</p>
+<p>Together, these two components make JEPA a predictive world model – one that doesn’t just memorize inputs, but learns the structure of time, causality, and consequence.</p>
+<p>🧠 JEPA’s Architecture: Simpler Than It Seems</p>
+<p>At its core, JEPA is just a specialized variant of a Transformer, with 90%+ of its layers focused purely on encoding visual data – specifically video, which is composed of:</p>
+<p>• Vision (spatial)</p>
+<p>• Time (temporal)</p>
+<p>• Sound (audio)</p>
+<p>✅ Summary (in plain terms)</p>
+<p>JEPA is not a classic encoder-decoder.</p>
+<p>It’s not autoregressive.</p>
+<p>It’s also not just ViT stitched together.</p>
+<p>Instead, it’s a new kind of transformer-based architecture built to predict what’s missing in the world using:</p>
+<p>• Patch embedding + positional encoding</p>
+<p>• Transformer blocks (MHA + MLP + LayerNorm + Residuals)</p>
+<p>• Separate latent spaces for context and target</p>
+<p>• A small prediction head</p>
+<p>• Latent-space loss</p>
+<p>JEPA’s Real Purpose: Embodied AI at Scale</p>
+<p>⸻</p>
+<p>🧠 Why It Matters</p>
+<p>The primary primary purpose of JEPA is powering intelligent agents. Why control physical systems in physical environments – what we call embodied AI.</p>
+<p>Unlike text models that predict the next word, or image models that fill in pixels, JEPA is trained to anticipate how the real world evolves – in motion, causality, and interaction.</p>
+<p>It’s a model of “what happens next” – not just in raw features , but in space and time.</p>
+<p>These systems require persistent internal world models that can:</p>
+<p>• Track object identity</p>
+<p>• Model cause and effect</p>
+<p>• Understand spatial structure</p>
+<p>• Predict physical outcomes</p>
+<p>🧠 All Deep Learning Is Generative – JEPA Included</p>
+<p>When people hear “generative AI,” they think of models that output text, images, or video. But at its core, every deep learning model generates something – whether it’s a sentence, a video frame, an action, or a latent representation.</p>
+<p>JEPA is a generative model.</p>
+<p>It generates future video embeddings – not pixels, but the compressed essence of what the world should look like next.</p>
+<p>In this way, JEPA sits right alongside models like Sora or Veo.</p>
+<p>They generate video at the pixel level.</p>
+<p>JEPA generates video at the abstract level – which is often more useful for planning, control, and simulation.</p>
+<p>✅ JEPA Is a Video Generator – But at the Latent Level</p>
+<p>• Sora / Veo / Runway/Hailuo:</p>
+<p>Generate videos directly – pixel by pixel or frame by frame. Their outputs are consumable by humans.</p>
+<p>• JEPA:</p>
+<p>Generates video representations – a sequence of compressed latent states that capture how the video evolves over time. These embeddings drive predictions, not display.</p>
+<p>🔁 Embeddings are video – just not in raw form. They’re what models use to understand, simulate, or act on visual experience.</p>
+<p>So yes, JEPA is a video generation model – just one that:</p>
+<p>• Operates fully in vector space,</p>
+<p>• Focuses on structure and dynamics over aesthetics,</p>
+<p>• And outputs latents that control future prediction, not immediate visual display.</p>
+<p>JEPA generates video at the abstract level – which is often more useful for planning, control, and simulation.</p>
+<p>So:</p>
+<p>• GPT generates words</p>
+<p>• Sora generates video</p>
+<p>• JEPA generates latent video</p>
+<p>• And all of them are generative AI</p>
+<p>✅ JEPA Generates Video – but Not in Pixel Form</p>
+<p>JEPA generates video embeddings —</p>
+<p>meaning: latent vectors that represent “what should be happening next” in the scene.</p>
+<p>⸻</p>
+<p>🔍 Contrast with Sora, Veo, Hailuo, MidJourney</p>
+<p>🧠 Why JEPA Doesn’t Output Pixels</p>
+<p>Because:</p>
+<p>• It’s not trying to display anything</p>
+<p>• It’s trying to predict what the model needs to know next</p>
+<p>• Its job is understanding, not rendering</p>
+<p>That’s why:</p>
+<p>There’s no decoder – because no human needs to see it.</p>
+<p>The next module (e.g., planner or controller) consumes the output directly.</p>
+<p>Each vector is:</p>
+<p>• A semantic summary of a part of the video</p>
+<p>• Predicted by the JEPA model based on context</p>
+<p>• Compared (during training) to the target encoder’s version of that patch</p>
+<p>You’ll never see:</p>
+<p>• Colors</p>
+<p>• Motion</p>
+<p>• Raw frames</p>
+<p>Until/unless a decoder is trained to map those vectors back to pixels (which is not JEPA’s job).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/joint-embedding-prediction-vs-frame-prediction.webp" class="img-fluid figure-img"></p>
+<figcaption>Joint Embedding vs Frame Prediction</figcaption>
+</figure>
+</div>
+<p>🔁 JEPA’s Embodied Workflow (step-by-step)</p>
+<ol type="1">
+<li><p>Input: The robot’s camera captures a new video segment (e.g., the world just changed)</p></li>
+<li><p>JEPA takes that video and predicts the latent embedding of what should come next</p></li>
+<li><p>That latent represents the “expected future”</p></li>
+<li><p>A downstream controller or planner receives that latent and:</p></li>
+</ol>
+<p>• Compares possible actions</p>
+<p>• Chooses the one that will most likely make the latent future real</p>
+<ol start="5" type="1">
+<li><p>That chosen action (e.g.&nbsp;turn left, move arm) is sent to the hardware</p></li>
+<li><p>The environment changes → go back to step 1</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/JEPA-workflow.webp" class="img-fluid figure-img"></p>
+<figcaption>JEPA Workflow</figcaption>
+</figure>
+</div>
+<p>At every step, JEPA generates a new latent. video(not frames, but future states)</p>
+<p>That prediction becomes the goal the model tries to achieve</p>
+<p>And the loop continues – tightly coupling prediction → action → prediction</p>
+<p>JEPA isn’t watching the world and passively predicting —</p>
+<p>It’s driving behavior by constantly saying:</p>
+<p>“The world should look like this next.”</p>
+<p>And the controller does whatever it must to make that prediction true.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/its-all-generative.webp" class="img-fluid figure-img"></p>
+<figcaption>It’s All Generative</figcaption>
+</figure>
+</div>
+<p>🔸 Video: The Sole Modality of Embodied AI</p>
+<p>Video isn’t just one of many modalities – it’s the core modality for embodied AI.</p>
+<p>Why?</p>
+<p>Because embodied AI refers to neural networks that control physical or digital devices embedded with computers – including:</p>
+<p>• 🦾 Robots</p>
+<p>• 🚗 Autonomous vehicles</p>
+<p>• 🛸 Drones</p>
+<p>• 🎮 Game agents (NPCs, AI opponents, etc.)</p>
+<p>• 🧠 Augmented reality assistants</p>
+<p>• 🤖 Smart home devices with movement or camera input</p>
+<p>• 🩺 Surgical or industrial automation systems</p>
+<p>• 🕹️ Simulated agents in 3D virtual environments</p>
+<p>To operate in these environments, AI must process and respond to continuous sensory input – and that’s only possible through video:</p>
+<p>A unified stream of space + time + motion + sound.</p>
+<p>In this sense, video is not just a medium – it is the gateway to perception and action.</p>
+<p>Without mastery over video:</p>
+<p>• There’s no way to simulate interaction.</p>
+<p>• No way to perceive motion.</p>
+<p>• No way to predict physical cause and effect.</p>
+<p>⸻</p>
+<p>What neural networks Could Control with the development of a deep World Model in their embedded vector space</p>
+<p>Robotic Arms and Manipulators • Precision pick-and-place tasks in factories or warehouses Logistics (e.g.&nbsp;warehouse movement and object handling) • Handling fragile or irregularly shaped objects without prior training • Autonomous assembly lines adapting to new products on the fly Manufacturing (e.g.&nbsp;robotic arms or mobile units) Navigation (e.g.&nbsp;drones or delivery bots) 2. Autonomous Vehicles (Cars, Trucks, Drones)</p>
+<p>• Real-time navigation in complex urban environments</p>
+<p>• Predicting pedestrian and other vehicle behavior to avoid accidents</p>
+<p>• Coordinated multi-agent driving for traffic efficiency and safety</p>
+<ol start="3" type="1">
+<li>Aerial and Underwater Drones</li>
+</ol>
+<p>• Terrain-aware exploration and mapping in challenging environments</p>
+<p>• Dynamic obstacle avoidance in dense forests or underwater caves</p>
+<p>• Delivery drones adjusting flight paths based on weather and airspace restrictions</p>
+<ol start="4" type="1">
+<li>Space Robotics and Satellite Servicing</li>
+</ol>
+<p>• Robotic arms on satellites repairing or upgrading external modules</p>
+<p>• Autonomous navigation and docking in orbit or on planetary surfaces</p>
+<p>• Manipulating objects in zero-gravity environments with high precision</p>
+<ol start="5" type="1">
+<li>Industrial Automation and Construction Machines</li>
+</ol>
+<p>• Automated bulldozers and cranes operating safely on construction sites</p>
+<p>• Adapting to changing terrain and unexpected obstacles without human input</p>
+<ol start="6" type="1">
+<li>Smart Home and Assistive Robots</li>
+</ol>
+<p>• Household robots that interact physically with objects and people</p>
+<p>• Coordinating multiple devices for home automation based on human behavior</p>
+<ol start="7" type="1">
+<li>Game and Simulation NPCs</li>
+</ol>
+<p>• Realistic non-player characters (NPCs) that learn and adapt physically</p>
+<p>• Dynamic interaction with players and environments for immersive gameplay</p>
+<p>• executing complex strategies in open-world settings</p>
+<p>8.Agricultural Robots</p>
+<p>• Autonomous tractors and harvesters adapting to uneven fields</p>
+<p>• Targeted application of fertilizers and pesticides based on real-time sensing</p>
+<p>• Crop monitoring with physical interventions to optimize growth</p>
+<p>9.Cognitive Agents in AR/VR Environments</p>
+<p>• Virtual avatars that perceive and respond to user actions with physicality</p>
+<p>• Training simulations with realistic physics for pilot or medical training</p>
+<p>• Mixed reality systems integrating physical and virtual interactions seamlessly</p>
+<p>• Manufacturing (e.g.&nbsp;robotic arms or mobile units)</p>
+<p>• Logistics (e.g.&nbsp;warehouse movement and object handling)</p>
+<p>• Navigation (e.g.&nbsp;drones or delivery bots)</p>
+<p>⸻</p>
+<p>let’s walk through a full stage-by-stage breakdown of how JEPA would process a real-world embodied AI scenario during training</p>
+<p>🧠 Use Case: A Robotic Arm Reaching for a Cup</p>
+<p>Let’s say a JEPA-powered agent is controlling a robotic arm. The robot sees a cup placed on a table and must reach out and grab it.</p>
+<p>⸻</p>
+<p>⚙️ JEPA Stage-by-Stage Breakdown (Embodied AI Example)</p>
+<p>⸻</p>
+<p>🔹 Stage 1: Input Perception (80% Observation Window)</p>
+<p>Input:</p>
+<p>• Video frames from the robot’s camera (vision)</p>
+<p>• Synchronized microphone input (sound of surrounding environment)</p>
+<p>• Time-ordered sequence (frame 1 → 80)</p>
+<p>These are not tokenized like in NLP – instead, they’re processed as patches (for images/frames) and spectrogram segments (for sound).</p>
+<p>⸻</p>
+<p>🔹 Stage 2: Embedding via Transformer Blocks</p>
+<p>Each frame and audio segment is broken into patches →</p>
+<p>Each patch is processed through stacked layers of:</p>
+<ol type="1">
+<li>Multi-Head Self-Attention (MHA)</li>
+</ol>
+<p>• Captures spatial and temporal relationships</p>
+<p>• Learns how different parts of the scene relate across time</p>
+<ol start="2" type="1">
+<li>LayerNorm → Feedforward MLP → LayerNorm</li>
+</ol>
+<p>• MLP = Dense → ReLU → Dense</p>
+<p>• Applies position-wise transformations</p>
+<ol start="3" type="1">
+<li>Residual Connections</li>
+</ol>
+<p>• Preserve learned information through depth</p>
+<p>At its core, JEPA is just a specialized variant of a Transformer, with 90%+ of its layers focused purely on encoding video which is composed of:</p>
+<p>• Vision (spatial)</p>
+<p>• Time (temporal)</p>
+<p>• Sound (audio)</p>
+<p>• multi headed attention → Residual → LayerNorm → dense layers → Residual → LayerNorm (repeated in this order many times), producing a latent representation of the full video (space + time + sound).</p>
+<p>• These layers extract deep patterns from the input: motion, causality, spatial structure, sound, light, colors etc.</p>
+<p>⸻</p>
+<p>🔹 Stage 3: Context Encoder (80%)</p>
+<p>• Only the first 80% of the video( vision+ time+ sound)is used by the context encoder.</p>
+<p>• It summarizes the evolving dynamics:</p>
+<p>📦 Object positions</p>
+<p>🕓 Motion patterns</p>
+<p>🧠 Environmental context (e.g., sound cues, lighting)</p>
+<p>🧠 Output: A compressed context latent embedding that represents “what’s happening so far.”</p>
+<p>⸻</p>
+<p>🔹 Stage 4: Target Encoder (20%)</p>
+<p>• Separately, the final 20% of the video (e.g., frames 81 – 100) is passed through the same transformer layers.</p>
+<p>• This generates a target latent: what actually happened in the final part of the sequence (e.g., the hand grabbing the cup).</p>
+<p>This target is not visible to the predictor during inference( non training)</p>
+<p>After the context encoder produces an embedding from the first 80% of the sequence (e.g., video), and the target encoder encodes the true latent of the last 20%, the predictor’s job is to guess what that missing 20% looks like purely from the context.</p>
+<p>⸻</p>
+<p>🔹 Stage 5: Prediction via MLP( dense layers)</p>
+<p>The context latent is passed into a Predictor MLP:</p>
+<p>Dense → ReLU → Dense → (dropout layer or layer normalization ) this continues for many layers until the video prediction is complete</p>
+<p>Goal: Predict the target latent purely from what came before.</p>
+<p>📤 Output: Predicted latent for frames 81 – 100</p>
+<p>(it’s the model’s best guess about how the world should evolve)</p>
+<p>🔄 The Process</p>
+<p>• The input to the predictor is the latent produced by the context encoder.</p>
+<p>• The predictor MLP processes it through:</p>
+<ol type="1">
+<li><p>A dense layer to project or transform the latent vector.</p></li>
+<li><p>A nonlinear activation (usually ReLU or GELU) to add complexity and nonlinearity.</p></li>
+<li><p>Another dense layer to refine the representation.</p></li>
+</ol>
+<p>• This output is a predicted latent vector – meant to match the true latent encoding from the target encoder (the actual future/missing part).</p>
+<p>So predict the last 20% of the video from the initial 80% it has access too</p>
+<p>in JEPA:</p>
+<p>• The predictor is a stack of dense → ReLU → dense layers (MLP)-RELU repeated many times</p>
+<p>• It transforms the context latent into a predicted latent for the future.</p>
+<p>• This is compared to the actual target latent, and the model learns by minimizing their difference.</p>
+<p>🎯 Training (Loss)</p>
+<p>• JEPA doesn’t compare pixels or tokens – it compares the predicted latent to the actual target latent using a contrastive loss or embedding distance loss (e.g., cosine similarity or L2 loss).</p>
+<p>• The goal is to minimize the difference between the predicted and true latent, so the predictor learns to simulate what should logically come next in the se</p>
+<p>⸻</p>
+<p>🔹 Stage 6: Loss Calculation</p>
+<p>During training:</p>
+<p>• The predicted latent is compared to the actual target latent.</p>
+<p>• Loss function = contrastive loss or L2 distance between the two.</p>
+<p>• This teaches the model to anticipate plausible physical outcomes.</p>
+<p>⸻</p>
+<p>🔹 Stage 7: Embodied Decision</p>
+<p>In practice, the model now predicts the likely latent future:</p>
+<p>• Where the cup will be</p>
+<p>• What trajectory the arm must follow</p>
+<p>• How the scene will evolve if it reaches forward</p>
+<p>These latent predictions are then passed to a control module, which can:</p>
+<p>• Plan the robotic arm’s next motor actions</p>
+<p>• Adjust for external factors (e.g., slight object movement or background noise)</p>
+<p>• Feed predictions into an action policy for execution</p>
+<p>⸻</p>
+<p>✅ Final Output</p>
+<p>Output:</p>
+<p>• Robotic arm executes a reaching motion based on predicted future state.</p>
+<p>• JEPA’s predicted latent dynamics enable anticipation of where the cup will be and how to move toward it realistically.</p>
+<p>⸻</p>
+<p>After training ( infrence ) the model will use its predicted video embeddings to model the world allowing it to predict, plan,</p>
+<p>🧠 Why This Matters</p>
+<p>• Transformers like GPT just predict tokens.</p>
+<p>• JEPA predicts how reality unfolds – in latent space.</p>
+<p>R• That makes it ideal for embodied agents where perception → reasoning → action must flow in real time.</p>
+<p>⸻</p>
+<p>Important Note on Training vs.&nbsp;Inference</p>
+<p>During training, JEPA uses the 80/20 split between the context encoder and target encoder to teach the predictor to anticipate the future latent states. However, during inference (actual use), the entire input sequence is passed through the context encoder alone, and the predictor generates the future embedding(video) based solely on that context. The 80/20 split is strictly a training mechanism to help the model learn predictive capability – it is not applied when the model is making real-world predictions.</p>
+<p>JEPA is trained to model the world by predicting future high-level embeddings based on what it has already seen.</p>
+<p>⸻</p>
+<p>Another Example: Drone Flight Over a City or Forest</p>
+<p>Imagine a drone is flying over a vast city or forest. You give JEPA the first 80% of the flight footage – the model sees buildings, roads, traffic flow, or in a forest: tree density, terrain types, lighting, wind noise, etc.</p>
+<p>Then you ask:</p>
+<p>“What does the final 20% of this sequence likely look like?”</p>
+<p>JEPA’s job isn’t to guess pixels – it predicts the latent embedding that represents the continuation of the environment’s structure and dynamics, like:</p>
+<p>• How the skyline might evolve</p>
+<p>• If the forest clears into a valley</p>
+<p>• Changes in motion or audio cues</p>
+<p>• The spatial layout ahead, based on patterns so far</p>
+<p>🚫 Myth: “Embodied AI” = Intelligence lives inside the robot</p>
+<p>✅ Reality: Embodied AI = Cloud-based neural networks controlling hardware remotely</p>
+<p>⸻</p>
+<p>🔌 What’s Actually Happening:</p>
+<p>• embodied AI systems (robot arms, self-driving cars, drones, etc.) are not running intelligence on-device.</p>
+<p>• Instead, a deep neural network – often large and too resource-intensive for edge devices – is trained and hosted in a data center or on a central processing unit.</p>
+<p>• These models send commands to the robot (perception → plan → action) in a feedback loop, but the reasoning stays digital, not physical.</p>
+<p>⸻</p>
+<p>🤖 Why This Breaks the “You need a body to think” idea</p>
+<ol type="1">
+<li>The intelligence isn’t embodied – just the output.</li>
+</ol>
+<p>• The robot body is just an actuator.</p>
+<p>• The thinking, learning, reasoning, planning? All in the cloud, all in software.</p>
+<p>• This is fundamentally disembodied cognition.</p>
+<ol start="2" type="1">
+<li>Digital cognition scales. Biological cognition doesn’t.</li>
+</ol>
+<p>• You can train on millions of hours of simulation.</p>
+<p>• You can fork hundreds of agents, backpropagate across them, evolve them over massive datasets.</p>
+<p>• Biology can’t do that. It’s bottlenecked by biology.</p>
+<ol start="3" type="1">
+<li>Modularity &amp; abstraction:</li>
+</ol>
+<p>• You can swap the body. The same neural policy can control a drone, a bipedal walker, or a robot arm with fine-tuning. That’s not human-like at all. That’s modular digital intelligence.</p>
+<p>⸻</p>
+<p>⚡️ The Real Point:</p>
+<p>Embodiment is a training signal, not a requirement for general intelligence.</p>
+<p>• Yes, video + action loops (like those used in robotics simulators) can help train better models – but that doesn’t mean the model “needs” a body to think.</p>
+<p>• The model just needs temporally aligned data: vision + proprioception + rewards.</p>
+<p>• Once it learns the dynamics, it’s just a controller.</p>
+<p>This is how JEPA acts as a world model: by learning to anticipate high-level dynamics and guide action in environments it’s never explicitly seen before – whether flying a drone, driving a car, or operating a robot.</p>
+<p>📊 Performance Claims &amp; Why It’s Not Over Yet</p>
+<p>Meta claims that V-JEPA 2 outperforms other self-supervised baselines across several world model benchmarks, including:</p>
+<p>• CO3D (3D-aware video prediction)</p>
+<p>• Ego4D (first-person embodied video)</p>
+<p>• Kinetics (action classification)</p>
+<p>• Epic-Kitchens (egocentric activity modeling)</p>
+<p>In their own words:</p>
+<p>“JEPA 2 achieves a new state-of-the-art on the CO3D and Epic-Kitchens world model benchmarks and shows strong generalization.”</p>
+<p>– Meta AI</p>
+<p>You can read the full article here</p>
+<p>These results suggest that embedding-prediction-based world models are a powerful direction – capable of capturing temporal and spatial dynamics without needing full autoregressive token generation.</p>
+<p>⸻</p>
+<p>🛑 But We’re Not There Yet</p>
+<p>While JEPA’s reported numbers are promising, we should be clear:</p>
+<p>analysis:</p>
+<p>⸻</p>
+<p>🔍 What JEPA Actually Does (In Simple Steps)</p>
+<ol type="1">
+<li><p>Takes in input (video, image stream, or multi-frame input).</p></li>
+<li><p>Processes it into embeddings using its encoder.</p></li>
+<li><p>Compares these embeddings to a learned internal latent space (a compressed representation of expected future sequences).</p></li>
+<li><p>Generates video of the predicted future embeddings – not pixels or frames like Midjourney or Veo 3 – as the output.</p></li>
+<li><p>These latent video predictions are then decoded or interpreted by systems (e.g.&nbsp;a robot control module) to trigger or guide behavior.</p></li>
+</ol>
+<p>⸻</p>
+<p>🧠 What It Doesn’t Do</p>
+<p>• ❌ Understand physics, causality, or context.</p>
+<p>• ❌ Reason from first principles.</p>
+<p>• ❌ Construct internal scientific models of reality.</p>
+<p>• ❌ Generalize to truly novel environments or edge cases outside the training distribution.</p>
+<p>• ❌ Explain why it made a certain prediction.</p>
+<p>Instead:</p>
+<p>It matches patterns across time in embedding space and guesses what happens next.</p>
+<p>It is a generative model, but it generates compressed latent video predictions – not token sequences, not RGB pixels.</p>
+<p>⸻</p>
+<p>🧩 Meta’s Framing Problem</p>
+<p>Meta is intellectually dishonest (or at best, extremely imprecise) when it markets JEPA as “understanding the world.” What it’s actually doing is:</p>
+<p>❝ Predicting high-dimensional future embeddings from a temporal input stream using self-supervised contrastive learning. ❞</p>
+<p>Calling that “understanding” is like calling autocomplete “writing poetry.”</p>
+<p>Benchmark scores ≠ embodied intelligence.</p>
+<p>The true test of a world model is not whether it performs well on curated datasets – it’s whether it can control agents in real, messy environments with uncertain inputs, feedback loops, and dynamic goals.</p>
+<p>Until we see a model like JEPA:</p>
+<p>• Control a robotic hand to tie a knot,</p>
+<p>. . Level 4 -5 autonomy in cars, drones, trucks etc</p>
+<p>• Navigate a crowded urban environment and shifting physical dynamics autonomously,</p>
+<p>• Or direct multi-agent collaboration in open-ended tasks…</p>
+<p>…we’re still in the early stages.</p>
+<p>⸻</p>
+<p>🧭 Final Thought</p>
+<p>JEPA is not the final word – it’s a strong signal.</p>
+<p>Its architecture gives us a new way to think about intelligence: not just predicting pixels or tokens, but predicting how the world will evolve in latent space.</p>
+<p>But we’ll only know its true power when those latent predictions start guiding real-world actions – reliably, robustly, and safely.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
