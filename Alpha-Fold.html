@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>alpha-fold – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./DeepSeek.html"> 
+<span class="menu-text">DeepSeek</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./midjourney.html"> 
+<span class="menu-text">Midjourney</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./veo3.html"> 
+<span class="menu-text">Veo 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./JEPA.html"> 
+<span class="menu-text">JEPA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./Alpha-Fold.html" aria-current="page"> 
+<span class="menu-text">AlphaFold</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/protein-Folding.webp" class="img-fluid figure-img"></p>
+<figcaption>Protein Folding</figcaption>
+</figure>
+</div>
+<p>🧬 Anatomy of AlphaFold: How Deep Learning Solved Protein Folding</p>
+<p>The model That Predicts 3D Protein Structures from 1D Sequences with molecular accuracy-Unpacking the Attention Mechanisms, Evolutionary Features, and Geometric Reasoning Behind AlphaFold</p>
+<p>⸻</p>
+<p>Proteins are the building blocks of life. Every cell, every virus, every biological function involves proteins doing things – folding into precise 3D shapes, binding to molecules, and catalyzing reactions. But predicting a protein’s 3D structure from its 1D amino acid sequence? That problem stumped science for 50+ years.</p>
+<p>Then came AlphaFold – a deep learning system by DeepMind that predicted protein structures with atomic-level accuracy. It wasn’t a tweak or trick. It was a transformer-based revolution in computational biology which we will explore today.we will go through the fundamental layers demystify its verbose sounding blocks and then beinging it all together and break or down stage by stage.</p>
+<p>🧱 Part 1: The Traditional Transformer Blocks Inside AlphaFold</p>
+<p>Embedding Layer • What it does: Converts discrete amino acid tokens into dense vectors. • Why it matters: Turns biological sequences (like “MKTLL”) into something the network can understand and process. • Used on: The one-dimensional protein sequence (primary structure). ⸻</p>
+<ol start="2" type="1">
+<li>Positional Encoding</li>
+</ol>
+<p>• What it does: Injects information about the position of each amino acid into the embeddings.</p>
+<p>• Why it matters: Protein folding is order-sensitive – the position of each residue is crucial to understanding structure.</p>
+<p>• Used on: Every input sequence, including the Multiple Sequence Alignment (MSA) rows.</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li>Multi-Head Attention (MHA)</li>
+</ol>
+<p>• What it does: Finds important relationships between amino acids – both within a sequence and across species (via MSA).</p>
+<p>• Why it matters: Captures evolutionary signals (e.g.&nbsp;conserved regions across thousands of sequences).</p>
+<p>• Used on: MSA features, pairwise features, and structure refinement.</p>
+<p>softmax turns the dot-product of queries and keys into attention weights (a probability distribution across tokens).</p>
+<p>✅ This is inside every attention head, in every transformer block, so you’ll see softmax used repeatedly – potentially hundreds of times in a deep model.</p>
+<p>▪️ Where it is:</p>
+<p>• Inside each MHA block.</p>
+<p>• Often used once per head, per attention block, per layer.</p>
+<p>ReLU and Dense are individual transformer layers. Softmax is not – it’s a subroutine that lives inside Multi-Head Attention.</p>
+<p>⸻</p>
+<ol start="4" type="1">
+<li>Layer Normalization</li>
+</ol>
+<p>• What it does: Stabilizes activations and ensures gradient flow.</p>
+<p>• Why it matters: Essential for training deep networks (AlphaFold has hundreds of layers).</p>
+<p>• Used in: Every major block, especially before and after attention or feedforward layers.</p>
+<p>Layer Normalization</p>
+<p>• Normalizes all features of a single input (observation).</p>
+<p>• It ensures that the input to the next layer has mean 0 and standard deviation 1, per observation.</p>
+<p>• Used in Transformers, where batch size may vary or input sequences are processed independently.</p>
+<p>✅ Every multi headed attention or dense feed forward layers is surrounded by residuals</p>
+<p>⸻</p>
+<ol start="5" type="1">
+<li>Residual Connections</li>
+</ol>
+<p>• What it does: Adds the original input back to the output of each block.</p>
+<p>• Why it matters: Prevents degradation of information across layers and helps with gradient flow.</p>
+<p>• Used in: All transformer blocks (MSA stack, Pair stack, Structure module).</p>
+<p>It combines the features of all previous layers which allows for deep learning models to extract patterns over many layers</p>
+<p>This keeps gradients flowing across the deep stack (AlphaFold has 48+ Evoformer layers!).</p>
+<p>⸻</p>
+<ol start="6" type="1">
+<li>Dense (Feedforward) Layers</li>
+</ol>
+<p>• What it does: Applies linear transformations followed by non-linear activations (typically ReLU).</p>
+<p>• Why it matters: Embeds patterns, transforms features, and builds the higher-level representations.</p>
+<p>• Used in: Every module – MSA, pairwise, and structure modeling.</p>
+<p>After each attention layer, AlphaFold – like all transformers – applies a standard feedforward block:</p>
+<p>LayerNorm → Dense → ReLU → Dense → ReLU,</p>
+<p>LayerNorm →</p>
+<p>Dense (Linear) →</p>
+<p>ReLU →</p>
+<p>Dense (Linear again) →</p>
+<p>Residual connection</p>
+<p>which is repeated many times, each surrounded by residual connections. This pattern continues until the next attention block, creating deep hierarchies of transformation and embedding.</p>
+<ol start="7" type="1">
+<li>ReLU Activation</li>
+</ol>
+<p>• What it does: Introduces non-linearity after each dense layer.</p>
+<p>• Why it matters: Enables the model to learn complex, non-linear biological relationships.</p>
+<p>• Used in: Every feedforward block.</p>
+<p>This layer standardizes the combined output across all features in the sample:</p>
+<p>Mean = 0 • Standard deviation = 1 Applied per individual video embedding, not across the batch. Why? Because normalization makes learning stable and helps the model avoid overfitting to unusual variance in one part of the video. RELU layers are between each dense layer to ensure the greduents between them are passed to the next layer without loss of features as its goal is to upwards bound the gradients if its below o Even though AlphaFold is tailored to biology, it still builds on the Transformer toolkit you already know. Here’s what’s reused or adapted:</p>
+<p>⸻</p>
+<p>🧠 Evoformer Block: The Heart of AlphaFold, AlphaFold’s Core module</p>
+<p>This is AlphaFold’s core architectural unit, and it’s where the real innovation happens. It has two main data flows</p>
+<p>Stream A Stream B</p>
+<p>MSA Representation Pairwise Representation</p>
+<p>While AlphaFold uses familiar Transformer components like attention, layer norms, and residuals, its true power comes from biological insight baked into the architecture. The most important innovations are:</p>
+<p>⸻</p>
+<p>🧬 1. MSA Representation (Multiple Sequence Alignment)</p>
+<p>What It Is:</p>
+<p>AlphaFold doesn’t just look at one sequence of amino acids – it aligns thousands of related sequences (from many species) to identify evolutionarily conserved regions.</p>
+<p>Think of it like:</p>
+<p>“What parts of this protein stayed the same across millions of years of evolution? Those are likely critical to its final structure.”</p>
+<p>How It Works:</p>
+<p>• Each row in the MSA is a protein sequence from a different organism.</p>
+<p>• Columns show which amino acid is at each position across sequences.</p>
+<p>• These patterns form a 2D array (sequence length × number of similar proteins).</p>
+<p>This MSA tensor gets passed through Transformer-style attention layers that focus on:</p>
+<p>• Which positions are highly conserved</p>
+<p>• Which rows show key mutations</p>
+<p>The result: the model learns which parts of the protein are “structurally important” without needing human-labeled data.</p>
+<p>📐 The 2 Dimensions of MSA:</p>
+<ol type="1">
+<li>Rows = Different Species / Homologous Proteins</li>
+</ol>
+<p>• These are proteins from other organisms that have similar sequences.</p>
+<p>• Pulled from massive databases of known proteins (like UniRef, MGnify).</p>
+<p>• The idea: nature has run billions of “experiments” – if parts of a sequence are preserved across evolution, they’re probably important.</p>
+<ol start="2" type="1">
+<li>Columns = Sequence Positions (Amino Acid Sites)</li>
+</ol>
+<p>• Each column shows variation at a specific position in the sequence.</p>
+<p>• The model can observe how that position mutates across species and still preserves structure/function.</p>
+<p>🎯 What the MSA Teaches the Model:</p>
+<p>• Conservation: If a particular residue is nearly identical across species, it’s likely critical to the protein’s stability or function.</p>
+<p>• Co-evolution: If two residues change together across species (correlated mutations), it’s a clue that they interact spatially in the 3D structure.</p>
+<p>• Structural constraints: The MSA acts like a fingerprint – giving AlphaFold a probabilistic map of what the final 3D structure should look like, based on nature’s own “training data.”</p>
+<p>⸻</p>
+<p>🤝 2. Pairwise (2D) Representation</p>
+<p>What It Is:</p>
+<p>In addition to understanding individual residues (1D), AlphaFold builds a 2D representation of residue-residue pairs – essentially:</p>
+<p>“How likely is it that amino acid interacts with amino acid in 3D space?”</p>
+<p>This matrix captures potential spatial relationships across the sequence:</p>
+<p>• Think of it as a map of distance potentials or interactions.</p>
+<p>Why It Matters:</p>
+<p>• Proteins fold into 3D shapes based on interactions between distant residues.</p>
+<p>• The pairwise representation lets AlphaFold reason about long-range dependencies that a standard Transformer on sequences wouldn’t catch.</p>
+<p>Piecewise linear projection is a way to transform the MSA features in small, learnable segments rather than with a single global transformation. This approach allows the model to:</p>
+<p>• Focus on local patterns within specific subsections of the MSA,</p>
+<p>• Handle nonlinear relationships more flexibly by applying separate linear mappings piecewise,</p>
+<p>• Preserve the structure of the MSA during transformation without oversimplifying correlations.</p>
+<p>In practice, this means the Evoformer can better detect which amino acid positions are crucial – those that remain conserved across species or show correlated mutations hinting at physical proximity in 3D space.</p>
+<p>Why is this Important?</p>
+<p>Traditional transformers apply global linear projections to entire feature vectors, which may miss nuanced local evolutionary signals embedded in the MSA’s structured layout. The piecewise linear projections empower AlphaFold to model these intricate signals more effectively, leading to better folding predictions.</p>
+<p>By integrating these projections within attention and update mechanisms in the Evoformer, AlphaFold finely balances global context and local detail, enabling it to harness the evolutionary wisdom locked in millions of aligned sequences.</p>
+<p>⸻</p>
+<p>3.🧬 3D Structure Module (Inside the Evoformer)</p>
+<p>After AlphaFold processes the MSA (Multiple Sequence Alignment) and Pairwise Representations, all of which pass through layers of multi-head attention, feedforward layers, layer norms, and residuals, we arrive at the final step:</p>
+<p>➡️ Predicting the actual 3D structure of the protein.</p>
+<p>This is where biology meets geometry – and where a transformer model must produce not text or logits, but spatial coordinates in 3D space.</p>
+<p>⸻</p>
+<p>🧩 What Actually Happens in the 3D Module?</p>
+<p>Once the Evoformer encodes enough contextual information about:</p>
+<p>• Evolutionary conservation (from MSA)</p>
+<p>• Pairwise residue interactions (from the pairwise tensor)</p>
+<p>…it hands that to the final Structure Module, which predicts the protein’s final folded shape.</p>
+<p>This module predicts:</p>
+<p>• Backbone coordinates for each amino acid residue (N, CA, C atoms)</p>
+<p>• Angles and torsions (phi, psi, chi)</p>
+<p>• Side chain orientations</p>
+<p>• A confidence metric (pLDDT) for how sure it is of each prediction</p>
+<p>⸻</p>
+<p>🧠 But Architecturally, What Are These?</p>
+<p>Despite sounding like physics engines, these layers are still:</p>
+<p>• Dense feedforward layers</p>
+<p>• Residual connections</p>
+<p>• LayerNorms</p>
+<p>• ReLUs</p>
+<p>• Often: triangle multiplicative updates and geometric attention operations</p>
+<p>They just operate on spatial representations – vectors and angles, not tokens.</p>
+<p>The model uses an iterative refinement loop, where it:</p>
+<ol type="1">
+<li><p>Predicts structure</p></li>
+<li><p>Feeds the structure back into the system (via recycling)</p></li>
+<li><p>Refines predictions over multiple passes</p></li>
+</ol>
+<p>Think of it as an internal feedback loop – much like a human sketching a rough shape and gradually refining it.</p>
+<p>🧠 Summary of the 3D Prediction Module (Within Evoformer):</p>
+<p>• Inputs: Rich embeddings from MSA and Pairwise pathways</p>
+<p>• Applies: Standard transformer blocks adapted to geometric space</p>
+<p>• Outputs: Final folded 3D coordinates of the protein structure</p>
+<p>• Extras: Confidence scores (pLDDT), angle predictions, recycling for refinement</p>
+<p>• Repeats: Like other transformer components, this module is deeply stacked</p>
+<p>⸻</p>
+<p>🧠 Key Insight:</p>
+<p>AlphaFold isn’t running physics simulations. It’s using transformer layers to predict spatial geometry based on evolutionary signal – a pattern recognition task dressed in geometric clothing.</p>
+<p>No special physics module. No new deep learning block. Just smart adaptation of standard layers to spatial prediction – proving again that transformers are not limited by data type, only by how we shape their inputs and outputs by the data we train them on.</p>
+<p>🧬 What Data Is AlphaFold Trained On?</p>
+<p>AlphaFold is trained on structured biological data – primarily protein sequence data and structural annotations. It does not use natural images, but it does work with data that represents 3D spatial structure, which is a key distinction.</p>
+<p>AlphaFold’s input data, despite its biological and geometric complexity, is all processenex – not visual data. Meaning its all 1D data</p>
+<p>Here’s a breakdown:</p>
+<p>⸻</p>
+<p>Primary Data: Protein Sequences (Text Data) • Input format: Sequences of amino acids – represented as 1D strings of letters, similar to how DNA or RNA are encoded. Pure 1D text: A chain of amino acids, represented by single-letter codes like • Example: “MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQ” Pure 1D text: A chain of amino acids, represented by single-letter codes like MTEYKLVVVGAGGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVID…AlphaFold treats it as such – using tokenization and embeddings just like in NLP models. • These sequences are the starting point: the model must predict the 3D structure from this linear sequence. ⸻</p>
+<ol start="2" type="1">
+<li>Multiple Sequence Alignments (MSAs)</li>
+</ol>
+<p>Also text, but a bit richer:</p>
+<p>Alignments of related protein sequences across species. • Represented as character matrices – like many lines of “text” with gaps -) for alignment. • Still token-based, still handled like sequence data. • A core input to AlphaFold is MSA data – sets of evolutionarily related protein sequences.</p>
+<p>• These help the model identify conserved regions, structural motifs, and co-evolutionary patterns.</p>
+<p>• MSAs provide a kind of context window, showing how a given sequence varies across species and time – this is like a biological “prompt” for the model.</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li>Template Structures (Optional, During Training)</li>
+</ol>
+<p>• When available, AlphaFold is trained with known protein structures (from experiments like X-ray crystallography, cryo-EM).</p>
+<p>• These are 3D coordinate data of atoms in the protein.</p>
+<p>• They aren’t images, but they represent 3D spatial relationships – and the Evoformer + structure module predict these atom-by-atom.</p>
+<p>⸻</p>
+<ol start="4" type="1">
+<li>3D Structure Representations</li>
+</ol>
+<p>These are numerical tensors, not images: • Atom distances • Bond angles • Residue-residue contact maps • They’re 2D or 3D arrays – like heatmaps or matrices – but crucially, not pixel-based images. • Think: data in tensor form, not RGB images • AlphaFold does not learn from 3D renderings or visual images of proteins.</p>
+<p>• Instead, it uses:</p>
+<p>• Pairwise distance matrices</p>
+<p>• Angle predictions</p>
+<p>• 3D coordinate data</p>
+<p>• These are geometric data structures, not visual data.</p>
+<p>• The model outputs 3D coordinates of each atom – which can be visualized later, but visuals are not part of the training data.</p>
+<p>⸻</p>
+<p>📚 Main Training Datasets:</p>
+<p>• Protein Data Bank (PDB)</p>
+<p>Experimental 3D structures of proteins – core ground truth labels for AlphaFold.</p>
+<p>• UniRef90 &amp; UniProt</p>
+<p>Massive repositories of amino acid sequences used for building MSAs and training sequence models.</p>
+<p>• BFD (Big Fantastic Database)</p>
+<p>A gigantic collection of protein sequences (~2.2 billion sequences) used to improve evolutionary context.</p>
+<p>• MGnify</p>
+<p>Adds more microbial diversity to MSAs, increasing generalization.</p>
+<p>⛔ No Raw Visual Data</p>
+<p>• AlphaFold doesn’t see images of proteins.</p>
+<p>• It learns structural patterns by modeling the relationships between tokens and numeric tensors, not by analyzing pixel layouts.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/protein-translation.webp" class="img-fluid figure-img"></p>
+<figcaption>Protein Translation</figcaption>
+</figure>
+</div>
+<p>🔍 What’s Actually Inside AlphaFold’s Fancy. Sounding Blocks?</p>
+<p>Multiple Sequence Alignment (MSA) Stack This is the component that processes many related protein sequences in parallel (e.g., different species’ versions of the same protein) to find patterns.</p>
+<p>What it really uses:</p>
+<p>• ✅ Multi-Head Self-Attention (MHA)</p>
+<p>Applied over rows (different species) of the MSA input. This helps identify conserved positions in the amino acid sequence.</p>
+<p>• ✅ Feedforward layers (Dense → ReLU → Dense)</p>
+<p>Standard MLP stack for transforming attention outputs.</p>
+<p>• ✅ LayerNorm and Residual Connections</p>
+<p>For stability and gradient flow, just like in vanilla transformers.</p>
+<p>📌 Summary: This is exactly like the encoder in a normal Transformer – it just applies attention over sequences from different species.</p>
+<p>⸻</p>
+<ol start="2" type="1">
+<li>Pairwise Representation Stack (a.k.a. Pair Stack)</li>
+</ol>
+<p>This holds information about relationships between amino acids (like distances, angles) – basically the protein’s internal geometry.</p>
+<p>What it really uses:</p>
+<p>• ✅ Axial Attention (a variation of MHA)</p>
+<p>Attention is applied along different axes (rows vs.&nbsp;columns) to model pairwise relationships.</p>
+<p>• ✅ Triangle Multiplication &amp; Triangle Attention</p>
+<p>Despite the exotic names, these are variations on attention + dense layers tailored to update 2D geometry-like structures. Think of them as custom-configured attention passes.</p>
+<p>• ✅ Dense → ReLU → Dense</p>
+<p>Standard MLP layers again.</p>
+<p>• ✅ LayerNorm + Residuals</p>
+<p>Used exactly as in other transformer layers.</p>
+<p>📌 Summary: Fancy-sounding, but still standard transformer components applied to a 2D matrix representing amino acid pair relationships.</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li>Evoformer Block (The Core Repeating Unit)</li>
+</ol>
+<p>This fuses information from both MSA and pairwise modules in an iterative loop.</p>
+<p>What it really uses:</p>
+<p>• ✅ Attention over MSA rows (species-wise attention)</p>
+<p>• ✅ Attention across sequence positions</p>
+<p>• ✅ Information flow between MSA ↔︎ Pairwise representations</p>
+<p>Implemented with linear projections + cross-attention-like mechanisms.</p>
+<p>• ✅ MLPs (Dense → ReLU → Dense)</p>
+<p>• ✅ LayerNorm and Residuals</p>
+<p>📌 Summary: The Evoformer is just a smart wiring of:</p>
+<p>• Standard MHA</p>
+<p>• Cross-updating mechanisms</p>
+<p>• dense Feedforward layers</p>
+<p>• Normalization + Residuals</p>
+<p>…but no truly novel components under the hood.</p>
+<p>⸻</p>
+<ol start="4" type="1">
+<li>Structure Module (3D Prediction)</li>
+</ol>
+<p>This is where AlphaFold converts all that abstract latent information into actual 3D coordinates.</p>
+<p>What it really uses:</p>
+<p>• ✅ Geometric projection heads</p>
+<p>Linear layers that output 3D coordinates from pairwise &amp; sequence representations.</p>
+<p>• ✅ Invariant Point Attention (IPA)</p>
+<p>This sounds fancy, but it’s really:</p>
+<p>• Attention that respects 3D geometry</p>
+<p>• Learned weights that predict positions relative to each other</p>
+<p>• ✅ Rigid-body transformations &amp; angle prediction layers</p>
+<p>These are classic geometric modules used in 3D graphics and modeling – not learned layers, but algorithmic.</p>
+<p>📌 Summary: This module translates latent features into 3D space. The only “special” part is the IPA, but even that is just attention designed with spatial awareness.</p>
+<p>⸻</p>
+<p>On Naming and Model Architecture:</p>
+<p>If you’re an MLE or ML researcher you’ll recognize. all the components in AlphaFold:</p>
+<p>Despite the specialized names like Evoformer, MSA Attention, or Pairwise Representations, AlphaFold uses the same fundamental architecture as a standard transformer.</p>
+<p>. In AlphaFold – as with all transformer-based models – the input data passes through a set of preprocessing layers only once at the very beginning of the model. These include:</p>
+<p>• Tokenization Layer: Converts raw input (amino acid sequences) into discrete tokens (e.g., one token per amino acid residue).</p>
+<p>• Embedding Layer: Maps those tokens into dense vector representations – this gives each residue a place in vector space the model can work with.</p>
+<p>• Positional Encoding: Injects sequence order into the model (since attention is permutation-invariant by default). This tells the model where each residue lies in the chain.</p>
+<p>🧠 Why only once?</p>
+<p>These steps are necessary to initialize the input into a form the transformer can “understand” and operate on. Once embedded, the transformer blocks – MHA, LayerNorm, Dense layers, etc. – take over and operate on those vectors repeatedly through many stacked layers.</p>
+<p>This is consistent across all transformer class based models:AlphaFold, DeepSeek, GBT 4, grok 4,and all others.The real depth and learning happens in the transformer stack, but the initial embedding layers set the stage.</p>
+<p>These components are repeated deeply, often over 100+ layers, just like other state-of-the-art transformer models.</p>
+<p>So why the new names?</p>
+<p>They’re not signaling brand-new architecture – rather, they reflect how these components are applied to a unique problem space: protein folding.</p>
+<p>• MSA (Multiple Sequence Alignment) attention operates across evolutionarily-related protein sequences.</p>
+<p>• Pairwise Representations track spatial relationships between residues.</p>
+<p>• The Evoformer block is just a modular structure combining these insights using classic transformer layers.</p>
+<p>At its heart, AlphaFold is not a new kind of neural network – it’s a new application of known transformer mechanics to biological data, trained on a uniquely structured and highly specialized dataset.</p>
+<p>If you’re an MLE or ML researcher familiar with Transformers, you’ll recognize all the components in AlphaFold:</p>
+<p>• Multi-Head Attention ✅</p>
+<p>• continuous Dense → ReLU → Dense layers ✅</p>
+<p>• LayerNorm ✅</p>
+<p>• Residual Connections ✅</p>
+<p>• Cross-Attention – like flows ✅</p>
+<p>• Learned projection heads ✅</p>
+<p>The only domain-specific twists are:</p>
+<p>• The input data (protein sequences across species)</p>
+<p>• The interpretation of outputs (3D structures which is not by itself abnormal as its defaukt in vision transformers which are usually trained in video)</p>
+<p>• The vocabulary (MSA, Evoformer, Triangle Attention)</p>
+<p>No exotic new attention types.</p>
+<p>No novel activations.</p>
+<p>No obscure architectures.</p>
+<p>Just smart use of the original transformer stack – applied to proteins, and deeply repeated.</p>
+<p>Before AlphaFold predicts the 3D structure of a protein, all the input data exists in flat, one-dimensional form. This includes:</p>
+<p>Primary Protein Sequence • A simple chain of amino acids (e.g.&nbsp;MTEYKLVVVG…) • Each amino acid is represented by a single character • This is 1D text data – structurally no different from a sentence in natural language 2. Multiple Sequence Alignments (MSAs)</p>
+<p>• Stacked rows of related protein sequences</p>
+<p>• Appear like a matrix, but are fundamentally collections of 1D sequences</p>
+<p>• Provide evolutionary context, but still fed into the model as tokenized strings</p>
+<p>AlphaFold doesn’t see the 3D structure at the start. In fact, that’s exactly what it’s trying to predict.</p>
+<p>All the data – sequence, alignment, even pairwise relationships – starts as non-visual, one-dimensional inputs. These must be transformed into rich, high-dimensional structure through reasoning, attention, and prediction.</p>
+<p>Defining “The Fold”</p>
+<p>The fold is the final 3D shape that a protein naturally assumes in biological space.</p>
+<p>It’s governed by physical laws – bond angles, chemical forces, and spatial constraints.</p>
+<p>AlphaFold infers this 3D fold from 1D sequence patterns using deep layers of transformer reasoning. The actual 3D shape (the “fold”) doesn’t exist in the input – it’s generated.</p>
+<p>Stage-by-Stage Breakdown of the Model That Revolutionized Protein Folding</p>
+<p>Stage 1: Input – Amino Acid Sequence</p>
+<p>📥 Input: A target protein sequence (e.g., MVHLTPEEKSAVTAL…)</p>
+<p>• This is a 1D sequence of amino acids (like a sentence made of letters).</p>
+<p>• The goal is to predict its final 3D folded structure (shape), not just classify or generate text.</p>
+<p>⸻</p>
+<p>Stage 2: Multiple Sequence Alignment (MSA) Search</p>
+<p>🔍 MSA Creation:</p>
+<p>• The sequence is run through massive genomic databases (e.g., UniProt, MGnify) to find evolutionarily related sequences across species.</p>
+<p>• These similar sequences are aligned into a 2D matrix:</p>
+<p>• Rows = different homologous protein sequences</p>
+<p>• Columns = aligned amino acid positions (residue positions)</p>
+<p>💡 Why? Evolution conserves structure more than sequence – by comparing thousands of variations, AlphaFold learns which residues matter most for folding.</p>
+<p>⸻</p>
+<p>Stage 3: Initial Embedding</p>
+<p>📦 The raw sequence and MSA are embedded into high-dimensional tensors:</p>
+<p>• MSA Representation (N × L × d)</p>
+<p>• N = number of aligned sequences</p>
+<p>• L = length of the protein</p>
+<p>• d = hidden dimension</p>
+<p>• Pairwise Representation (L × L × d)</p>
+<p>• Encodes interactions between every pair of amino acid positions.</p>
+<p>⸻</p>
+<p>Stage 4: Evoformer Block (Core Innovation)</p>
+<p>🧠 This is the engine of AlphaFold – a custom transformer that processes:</p>
+<p>• MSA features</p>
+<p>• Pairwise features</p>
+<p>🔄 Key Submodules inside Evoformer:</p>
+<p>• MSA Attention → captures patterns across aligned sequences and residues</p>
+<p>• Triangle Multiplication + Attention (Pairwise Update) → models geometric constraints between residue pairs</p>
+<p>• MSA → Pairwise Communication and Pairwise → MSA Communication</p>
+<p>✅ MSA tells the model:</p>
+<p>“These residues are conserved across evolution – pay attention.”</p>
+<p>It all about finding patterns</p>
+<p>✅ Pairwise tells the model:</p>
+<p>“These residues likely interact in 3D space – adjust geometry accordingly.”</p>
+<p>This back-and-forth loop updates both views together.</p>
+<p>Using pattern recognition the model refines its predictions</p>
+<p>⸻</p>
+<p>Stage 5: Structure Module (3D Folding Prediction)</p>
+<p>📐 Once Evoformer has built rich MSA + pairwise embeddings, they are passed to the Structure Module:</p>
+<p>• Predicts 3D atomic coordinates of the protein’s backbone (and optionally side-chains).</p>
+<p>• Uses Invariant Point Attention (IPA): a geometry-aware attention mechanism that reasons in 3D space – rotationally and translationally invariant.</p>
+<p>📤 Output: A predicted 3D protein structure (can be rotated like a molecule in space, but static once generated).</p>
+<p>⸻</p>
+<p>Stage 6: Recycling (Refinement Loop)</p>
+<p>🔁 The prediction isn’t done in one shot. AlphaFold feeds the predicted structure back into the Evoformer multiple times (3–4 iterations), refining the geometry each pass.</p>
+<p>This is like self-consistency feedback – the model “looks at its own prediction” and adjusts based on its learned structure logic.</p>
+<p>⸻</p>
+<p>Stage 7: Confidence Scoring</p>
+<p>✅ pLDDT (Predicted Local Distance Difference Test):</p>
+<p>• A per-residue confidence score from 0 to 100, showing how confident the model is in each region of the protein.</p>
+<p>📊 Regions with high pLDDT are more likely to be correct – researchers can focus on these during experiments.</p>
+<p>The special names (like MSA block, Pairwise block, Triangle Attention, Evoformer, etc.) exist only because AlphaFold is applying standard transformer machinery to a biological domain – specifically, amino acid sequences and spatial relationships between residues.</p>
+<p>But under those names, they’re still using:</p>
+<p>• 🧠 MHA for attention across sequences or residue pairs</p>
+<p>• 🔁 Residuals for stable learning</p>
+<p>• ⚙️ LayerNorm for normalization</p>
+<p>• 🧱 Dense + ReLU (or GELU) for transformation</p>
+<p>• 🔂 Recycling to iteratively refine predictions</p>
+<p>⸻</p>
+<p>🔬 AlphaFold’s Architecture: Not Magic, Just Applied Differently</p>
+<p>• The Evoformer is just a domain-specialized transformer.</p>
+<p>• Its MSA stack is like applying self-attention across protein sequences – using MHA, residuals, dense layers, and normalization, just like in DeepSeek or GPT.</p>
+<p>• The Pairwise module tracks spatial relationships (angles, distances) between residue pairs – still using attention and dense layers</p>
+<p>• Triangle attention is a clever tweak: it’s just a form of pairwise reasoning, capturing how residue A relates to B through C – structurally useful for predicting 3D folding.</p>
+<p>• Recycling means running the whole thing multiple times, refining the latent embeddings each pass – this is similar to recurrence, but unfolded over transformer blocks.</p>
+<p>Finally, the structure module takes those refined pairwise features and maps them into 3D coordinates for each amino acid – forming the final predicted structure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Alpha-Folds-output.webp" class="img-fluid figure-img"></p>
+<figcaption>AlphaFold Output</figcaption>
+</figure>
+</div>
+<p>AlphaFold’s output is like a 3D image – but not a traditional RGB image – it’s a 3D spatial structure:</p>
+<p>• It tells you where in space each atom of the protein sits after folding.</p>
+<p>• The result is typically rendered as:</p>
+<p>• Backbone trace (like a ribbon or curve)</p>
+<p>• Atomic detail (ball-and-stick or space-filling models)</p>
+<p>• Color-coded confidence scores (e.g.&nbsp;blue = high confidence, red = low)</p>
+<p>This is essentially a learned geometric prediction – turning a linear chain of amino acids into a spatially arranged molecule, atom by atom.</p>
+<p>Its essentially a 3d image generator</p>
+<p>AlphaFold’s output is like a 3D image – but not a traditional RGB image – it’s a 3D spatial structure:</p>
+<p>• It tells you where in space each atom of the protein sits after folding.</p>
+<p>• The result is typically rendered as:</p>
+<p>• Backbone trace (like a ribbon or curve)</p>
+<p>• Atomic detail (ball-and-stick or space-filling models)</p>
+<p>• Color-coded confidence scores (e.g.&nbsp;blue = high confidence, red = low)</p>
+<p>This is essentially a learned geometric prediction – turning a linear chain of amino acids into a spatially arranged molecule, atom by atom.</p>
+<p>⸻</p>
+<p>🧠 Analogy:</p>
+<p>Imagine you had the blueprint (sequence) for folding a piece of origami – and AlphaFold tells you exactly what the final 3D sculpture looks like after folding it perfectly.</p>
+<p>That’s why it was such a breakthrough – before AlphaFold, predicting 3D structure from 1D sequence was a massive unsolved problem in biology.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/predicted-proteins.webp" class="img-fluid figure-img"></p>
+<figcaption>Predicted Proteins</figcaption>
+</figure>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
