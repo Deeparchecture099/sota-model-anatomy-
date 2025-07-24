@@ -228,28 +228,35 @@ ul.task-list li input[type="checkbox"] {
 <p>• Deep layers may encode complex audiovisual relationships:</p>
 <p>• Laughing + smiling</p>
 <p>• Explosion + camera shake + sound boom</p>
-<p>⸻</p>
-<p>🔹 2. ReLU Activations</p>
-<p>RELU itself is about combining patterns from the sense feed-forward layer that precedes it and adding a positive bias to the end result</p>
-<p>It doesn’t make negatives positive (like absolute value would). • It suppresses negatives entirely by zeroing them out. • So the output becomes sparser, and biased toward positive activation values – yes. • ReLU(x) = • 0 if x &lt; 0 • x if x ≥ 0 So if a dense layer outputs -3 → ReLU sets it to 0. If a dense layer outputs +3 → ReLU keeps it. No randomness. Just a simple function. ReLU. is a simple, deterministic non-linear activation function that filters out all negative values and passes positive ones through unchanged – introducing non-linearity and sparsity into the network. This pushes the output distribution toward positive values and helps the model learn selectively activated patterns. This non-linearity is what lets deep networks learn complex patterns and functions. • Help generate diverse outputs, even from the same prompt, due to-deterministic but non linear feature activations.</p>
-<p>• Enable non-linear transformations of the combined non-linear visual dynamics (e.g., motion, visual + audio features, lighting changes). visual + audio features</p>
-<p>• Contribute to Veo’s ability to create outputs with synced motion and sound dynamics.</p>
-<p>⸻</p>
-<p>🔹 3. Batch Normalization</p>
-<p>• Normalizes feature maps across the batch of observations.</p>
-<p>• Keeps training stable by maintaining mean ≈ 0 and std ≈ 1 across spatiotemporal activations.</p>
-<p>• Crucial when training on high-dimensional video latents where signal variance can spike.</p>
-<p>• Normalizes all channels – including those encoding audio features – across the batch.</p>
-<p>• Stabilizes training over large-scale audiovisual tensors.</p>
-<p>⸻</p>
-<p>🔹 4. 3D Max Pooling</p>
-<p>Downsamples across spatial and temporal dimensions, but retains sound-aligned features embedded per frame.</p>
-<p>• Downsamples the spatial and/or temporal resolution – often halving each axis.</p>
-<p>• Focuses on salient patterns while discarding irrelevant noise.</p>
-<p>• Helps compress rich information into lower-resolution semantic maps.</p>
-<p>• Ensures that essential spatial, motion, and acoustic patterns are preserved even at lower resolutions.</p>
-<p>⸻</p>
-<p>⸻</p>
+<p>⸻ 2. SiLU Activations (Sigmoid Linear Unit, aka Swish)</p>
+<p>SiLU is a smooth, non-linear activation function widely used in state-of-the-art generative models like diffusion networks. It serves the same core purpose as ReLU – introducing non-linearity and filtering out weak signals</p>
+<p>but with smoother transitions and better gradient flow.Unlike ReLU, which hard-zeroes all negative values, SiLU softly suppresses them using a sigmoid-weighted scale. This allows even small negative inputs to contribute to the output, resulting in a continuous and expressive activation pattern across layers.It doesn’t make negatives positive (like absolute value would). • Mathematical Form: text{SiLU}(x) =x cdot text|sigmoid}(x) So: • If * &lt; 0, the sigmoid (x) is small → x is downscaled, not discarded • If x &gt; 0, sigmoid(x) is near 1 → x is mostly passed through SiLU is a deterministic non-linear activation function that does the same job ReLU does – only without hard-canceling gradients under zero. It suppresses them softly and projects a pattern-based continuation into the next layer. This smooth transition helps deep networks learn rich, abstract patterns while preserving signal detail across layers – a core requirement in architectures like diffusion U-Nets. •, Why This Matters SiLU enables: • Smoother signal propagation • Stronger gradient flow • Fewer “dead neurons” • Rich feature learning – especiall crucial for diffusion models, where ⸻</p>
+<p>🔹 3. Group Normalization</p>
+<p>Group Normalization – a normalization technique used in modern diffusion models instead of BatchNorm. It normalizes across groups of channels in each individual video making it more stable during training and effective for small batch sizes – which is common in generative models like MidJourney and Stable Diffusion.</p>
+<p>Group Normalization still standardizes the features, just like BatchNorm – the difference is what it standardizes across.</p>
+<p>GroupNorm: Normalize across groups of channels within each individual image</p>
+<p>Batch norm is NOT used in State-of-the-Art diffusion models, group norm</p>
+<p>What Both BatchNorm and GroupNorm Do:</p>
+<p>They normalize the input features so that:</p>
+<p>Mean ~ o • Standard deviation ~ 1 This stabilizes training, accelerates convergence, and prevents exploding or vanishing gradients. • Normalizes the output of feature maps within each individual image by splitting channels into smaller groups (e.g., 32 groups). • • Unlike BatchNorm, it doesn’t rely on batch statistics, which makes it far more stable when batch sizes are small or variable – a crucial property for diffusion models. • This normalization helps the model maintain consistent gradients and stable activations across noisy inputs during the denoising process. • • Used in all modern diffusion architectures like Stable Diffusion. ⸻</p>
+<p>🔹 4. Understanding Attention in Diffusion Models (U-Net style)</p>
+<p>What Is Attention Doing in a Diffusion Model?</p>
+<p>In image generation, attention helps the model:</p>
+<p>• Focus on different parts of the image when making predictions</p>
+<p>• Relate different spatial regions to one another</p>
+<p>• Align image regions to text prompts (in cross-attention, for example</p>
+<p>Main Types of Attention in Diffusion Models</p>
+<ol type="1">
+<li>Self-Attention</li>
+</ol>
+<p>Self-Attention in Video Diffusion Models</p>
+<p>• Compares every frame in the video with every other frame by leveraging 3D embeddings that combine vision, time, and sound modalities.</p>
+<p>• Learns global temporal and cross-modal relationships across frames and audio, such as how certain visual phenomena relate across time or how sounds align with specific visual events.</p>
+<p>• Typically placed at the bottleneck of the U-Net, where spatial and temporal dimensions are most compressed, to keep computation manageable while capturing broad context.</p>
+<ol start="2" type="1">
+<li>Cross-Attention</li>
+</ol>
+<p>Used in text-to-video models (e.g., sora, Veo 3, Hailuo ) • Attention flows from image → to text: each pixel region attends to semantic features in the text embedding (e.g., from CLIP) Used for: Aligning regions of the image to words in the prompt • • Example: “dragon” → tail, wings, horns, texture</p>
 <p>🔹 5.</p>
 <p>Upsampling + Skip Connections( 2 separate layers but work together )</p>
 <p>• In the decoder, the latent is gradually upsampled (restoring spatial and temporal resolution).</p>
@@ -276,7 +283,26 @@ ul.task-list li input[type="checkbox"] {
 <p>• Coherent scene ambiance (visual + audio)</p>
 <p>• Time-aware convolutional blocks</p>
 <p>• Temporal skip connections</p>
+<p>• Spatiotemporal denoising layers<br>
+</p>
+<p>Veo 3’s U-Net denoises video + audio together – treating them as one coherent experience, just like how humans perceive the world. Every convolution, skip connection, and upsampling block operates on unified audiovisual latents, enabling:</p>
+<p>• Synchronized speech and lip movement</p>
+<p>• Emotion-aware sound design</p>
+<p>• Coherent scene ambiance (visual + audio)</p>
+<p>• Time-aware convolutional blocks</p>
+<p>• Temporal skip connections</p>
 <p>• Spatiotemporal denoising layers</p>
+<p>state of the art diffusion U-Net:</p>
+<p>• Conv2D</p>
+<p>• Strided convolution</p>
+<p>• GroupNorm</p>
+<p>• SiLU</p>
+<p>• Self/Cross-Attention (positioned in mid/bottleneck layers)</p>
+<p>• Residual blocks</p>
+<p>• Skip connections</p>
+<p>• Noise schedule</p>
+<p>• Latent space sampling</p>
+<p>These are the same across both image and video generation</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/CLIP-in-veo3.webp" class="img-fluid figure-img"></p>
@@ -365,9 +391,6 @@ ul.task-list li input[type="checkbox"] {
 <p>• Once the latent has been fully denoised, it is passed through a decoder that maps the latent to actual video frames.</p>
 <p>• Audio is either reconstructed from the audio channels of the latent or synthesized in parallel via a dedicated audio decoder (if present).</p>
 <p>• The result: a fully rendered RGB video + synchronized soundtrack.</p>
-<p>Fundamental CNN Components (Repeated Many Times):</p>
-<p>These make up 90 – 95% of the architecture in models like MidJourney, Stable Diffusion, DALL·E 2, Hailuo, runway, veo 3 etc.:</p>
-<p>3D Convolutional Layers in the case of video generation • Extract localized visual patterns (edges, textures, shapes)+ time, and sound. • Controlled by kernels, strides, and channels. • ReLU Activations • Adds non-linearity; allows deep networks to learn complex mappings. • Batch Normalization • Normalizes each batch to stabilize and accelerate training. • Mean = 0, standard deviation = 1. • Max Pooling • Downsamples the feature map by taking the strongest signal in each region. • • Used at bottlenecks or when transitioning to fully connected parts of the network. • Skip (Residual) Connections • Merge encoder and decoder features for better reconstruction. • Prevent loss of fine-grained detail. These blocks are stacked deeply, sometimes 30 – 70 layers deep learning on resolution and training goals.this is why SOTA deep learning models are often 90 + layers deep. ⸻</p>
 <p>✅ Summary: The Pipeline at a Glance</p>
 <p>Text Prompt</p>
 <p>. ↓</p>
