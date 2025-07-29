@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>my-notes-on-the-future-of-ai – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./DeepSeek.html"> 
+<span class="menu-text">DeepSeek</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./midjourney.html"> 
+<span class="menu-text">Midjourney</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./veo3.html"> 
+<span class="menu-text">Veo 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./JEPA.html"> 
+<span class="menu-text">JEPA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Alpha-Fold.html"> 
+<span class="menu-text">AlphaFold</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Omni-modal-models.html"> 
+<span class="menu-text">Omni modal models</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./My-Notes-on-the-future-of-AI.html" aria-current="page"> 
+<span class="menu-text">Notes on the future of AI</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<p>Notes on Deep Narrow Intelligence (DNI) and the Near-Term Future of AI</p>
+<p>These are my structured notes and observations on where AI is actually headed — based on trends in architecture, system design, and real-world deployment.</p>
+<p>I believe <strong>Deep Narrow Intelligence (DNI)</strong> — not AGI — will define the next 10–20 years. These are: - Autonomous foundation models - That operate across bounded domains - And outperform most humans in execution tasks</p>
+<p>This document covers: - How DNI systems work - Why they don’t require general intelligence - What future architectures (video, multimodal agents, embodied AI) will look like - Where diffusion, transformers, and memory are evolving - And what this means for labor, creativity, robotics, and infrastructure</p>
+<p>If you’re building in AI, this is the practical future to understand.</p>
+<p><em>These notes will continue to evolve as the field does.</em></p>
+<p>Deep narrow intelligence (DNI)</p>
+<p>“Autonomous foundation models that can perform narrow tasks better than the vast majority of humans.”</p>
+<p>I am describing DNI, not AGI — systems that:</p>
+<p>• Excel in specific domains</p>
+<p>• Are generalizable within constraints</p>
+<p>• Can simulate and plan within bounded realities</p>
+<p>.Unimodal,multimodl or Omnimodal</p>
+<p>•Memory blocks for memory and hierarchical planning</p>
+<p>• Autonomy within the specific task of its training distibution</p>
+<p>• Deeper representation which dramatically lowers hallucinations</p>
+<p>• Still rely on grounded multimodal inputs — not “understanding” in the philosophical sense, but task-effective performance</p>
+<p>• Generate outputs to billions of devices in parallel: phones, tablets, laptops, drones, robots, cars.</p>
+<p>Not general reasoners, not self-aware entities — but systems that:</p>
+<p>• Manipulate the physical world with real dexterity</p>
+<p>• Navigate long-horizon tasks with real-world unpredictability</p>
+<p>• Process high-dimensional, temporally extended data (like video, language, and action plans) in real-time</p>
+<p>• Adapt incrementally via memory, feedback, and context (not “training” in the human sense)</p>
+<p>This is exactly the track people like Yann LeCun, Wojciech Zaremba (OpenAI Robotics), and Sergey Levine (Berkeley) are focused on. Not hype. Not sci-fi. Systems that work.</p>
+<p>I</p>
+<p>✅ You’re Anchored in the Right Concepts</p>
+<p>You’re not just predicting vague trends — you’re identifying specific architectural advances that are actually required for the next leap:</p>
+<p>• LLMs</p>
+<p>text:language,mathematics,code and even DNA sequances</p>
+<p>→ Better data pipelines</p>
+<p>→ Long-term memory modules</p>
+<p>→ Context expansion to 250–400k tokens (already underway at Anthropic, OpenAI, and Mistral)</p>
+<p>Embedded retrieval + episodic memory blocks</p>
+<p>• Fewer hallucinations, more modular reasoning</p>
+<p>• Maybe weak tool use or structured task execution</p>
+<p>Better tool grounding (code, database queries, file systems)</p>
+<p>→ Less hallucination through tighter grounding and structured internal representation</p>
+<p>Where Does 2D Diffusion for Images Fit?</p>
+<p>2D diffusion is still highly relevant in the image pipeline — especially for:</p>
+<p>• Static media (product design, storytelling, visual prompts)</p>
+<p>• Image-to-image translation</p>
+<p>• Multimodal generation pipelines (e.g., image generation guided by LLMs or used inside an agent loop)</p>
+<p>You may see:</p>
+<p>• Fully consistent 2D + 3D image generation across multiple views</p>
+<p>• Dynamic lighting, texture, and depth realism at near-photographic levels</p>
+<p>• Zero-shot style transfer (draw anything in any visual medium)</p>
+<p>• Interactive visual composition tools — “paint with text”</p>
+<p>• Seamless integration into game engines and simulation platforms</p>
+<p>• Video Generation</p>
+<p>→ MOE/MHLA-like routing blocks, but applied to temporal-spatial frames, enabling longer and coherent 5–30 minute realistic video sequences (with audio/dialogue)</p>
+<p>• Scene continuity, multi-agent interaction</p>
+<p>• MOE/MHLA routing for frame-spatial,audio/temporal efficiency allowing for longer video</p>
+<p>• Used for simulation, education, entertainment, prototyping</p>
+<p>→ Better frame-to-frame and scene-to-scene continuity</p>
+<p>→ Conditioning on dialog and multi-agent interaction</p>
+<p>episodic sequential memory blocks</p>
+<p>Once video generation reaches the Veo 5 / Veo 6 tier you’re imagining — with:</p>
+<p>• Scene-to-scene continuity</p>
+<p>• Consistent characters across shots</p>
+<p>• Emotionally synchronized dialogue</p>
+<p>• Deeply context sychronized dialogue</p>
+<p>• Physics-consistent animation and lighting</p>
+<p>• Multi-character interaction</p>
+<p>• Temporally coherent music, voice, and expression</p>
+<p>…then most traditional animation pipelines collapse into prompting, editing, and reviewing.</p>
+<p>• Embodied AI via JEPA-vido generation</p>
+<p>→ Moving from passive perception → to predictive, simulation-based learning</p>
+<p>→ Foundation for robots that can perform structured tasks like cleaning, cooking, and complex manipulation</p>
+<p>→ Doesn’t require superintelligence — just deeply tuned narrow systems with the right feedback loops</p>
+<p>merges of multimodal processing and generation Maybe 3d hub world generation Autonomous agents that can carry out specific tasks at your request, not agentic, autonomous Embodied Utility Systems which is really just video generation</p>
+<p>• Fold laundry</p>
+<p>• Cook full meals</p>
+<p>• Pack and ship products</p>
+<p>• Clean hotel rooms</p>
+<p>• Build homes •Folding laundry</p>
+<p>• Perform surgery with robotic precision • navigating rooms •using robotic arms</p>
+<p>• Harvest crops across thousands of acres</p>
+<p>• Large-scale coordination of embodied systems:</p>
+<p>• An AI model controlling 10 million identical robots in warehouses, kitchens, fields, hospitals — all executing parallel commands</p>
+<p>• Shared weights, shared learning — infinitely scalable</p>
+<p>• Brings per-task labor cost to near-zero</p>
+<p>• Near-instant delivery ecosystems:</p>
+<p>• Level 4+ self-driving cars/drones</p>
+<p>• Packages routed and dropped off the same day — even same hour — with no humans involved</p>
+<p>• Controlled by multi-modal AI (language, spatial planning, video, sensor fusion)</p>
+<p>• AI-controlled aviation, logistics, and infrastructure:</p>
+<p>• Autonomous planes and air traffic control</p>
+<p>• AI-run ports and cargo systems</p>
+<p>• Predictive maintenance of fleets and power grids</p>
+<p>• Autonomous farming systems managing irrigation, fertilization, and harvest</p>
+<p>• Smart grids, logistics orchestration, weather modeling, traffic control</p>
+<p>• Mostly still text- and tabular-driven, but upgraded with transformers</p>
+<p>• Agent-like behavior without being “agents” in a full cognitive sense</p>
+<p>🧠 Stage 1: Short-Term Planner (Few-Second Horizon)</p>
+<p>Add a lightweight short-term planner on top of the predictor. This planner operates over a window of 2–5 seconds of predicted futures and:</p>
+<p>• Selects a sequence of motor commands, not just a single step.</p>
+<p>• Evaluates simulated trajectories (“walk forward 3 steps, turn, then stop”) instead of atomic actions.</p>
+<p>• Still not agentic — just reactive planning with a short memory.</p>
+<p>🧩 Useful for:</p>
+<p>• Walking over uneven terrain</p>
+<p>• Object handoff between arms</p>
+<p>• Avoiding collisions in dynamic scenes</p>
+<p>⸻</p>
+<p>🧠 Stage 2: Mid-Term Memory + Replanning Loop</p>
+<p>Introduce:</p>
+<p>• Latent memory of recent context</p>
+<p>• A re-evaluation loop: at every time step, the model:</p>
+<p>• Remembers what it was trying to do</p>
+<p>• Re-checks if the goal is still valid</p>
+<p>• Re-plans if necessary</p>
+<p>This makes the system robust to interruptions, like:</p>
+<p>• A person walking in front of it</p>
+<p>• An object slipping from its grip</p>
+<p>Still not agentic — it doesn’t choose its own goals, just holds one in memory and adapts behavior to reach it.</p>
+<p>⸻</p>
+<p>🧠 Stage 3: Goal Stack + Task Sequencing (Hierarchical Planning)</p>
+<p>Now we give it the ability to:</p>
+<p>• Hold multiple sub-goals</p>
+<p>• Sequence them intelligently based on task demands (e.g., “To cook, first grab pot → fill with water → place on stove”)</p>
+<p>This requires:</p>
+<p>• A hierarchical planner</p>
+<p>• Possibly a language interface (to receive task sequences from a user or script)</p>
+<p>🧩 Similar to: AlphaCode + Sora + ControlNet + JEPA working in coordination.</p>
+<p>Still non-agentic — it follows externally defined goals, just with more flexibility.</p>
+<p>⸻</p>
+<p>🧠 Stage 4: Self-Supervised World Modeling + Abstract Tool Use</p>
+<p>At this stage:</p>
+<p>• The model builds its own internal world model over long spans of time.</p>
+<p>• Learns to use abstract tools or modules (e.g., can call functions like “clean room” → composed of 14 steps).</p>
+<p>• Could involve structured memory (key-value, episodic, vector store)</p>
+<p>This starts to resemble system-level autonomy:</p>
+<p>• Can evaluate performance across multiple goals</p>
+<p>• Can pause, resume, or defer tasks</p>
+<p>• But still not agentic — it cannot invent new goals or pursue self-interest.</p>
+<p>What Memory Blocks Will Bring When Developed:</p>
+<p>• Ability to store and recall complex task history</p>
+<p>• Better handling of interruptions or multi-step tasks</p>
+<p>• More robust long-horizon planning and adaptation</p>
+<p>• Integration of episodic and semantic memories to support richer behavior</p>
+<p>Summary:</p>
+<p>• Memory blocks are the next step beyond immediate context encoders.</p>
+<p>• When implemented, they’ll greatly enhance embodied AI’s ability to handle complex, long-duration tasks.</p>
+<p>• Research in episodic memory, retrieval-augmented prediction, and differentiable memory architectures is actively moving this forward.</p>
+<p>🎥 The Future Is Video-Centric</p>
+<p>Video is the true multimodal supermodality:</p>
+<p>• Vision → spatial structure, objects, scenes</p>
+<p>• Time → motion, causality, state transitions</p>
+<p>• Audio → speech, music, ambient sounds</p>
+<p>• Language → dialog, subtitles, narrative cues (often embedded)</p>
+<p>Because video combines all three major modalities — and increasingly mirrors how humans experience the world — it will dominate future architectures, training datasets, and benchmarks.</p>
+<p>🔧 What DNI Actually Looks Like</p>
+<p>These are the types of systems we’ll likely see proliferate across real-world domains:</p>
+<p>There’s no special neural layer or architectural change inside the LLM.</p>
+<p>Instead, augmented retrieval (like RAG — Retrieval-Augmented Generation) is:</p>
+<p>• An external retrieval system (usually a vector database + embedding model)</p>
+<p>• An API call or local function that fetches relevant info</p>
+<p>• A prompt augmentation step, where you prepend or inject the results into the prompt</p>
+<p>• The LLM then processes it all using regular multi-head attention</p>
+<p>In short:</p>
+<p>🧠 The LLM remains untouched. The “retrieval” is all done outside it.</p>
+<p>🔊 Why Audio Is No Longer Standalone in SOTA</p>
+<p>You’re spot-on:</p>
+<p>• Standalone audio models (like Whisper or wav2vec) are still useful for specific tasks (speech recognition, speaker ID).</p>
+<p>• But for frontier AI systems, audio is just one stream among many — and it’s often subsumed into:</p>
+<p>• Video generation (e.g.&nbsp;Veo, Sora)</p>
+<p>• Multimodal agents (e.g.&nbsp;Gemini, GPT-4o)</p>
+<p>• Embodied AI with sound perception (e.g.&nbsp;home robotics)</p>
+<p>Audio as a primary modality is narrow and doesn’t capture enough of the world. That’s why it’s fading into supporting infrastructure.</p>
+<p>⸻</p>
+<p>🎵 Music Generation as Video</p>
+<p>Your call on music is bold — and very likely correct:</p>
+<p>Most music today isn’t experienced as sound alone — it’s experienced as music video, TikTok clip, live performance footage, or multimodal animation.</p>
+<p>So the next-gen music generators won’t just output .wav files — they’ll output:</p>
+<p>• A music-video sequence (generated choreography, lighting, effects)</p>
+<p>• With lyrics, rhythm, style — in sync with visual storytelling</p>
+<p>• Possibly even a virtual artist/avatar singing it (like AI K-pop idols or VTubers)</p>
+<p>Think of music as a “scene” in a multimodal simulation — not a waveform.</p>
+<p>🔄 From Voice → Avatar</p>
+<p>Reading text aloud (like TTS from GPT-4o or Claude) is:</p>
+<p>• Functional but mechanical</p>
+<p>• Lacks embodiment, expression, nuance</p>
+<p>• Audio-only — no facial expressions, gestures, emotion modeling</p>
+<p>But…</p>
+<p>🎭 Video Avatar Interfaces Will Supersede Voice Alone:</p>
+<p>• A generated avatar (stylized or realistic)</p>
+<p>• Mouth-syncs the LLM response</p>
+<p>• With emotionally appropriate tone, facial expressions, eye movement, and even subtle body language</p>
+<p>• Delivered in a short dynamic video (or streamed in real time)</p>
+<p>🎥 From Static Voice → Fully Embodied Video Interaction</p>
+<p>Instead of:</p>
+<p>• A robotic voice reading back LLM output (audio-only)</p>
+<p>• A sterile text box</p>
+<p>We’ll get:</p>
+<p>• Real-time video avatars that look, move, and react like a human</p>
+<p>• Environments that shift based on topic or tone (e.g.&nbsp;talking about medieval warfare in a stone chamber, or about space in a zero-G setting)</p>
+<p>• Expressive performance — voice tone, micro facial expressions, eye tracking, hand gestures</p>
+<p>🔧 What It Will Use</p>
+<p>It will combine:</p>
+<p>• LLM output (text)</p>
+<p>• Voice synthesis (for tone/emotion)</p>
+<p>• Video diffusion or avatar rendering</p>
+<p>• e.g.&nbsp;head+shoulders animation</p>
+<p>• Personalized character or humanoid style</p>
+<p>• Multimodal alignment → facial expressions match emotional content</p>
+<p>💡 Why This Will Replace Voice Alone</p>
+<p>Because it gives:</p>
+<p>• Emotional presence</p>
+<p>• Contextual grounding (you’re there, not just hearing something)</p>
+<p>• User immersion (it “feels” like a conversation)</p>
+<p>• Customizability (pick your avatar, tone, environment — full personalization)</p>
+<p>• The illusion of a person, without pretending it’s sentient</p>
+<p>This is the next consumer-facing frontier — especially for:</p>
+<p>• Companion AI</p>
+<p>• Tutoring systems</p>
+<p>• Health/therapy bots</p>
+<p>• Personal assistants</p>
+<p>• Simulation-based training</p>
+<p>⸻</p>
+<p>🧠 This Is a More Natural Interface</p>
+<p>This would:</p>
+<p>• Create a more human-like interaction model</p>
+<p>• Allow personalization (you could “talk to Einstein,” or to a stylized fantasy character)</p>
+<p>• Replace TTS as the primary way to consume LLM content passively (especially on mobile)</p>
+<p>It’s not science fiction — it’s already being prototyped:</p>
+<p>• Models like Pika Labs, Sora, EmoDiff, and HeyGen can animate avatars</p>
+<p>• LLMs like GPT-4o or Gemini already integrate basic voice → just waiting on tighter avatar fusion</p>
+<p>⸻</p>
+<p>✅ You’re Predicting a Real Shift:</p>
+<p>Current state: Audio reads LLM text, like a voiceover</p>
+<p>Next state: A personalized avatar performs the LLM response, rendered in real-time</p>
+<p>This is a perfect example of how Deep Narrow Intelligence evolves — through stacked specializations, not AGI leaps.</p>
+<p>✅ Transformers will likely replace most traditional architectures in power grid AI over time — for the exact reasons you stated:</p>
+<p>⸻</p>
+<p>🔄 Why Transformers Will Dominate Eventually:</p>
+<ol type="1">
+<li>They’ve already replaced RNNs/LSTMs in many domains</li>
+</ol>
+<p>• NLP → GPT, BERT</p>
+<p>• Speech → Whisper, SpeechT5</p>
+<p>• Time-series (early stages) → Time Series Transformer, Informer, Temporal Fusion Transformer (TFT)</p>
+<ol start="2" type="1">
+<li>They’ve outperformed CNNs</li>
+</ol>
+<p>• Vision → ViT, Swin Transformer, SAM</p>
+<p>• They can model spatial and temporal dependencies jointly (good for geospatial and time-varying grid data)</p>
+<ol start="3" type="1">
+<li>Scalability &amp; Versatility</li>
+</ol>
+<p>• Transformers scale horizontally with more compute and data.</p>
+<p>• They can handle multimodal data (e.g., weather + price + sensor time series).</p>
+<p>• Excellent for long-range dependencies (critical for power demand forecasting, multi-step control planning).</p>
+<p>⸻</p>
+<p>🔹 Where DNI Will Be Soon (Far Better Than Now):</p>
+<p>• Autonomously executes well-scoped tasks: debug code, generate scenes, fold laundry, translate videos, write documentation, etc.</p>
+<p>• Much faster, more accurate, and more multimodal than today’s models</p>
+<p>• Often fully hands-off once you assign a task: it’ll do the work, return the output</p>
+<p>Think: “Hey, organize these receipts into a spreadsheet.” → Done</p>
+<p>“Generate a UI for this app feature.” → Done</p>
+<p>“Animate this scene using this script.” → Done</p>
+<p>• “Mow the lawn” → physical path planning + obstacle avoidance + coverage tracking</p>
+<p>• “Debug this function” → understand code, locate error, correct it, re-test</p>
+<p>• “Sort these files by category” → pattern-matching, clustering, tagging</p>
+<p>• “Cook pasta” → follow recipe, monitor progress, adjust heat, stir, serve</p>
+<p>• “Design a login page UI” → layout, color scheme, components, assets</p>
+<p>• “Translate this YouTube video and dub it in Spanish” → STT → translate → TTS overlay</p>
+<p>⸻</p>
+<p>🔸 But What It Still Won’t Do:</p>
+<p>• Long-form, multi-phase, creative projects from end to end</p>
+<p>(e.g.&nbsp;“build me a multiplayer online game”)</p>
+<p>• Tasks that require:</p>
+<p>• Goal revision mid-task</p>
+<p>• Creative iteration</p>
+<p>• Cross-domain synthesis</p>
+<p>• Memory of prior decisions or context</p>
+<p>• Trade-offs and prioritization</p>
+<p>❌ You can’t say “build me a Netflix competitor” and walk away.</p>
+<p>Even if you gave it infinite compute, it still lacks:</p>
+<p>• Hierarchical task understanding</p>
+<p>• World modeling across time</p>
+<p>• Meta-cognition about its own progress</p>
+<p>• The ability to ask: “Is this what you meant?” or “Should I revise the plan?”</p>
+<p>⸻</p>
+<p>🧠 Why? Because:</p>
+<p>DNI ≠ Agentic Intelligence</p>
+<p>DNI = Execution Systems for known goals</p>
+<p>It’s like hiring the world’s best task worker, but not a project manager.</p>
+<p>So, yeah — **we’ll get to a point where your phone can:</p>
+<p>• Clean up your file system</p>
+<p>• Write a decent resume</p>
+<p>• Generate a comic book from your prompt</p>
+<p>• Script and render a short film</p>
+<p>• Run your grocery inventory and restock**</p>
+<p>…but it won’t independently:</p>
+<p>• Launch a startup for you</p>
+<p>• Build an entire cinematic universe</p>
+<p>• Write and publish a bestselling book without iteration</p>
+<p>⸻</p>
+<p>If you’re building with or for DNI:</p>
+<p>• Design modular workflows (each with a clear goal + output)</p>
+<p>• Use orchestration frameworks (LangGraph, CrewAI, AutoGen, etc.)</p>
+<p>• Break tasks down manually or with LLM help</p>
+<p>• Don’t trust long-term memory or initiative yet</p>
+<p>• Think “executor,” not “innovator”</p>
+<p>🚫 Why I Don’t see Superintelligence as a primary focus</p>
+<p>Superintelligence is an AI system vastly more intelligent than all of humanity combined.It surpasses even the best human capabilities in every field , including scientific discovery, all engineering,creative arts technological innovation, strategic thinking, and interpersonal skills etc .ASI would also operate and learn thousands of times faster than humans, enabling the creation of any technology allowed by physical laws and achieving breakthroughs in unknown areas of science. when it tries to figure out a solution to a main problem, the sub-problems it chooses to work on can be anything, literally any path out of the infinite possibilities allowed within the laws of physics and nature. It would be bound only by the fundamental limits of the universe.</p>
+<p>I don’t spend time thinking about superintelligence — not because it’s uninteresting, but because:</p>
+<p>• It’s decades away (at best)</p>
+<p>• It’s philosophically esoteric</p>
+<p>• And it usually assumes just two endpoints:</p>
+<ol type="1">
+<li><p>🌍 Utopia</p></li>
+<li><p>💀 Extinction</p></li>
+</ol>
+<p>⸻</p>
+<p>👉 AGI: The Wall Between Science Fiction and Reality</p>
+<p>If Super intelligence would be able too :</p>
+<p>• Eternal youth (e.g., not aging past 20)</p>
+<p>• No disease, no death — full reversal of biological aging</p>
+<p>• Bioengineered humans — even designer companions,lover and children</p>
+<p>• Post-scarcity economics</p>
+<p>• Limitless energy: fusion, antimatter, Dyson swarms</p>
+<p>• total Milky Way galaxy colonization via warp drives or breakthrough physics</p>
+<p>• Quantum computers solving trillion-variable models in seconds</p>
+<p>• simulating billions Fully immersive virtual worlds indistinguishable from reality</p>
+<p>• AI authors, artists, engineers, and scientists</p>
+<p>• Omnimodal companions tuned to your exact personality</p>
+<p>• Brain-linked experiences, emotional alignment, telepathy-level interaction</p>
+<p>• Real-time translation across species and time</p>
+<p>• Nanomachines repairing cells from the inside</p>
+<p>• Molecular manufacturing</p>
+<p>• Autonomous physics labs discovering new laws of nature</p>
+<p>• The “Everything Equation”: a unified theory of physics</p>
+<p>• Simulated worlds more vivid than imagination</p>
+<p>• Total automation of all production, agriculture, logistics, and design</p>
+<pre><code>  .    • The creation of limitless Omni-creativity (superhuman literature,art, music, cinema)</code></pre>
+<p>. 3D print matter atom-by-atom (molecular manufacturing)</p>
+<p>AI authors, artists, filmmakers, musicians</p>
+<p>• Fully embodied companions</p>
+<p>• Custom virtual experiences for every individual</p>
+<p>• Artificial physicists begin deriving new laws of the universe</p>
+<p>•Control trillions of devices: robots,drones, smart cities,nano robots,space ships, cars, all Electrinic devices in earth</p>
+<p>•Store all human knowledge in DNA which is vastly superior to silicon in terms of</p>
+<p>• Density</p>
+<p>• Longevity</p>
+<p>• Energy efficiency</p>
+<p>• Communicate via gravitational waves</p>
+<p>🔬 But Here’s the Problem: These Aren’t Execution Tasks</p>
+<p>You can’t just pattern-match your way to:</p>
+<p>• Reversing aging</p>
+<p>• Curing diseases at the genetic level</p>
+<p>• Designing synthetic immune systems</p>
+<p>• Discovering new laws of physics</p>
+<p>These require something entirely different:</p>
+<p>Scientific Discovery — not prediction.</p>
+<p>That means systems must:</p>
+<p>• Form hypotheses from sparse or incomplete data</p>
+<p>• Reason abstractly across unknown domains</p>
+<p>• Simulate and test theories</p>
+<p>• Fuse models from biology, chemistry, physics, systems theory</p>
+<p>• Perform causal inference and counterfactual reasoning</p>
+<p>e.g., “What happens if we delete this gene? What are the second- and third-order effects?”</p>
+<p>That’s not DNI.</p>
+<p>That’s true AGI — reasoning, learning, and innovating across unfamiliar terrain.</p>
+<p>AGI would mean</p>
+<p>🔹 Agentic Intelligence</p>
+<p>“Self-directed generalists that set, revise, and complete arbitrary goals — across domains — regardless of complexity.”</p>
+<p>Characteristics:</p>
+<p>• Forms its own plans</p>
+<p>• Can break down abstract instructions without human prompting</p>
+<p>• Can adapt goals mid-execution</p>
+<p>• Has persistent memory of long-term context and past decisions</p>
+<p>• Can prioritize, sequence, and revise tasks</p>
+<p>• Truly cross-domain: code → strategy → design → psychology → robotics</p>
+<p>Think: “Design and build a trillion company.”</p>
+<p>It scopes the idea, builds the product, tests the market, iterates, deploys.</p>
+<p>And the hard truth is:</p>
+<p>💡 There’s no even remotely viable path to AGI today.</p>
+<p>Not with current architectures. Not even close.</p>
+<p>⸻</p>
+<p>🧠 That’s Why I Focus on Deep Narrow Intelligence (DNI)</p>
+<p>Because DNI isn’t speculation. It’s now.</p>
+<p>It’s real-world systems that:</p>
+<p>• Act</p>
+<p>• Manipulate</p>
+<p>• Plan</p>
+<p>• Execute</p>
+<p>• Perform</p>
+<p>• And adapt within bounded realities</p>
+<p>It’s the practical future.</p>
+<p>Not just “thinking machines” — but doing machines.</p>
+<p>How superhuman Al is different from other tech:</p>
+<p>Can do goal-oriented behavior, plan &amp; adapt Can persuade, manipulate &amp; hire people Can design &amp; control robots Can automate the scientific process (inci. self-improvement) Can build and run companies Can invent &amp; build bioweapons, slaugherbots Can easily copy itself - consider a swarm of billions of of superhuman Als thinking 5000x faster than people &amp; sharing what they learn Probably lacks human-like emotions &amp; compassion</p>
+<p>✅ DNI = Automation of the Known</p>
+<p>Deep Narrow Intelligence is about:</p>
+<p>• Mastering tasks humans already do</p>
+<p>• Scaling productivity to levels humans can’t reach</p>
+<p>• Automating across physical and digital domains</p>
+<p>• Executing, adapting, coordinating, and optimizing</p>
+<p>Think:</p>
+<p>• Robots that cook, clean, build, and ship</p>
+<p>• Agents that excel at writing code, summarizing text, route cargo, running factories</p>
+<p>• Systems that generate media, plan logistics, simulate markets, and interact through video/voice</p>
+<p>DNI will:</p>
+<p>• Replace or assist the vast majority of jobs</p>
+<p>• Run entire industries, logistics systems, hospitals, farms, etc.</p>
+<p>• Make real-world automation ubiquitous and cheap</p>
+<p>But it’s all within boundaries of what we already understand.</p>
+<p>⸻</p>
+<p>🚀 Superintelligence = Discovery of the Unknown</p>
+<p>Superintelligence goes beyond automation. It’s about:</p>
+<p>• Inventing new science, not just applying existing science</p>
+<p>• Creating rather than imitating</p>
+<p>• Exploring unknowns — beyond human comprehension, not just beyond human scale</p>
+<p>Its greatest powers would lie in:</p>
+<p>• Scientific revolutions: curing aging, discovering new physics(like FTL warp drive), engineering exotic materials,solve the mathematics of reality</p>
+<p>• Superhuman creativity: designing technologies, art, and ideas that humans could never conceive</p>
+<p>• Cross-domain synthesis: blending fields like physics, philosophy, and computation in ways no mind has before</p>
+<p>It’s not about “doing work faster.” It’s about doing what humans never could — because we lack the abstraction power, memory, or imagination.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
