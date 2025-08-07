@@ -478,9 +478,9 @@ ul.task-list li input[type="checkbox"] {
 <p>• Perform surgery with extreme precision</p>
 <p>•navigating rooms</p>
 <p>•using robotic arms</p>
-<p>• Harvest crops across thousands of acres</p>
-<p>• Large-scale coordination of embodied systems:</p>
-<p>• An AI model controlling 10 million identical robots in warehouses, kitchens, fields, hospitals — all executing parallel commands</p>
+<p>• Harvest crops across thousands of acres:video trained Neural Networks + Robot bodies = Scalable Automation Each food category — from grains and vegetables to meat alternatives and complex prepared meals — can be automated using: Task-specific neural networks, trained on the physical and procedural aspects of producing that food item, all of which can be modeled in a massive video dataset Multi-agent robot swarms, each controlled by or interfaced with the relevant neural networks. Vision-language-action models, capable of responding to contextual instructions in factories, farms, or kitchens. ⸻ You could deploy thousands of expert models, each specialized in: • diffent types of foods and thier production and preparation • Controlling robotic actuators. • Monitoring and correcting for quality, consistency, and hygiene in real-time. • Optimizing for throughput and efficiency under varying conditions as it is able to generalize acorss its video training set • Massively Parallel Production Superintelligence Will Amplify This — But It’s Not Required for food abundance • While a superintelligent system could further optimize cross-system efficiency, dietary health, and planetary sustainability, the core infrastructure for food abundance can be built with: • State-of-the-art video generation models which enables Model-based control over robotic fleets. ⸻</p>
+<p>⸻</p>
+<p>• An AI model controlling tens of millions - hundreds of millions of robots in warehouses, kitchens, fields,delivery,manufacturing, hospitals, war — all executing parallel commands</p>
 <p>• Shared weights, shared learning — infinitely scalable</p>
 <p>• Brings per-task labor cost to near-zero</p>
 <p>• Near-instant delivery ecosystems:</p>
@@ -492,6 +492,10 @@ ul.task-list li input[type="checkbox"] {
 <p>• AI-run ports and cargo systems</p>
 <p>• Predictive maintenance of fleets and power grids</p>
 <p>• Autonomous farming systems managing irrigation, fertilization, and harvest</p>
+<p>• Smart grids, logistics orchestration, weather modeling, traffic control</p>
+<p>• Mostly still text- and tabular-driven, but upgraded with transformers</p>
+<p>• Agent-like behavior without being “agents” in a full cognitive sense</p>
+<p>Because AI models are not limited by human cognition or attention span, they can: •Orchestrate millions of robots simultaneously. •Run 24/7 production and navigation without fatigue •Continuously improve via self-supervised feedback loops or reinforcement from sensory data (e.g., temperature, texture, visual alignment, etc.). •This enables the cost of food production or any product or service to drop dramatically — not just through economies of scale, but through: •Hyper-optimization of supply chains. •Reduced labor costs. •Minimal waste and spoilage. •Localized micro-factories reducing shipping burden.</p>
 <p>⸻</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -507,10 +511,12 @@ ul.task-list li input[type="checkbox"] {
 <p>🧩 Clarifying Misconceptions:</p>
 <p>JEPA is not fundamentally different from Sora or VO3.</p>
 <p>It is a video world model, but its output stays in latent space to guide downstream modules (like control, decision, or planning heads).</p>
-<p>Meanwhile, Sora and VO3:</p>
+<p>⸻</p>
+<p>Meanwhile, Sora and VEO 3:</p>
 <p>• Are rendered video generators.</p>
 <p>• Include decoders to visualize outputs.</p>
 <p>• Serve different interface layers (users, not actuators).</p>
+<p>⸻</p>
 <p>🎥 Two Fundamental Roles of Video in AI</p>
 <ol type="1">
 <li>Decoded Video → Human Interface</li>
@@ -523,6 +529,7 @@ ul.task-list li input[type="checkbox"] {
 <p>• Motion physics</p>
 <p>• High-level semantic control (e.g., prompt-to-story)</p>
 <p>• Fine-grained editing / conditional generation</p>
+<p>⸻</p>
 <p>This is what’s visible today — and what all the hype is about.</p>
 <p>But it’s not the deepest use case.</p>
 <p>⸻</p>
@@ -536,6 +543,7 @@ ul.task-list li input[type="checkbox"] {
 <p>• Analogous to: The brain predicting motion without ever “seeing” the world in rendered frames</p>
 <p>This is real “video intelligence.”</p>
 <p>It’s not about visuals. It’s about:</p>
+<p>⸻</p>
 <p>“Can the model understand what will happen in a temporally extended latent space — and act on it?”</p>
 <p>And this is the real bottleneck for:</p>
 <p>• Self-driving cars</p>
@@ -545,11 +553,10 @@ ul.task-list li input[type="checkbox"] {
 <p>• Smart factories</p>
 <p>• Smart farming</p>
 <p>• And eventually: generalized embodied agents</p>
+<p>⸻</p>
 <p>🔸 Video’s Richness Comes at a Cost</p>
 <p>Video is the most information-dense modality — combining space, time, motion, and sound — which makes it the ideal training ground for world modeling. But that same richness makes it the hardest to model. The input dimensions of video (especially with high resolution, long duration, and audio) are massive.Even state-of-the-art generative models like Sora and Veo 3 can only produce video in short bursts — typically under one minute — before quality degrades or coherence breaks.Why? Because the computational demands of processing and generating high-fidelity video over time are still immense. Training on video is also harder: unlike static images, video requires modeling temporal continuity, physical realism, and synchronized audio — all within an enormous latent space. Video is where AI learns the structure of reality — but it’s also where today’s models hit their computational limits. That richness is exactly what makes video the ideal domain for video generation and world modeling — but also the hardest to generate.</p>
-<p>• Smart grids, logistics orchestration, weather modeling, traffic control</p>
-<p>• Mostly still text- and tabular-driven, but upgraded with transformers</p>
-<p>• Agent-like behavior without being “agents” in a full cognitive sense</p>
+<p>⸻</p>
 <p>🧠 Stage 1: Short-Term Planner (Few-Second Horizon)</p>
 <p>Add a lightweight short-term planner on top of the predictor. This planner operates over a window of 2–5 seconds of predicted futures and:</p>
 <p>• Selects a sequence of motor commands, not just a single step.</p>
@@ -570,6 +577,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This makes the system robust to interruptions, like:</p>
 <p>• A person walking in front of it</p>
 <p>• An object slipping from its grip</p>
+<p>⸻</p>
 <p>Still not agentic — it doesn’t choose its own goals, just holds one in memory and adapts behavior to reach it.</p>
 <p>⸻</p>
 <p>🧠 Stage 3: Goal Stack + Task Sequencing (Hierarchical Planning)</p>
@@ -609,6 +617,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Because video combines all three major modalities — and increasingly mirrors how humans experience the world — it will dominate future architectures, training datasets, and benchmarks.</p>
 <p>🔧 What DNI Actually Looks Like</p>
 <p>These are the types of systems we’ll likely see proliferate across real-world domains:</p>
+<p>⸻</p>
 <p>🔊 Why Audio Is No Longer Standalone in SOTA</p>
 <p>You’re spot-on:</p>
 <p>• Standalone audio models (like Whisper or wav2vec) are still useful for specific tasks (speech recognition, speaker ID).</p>
