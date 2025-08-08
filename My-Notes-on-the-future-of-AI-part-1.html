@@ -155,7 +155,8 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Multi-Modal Fusion</figcaption>
 </figure>
 </div>
-<p>These are my structured notes and observations on where AI is actually headed — grounded in architectural trends, system design shifts, and how these models are being deployed in the real world. but its all about 1 overarching concept ⸻</p>
+<p>These are my structured notes and observations on where AI is actually headed — grounded in architectural trends, system design shifts, and how these models are being deployed in the real world.</p>
+<p>⸻</p>
 <p>I believe what will define the next 10–20 years is not Artificial General Intelligence (AGI), but something I call Deep Narrow Intelligence (DNI):</p>
 <p>• Foundation models trained for autonomy</p>
 <p>• Operating across bounded domains</p>
@@ -185,15 +186,27 @@ ul.task-list li input[type="checkbox"] {
 <p>• Can simulate, reason, and plan across bounded environments (e.g.&nbsp;virtual worlds, industrial processes, dynamic web systems)</p>
 <p>• Supports hierarchical, multi-step planning with goal memory</p>
 <ol start="3" type="1">
-<li>Multimodal or Omnimodal Fusion</li>
+<li>Multimodal or Omnimodal Fusion (Refined)</li>
 </ol>
-<p>• Integrates vision, text(language mathematics,code, DNA sequences,sensro data),video(vision+ audio+ time),lone audio (used only for reading LLM generated text outloud)</p>
-<p>• Processes temporally extended, high-dimensional streams (e.g.&nbsp;video + images + text)</p>
+<p>• Core modalities for DNI systems:</p>
+<p>Text-based inputs (natural language, mathematics, code, DNA sequences, structured sensor data) Image inputs (static visual understanding and generation) Video inputs (temporal visual sequences, combining vision, time, and audio)</p>
+<p>• Audio is secondary, primarily used for:</p>
+<p>Text-to-speech (TTS): Reading outputs from LLMs Voice synthesis/replication: Rendering human-like output for UI Not typically a SOTA input modality for deep reasoning or decision-making</p>
+<p>• Fusion means convergence of these streams, where models can:</p>
+<p>Interpret temporally extended scenes (e.g.&nbsp;video + subtitles + audio cues) Ground language in vision and action Generate multimodal output from cross-modal context (e.g.&nbsp;video from text prompts or robot commands from video input)</p>
+<p>• Multimodal fusion is critical for video generation models operating in embodied or interactive environments (e.g.&nbsp;self-driving cars, drones, industrial robotics)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/DNI-modalities.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>DNI Modalities</figcaption>
+</figure>
+</div>
 <ol start="4" type="1">
 <li>Memory + Feedback Adaptation</li>
 </ol>
 <p>• Uses memory blocks, episodic context, and feedback for continual updating</p>
 <p>• Doesn’t “retrain” — it adapts live, like an expert with history</p>
+<p>Operates autonomously but within well-defined operational boundaries and known task distributions.</p>
 <ol start="5" type="1">
 <li>Autonomy</li>
 </ol>
@@ -205,6 +218,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>• Uses structured memory, attention routing, and feedback to ground outputs</p>
 <p>• Produces far more accurate, less brittle, and more interpretable outputs</p>
+<p>Adaptation could occurAdaptation occurs continuously during operation, enabling dynamic fine-tuning without costly retraining cycles. continuously during operation, enabling dynamic fine-tuning without costly retraining cycles.</p>
 <ol start="7" type="1">
 <li>Mass Deployment Potential</li>
 </ol>
@@ -213,6 +227,7 @@ ul.task-list li input[type="checkbox"] {
 <p>• Drones, cars, robots</p>
 <p>• Cloud platforms and edge devices</p>
 <p>• Generates billions of outputs/day across industries</p>
+<p>enabling widespread real-time applications across consumer, industrial, and scientific domains.</p>
 <p>⸻ ⸻</p>
 <p>Architectural Advances Enabling the Next Leap in DNI in LLM</p>
 <p>Text: language,mathematics,code,DNA sequence</p>
@@ -781,15 +796,19 @@ ul.task-list li input[type="checkbox"] {
 <p>• Write and publish a bestselling book without iteration</p>
 <pre><code> .    </code></pre>
 <p>⸻</p>
-<p>💬 What This Means for You</p>
-<p>If you’re building with or for DNI:</p>
-<p>• Design modular workflows (each with a clear goal + output)</p>
-<p>• Use orchestration frameworks (LangGraph, CrewAI, AutoGen, etc.)</p>
-<p>• Break tasks down manually or with LLM help</p>
-<p>• Don’t trust long-term memory or initiative yet</p>
-<p>• Think “executor,” not “innovator”</p>
-<p>⸻</p>
-<p>⸻</p>
+<p>AI and Space Exploration: Realistic Expectations</p>
+<p>While AI is often hyped as a crucial player for future space exploration, the reality is more nuanced. Current AI systems depend heavily on massive amounts of training data—particularly video and sensor data—to operate effectively, which we simply don’t have for many space environments. This scarcity limits their ability to autonomously perform complex tasks beyond Earth or the Moon.</p>
+<p>Moreover, the physical realities of space—like communication delays that increase dramatically beyond the Moon—pose significant challenges. AI systems located in Earth-based data centers can’t provide real-time control or decision-making for distant spacecraft or rovers.</p>
+<p>Limited Training Data: Unlike Earth, where abundant datasets enable AI to learn and generalize, environments like the Moon and Mars offer sparse, incomplete data. Current lunar datasets mostly come from a handful of missions and do not cover the breadth of activities or environmental conditions required for autonomous operation. Communication Delays: The vast distances in space introduce significant communication latency, making real-time remote control impractical and requiring onboard autonomy that current AI systems aren’t yet capable of at scale in these domains.</p>
+<p>The Speed of Light: A Fundamental Limitation for Space AI</p>
+<p>One of the most critical challenges for deploying AI-controlled robots beyond Earth is the immutable speed of light limit. Even though AI systems on Earth’s data centers can process information and generate control signals extremely fast, transmitting those signals across vast cosmic distances is constrained by physics.</p>
+<p>Communication Delay Examples between each output: Earth to Moon: ~1.28 seconds one-way delay Earth to Mars (closest approach): ~3 minutes one-way delay Earth to Mars (farthest): up to ~22-24 minutes one-way delay</p>
+<p>Implications for Control: These delays mean that AI cannot reliably provide real-time control or rapid reactive feedback for robots operating on other planets or deep space probes. Instead, robots will likely continue to be hard coded with no intelligence at least for space</p>
+<p>That said, DNI will play a valuable in:</p>
+<p>Identifying cosmic objects through data analysis, Autonomously Writing error-free code for space missions</p>
+<p>Real autonomy for AI in deep space will require:</p>
+<p>Space based data centers to house state of the art AI models in Vast abundance of video data for models to train in to execute operations and tasks successfully in space environments(moon, mars, between planets ) Advanced world models that can learn efficiently from video data which we are seeing the very first glimpses of with JEPA but challenges remain</p>
+<p>so AI will remain Earth bound for the forseeble future ⸻</p>
 <p>🔩 Architectural Base:</p>
 <p>• Transformers for most reasoning and sequence modeling</p>
 <p>• Diffusion models for generating spatial and temporal data (images, video, 3D, audio)</p>
