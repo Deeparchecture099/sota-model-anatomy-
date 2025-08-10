@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ai-polarization – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./DeepSeek.html"> 
+<span class="menu-text">DeepSeek</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./midjourney.html"> 
+<span class="menu-text">Midjourney</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./veo3.html"> 
+<span class="menu-text">Veo 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./JEPA.html"> 
+<span class="menu-text">JEPA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Alpha-Fold.html"> 
+<span class="menu-text">AlphaFold</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Omni-modal-models.html"> 
+<span class="menu-text">Omni modal models</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./My-Notes-on-the-future-of-AI-part-1.html"> 
+<span class="menu-text">Notes on the future of AI part 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./My-Notes-on-the-future-of-AI-Part-2.html"> 
+<span class="menu-text">Notes on the future of AI Part 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./AI-polarization.html" aria-current="page"> 
+<span class="menu-text">AI polarization</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./About-me.html"> 
+<span class="menu-text">About me</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Hype-vs-skeptic.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Hype vs skeptic</figcaption>
+</figure>
+</div>
+<p>Introduction: The Two Camps and Why I Skip the AGI vs Superintelligence Divide</p>
+<p>In today’s AI landscape, public discourse tends to split into two polarized camps:</p>
+<p>The Hype Camp:</p>
+<p>This group</p>
+<p>The Hype Camp: Characteristics and Biases</p>
+<p>The hype camp often exhibits an almost magical(and somtimes entirely magical) belief in rapid, exponential AI progress and near-term arrival of superintelligence. Here are some common features of their perspective:</p>
+<p>This group often dominates headlines,the overwhelming majority of CEOS, social media, and surprisingly even some researchers. Their defining features include:</p>
+<ol type="1">
+<li>Magical Thinking and Overgeneralization :</li>
+</ol>
+<p>• Overgeneralization of Capabilities:They believe each new AI model release will not just incremental improvements but exponential intelligence leaps, rapidly reaching proto-superintelligence. Progress is assumed to be sudden and revolutionary, not incremental.</p>
+<p>For example, going from GPT-4 to GPT-5 is seen not as a refinement, or just an improvment in intelligence but as the dawn of proto-superintelligence.</p>
+<p>• Minor improvements in intelligence or demo successes are extrapolated to claims of imminent general superintelligence.Projecting capabilities far beyond what current systems can reliably deliver. A single impressive demo (e.g., writing Minesweeper in one prompt,Sora generating impressive video,genie 3 generating a weak video simulation of the world) becomes evidence that AI will soon replace entire industries or create self-aware agents.</p>
+<p>• Superintelligence as Inevitable &amp; Near:</p>
+<p>• They treat superintelligence as just around the corner, sometimes within a year or two, early 2030s for the absolute latest, ignoring the deep complexities involved with developing intelligence.</p>
+<p>⸻ example:</p>
+<p>Hype vs.&nbsp;Reality: The Math Olympiad Example</p>
+<p>⸻</p>
+<p>The Event:</p>
+<p>In 2025, OpenAI and DeepMind state of the art large langauge model hit gold-medal performance on International Mathematical Olympiad (IMO)-level problems, solving 5 out of 6 within competition constraints. This was the first time any AI system matched the top-tier human scores in one of the world’s hardest math contests.</p>
+<p>The Hype Reaction:</p>
+<p>Online, the achievement was widely hailed as evidence of proto-superintelligence. Social media threads and even some news outlets claimed that “AI has cracked math” and that a self-improving AGI might be imminent. To many, matching gold-medal human performance meant that AI could soon overtake humans across the board.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>AGI and Superintelligence: A Quick Note</p>
+<p>In this article, I won’t dwell on the definitions or debates around Artificial General Intelligence (AGI) versus superintelligence. I’ve addressed those extensively in my Future of AI: Part 2 notes, where I argue that the distinction is mostly semantic. Once an AI system reaches human-level general intelligence and runs on digital hardware, it effectively becomes a superintelligence due to speed, scalability, and other computational advantages.</p>
+<p>If you want a deep dive into what superintelligence really means, how it arises, and why the leap from narrow AI to superintelligence is the real milestone, check out my full breakdown in those notes.</p>
+<p>Here, we’ll focus instead on the current polarized discourse surrounding AI progress — how the hype and skeptic camps talk past each other, and why a balanced, engineer-centered perspective is badly needed.</p>
+<p>Proto-Superintelligence: This is the first glimmer or seed of superintelligence—systems that start to show behaviors significantly beyond advanced narrow AI but aren’t fully autonomous or deeply creative yet. They might solve all known problems in a domain with help or generate novel insights, but still depend heavily on human guidance or data they’ve seen before. It’s like a “proto” (early form or precursor) phase where the jump beyond human-level intelligence is starting but not fully realized.</p>
+<p>⸻</p>
+<p>Early Superintelligence: This is a more robust, self-directed stage where the system autonomously pursues new knowledge, solves genuinely new problems without human prompts, and shows clear, consistent advantages over the best human experts across domains. It’s past the “proto” stage and moving toward full superintelligence but still developing.</p>
+<p>I wont go itnto anymore detail here because I already covered superintelligence with comprehensively in my “Notes on the future of AI part 2”</p>
+<p>⸻ ⸻</p>
+<p>The Reality:</p>
+<p>35/36 on a curated International Mathematical Olympiad–style benchmark is undeniably impressive for an LLM, but it’s still firmly inside the “narrow-task” zone.</p>
+<p>That score shows:</p>
+<p>• The model has strong symbolic manipulation skills, pattern recognition, and training data coverage for competition-style math.</p>
+<p>• It can sometimes generalize beyond memorization — but only within the well-defined boundaries of high-school/undergraduate competition problems.</p>
+<p>• Its success is still dependent on prior exposure to problem types, solution patterns, and formats common in training corpora.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>What it doesn’t show:</p>
+<p>• Ability to tackle novel, open mathematical problems where there is no training precedent.</p>
+<p>• The capacity for sustained original research without heavy human steering.</p>
+<p>• Cross-domain integration of mathematics into physics, economics, or engineering at a level that drives new theories.</p>
+<p>While impressive, this feat is a narrow-domain win. The models:</p>
+<p>• Used extensive compute budgets and long reasoning chains.</p>
+<p>• Operated with human-curated problem formats and no real-world noise.</p>
+<p>• Still failed on proofs outside the competition format.</p>
+<p>• Are not robustly generalizing their reasoning ability to messy, ambiguous problem spaces.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>what actual Signs of Actual Proto-Superintelligence in Mathematics woudl look like:</p>
+<p>• Solves any existing competition problem with 100% reliability, no prompting tricks or special hacks.</p>
+<p>• Consistently produces novel solutions to known problems — for example, shorter, more elegant proofs never seen before.</p>
+<p>• Bridges disciplines autonomously, applying concepts from one field (e.g., combinatorics) to another (e.g., biology) without explicit training or guidance.</p>
+<p>• Maintains a long-term, persistent memory of its own mathematical reasoning, building on past work seamlessly across sessions.</p>
+<p>• Open-ended proof generation: Produces correct, peer-review-ready proofs for decades-old open problems (e.g., Riemann Hypothesis, Navier–Stokes existence and smoothness) without being tailored specifically to those problem classes during training.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>2.Minimal to zero Nuance or Engineering Understanding:</p>
+<p>• Technical details are often glossed over or misunderstood. The focus is on sensational narratives rather than balanced technical assessment.</p>
+<p>• Dismissal of Current Limitations:</p>
+<p>Known weaknesses such as hallucinations, brittleness, lack of long-term memory, and difficulty with reasoning are often downplayed or ignored.</p>
+<p>This camp overlooks the fact that we have only unlocked one dimension of human intellignece and thats pattern recognition. which neural networks are extremely good at, they fail to understand that true superintelligence,you ned to go beyond pattern recognition or building bigger transformers. You’d need to replicate—and then surpass—all core dimensions of human intelligence in a software substrate, including:Imagination and ingenuity (not just extrapolation) Deep scientific understanding and reasoning across all domains Long-term crystallized memory, not just short-term context retrieval Meta-cognition — the ability to reflect,self awareness, self-correct, and improve its own thinking Omni-modality — seamless integration across vision, language, video(vision+ time+ audio), and more Volition, agency, and autonomous goal formation.</p>
+<p>3.Techno-Utopian or Dystopian Narratives:</p>
+<p>• They tend to swing between extremes of AI either saving humanity or causing catastrophic existential risks imminently.</p>
+<p>Influence of Pop Culture &amp; Media: • Movies, sci-fi, and hype articles feed into exaggerated expectations and fears, amplifying emotional responses over critical thinking.</p>
+<p>⸻</p>
+<p>4.Anthropomorphizing AI</p>
+<p>There’s a strong tendency to attribute human-like understanding, intent, or consciousness to AI models, even when the models are clearly highly advanced pattern-recognition without true reasoning or awareness.</p>
+<p>⸻</p>
+<p>example: i have literally seen people, even resarchers who should know better claim consciousness or intentionality or self awarness</p>
+<ol start="5" type="1">
+<li>Selective Attention to Positive Outcomes</li>
+</ol>
+<p>The hype camp focuses heavily on success stories, breakthroughs, and futuristic scenarios, while underemphasizing failures, incremental improvements, and the slower pace of real-world adoption.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>The Skeptic Camp: On the other end, this camp views current AI as nothing more than “autocomplete on steroids” — useful but fundamentally narrow and lacking true understanding or generality. They downplay the transformative potential, emphasizing AI’s limitations, hallucinations, and dependency on humans.</p>
+<p>Dismissal of Progress: • They frequently deny or downplay genuine advances, insisting that all AI progress is just hype or marketing. For example, phrases like “it’s just autocomplete on crazy steroids,” or “AI only helps educate people then plagiarizes their work, so we’re safe” are common.</p>
+<p>• Refusal to Acknowledge Impressive Developments:</p>
+<p>• Skeptics often refuse to recognize meaningful technical milestones or practical applications, even when evidence shows real gains in capabilities.</p>
+<p>Focus on AI’s Current Limitations:</p>
+<p>• They highlight hallucinations, brittleness, limited reasoning, and domain-specific narrowness to argue that AI is not truly intelligent or transformative.</p>
+<p>• Resistance to Optimism or Long-Term Potential:</p>
+<p>• This camp is quick to dismiss hopeful projections as wishful thinking or a passing fad, often ignoring how incremental improvements could accumulate over time.</p>
+<p>Overly Blunt or Dismissive Tone:</p>
+<p>• Their skepticism can become outright cynicism, dismissing AI as mostly useless or trivial.</p>
+<p>• Demand for Rigor and Evidence:</p>
+<p>They(rightly) strongly prioritize scientific rigor, peer-reviewed results, and replicable experiments, often rejecting hype-driven media narratives or early demos. Blind Spots:</p>
+<p>Despite being correct to point out current weaknesses, skeptics often overlook or refuse to accept how AI already automates complex workflows, boosts creativity, and accelerates research.</p>
+<p>Demand for Evidence — But with Selective Blindness: While skeptics rightly insist on scientific rigor and verified results, many take it too far by refusing to acknowledge clear, observable AI capabilities and intelligence already demonstrated in real-world tasks. This selective blindness leads them to claim AI has no real intelligence or utility, despite overwhelming evidence of AI outperforming most humans in specialized areas like coding, mathematics, language understanding, art creation, medical diagnosis, and more.</p>
+<p>For example, state-of-the-art large language models consistently outperform over 95% of humans globally in tasks like writing,langauge translation, mathematics, and coding. These benchmarks aren’t just theoretical—they’re based on rigorous testing and real-world performance. Yet, some skeptics still insist these models lack any intelligence, dismissing the clear evidence because it doesn’t fit their preconceptions.</p>
+<p>• sometimes even deny great progress is even possible</p>
+<p>⸻</p>
+<p>many Skeptics underestimate AI achievements by dismissing data scale arguments</p>
+<p>A common skeptic argument is that AI achievements like diffusion-generated art like Midjourney or DALLE aren’t impressive because the models train on massive datasets. They say, “It’s just memorizing,” or “Anyone can do that with enough data.”</p>
+<p>But this ignores a fundamental truth : humans also learn from massive amounts of data over years. A typical person sees millions of images before graduating high school, absorbing patterns, styles, and concepts across countless contexts. This extensive exposure shapes human visual recognition and creativity.</p>
+<p>To hold AI to a standard that dismisses accomplishments simply because of “large-scale training” is inconsistent and ignores the complexity of learning itself. Learning from large datasets is precisely how intelligence—human or artificial—builds expertise.</p>
+<p>This flawed critique often dismisses impressive breakthroughs in image generation,video generation, language modeling, and other domains, by pretending that data volume is somehow “cheating” rather than a legitimate foundation for skill acquisition.</p>
+<p>⸻ ⸻</p>
+<p>They often say that children learn language and reasoning with very little data, implying that AI models should do the same. But this claim is misleading.</p>
+<p>On the claim that toddlers learn from sparse data:</p>
+<p>• Toddlers don’t physically experience the world in the same way AI models do, but they are immersed in continuous sensory input, social interaction, and language exposure for years before they start speaking fluently.</p>
+<p>• Most children don’t say their first words until around age two or later, and many don’t speak in full sentences until age four or five. This means they have been “training” on massive amounts of data — conversations, observations, sounds, and contexts — for years before they even start to talk.</p>
+<p>• toddlers dont understand cause and effect until their training data(what they experince or see ) includes it and often times in many examples much like neural networks tho not to the same quantity, human children do not have an innate understanding of physicla dynamics as often claimed</p>
+<p>• seven and eight year olds regularly use words they don’t understand at all, showing that their mastery is still developing. They are not capable of doing complex math or coding tasks at that stage either.</p>
+<p>• While toddlers may learn quicker than current AI models in some respects, it’s inaccurate to claim they learn from “sparse” data when, in fact, they have a vast, rich experience base over multiple years before coherent language or complex reasoning.</p>
+<p>This means comparisons between toddlers/small children and AI models regarding intelligence often oversimplified or misused.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>The Skeptic Camp: Dismissal Through Vague Criticism</p>
+<p>A common pattern in the skeptic camp is vague dismissal without engaging the substance of AI’s real capabilities. For example, comments like:</p>
+<p>“So I just completed a project. Asked GPT-5 to do it. It gave a half-made, crappy looking thing. So, honest review, still a beginner level, not even close to intermediate.”</p>
+<p>and</p>
+<p>“It’s just autocomplete on crazy steroids, helps educate people and put them on the right path, and then later plagiarizes their work. We’re safe.”</p>
+<p>These remarks are both vague and delusional. They don’t specify what the project was or what “beginner level” means in measurable terms, ignoring that GPT-5 and other state-of-the-art models can generate fully functioning neural networks, data processing pipelines, and much more.</p>
+<p>Such comments tend to ignore or actively deny impressive and demonstrable advances in AI, instead framing progress as hype or plagiarism. This refusal to acknowledge reality blinds the skeptic camp to the technology’s true potential and hinders a balanced understanding of where AI currently stands.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>1.LLM Capability Depends on Prompt Engineering &amp; Oversight</p>
+<p>A model’s output isn’t fixed — it’s like a musical instrument.</p>
+<p>• A novice can play a few notes badly.</p>
+<p>• A skilled musician can use the exact same instrument to perform a concerto.</p>
+<p>The “intermediate” judgment often comes from people using it like a Google search box and then blaming the model for poor output.</p>
+<p>• I have literally used it to build the entire data pipeline for a diffusion model — from scraping data with iCrawler &amp; DuckDuckGo, to preprocessing, augmentation, and defining the neural network. That’s intermediate to advanced coding work, not “lazy person’s autocomplete.”</p>
+<p>• The key difference is I had the deep domain knowledge to guide, correct(only occasionally needed), and integrate what it produced.</p>
+<p>⸻ ⸻</p>
+<p>2.Task Difficulty Is Not Static</p>
+<p>A task that feels “impressive” to one person might be trivial to another:</p>
+<p>• Writing a basic to-do list app might be “advanced” to a non-coder but trivial for you.</p>
+<p>• Writing an image preprocessing pipeline with augmentation hooks might seem niche or “minor” to the hype crowd but is actually non-trivial ML engineering.</p>
+<p>⸻</p>
+<p>3.Different Domains, Different Baselines</p>
+<p>LLMs are uneven:</p>
+<p>• In web dev, they can produce fully functional frontends from scratch.</p>
+<p>• Build a fully functional Tetris game with a great UI in a single prompt</p>
+<p>• Solve any leet code problem in seconds</p>
+<p>• Program an ESP-32 and other micro controllers</p>
+<p>• Build you a full minesweeper game from a single prompt</p>
+<p>• Multilingual fluency:</p>
+<p>• Fluent natural language generation and translation across hundreds of languages, including low-resource languages.</p>
+<p>• Code translation/refactoring:</p>
+<p>• Ability to translate code between languages (e.g., Python → C++) or refactor and optimize existing code.</p>
+<p>Creative writing: • Writing poetry, stories, jokes, and even song lyrics with style and thematic consistency.</p>
+<p>• Legal document drafting:</p>
+<p>• Producing drafts of contracts, terms of service, and other formal documents.</p>
+<p>• Data extraction &amp; summarization:</p>
+<p>• Extracting structured data from unstructured text, summarizing lengthy reports or conversations accurately.</p>
+<p>• Explainability &amp; reasoning chains:</p>
+<p>• Generating step-by-step explanations or “chain-of-thought” reasoning in math or logic problems.</p>
+<p>• Conversational nuance:</p>
+<p>• Maintaining context across multi-turn conversations with consistency in tone and persona.</p>
+<p>• Few-shot and zero-shot learning:</p>
+<p>• Performing novel tasks given only a few or no examples during inference.</p>
+<p>• Interactive debugging assistance:</p>
+<p>• Helping debug code by analyzing errors and suggesting fixes interactively.</p>
+<p>• Interactive debugging assistance: Helping debug code by analyzing errors and suggesting fixes interactively.</p>
+<p>• Flawlessly complete entire university level coding projects across all levels in a single prompt</p>
+<p>• Successfully write entire essays with no errors with good promoting ( easier than it sounds)</p>
+<p>• Solve advanced mathematical equations with extreme accuracy,</p>
+<p>• In scientific research, they can generate literature summaries and suggest experiments, but not execute novel experiments autonomously.</p>
+<p>• In ML engineering, they can scaffold entire deep learning projects — but need human prompting and oversight for architecture choice, hyperparameters, and data QA.</p>
+<p>Calling them “beginner” ignores this domain variance and it’s capabilities. They are very very far from superintelligence but they are not useless or toys either.</p>
+<p>⸻</p>
+<p>4.Better Metric: Autonomy + Iteration</p>
+<p>Instead of beginner/intermediate/expert, the real questions are:</p>
+<ol type="1">
+<li><p>How well can it plan multi-step tasks without handholding?</p></li>
+<li><p>How effectively can it self-correct when output fails?</p></li>
+<li><p>Can it handle cross-domain dependencies (e.g., data sourcing + preprocessing + model definition + training + evaluation)?</p></li>
+<li><p>what is its accuracy across 1 dimensional data (text) so natural language, mathematics, coding.</p></li>
+</ol>
+<p>⸻ ⸻</p>
+<p>Robustness to ambiguous or incomplete prompts:</p>
+<p>How well can the model handle vague or underspecified instructions and still produce usable output?</p>
+<p>Self-reflection and uncertainty estimation:</p>
+<p>Can the model recognize when it doesn’t know something or when its output might be wrong?</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Incremental improvement through feedback:</p>
+<p>Ability to use user or environment feedback to iteratively improve output in a session.</p>
+<p>Cross-modal reasoning:</p>
+<p>Combining text(natural langauge,code,mathematics), images, video inputs and reasoning across them coherently.</p>
+<p>Multi-agent coordination:</p>
+<p>If applicable, how well can it work in a pipeline or alongside other AI agents to complete complex workflows?</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Ethical and safe response generation:</p>
+<p>How well does it avoid unsafe or biased outputs when operating with minimal oversight?</p>
+<p>By those measures, the latest LLMs are already far past “beginner” in multiple domains — what they lack is key intelligence needed to be more advanced : the token windows for larger more dateild outputs,long term memory and autonomous capability needed to carry out more advanced projects.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Both Camps Are Equally Delusional</p>
+<p>The skeptic camp often refuses to acknowledge meaningful AI progress, dismissing impressive capabilities as mere hype or glorified autocomplete. Meanwhile, the hype camp leaps to magical conclusions, projecting imminent superintelligence or godlike AI powers after every incremental update.</p>
+<p>Both extremes distort the actual state of AI research and deployment. The skeptics’ denial blinds them to real achievements, while the hype believers inflate every breakthrough into world-changing leaps.</p>
+<p>A balanced, engineer-centered perspective recognizes that current AI systems are higly capable tools—tho in their infancy, far beyond simple autocomplete, but nowhere near even proto-superintelligence. Progress is steady, complex, and full of nuance, not sudden leaps into the realm of magic.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>The Desperation That Binds Both Camps</p>
+<p>Beneath the surface of the polarized AI discourse lies a shared emotional undercurrent: desperation. While the two camps — the superintelligence hype crowd and the skeptical deniers — seem worlds apart, both are often driven by powerful personal hopes and fears.</p>
+<p>On one side, the superintelligence camp is fueled by a kind of messianic hope. Many of them, including prominent figures like Ray Kurzweil, eagerly await the arrival of superintelligent AI, expecting it to solve humanity’s most intractable problems.For some, it’s a salvation narrative, a promise of personal and collective transformation. Kurzweil’s daily ritual of taking supplements and his steadfast timelines for superintelligence illustrate this almost spiritual faith in AI’s future.</p>
+<p>He often talks about a future where superintelligent AI will:</p>
+<p>1 • Solve major scientific and technological problems like mastering nuclear fusion (unlocking nearly limitless clean energy).</p>
+<p>2 • Reverse human aging and cure diseases, essentially granting humans radical life extension or eternal youth</p>
+<p>3 • Develop advanced biotechnology to enhance human bodies and minds.</p>
+<p>4 • Create vast new energy sources far more powerful than fusion, particularly antimatter.</p>
+<p>5 • Enable human-machine integration (uploading minds, merging AI with human consciousness).</p>
+<p>6 • Achieve radical breakthroughs in medicine, materials science, and computing at an unprecedented scale and speed.</p>
+<p>7 • Fundamentally transform civilization, redesigning everything from cities to economies, laws, and education through superintelligent governance and planning.</p>
+<p>8 • vastly surpass humans in all domains</p>
+<p>Kurzweil has targeted the late 2020s to 2030s as when these transformations could begin, often citing exponential growth in computation and AI capabilities as driving forces.</p>
+<p>They are right about the eventual emergence of superintelligence and its revolutionary capabilities(the only one on that list I disagree with is 5, it should also be noted that kurtweil is NOT an AI expert)— but EXTREMELY wrong about how soon it will arrive.</p>
+<p>⸻ ⸻</p>
+<p>On the other side, the skeptic camp often operates out of fear and a desire for security. Many skeptics feel threatened by the rapid advancement of AI. To protect their worldview and sense of human uniqueness, they reject or downplay AI’s intelligence and usefulness. By insisting that AI is “just autocomplete on steroids” or that it lacks true reasoning, they create a psychological shield against a reality they find unsettling. This defensive posture is understandable — it’s a way to soothe anxiety about losing control or relevance in an increasingly automated world.</p>
+<p>They are right that AI systems today face significant limitations and that the field is still in its infancy — but wrong in dismissing current model capabilities or the profound impact AI will have on the future.</p>
+<p>Both camps, then, are caught in a feedback loop of desperation: one clings to hope for a near-term breakthrough that will revolutionize everything; the other clings to dismissal to preserve a sense of normalcy and safety. Neither side embraces the messy, incremental reality of AI progress, where breakthroughs happen in fits and starts, and where powerful new capabilities coexist with serious limitations.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
