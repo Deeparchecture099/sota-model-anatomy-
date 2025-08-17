@@ -126,6 +126,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./Omni-modal-models.html">
  <span class="dropdown-text">Omni Modal Models</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
+ <span class="dropdown-text">Optimization in Deep Learning</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -134,27 +138,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-my-models">    
         <li>
-    <a class="dropdown-item" href="./my-models/diffusion.html">
- <span class="dropdown-text">Diffusion Models</span></a>
+    <a class="dropdown-item" href="./diffusion-image-model.html">
+ <span class="dropdown-text">Diffusion Model</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./my-models/moe-lm.html">
+    <a class="dropdown-item" href="./moe-llm.html">
  <span class="dropdown-text">Mixture of Experts LM</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">My Notes</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes-section" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Notes Section</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
         <li>
-    <a class="dropdown-item" href="./My-Notes-on-the-future-of-AI-part-1.html">
- <span class="dropdown-text">Notes on the Future of AI Part 1</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./My-Notes-on-the-future-of-AI-part-2.qmd">
- <span class="dropdown-text">Notes on the Future of AI Part 2</span></a>
+    <a class="dropdown-item" href="./Deep-Narrow-Intelligence.html">
+ <span class="dropdown-text">Deep Narrow Intelligence</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./AI-polarization.html">
@@ -163,6 +163,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./self-supervised-reinforcement-learning-video-generation.html">
  <span class="dropdown-text">Self-Supervised Reinforcement Learning Video Generation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./my-notes-superintelligence.html">
+ <span class="dropdown-text">Superintelligence</span></a>
   </li>  
     </ul>
   </li>
@@ -288,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
 <p>• For DeepSeek: Especially critical for math/code, where positional relationships (e.g., nesting, order of operations) change meaning entirely.</p>
 <p>⸻</p>
 <p>⸻</p>
-<p>🔁 Repeated Core Block: (Typically repeated dozens or even hundreds of times)</p>
+<p>🔁 Repeated Core Blocks: (Typically repeated dozens or even hundreds of times)</p>
 <p>Each of the following layers is stacked repeatedly in a transformer block:</p>
 <p>4.Multi-Head Attention (MHA)</p>
 <p>• What it does: Each attention head learns to focus on different relationships between tokens (e.g., syntactic structure, semantic similarity).</p>
@@ -316,18 +320,23 @@ ul.task-list li input[type="checkbox"] {
 <p>• Structure: Dense → ReLU → Dense</p>
 <p>• Why it matters: Adds non-linearity and lets the model transform token representations beyond linear attention-based operations.</p>
 <p>• For DeepSeek: One of the densest learnable components, where much of the per-token transformation happens.</p>
-<p>8.ReLU Activations</p>
-<p>RELU itself is about combining patterns from the sense feed-forward layer that precedes it and adding a positive bias to the end result</p>
-<p>• It doesn’t make negatives positive (like absolute value would).</p>
-<p>• It suppresses negatives entirely by zeroing them out.</p>
-<p>• So the output becomes sparser, and biased toward positive activation values – yes.</p>
-<p>• ReLU(x) =</p>
-<p>• 0 if x &lt; 0</p>
-<p>• x if x ≥ 0</p>
-<p>So if a neuron outputs -3 → ReLU sets it to 0.</p>
-<p>If a neuron outputs +3 → ReLU keeps it.</p>
-<p>No randomness. Just a simple function.</p>
-<p>ReLU. is a simple, deterministic non-linear activation function that filters out all negative values and passes positive ones through unchanged – introducing non-linearity and sparsity into the network. This pushes the output distribution toward positive values and helps the model learn selectively activated patterns. This non-linearity is what lets deep networks learn complex patterns and functions.</p>
+<p>8.GELU Activations</p>
+<p>What GELU does:</p>
+<p>GELU = Gaussian Error Linear Unit.</p>
+<p>It smoothly “gates” inputs: small negative inputs are suppressed, positive inputs are passed through more freely, but not in a hard cutoff like ReLU.</p>
+<p>This smooth gating helps gradients flow better during training, reducing the risk of dying neurons (neurons that output zero all the time) while still allowing some nonlinearity.</p>
+<p>Conceptual difference: hard vs.&nbsp;soft suppression</p>
+<p>ReLU: f(x) = max(0, x) Hard cutoff: all negative inputs become 0. Pros: Simple, prevents exploding negatives. Cons: Dying neuron problem — once a neuron outputs 0, its gradient is 0, and it may never “wake up.”</p>
+<p>SiLU / Swish: f(x) = x * sigmoid(x) Smoothly suppresses negatives instead of zeroing them. Small negative inputs are allowed to pass through weakly, so gradient still flows.</p>
+<p>GELU: f(x) = x * Φ(x) (Φ = CDF of standard normal) Probabilistic gating: the neuron passes positive inputs mostly unchanged, but negative inputs aren’t fully zeroed — they’re scaled by a probability factor. Encourages neurons to learn patterns from slightly negative signals rather than ignoring them entirely.</p>
+<p>Key idea: GELU and SiLU let “useful negative signals” survive and contribute to the next layer, helping the network learn more nuanced representations. ReLU throws them away.</p>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<p>Why this matters for stability</p>
+<p>In a deep network, if too many neurons die (ReLU), the signal can vanish.</p>
+<p>Soft gating (GELU/SiLU) maintains gradient flow, stabilizing training.</p>
+<p>It’s like letting weak signals whisper instead of shouting — they still contribute to the overall pattern.</p>
 <ol start="8" type="1">
 <li>Softmax</li>
 </ol>
@@ -477,7 +486,7 @@ ul.task-list li input[type="checkbox"] {
 <p>. • Multi-Head Attention (MHA)</p>
 <p>. • Residual Connections.</p>
 <p>. • Layer Normalization.</p>
-<p>. • Feedforward MLP (Dense → ReLU → Dense)</p>
+<p>. • Feedforward MLP (Dense → GeLU → Dense)</p>
 <p>. ↑ These layers extract lower- and mid-level token patterns.</p>
 <p>. ↓.</p>
 <p>Multi-Headed Latent Attention (MHLA)</p>
@@ -497,7 +506,7 @@ ul.task-list li input[type="checkbox"] {
 <p>🔹 Architectural Efficiency Over Raw Scale</p>
 <p>DeepSeek’s Mixture-of-Experts + Multi-Headed Latent Attention architecture demonstrates that we can train large-scale language models more efficiently — by routing tokens to only the most relevant sub-networks (experts), compute is concentrated rather than wasted.</p>
 <p>🔹 Cheaper Training at Similar Scale</p>
-<p>This sparse activation allows for massive models with lower training costs, setting the stage for more organizations (not just trillion-dollar labs) to build competitive systems.</p>
+<p>This sparse activation allows for massive models with lower training costs, setting the stage for more organizations (not just multi-billion-dollar labs) to build competitive systems.</p>
 <p>🔹 Proof of Scalable Token Contexts</p>
 <p>DeepSeek also shows that longer token windows are becoming not just feasible, but practical. Architectures like this can support 100k+ token contexts, making real document understanding, codebase navigation, and multi-document reasoning more viable.</p>
 <p>🔹 Architectural Innovation &gt; Parameter Count</p>

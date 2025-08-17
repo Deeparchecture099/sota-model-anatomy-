@@ -126,6 +126,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./Omni-modal-models.html">
  <span class="dropdown-text">Omni Modal Models</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
+ <span class="dropdown-text">Optimization in Deep Learning</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -134,27 +138,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-my-models">    
         <li>
-    <a class="dropdown-item" href="./my-models/diffusion.html">
- <span class="dropdown-text">Diffusion Models</span></a>
+    <a class="dropdown-item" href="./diffusion-image-model.html">
+ <span class="dropdown-text">Diffusion Model</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./my-models/moe-lm.html">
+    <a class="dropdown-item" href="./moe-llm.html">
  <span class="dropdown-text">Mixture of Experts LM</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">My Notes</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes-section" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Notes Section</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
         <li>
-    <a class="dropdown-item" href="./My-Notes-on-the-future-of-AI-part-1.html">
- <span class="dropdown-text">Notes on the Future of AI Part 1</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./My-Notes-on-the-future-of-AI-part-2.qmd">
- <span class="dropdown-text">Notes on the Future of AI Part 2</span></a>
+    <a class="dropdown-item" href="./Deep-Narrow-Intelligence.html">
+ <span class="dropdown-text">Deep Narrow Intelligence</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./AI-polarization.html">
@@ -163,6 +163,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./self-supervised-reinforcement-learning-video-generation.html">
  <span class="dropdown-text">Self-Supervised Reinforcement Learning Video Generation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./my-notes-superintelligence.html">
+ <span class="dropdown-text">Superintelligence</span></a>
   </li>  
     </ul>
   </li>
@@ -207,7 +211,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Synchronization: lip sync, dialogue timing, and action–sound correlations. Narrative signal: music and sound design often carry pacing and emotional arc. Disambiguation: audio resolves ambiguous visual scenes (dialogue, off‑camera events). Perceptual realism: mismatched audio breaks perceived realism instantly.</p>
 <p>Current Landscape of Video Generation: Capabilities and Limitations</p>
 <p>Today’s state-of-the-art video generation models have made impressive strides, but they remain largely in the realm of short clips, simple continuity, and limited temporal scope. Key characteristics include:</p>
-<p>Length: Most models generate videos from seconds up to around 1 minutev at maximium reliably; longer videos degrade in temporal coherence and visual consistency. Continuity: Frame-by-frame realism has improved, but maintaining scene consistency, lighting continuity, and coherent object behavior across longer stretches remains challenging. Narrative &amp; Dialog: Current systems struggle with realistic multi-character interactions, long-range narrative arcs, and meaningful dialog synchronization. Audio: Audio is often generated separately or post-hoc, leading to desynchronization or lack of contextual integration with visuals. Computation: Generating high-resolution videos with rich temporal detail demands immense compute, often limiting research and practical applications.</p>
+<p>Length: Most models generate videos from seconds up to around 1 minutev at maximium reliably; longer videos degrade in temporal coherence and visual consistency.</p>
+<p>Continuity: Frame-by-frame realism has improved, but maintaining scene consistency, lighting continuity, and coherent object behavior across longer stretches remains challenging.</p>
+<p>Narrative &amp; Dialog: Current systems struggle with realistic multi-character interactions, long-range narrative arcs, and meaningful dialog synchronization.</p>
+<p>Audio: Audio is often generated separately or post-hoc, leading to desynchronization or lack of contextual integration with visuals.</p>
+<p>Computation: Generating high-resolution videos with rich temporal detail demands immense compute, often limiting research and practical applications.</p>
 <p>🔸 Video’s Richness Comes at a Cost</p>
 <p>Video is the most information-dense modality — combining space, time, motion, and sound — which makes it the ideal training ground for world modeling. But that same richness makes it the hardest to model. The input dimensions of video (especially with high resolution, long duration, and audio) are massive.Even state-of-the-art generative models like Sora and Veo 3 can only produce video in short bursts — typically under one minute — before quality degrades or coherence breaks.Why? Because the computational demands of processing and generating high-fidelity video over time are still immense. Training on video is also harder: unlike static images, video requires modeling temporal continuity, physical realism, and synchronized audio — all within an enormous latent space. Video is where AI learns the structure of reality — but it’s also where today’s models hit their computational limits. That richness is exactly what makes video the ideal domain for video generation and world modeling — but also the hardest to generate.Which is why p predict it will be the slowest of the 3 state of the art modalities in advancment.</p>
 <p>⸻</p>
@@ -234,6 +242,17 @@ ul.task-list li input[type="checkbox"] {
 <p>Normalization Layers (GroupNorm &gt; BatchNorm)</p>
 <p>Function: Normalize activations to stabilize training and improve convergence. GroupNorm vs.&nbsp;BatchNorm: BatchNorm depends on batch statistics and can be unstable with small batch sizes. GroupNorm normalizes across channels in groups and works consistently even with small batches, common in memory-heavy diffusion training (batch size 1–4).</p>
 <p>Benefit: Maintains stable activations regardless of batch size or input resolution.</p>
+<p>Group Normalization – a normalization technique used in modern diffusion models instead of BatchNorm. It normalizes across groups of channels in each individual image, making it more stable during training and effective for small batch sizes – which is common in generative models like MidJourney and Stable Diffusion.</p>
+<p>Group Normalization still standardizes the features, just like BatchNorm – the difference is what it standardizes across.</p>
+<p>GroupNorm: Normalize across groups of channels within each individual image</p>
+<p>Batch norm is NOT used in State-of-the-Art diffusion models, group norm is.</p>
+<p>⸻</p>
+<p>✅ What Both BatchNorm and GroupNorm Do:</p>
+<p>They normalize the input features so that:</p>
+<p>• Mean ≈ 0</p>
+<p>• Standard deviation ≈ 1</p>
+<p>This stabilizes training, accelerates convergence, and prevents exploding or vanishing gradients.</p>
+<p>Normalizes the output of feature maps within each individual image by splitting channels into smaller groups (e.g., 32 groups). • Unlike BatchNorm, it doesn’t rely on batch statistics, which makes it far more stable when batch sizes are small or variable – a crucial property for diffusion models. • This normalization helps the model maintain consistent gradients and stable activations across noisy inputs during the denoising process. • Used in all modern diffusion architectures like Stable Diffusion, GLIDE, Imagen, and likely MidJourney. ⸻</p>
 <p>⸻</p>
 <ol start="4" type="1">
 <li></li>
@@ -276,29 +295,43 @@ ul.task-list li input[type="checkbox"] {
 <li></li>
 </ol>
 <p>Time Embedding Layers</p>
-<p>Function: Encode the current diffusion timestep (where the model is in the denoising process) as a vector. Typical Architecture: Dense layer → SiLU activation → Dense layer. Purpose: Allows the model to condition its output on the progress of the diffusion process, adapting noise removal behavior dynamically.</p>
+<p>Function: Encode the current diffusion timestep (where the model is in the denoising process) as a vector. Typical Architecture: Dense layer → SiLU activation → Dense layer-SiLU activation, repeat until the time embedding block is over Purpose: Allows the model to condition its output on the progress of the diffusion process, adapting noise removal behavior dynamically.</p>
 <p>⸻</p>
 <p>JEPA Core Transformer Block Layers</p>
 <p>Embedding Layer Converts input tokens (or latent vectors) into dense vector representations of fixed size.</p>
 <p>Positional Encoding Layer Adds information about the position/order of tokens since transformers are permutation-invariant. Usually fixed sinusoidal or learned positional embeddings.</p>
 <p>⸻</p>
 <p>Then each Transformer Block consists of:</p>
-<p>LayerNorm (Pre-Attention normalization) Normalizes inputs to stabilize training and improve gradient flow.</p>
-<p>Multi-Head Self-Attention (MHSA) Allows the model to weigh relationships between tokens at different positions. Multiple attention heads attend to different subspaces for richer contextualization.</p>
-<p>Residual Connection (Skip connection) Adds input of the block to the output of MHSA for gradient stability and ease of optimization.</p>
-<p>LayerNorm (Pre-FeedForward normalization) Normalizes again before the feedforward layer.</p>
-<p>Feed-Forward Network (FFN) Usually two dense layers with non-linearity in between, applied independently to each token. Expands and contracts dimensionality (e.g., hidden_dim → 4*hidden_dim → hidden_dim).</p>
-<p>Residual Connection (Skip connection) Adds input of the FFN block to the output.</p>
+<p>LayerNorm (Pre-Attention normalization)</p>
+<p>Normalizes inputs to stabilize training and improve gradient flow.</p>
+<p>Multi-Head Self-Attention (MHSA)</p>
+<p>Allows the model to weigh relationships between tokens at different positions.</p>
+<p>Multiple attention heads attend to different subspaces for richer contextualization.</p>
+<p>Residual Connection (Skip connection)</p>
+<p>Adds input of the block to the output of MHSA for gradient stability and ease of optimization.</p>
+<p>LayerNorm (Pre-FeedForward normalization)</p>
+<p>Normalizes again before the feedforward layer.</p>
+<p>Feed-Forward Network (FFN)</p>
+<p>Usually two dense layers with non-linearity in between, applied independently to each token. Expands and contracts dimensionality (e.g., hidden_dim → 4*hidden_dim → hidden_dim).</p>
+<p>Residual Connection (Skip connection)</p>
+<p>Adds input of the FFN block to the output.</p>
 <p>⸻ ⸻</p>
 <p>Finally:</p>
 <p>Softmax Used inside the attention mechanism to convert attention scores to probabilities.</p>
 <p>GELU (Gaussian Error Linear Unit) Common activation inside FFN layers instead of ReLU; smoother gradient.</p>
 <p>A couple notes:</p>
-<p>Softmax is typically inside the attention block, not a separate layer applied on its own after all transformer blocks. So it’s part of the MHSA step, not outside. The GELU is usually the activation used in the Feed-Forward Network between the two dense layers. Positional encoding is only at the input level, not repeated inside each transformer block. This is the core transformer block; variants might add dropout, layer scaling, or other tweaks.</p>
+<p>Softmax is typically inside the attention block, not a separate layer applied on its own after all transformer blocks. So it’s part of the MHSA step, not outside.</p>
+<p>The GELU is usually the activation used in the Feed-Forward Network between the two dense layers.</p>
+<p>Positional encoding is only at the input level, not repeated inside each transformer block.</p>
+<p>This is the core transformer block; variants might add dropout, layer scaling, or other tweaks.</p>
 <p>JEPA’s Context Encoder and Predictor: Specialized Attention Blocks</p>
 <p>At the core of JEPA’s architecture lie two critical components: the context encoder and the predictor. Both are designed as deep stacks of transformer-style blocks tailored to process complex, high-dimensional video latent data.</p>
 <p>Structure Overview:</p>
-<p>Multi-Headed Self-Attention: Extracts diverse sub-patterns by attending to multiple aspects of the input simultaneously, capturing rich temporal and spatial dependencies across video frames. Feedforward Dense Layers (MLPs): These layers apply learned linear transformations interleaved with nonlinear activation functions (GELU), enabling the model to embed and transform the input features into richer, more abstract representations. GELU Activation: The Gaussian Error Linear Unit introduces smooth nonlinearities, which aid gradient flow and improve learning dynamics compared to traditional activations like ReLU. Layer Normalization: Normalizes the activations within each batch to have mean zero and variance one, stabilizing training by reducing internal covariate shift. Residual Connections: Skip connections allow gradients to flow unimpeded through the deep network, addressing the vanishing gradient problem and helping maintain information fidelity across layers.</p>
+<p>Multi-Headed Self-Attention: Extracts diverse sub-patterns by attending to multiple aspects of the input simultaneously, capturing rich temporal and spatial dependencies across video frames.</p>
+<p>Feedforward Dense Layers (MLPs): These layers apply learned linear transformations interleaved with nonlinear activation functions (GELU), enabling the model to embed and transform the input features into richer, more abstract representations.</p>
+<p>GELU Activation: The Gaussian Error Linear Unit introduces smooth nonlinearities, which aid gradient flow and improve learning dynamics compared to traditional activations like ReLU.</p>
+<p>Layer Normalization: Normalizes the activations within each batch to have mean zero and variance one, stabilizing training by reducing internal covariate shift.</p>
+<p>Residual Connections: Skip connections allow gradients to flow unimpeded through the deep network, addressing the vanishing gradient problem and helping maintain information fidelity across layers.</p>
 <p>These components are repeated multiple times in sequence, forming long, deep blocks. The context encoder focuses on encoding all relevant contextual information from past video latents, building a comprehensive representation of the observed video environment. The predictor then uses this contextual embedding to forecast future latent states — essentially predicting what comes next in the video sequence.</p>
 <p>In essence, both the context encoder and predictor act as specialized, long attention-based processing blocks, architected specifically to handle the rich, complex, temporally extended data unique to video understanding and generation.</p>
 <p>They work together to:</p>
@@ -320,7 +353,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Purpose:</p>
 <p>These blocks evaluate generated latent video outcomes against learned criteria of “goodness” (e.g., cinematic realism, coherent narrative, goal achievement in embodied tasks) and provide scalar or vector-valued reward signals. Unlike traditional RL which relies on external human feedback or proxy rewards, these heads train themselves through internal feedback loops derived from latent pattern prediction and counterfactual planning.</p>
 <p>Structure and Function:</p>
-<p>Integrated within transformer layers or appended to latent generation blocks. Take intermediate latent outputs and produce reward estimates that score quality or task success. Trained jointly with the base model to improve latent predictions toward maximizing these rewards over time. Enable the model to self-improve by reinforcing patterns that lead to better outcomes, without explicit human labeling. Allow counterfactual planning by simulating alternative latent futures and scoring their hypothetical rewards, guiding generation toward optimal sequences.</p>
+<p>Integrated within transformer layers or appended to latent generation blocks.</p>
+<p>Take intermediate latent outputs and produce reward estimates that score quality or task success.</p>
+<p>Trained jointly with the base model to improve latent predictions toward maximizing these rewards over time.</p>
+<p>Enable the model to self-improve by reinforcing patterns that lead to better outcomes, without explicit human labeling.</p>
+<p>Allow counterfactual planning by simulating alternative latent futures and scoring their hypothetical rewards, guiding generation toward optimal sequences.</p>
 <p>Input representation: Takes intermediate latent tensors from the generator (e.g., post-attention features). Architecture: Can be a small MLP or mini-transformer that maps latent patches to scalar/vector rewards. Training: Jointly trained with the main model using self-generated trajectories. Can implement temporal difference learning over latent sequences, similar to RL but without human supervision.</p>
 <p>Use case examples: Cinematic reward: coherence in camera angles, lighting consistency, continuity errors. Embodied reward: predicted success in task completion (e.g., robot arm folding laundry) based on latent video.</p>
 <ol start="2" type="1">
@@ -354,7 +391,13 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Transformer Diffusion Variant</figcaption>
 </figure>
 </div>
-<p>ideo Generation</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Transformer-Diffusion-V-variant.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Transformer Diffusion V Variant</figcaption>
+</figure>
+</div>
+<p>video Generation</p>
 <p>Where frontier models are headed — post-Sora, post-Veo, toward “Veo-6-tier” systems with deep architectural and narrative coherence.</p>
 <p>📍 Overview</p>
 <p>The future of video generation models will not be text-to-clip toys — it will be cinematically and causally intelligent simulators, trained on all video ever digitized, with episodic memory, character awareness, and compositional temporal planning.</p>
@@ -552,7 +595,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Consider gardening or farming: gardeners don’t understand the complex biology of soil microbes or plant genetics. Instead, they recognize seasonal patterns, watering schedules, and signs of plant health to cultivate crops successfully.</p>
 <p>Art and Music: While often seen as creative, much artistic expression involves recognizing and recombining familiar patterns of color, shape, rhythm, and melody. Human artists learn styles and techniques that they replicate or subtly modify based on patterns they’ve absorbed over time. Much of what humans create—whether art, music, writing, or even daily problem-solving—relies heavily on recognizing and recombining patterns learned over time. When you paint a picture, compose a song, or write a story, you’re often blending familiar elements in new ways, based on what you’ve seen, heard, or read before. This kind of creativity, while impressive, is largely pattern-based.</p>
 <p>However, true ingenuity goes far beyond pattern recognition. It involves fundamental breakthroughs that reshape entire fields of knowledge or culture. This level of creativity demands:</p>
-<p>Abstract reasoning — thinking beyond the immediate data or patterns to grasp hidden principles. Deep understanding — comprehending the core mechanics of complex systems or ideas. Novel conceptual leaps — forming ideas that have never been imagined before, opening new paths for thought and discovery.</p>
+<p>Abstract reasoning — thinking beyond the immediate data or patterns to grasp hidden principles.</p>
+<p>Deep understanding — comprehending the core mechanics of complex systems or ideas.</p>
+<p>Novel conceptual leaps — forming ideas that have never been imagined before, opening new paths for thought and discovery.</p>
 <p>Language Use: Everyday conversation and writing frequently rely on learned linguistic patterns, idioms, and social cues,contextual patterns associated with different words(which words are used together most often?,what context do these words make sense in ? which ones do they not? how do these words relate to other words ? do they match the context? ) the human brain does this automatically, rather than novel invention of new grammar or concepts.</p>
 <p>This reliance on pattern recognition explains why foundation models in Deep learning which excel at extracting and generalizing patterns from massive datasets, are uniquely suited to automate or augment a wide range of human activities—especially those that don’t demand original creativity or complex scientific insight.</p>
 <p>⸻</p>

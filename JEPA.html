@@ -126,6 +126,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./Omni-modal-models.html">
  <span class="dropdown-text">Omni Modal Models</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
+ <span class="dropdown-text">Optimization in Deep Learning</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -134,27 +138,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-my-models">    
         <li>
-    <a class="dropdown-item" href="./my-models/diffusion.html">
- <span class="dropdown-text">Diffusion Models</span></a>
+    <a class="dropdown-item" href="./diffusion-image-model.html">
+ <span class="dropdown-text">Diffusion Model</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./my-models/moe-lm.html">
+    <a class="dropdown-item" href="./moe-llm.html">
  <span class="dropdown-text">Mixture of Experts LM</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">My Notes</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes-section" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Notes Section</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
         <li>
-    <a class="dropdown-item" href="./My-Notes-on-the-future-of-AI-part-1.html">
- <span class="dropdown-text">Notes on the Future of AI Part 1</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./My-Notes-on-the-future-of-AI-part-2.qmd">
- <span class="dropdown-text">Notes on the Future of AI Part 2</span></a>
+    <a class="dropdown-item" href="./Deep-Narrow-Intelligence.html">
+ <span class="dropdown-text">Deep Narrow Intelligence</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./AI-polarization.html">
@@ -163,6 +163,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./self-supervised-reinforcement-learning-video-generation.html">
  <span class="dropdown-text">Self-Supervised Reinforcement Learning Video Generation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./my-notes-superintelligence.html">
+ <span class="dropdown-text">Superintelligence</span></a>
   </li>  
     </ul>
   </li>
@@ -307,6 +311,26 @@ ul.task-list li input[type="checkbox"] {
 <p>• Scene consistency</p>
 <p>• Physical plausibility</p>
 <p>This latent is then passed to the context encoder and the rest of JEPA’s prediction pipeline during training – or used directly during inference for embodied decision-making.</p>
+<ol start="8" type="1">
+<li></li>
+</ol>
+<p>Activation fucntion used in JEPA: GELU Activations</p>
+<p>What GELU does:</p>
+<p>GELU = Gaussian Error Linear Unit.</p>
+<p>It smoothly “gates” inputs: small negative inputs are suppressed, positive inputs are passed through more freely, but not in a hard cutoff like ReLU.</p>
+<p>This smooth gating helps gradients flow better during training, reducing the risk of dying neurons (neurons that output zero all the time) while still allowing some nonlinearity.</p>
+<p>Conceptual difference: hard vs.&nbsp;soft suppression</p>
+<p>ReLU: f(x) = max(0, x)</p>
+<p>Hard cutoff: all negative inputs become 0.</p>
+<p>Pros: Simple, prevents exploding negatives.</p>
+<p>Cons: Dying neuron problem — once a neuron outputs 0, its gradient is 0, and it may never “wake up.”</p>
+<p>SiLU / Swish: f(x) = x * sigmoid(x)</p>
+<p>Smoothly suppresses negatives instead of zeroing them.</p>
+<p>Small negative inputs are allowed to pass through weakly, so gradient still flows.</p>
+<p>GELU: f(x) = x * Φ(x) (Φ = CDF of standard normal)</p>
+<p>Probabilistic gating: the neuron passes positive inputs mostly unchanged, but negative inputs aren’t fully zeroed — they’re scaled by a probability factor.</p>
+<p>Encourages neurons to learn patterns from slightly negative signals rather than ignoring them entirely.</p>
+<p>Key idea: GELU and SiLU let “useful negative signals” survive and contribute to the next layer, helping the network learn more nuanced representations. ReLU throws them away.</p>
 <p>⸻</p>
 <p>🧠 1. Hierarchical Abstraction ( as with all deep learning models )</p>
 <p>Think of the first layers as seeing:</p>
