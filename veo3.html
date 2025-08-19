@@ -294,22 +294,22 @@ ul.task-list li input[type="checkbox"] {
 <p>Mean ~ o • Standard deviation ~ 1 This stabilizes training, accelerates convergence, and prevents exploding or vanishing gradients. • Normalizes the output of feature maps within each individual image by splitting channels into smaller groups (e.g., 32 groups). • • Unlike BatchNorm, it doesn’t rely on batch statistics, which makes it far more stable when batch sizes are small or variable – a crucial property for diffusion models. • This normalization helps the model maintain consistent gradients and stable activations across noisy inputs during the denoising process. • • Used in all modern diffusion architectures like Stable Diffusion. ⸻</p>
 <p>🔹 4. Understanding Attention in Diffusion Models (U-Net style)</p>
 <p>What Is Attention Doing in a Diffusion Model?</p>
-<p>In image generation, attention helps the model:</p>
-<p>• Focus on different parts of the image when making predictions</p>
+<p>In video generation. attention helps the model:</p>
+<p>• Focus on different parts of the video when making predictions, the model extracts different patterns from various video frames and then compares them to eachother to determine which patterns is most relavant to prediciting the next frame, this is called multi headed self attention</p>
 <p>• Relate different spatial regions to one another</p>
-<p>• Align image regions to text prompts (in cross-attention, for example</p>
+<p>• Align video regions to text prompts, This is known as multi headed cross attention</p>
 <p>Main Types of Attention in Diffusion Models</p>
 <ol type="1">
-<li>Self-Attention</li>
+<li>Multi headed Self-Attention</li>
 </ol>
 <p>Self-Attention in Video Diffusion Models</p>
 <p>• Compares every frame in the video with every other frame by leveraging 3D embeddings that combine vision, time, and sound modalities.</p>
 <p>• Learns global temporal and cross-modal relationships across frames and audio, such as how certain visual phenomena relate across time or how sounds align with specific visual events.</p>
 <p>• Typically placed at the bottleneck of the U-Net, where spatial and temporal dimensions are most compressed, to keep computation manageable while capturing broad context.</p>
 <ol start="2" type="1">
-<li>Cross-Attention</li>
+<li>Multi headed Cross-Attention</li>
 </ol>
-<p>Used in text-to-video models (e.g., sora, Veo 3, Hailuo ) • Attention flows from image → to text: each pixel region attends to semantic features in the text embedding (e.g., from CLIP) Used for: Aligning regions of the image to words in the prompt • • Example: “dragon” → tail, wings, horns, texture</p>
+<p>Used in text-to-video models (e.g., sora, Veo 3, Hailuo ) • Attention flows from video → to text: each pixel region attends to semantic features in the text embedding (e.g., from CLIP) Used for: Aligning regions of the video to words in the prompt • • Example: “dragon” → tail, wings, horns, texture</p>
 <p>🔹 5.</p>
 <p>Upsampling + Skip Connections( 2 separate layers but work together )</p>
 <p>• In the decoder, the latent is gradually upsampled (restoring spatial and temporal resolution).</p>
