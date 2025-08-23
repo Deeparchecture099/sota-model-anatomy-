@@ -309,7 +309,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="2" type="1">
 <li>Multi headed Cross-Attention</li>
 </ol>
-<p>Used in text-to-video models (e.g., sora, Veo 3, Hailuo ) • Attention flows from video → to text: each pixel region attends to semantic features in the text embedding (e.g., from CLIP) Used for: Aligning regions of the video to words in the prompt • • Example: “dragon” → tail, wings, horns, texture</p>
+<p>Used in text-to-video models (e.g., sora, Veo 3, Hailuo ) • Attention flows from video → to text: each pixel region attends to semantic features in the text embedding (e.g., from CLIP) Used for: Aligning regions of the video to words in the prompt • Example: “dragon” → tail, wings, horns, texture</p>
 <p>🔹 5.</p>
 <p>Upsampling + Skip Connections( 2 separate layers but work together )</p>
 <p>• In the decoder, the latent is gradually upsampled (restoring spatial and temporal resolution).</p>
@@ -323,7 +323,17 @@ ul.task-list li input[type="checkbox"] {
 <p>• Motion traces (object trajectory)</p>
 <p>• Audio-driven cues (e.g., matching a bark to a dog’s open mouth)</p>
 <p>⸻</p>
-<p>🔹 6.Final Output Layers</p>
+<p>🔹6.Layer Normalization:only occasionally used in Diffusion modles but primarily seen in Transformers as one of thier primary blocks:</p>
+<p>(LayerNorm)</p>
+<p>This layer standardizes the combined output across all features in the sample:</p>
+<p>• Mean = 0</p>
+<p>• Standard deviation = 1</p>
+<p>📦 Applied per individual video embedding, not across the batch.</p>
+<p>Why?</p>
+<p>Because normalization makes learning stable and helps the model avoid overfitting to unusual variance in one part of the video.</p>
+<p>SiLU layers are between each dense layer to ensure the greduents between them are passed to the next layer without loss of features as its goal is to upwards bound the gradients if its below 0</p>
+<p>⸻</p>
+<p>🔹 7.Final Output Layers</p>
 <p>• Final 3D convolution maps the reconstructed latent to pixel space.</p>
 <p>• During training: Compared to ground-truth video to compute loss.</p>
 <p>• During inference: This is one frame group in a multi-step reverse noise trajectory – the model gets progressively clearer, frame-by-frame.</p>
@@ -350,11 +360,11 @@ ul.task-list li input[type="checkbox"] {
 <p>• Strided convolution</p>
 <p>• GroupNorm</p>
 <p>• SiLU</p>
-<p>• Self/Cross-Attention (positioned in mid/bottleneck layers)</p>
+<p>• Multi headed Self/Cross-Attention (positioned in mid/bottleneck layers)</p>
 <p>• Residual blocks</p>
 <p>• Skip connections</p>
 <p>• Noise schedule</p>
-<p>• Latent space sampling</p>
+<p>• Latent space sampling:allowing the model to extract patterns from billions of observations and combin them in novel ways, a standard feauture of foundation modles</p>
 <p>These are the same across both image and video generation</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
