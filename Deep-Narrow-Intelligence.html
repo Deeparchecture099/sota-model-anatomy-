@@ -1116,17 +1116,6 @@ ul.task-list li input[type="checkbox"] {
 <p>Video is the most information-dense modality — combining space, time, motion, and sound — which makes it the ideal training ground for world modeling. But that same richness makes it the hardest to model. The input dimensions of video (especially with high resolution, long duration, and audio) are massive.Even state-of-the-art generative models like Sora and Veo 3 can only produce video in short bursts — typically under one minute — before quality degrades or coherence breaks.Why? Because the computational demands of processing and generating high-fidelity video over time are still immense. Training on video is also harder: unlike static images, video requires modeling temporal continuity, physical realism, and synchronized audio — all within an enormous latent space. Video is where AI learns the structure of reality — but it’s also where today’s models hit their computational limits. That richness is exactly what makes video the ideal domain for video generation and world modeling — but also the hardest to generate.Which is why p predict it will be the slowest of the 3 state of the art modalities in advancment.</p>
 <p>⸻</p>
 <p>⸻</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Diffusion-VS-Transformer-video-generation.webp" class="img-fluid figure-img" width="750"></p>
-<figcaption>Diffusion vs Transformer – Video Generation</figcaption>
-</figure>
-</div>
-<p>📌 Key Similarities:</p>
-<p>• All model causality, motion, and consistent physics over time.</p>
-<p>• All work in latent space, even if some decode into pixel space.</p>
-<p>• All could be integrated into agents (just JEPA already is).</p>
-<p>⸻</p>
 <p>🧩 Clarifying Misconceptions:</p>
 <p>JEPA is not fundamentally different from Sora or VO3.</p>
 <p>It is a video world model, but its output stays in latent space to guide downstream modules (like control, decision, or planning heads).</p>
@@ -1207,19 +1196,6 @@ ul.task-list li input[type="checkbox"] {
 <p>⸻</p>
 <p>⸻</p>
 <p>⸻</p>
-<p>AI and Space Exploration: Realistic Expectations</p>
-<p>While AI is often hyped as a crucial player for future space exploration, the reality is more nuanced. Current AI systems depend heavily on massive amounts of training data—particularly video and sensor data—to operate effectively, which we simply don’t have for many space environments. This scarcity limits their ability to autonomously perform complex tasks beyond Earth or the Moon.</p>
-<p>Moreover, the physical realities of space—like communication delays that increase dramatically beyond the Moon—pose significant challenges. AI systems located in Earth-based data centers can’t provide real-time control or decision-making for distant spacecraft or rovers.</p>
-<p>Limited Training Data: Unlike Earth, where abundant datasets enable AI to learn and generalize, environments like the Moon and Mars offer sparse, incomplete data. Current lunar datasets mostly come from a handful of missions and do not cover the breadth of activities or environmental conditions required for autonomous operation. Communication Delays: The vast distances in space introduce significant communication latency, making real-time remote control impractical and requiring onboard autonomy that current AI systems aren’t yet capable of at scale in these domains.</p>
-<p>The Speed of Light: A Fundamental Limitation for Space AI</p>
-<p>One of the most critical challenges for deploying AI-controlled robots beyond Earth is the immutable speed of light limit. Even though AI systems on Earth’s data centers can process information and generate control signals extremely fast, transmitting those signals across vast cosmic distances is constrained by physics.</p>
-<p>Communication Delay Examples between each output: Earth to Moon: ~1.28 seconds one-way delay Earth to Mars (closest approach): ~3 minutes one-way delay Earth to Mars (farthest): up to ~22-24 minutes one-way delay</p>
-<p>Implications for Control: These delays mean that AI cannot reliably provide real-time control or rapid reactive feedback for robots operating on other planets or deep space probes. Instead, robots will likely continue to be hard coded with no intelligence at least for space</p>
-<p>That said, DNI will play a valuable in:</p>
-<p>Identifying cosmic objects through data analysis, Autonomously Writing error-free code for space missions</p>
-<p>Real autonomy for AI in deep space will require:</p>
-<p>Space based data centers to house state of the art AI models in Vast abundance of video data for models to train in to execute operations and tasks successfully in space environments(moon, mars, between planets ) Advanced world models that can learn efficiently from video data which we are seeing the very first glimpses of with JEPA but challenges remain</p>
-<p>so AI will remain Earth bound for the forseeble future ⸻</p>
 <p>🔩 Architectural Base: • Transformers for sequence modeling(1D data), audio, video generation(especially for world modeling like JEPA, or genie 3 which are transformers )</p>
 <p>• Diffusion models for generating spatial and temporal data:image generation(midjourney) and cinematic video generation(Veo 3, kling,Hailuo AI)</p>
 <p>These are not going away. The frontier progress is now driven by stacked innovations on top of these base models — not replacing them.</p>
