@@ -216,25 +216,47 @@ ul.task-list li input[type="checkbox"] {
 <p>│</p>
 <p>├── Text, (1D Data)</p>
 <p>│ ├── LLMs (GPT models, Claude,other transformers)</p>
-<p>│ └── Applications: natural language, retrieval reasoning, code, mathematics,process and generate DNA/RNA sequences, protein structures, and maybe even 3D conformations. summarization</p>
+<p>│ └── Applications: Text</p>
+<p>• Natural language</p>
+<p>• Mathematics</p>
+<p>• Coding / Software Development</p>
+<p>• DNA / RNA / Proteins</p>
+<p>Model class: Transformers</p>
+<p>⸻ retrieval reasoning, code,process and generate DNA/RNA sequences, protein structures, and maybe even 3D conformations. summarization</p>
 <p>│ └── Audio as a Wrapper (all current LLMs)</p>
 <p>│ Pipeline: │└──User speech → Speech-to-text → LLM processes text → Text-to-speech → Audio output └──What the model actually does: └──Generates text. └──Audio is only used to input or output that text. └──following instructions, switching languages, reading disclaimers, modulating tone — is still handled by the LLM.&nbsp;</p>
 <p>Key point: The model doesn’t reason in audio space, it just transcribes and reads aloud.</p>
 <p>├── Images (2D Data) U-Net architectures, latent diffusion</p>
 <p>│ ├── Diffusion-based models (Stable Diffusion, Midjourney)</p>
 <p>│ ├── Transformers (image transformers, Vision Transformers)</p>
-<p>│ └── Applications: generation, style transfer, editing</p>
+<p>│ └── Applications: generation, style transfer, editing └── • Shapes, textures, edges, colors, objects</p>
+<p>• Latent feature understanding</p>
+<p>• Text-to-image diffusion generation</p>
+<p>• Image-to-image &amp; inpainting</p>
+<p>• Conditional embeddings (e.g., CLIP for text–image alignment)</p>
+<p>Model class: Diffusion + Embeddings</p>
 <p>│</p>
-<p>└── Video (3D — vision + sound + time)</p>
+<p>└── Video (3D/4D)— vision + sound + time) Cinematic Video (3D diffusion → evolving into 4D)</p>
 <pre><code>├── Core Architectures</code></pre>
 <p>│├── 3D Diffusion (Veo-series, Sora,Hailuo,runway,pika. Kling)- ── Cinematic Video Generation ├── 3D Transformer(interactive video)</p>
-<pre><code>│   └── • Goal: Hollywood-level sequences (minutes long, high fidelity, temporally coherent).</code></pre>
-<p>• This is where the generative core of video foundation models is being built.</p>
+<pre><code>│   └── • Goal: Hollywood-level sequences (minutes long, high fidelity, temporally coherent).
+└── Cinematic Video (3D diffusion → evolving into 4D)</code></pre>
+<p>• Frames / vision:• Shapes, textures, edges, colors, objects over time</p>
+<p>• Temporal dynamics &amp; context</p>
+<p>• Spatiotemporal coherence</p>
+<p>• Dialogue, narration, speech</p>
+<p>• Music</p>
+<p>• Environmental sounds</p>
+<p>• Depth-aware temporal generation</p>
+<p>Scene continuity over long timescales</p>
+<p>Evolving environments (weather, lighting, objects changing)</p>
+<p>Multi-character interactions across space and time</p>
+<p>Persistent 3D geometry across frames (true volumetric video)</p>
+<p>This is where the generative core of video foundation models is being built.</p>
 <pre><code>│       └── Interactive real-time simulated video
 
         └── AI avatars </code></pre>
 <p>• Goal: Video that reacts to the user (games, VR/AR, digital twins, training sims).</p>
-<p>• Genie 3 is scratching the surface, but the big SOTA labs will eventually extend here, because it’s a direct continuation of cinematic video:</p>
 <p>• Instead of “one-shot generation,” you need “incremental generation + consistency + control.”</p>
 <p>• Same backbone (diffusion/transformers/consistency models), but wired for continuous, interactive loops.</p>
 <p>• user-driven, branching, dynamic content</p>
@@ -249,12 +271,6 @@ ul.task-list li input[type="checkbox"] {
 <figure class="figure">
 <p><img src="images/State-of-the-Art-Foundation-Model-Types.webp" class="img-fluid figure-img" width="750"></p>
 <figcaption>State-of-the-Art Foundation Model Types</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/SOTA-F-M.webp" class="img-fluid figure-img" width="750"></p>
-<figcaption>SOTA F M</figcaption>
 </figure>
 </div>
 
