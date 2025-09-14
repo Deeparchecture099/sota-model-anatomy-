@@ -172,6 +172,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./my-notes-superintelligence.html">
  <span class="dropdown-text">Superintelligence</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./Dimensions-of-superintelligence.html">
+ <span class="dropdown-text">Dimensions-of-superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Tensors-in-Deep-Learning.html">
+ <span class="dropdown-text">Tensors-in-Deep-Learning</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -279,9 +287,9 @@ ul.task-list li input[type="checkbox"] {
 <p>enabling widespread real-time applications across consumer, industrial, and scientific domains.</p>
 <p>⸻ ⸻</p>
 <p>Architectural Advances Enabling the Next Leap in DNI in LLM</p>
-<p>Text: language,mathematics,code,DNA sequence</p>
+<p>Text (language, mathematics, code, DNA,RNA,proteins)</p>
 <ol type="1">
-<li>Data Pipelines &amp; Pretraining Upgrades</li>
+<li>Data Pipelines &amp; Pretraining Upgrades Status: Exists → Emerging</li>
 </ol>
 <p>• Cleaner, denser, and more structured corpora: Less web noise, more engineered data (text, code, docs, multimodal pairings)</p>
 <p>• Highly diverse agent-task logs: Foundation for simulation-based training and real-world grounding</p>
@@ -290,12 +298,16 @@ ul.task-list li input[type="checkbox"] {
 <ol start="2" type="1">
 <li>Long-Term Memory Modules</li>
 </ol>
+<p>Memory &amp; Persistence (Episodic + Semantic) —</p>
+<p>Status: Emerging → Proposed</p>
 <p>• Episodic memory blocks that retain:</p>
 <p>• Past conversations and decisions</p>
 <p>• User-specific preferences</p>
 <p>• Interaction context across sessions</p>
 <p>• Learned memory slot management: Model learns what to store, update, retrieve, and forget</p>
 <p>• Structured key-value memories (e.g., RETRO, RMT-like) for contextual recall</p>
+<p>• Retains past conversations, decisions, preferences, and cross-session context.</p>
+<p>• Structured KV memories (RETRO/RMT-like) for recall.</p>
 <p>⸻</p>
 <ol start="3" type="1">
 <li>Context Expansion (1M-4M tokens)</li>
@@ -310,6 +322,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="4" type="1">
 <li>Embedded Retrieval + In-Context Memory Routing</li>
 </ol>
+<p>Status: Exists</p>
 <p>• Hybrid retrieval + parametric memory:</p>
 <p>• Embedded retrieval from vector DBs</p>
 <p>• In-context routing to local memories (or recent frames, files, APIs)</p>
@@ -327,6 +340,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="5" type="1">
 <li>Better Tool Grounding (possibly Multimodal + Code + Action)</li>
 </ol>
+<p>Status: Exists → Emerging</p>
 <p>• Structured interface with tools, including:</p>
 <p>• Code execution</p>
 <p>• Database queries</p>
@@ -340,15 +354,26 @@ ul.task-list li input[type="checkbox"] {
 <ol start="6" type="1">
 <li>Modular Reasoning &amp; Reduced Hallucination</li>
 </ol>
+<p>Status: Emerging</p>
 <p>• Separation of planning and generation</p>
 <p>• E.g., inner monologue, scratchpad planning, tool orchestration</p>
 <p>• Self-reflection + verification modules:</p>
 <p>• Critique, verify, then answer</p>
 <p>• Especially useful in code, math, and reasoning-heavy workflows</p>
 <p>• Internal world models (JEPA-like) that stabilize reasoning over time</p>
+<p>Separate planning from generation (scratchpads, inner monologue).</p>
+<p>Self-reflection + verification (critique → verify → answer).</p>
+<p>Internal world models (JEPA-like) to stabilize long-range reasoning.</p>
 <ol start="7" type="1">
 <li>Weighted Knowledge Source Modeling</li>
 </ol>
+<p>Status: Proposed</p>
+<ol type="a">
+<li><p>Source-ranked embedding space: embed data with metadata (type, authority, recency, bias).</p></li>
+<li><p>Internal retrieval + trust weighting: weigh facts by reliability, consistency, historical accuracy.</p></li>
+<li><p>Trusted Memory Module (TMM): curated primary/peer-reviewed/expert sources; default to TMM for complex factual queries, broaden only if ambiguous.</p></li>
+</ol>
+<p>Outcome: Answers are traceable, source-aware, and prioritized by evidence quality.</p>
 <p>A DNI LLM includes explicit architectural and training-time mechanisms to differentiate signal from noise.</p>
 <p>⸻ ⸻</p>
 <p>✅ 1. Source-Ranked Embedding Space</p>
@@ -380,6 +405,8 @@ ul.task-list li input[type="checkbox"] {
 <p>• Able to explain why one source was chosen over another</p>
 <p>⸻</p>
 <p>8.Superior Attention Mechanisms for 1D Data</p>
+<p>Status: Proposed</p>
+<p>Beyond vanilla MHA: Multi-Head Latent Attention (MHLA) and kin.</p>
 <p>• Advanced attention blocks (e.g., multi-headed latent attention and beyond) that extract deeper, higher-level, abstract patterns from one-dimensional data (language, code, math, DNA sequences).</p>
 <p>• These mechanisms drastically reduce hallucinations by better capturing complex dependencies and semantic relationships within 1D data streams which improves pattern recognition and contextual understanding.</p>
 <p>• Development of advanced attention architectures beyond standard multi-headed attention (e.g., Multi-Head Latent Attention and further innovations).</p>
@@ -390,6 +417,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="9" type="1">
 <li>Long-Term 1D Memory &amp; Pattern Retention</li>
 </ol>
+<p>Status: Proposed</p>
 <p>Purpose: Extend the model’s ability to remember and reason across extremely long sequences (weeks, months, or years).</p>
 <p>Key points:</p>
 <p>• Hierarchical memory slots: short-term vs.&nbsp;mid-term vs.&nbsp;long-term storage.</p>
@@ -401,6 +429,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="10" type="1">
 <li>Advanced Simulation-Based Pretraining</li>
 </ol>
+<p>Status: Emerging</p>
 <p>Purpose: Improve grounding and generalization through synthetic or controlled environments.</p>
 <p>Key points:</p>
 <p>Model interacts with simulated datasets or virtual “worlds” to learn consequences of actions in text, code, or math domains. Generates realistic edge cases for rare scenarios (e.g., unusual math problems, corner cases in code). Supports reasoning across hypothetical sequences without requiring massive real-world data.</p>
@@ -409,6 +438,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="11" type="1">
 <li>Cross-Modal Pretraining for Enhanced Reasoning</li>
 </ol>
+<p>Status: Emerging → Proposed</p>
 <p>Purpose: Even in primarily 1D LLMs, cross-modal exposure can improve pattern recognition and abstract reasoning.</p>
 <p>Key points:</p>
 <p>Training on aligned text + structured data (tables, charts, code execution traces). Implicitly teaches the model to “simulate” reasoning steps by seeing how other modalities encode relationships. Could reduce hallucinations by grounding abstract concepts in multiple representations. increasing model intelligence.</p>
@@ -417,16 +447,23 @@ ul.task-list li input[type="checkbox"] {
 <ol start="12" type="1">
 <li>Adaptive Learning &amp; On-the-Fly Fine-Tuning</li>
 </ol>
+<p>Status: Proposed</p>
 <p>Purpose: Make LLMs dynamically self-improving without full retraining.</p>
 <p>Key points:</p>
 <p>Micro-updates to memory or embeddings based on user feedback or verification loops.</p>
 <p>Reinforcement learning from real-time interactions (RLHF or RL with trusted memory).</p>
 <p>Enables domain-specific adaptation and long-term expertise accumulation.</p>
+<p>Planning window: maintain 10–15 steps ahead; each step has required inputs, expected outputs, constraints.</p>
+<p>Step blocks: each with its own large local context (e.g., 2M tokens), executes/verifies, passes forward.</p>
+<p>Token window reset per step (summarize/archive) → handle ultra-long workflows.</p>
+<p>Dynamic retrieval (relevance × trust × recency).</p>
+<p>Step verification (internal + external).</p>
 <p>⸻</p>
 <p>⸻</p>
 <ol start="13" type="1">
 <li>Autonomy / Task Decomposition Blocks</li>
 </ol>
+<p>Status: Emerging → Proposed</p>
 <p>Concept: Future LLMs could include explicit modules that handle sequential reasoning and task decomposition, allowing them to plan, reason, and execute multi-step tasks with high fidelity.</p>
 <p>Features:</p>
 <p>Step-by-step reasoning: For a given task, the model generates a chain of steps, detailing inputs, intermediate computations, and required actions for each step.</p>
@@ -437,6 +474,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Autonomy Blocks &amp; Multi-Step Planning for Future LLMs</p>
 <p>Concept: A future DNI (Deep Neural Intelligence) LLM could break complex tasks into sequential steps, reasoning about each step in detail, and then executing them with high accuracy — all while maintaining a massive token memory for planning.</p>
 <p>⸻</p>
+<p>14.Biological-Scale Capabilities (DNI-bio) —</p>
+<p>Status: Emerging → Proposed</p>
+<p>Native handling of DNA/RNA sequences, proteins, 3D conformations. Very long context (full chromosomes, families). From property prediction → design (sequences for desired behaviors). RL + in-silico testing loops compress lab time; continuous literature synthesis.</p>
+<p>Example tasks: reaction optimization, genetic circuit design, novel materials discovery.</p>
 <p>⸻</p>
 <p>Mechanism:</p>
 <ol type="1">
@@ -623,6 +664,8 @@ ul.task-list li input[type="checkbox"] {
 <p>• Produces visualizations of solution density in 3D space.</p>
 <p>⸻</p>
 <p>⸻</p>
+<p>Roll-up: What DNI-Text Gains</p>
+<p>10× context window • stronger attention blocks • persistent memory tighter tool use • MoE + MHLA routing for efficiency Outcomes: more autonomous (fewer prompts), grounded (fewer hallucinations), persistent (cross-task memory), composable (docs+APIs+user traces as one task).</p>
 <p>These examples showcase task decomposition, symbolic verification, multi-step reasoning, and integration with coding/plotting tools—all things future autonomy-block LLMs could do with extremely high accuracy.</p>
 <p>developed cpabilites</p>
 <p>• A 2M-token planning window + autonomy blocks allows the LLM to handle long-horizon reasoning that current models can’t.</p>

@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>dimensions-of-superintelligence – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./About-me.html"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-state-of-the-art-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">State of the Art Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-state-of-the-art-models">    
+        <li>
+    <a class="dropdown-item" href="./JEPA.html">
+ <span class="dropdown-text">JEPA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Alpha-Fold.html">
+ <span class="dropdown-text">AlphaFold</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./DeepSeek.html">
+ <span class="dropdown-text">DeepSeek</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./midjourney.html">
+ <span class="dropdown-text">Midjourney</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./veo3.html">
+ <span class="dropdown-text">Veo 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Omni-modal-models.html">
+ <span class="dropdown-text">Omni Modal Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
+ <span class="dropdown-text">Optimization in Deep Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Genie-3.html">
+ <span class="dropdown-text">Genie 3</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-models">    
+        <li>
+    <a class="dropdown-item" href="./diffusion-image-model.html">
+ <span class="dropdown-text">Diffusion Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./moe-llm.html">
+ <span class="dropdown-text">Mixture of Experts LM</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes-section" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Notes Section</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
+        <li>
+    <a class="dropdown-item" href="./Deep-Narrow-Intelligence.html">
+ <span class="dropdown-text">Deep Narrow Intelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./AI-polarization.html">
+ <span class="dropdown-text">AI Polarization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./self-supervised-reinforcement-learning-video-generation.html">
+ <span class="dropdown-text">Self-Supervised Reinforcement Learning Video Generation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./my-notes-superintelligence.html">
+ <span class="dropdown-text">Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Dimensions-of-superintelligence.html">
+ <span class="dropdown-text">Dimensions-of-superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Tensors-in-Deep-Learning.html">
+ <span class="dropdown-text">Tensors-in-Deep-Learning</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/seven-Dimensions.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Seven Dimensions</figcaption>
+</figure>
+</div>
+<p>The Seven Dimensions of Intelligence: What SOTA R&amp;D Is Really Building</p>
+<p>Introduction</p>
+<p>When people talk about AI progress, they usually frame it in terms of bigger models, more data, and more compute. That’s not wrong — but it misses the deeper truth. If you strip away the hype, the buzzwords, and the endless press releases, all state-of-the-art AI research can be reduced to advancing one of seven dimensions of intelligence.</p>
+<p>Right now, we’ve mastered exactly one dimension: pattern recognition. That’s why models can autocomplete your sentences, generate stunningly realistic images, or even predict protein folding structures. But the other six dimensions — memory, abstraction, imagination, agency, meta-cognition, and omni-modality — remain entirely elusive. Every paper, experiment, and breakthrough you see coming out of the big labs is, at its core, a building block nudging us closer to one of those missing pieces.</p>
+<p>This is the reality that most public discourse misses. Hype cycles talk about “AGI” or “superintelligence” as if they’re imminent. In truth, the field is still fumbling at the edges of these dimensions, and without new architectural leaps, most of them remain unsolved problems. Pattern recognition can scale impressively, but it alone won’t get us to machines that can reason, remember, imagine, or self-direct.</p>
+<p>The point of this article is to give you an insider-level map: a breakdown of these seven dimensions, what progress has actually been made in each, and why every serious R&amp;D effort at OpenAI, DeepMind, Anthropic, and beyond is really just a piece of this puzzle.</p>
+<p>⸻</p>
+<p>🧠 The Seven Dimensions of Intelligence: Why State-of-the-Art AI R&amp;D Really Boils Down to These</p>
+<p>Why Dimensions Matter</p>
+<p>When people talk about AI progress, they usually think of bigger models, more data, and higher benchmark scores. But that’s surface-level. Underneath, all research and development in AI can actually be mapped onto seven core dimensions of intelligence. These are the building blocks that any artificial system would need in order to replicate — and eventually surpass — the full scope of human cognition.</p>
+<p>Pattern recognition Memory Reasoning Grounding Autonomy Self-reflection Omnimodality</p>
+<p>Superintelligence, if it ever emerges, won’t appear because one lab scaled a transformer another 100×. It will appear when breakthroughs occur across all seven of these dimensions — not just the one we’ve mastered today.</p>
+<p>⚖️ The Imbalance in R&amp;D</p>
+<p>Pattern Recognition: The Star Player</p>
+<p>Right now, nearly all state-of-the-art AI research is concentrated on the first dimension: pattern recognition.</p>
+<p>Bigger transformers with trillions of parameters. Scaling laws: more compute + more data = higher benchmark scores. Efficiency hacks: LoRA, quantization, Mixture-of-Experts, sparse attention.</p>
+<p>This is why GPT-4, Claude, Gemini, and LLaMA-3 are so impressive. Better pattern recognition does equal smarter-seeming models. But it’s only one dimension of intelligence.</p>
+<p>The Other Six: Fragmentary, Low-Rank Pieces</p>
+<p>Yes, labs are experimenting in other directions:</p>
+<p>Memory: RETRO, MemGPT, RMT — clever but short-lived. Reasoning: Chain-of-thought, ReAct — scaffolds, not native abilities. Autonomy: AutoGPT, agent frameworks — wrappers, not integrated cognition. Grounding: Multimodal pairings (e.g.&nbsp;CLIP, GPT-4V) — couplings, not fused latent spaces. Self-reflection: Scratchpads and verifier modules — bolt-ons, not meta-cognition. Omnimodality: GPT-4o Realtime fuses audio + text (1D only), but true 1D–4D fusion remains unsolved.</p>
+<p>In each case, what we see are low-rank “pieces” of the real thing. They hint at what’s possible, but they don’t yet constitute fully realized cognitive blocks.</p>
+<p>Why This Skew Exists</p>
+<p>The reasons are structural:</p>
+<p>Clear ROI: Scaling pattern recognition improves products (chatbots, copilots, image generators). Scalable: Bigger models can be brute-forced with compute and data, no new math required. Measurable: Benchmarks (MMLU, ImageNet, HumanEval) give easy progress signals.</p>
+<p>By contrast, memory, reasoning, autonomy, and grounding are harder to define, harder to benchmark, and don’t monetize as easily. So they lag behind.</p>
+<p>🔑 Insider Takeaway</p>
+<p>State-of-the-art AI R&amp;D is like bodybuilding one muscle group while leaving the others underdeveloped. Pattern recognition is massive. The other six remain thin, fragmented, and elusive. Yet to reach AGI — and especially superintelligence — all seven will have to be built out, block by block. ⸻</p>
+<p>What Are Foundation Models?</p>
+<p>Foundation models are large-scale deep learning systems trained on massive, diverse datasets (text, images, audio, video, protein sequences, etc.) that can be adapted across tasks. Unlike traditional narrow AI, which is built for a single purpose, foundation models provide a general substrate of intelligence: a latent space of patterns that can be reused and fine-tuned for almost anything.</p>
+<p>Examples include:</p>
+<p>Language models (GPT-4, Claude, Gemini, LLaMA) → handle reasoning, text, code, math.</p>
+<p>Image &amp; video diffusion models (Stable Diffusion,Midjourney, Sora, Veo) → generate visuals and cinematic video.</p>
+<p>Specialized scientific FMs (AlphaFold, RoseTTAFold) → push into biology.</p>
+<p>Why They’re the Dominant Paradigm</p>
+<p>Scalability: Scaling laws show that performance keeps improving with more data + compute.</p>
+<p>Transferability: The same base model can be adapted across many domains, making them economically efficient.</p>
+<p>Research Convergence: Every state-of-the-art lab (OpenAI, Anthropic, DeepMind, Mistral, Cohere, xAI, etc.) is focusing their core R&amp;D on foundation models — not self-driving, not robotics, not “world models.”</p>
+<p>Path to Generality: Pushing foundation models forward is the clearest way we know to advance along the seven dimensions (pattern recognition, memory, abstraction, etc.) that could lead to general intelligence.</p>
+<p>Key Clarification</p>
+<p>A foundation model ≠ narrow model. Narrow models (like Whisper for transcription or AlphaFold for proteins) can be built on top of the foundation model paradigm, but they don’t define the paradigm itself. Right now, LLMs and diffusion models are the central foundation model types. They’re the spine of AI research, because they’re the only architecture families that show scaling toward general intelligence.</p>
+<p>⸻</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Dimensions-of-Intelligence.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Dimensions of Intelligence</figcaption>
+</figure>
+</div>
+<p>⸻</p>
+<p>Dimension 1: Pattern Recognition (The Only One We’ve Mastered)</p>
+<p>If there’s one thing modern AI is truly good at, it’s pattern recognition. Transformers, CNNs, diffusion models — all of them are essentially machines for finding statistical regularities in massive datasets.</p>
+<p>Pattern recognition is why:</p>
+<p>Language models can autocomplete your sentence,solve all levels of mathematics with very high accuracy write code, or mimic Shakespeare. Diffusion models can turn noise into photorealistic images. Protein models like AlphaFold can predict 3D structures from amino acid sequences.</p>
+<p>At their core, these systems are predictive engines. They map inputs to likely outputs by recognizing correlations in data. That’s it. They don’t “understand” in the human sense — they detect, compress, and reuse patterns at scale.</p>
+<p>Why Pattern Recognition Feels So Impressive</p>
+<p>When scaled with billions of parameters and trillions of tokens, pattern recognition looks like intelligence. GPT-4 can draft essays that rival human students. MidJourney can generate artwork in styles you’ve never seen. Video diffusion models can generate clips indistinguishable from reality.</p>
+<p>This is the power of scale laws: more data + more compute = sharper statistical patterning. But make no mistake — this is still one-dimensional intelligence. It’s prediction, not reasoning. Correlation, not causation.</p>
+<p>Limitations of Pattern Recognition</p>
+<p>Here’s why pattern recognition alone will never get us to AGI or superintelligence:</p>
+<p>No true memory: Models don’t retain knowledge of past interactions beyond their training data or context window. They don’t “remember” in the human sense. No abstraction: They can’t form deep theories or invent concepts from scratch — they remix what they’ve seen. No agency: They don’t set goals or pursue actions in the world. No meta-cognition: They don’t reflect on their own reasoning or detect flaws in their logic. No omni-modality: They don’t unify all sensory streams into one representation — text, images, and video remain siloed.</p>
+<p>This is why even the most advanced models today, like GPT-4o or Gemini, are still essentially supercharged pattern machines. They’re powerful — but they’re not “thinking” in the way humans do.</p>
+<p>Why Labs Still Focus Here</p>
+<p>Every state-of-the-art lab — OpenAI, Anthropic, DeepMind, Mistral, Cohere — pours resources into advancing pattern recognition because it’s the only dimension we know how to push. Memory, abstraction, imagination, agency, meta-cognition, omni-modality — all of those remain elusive.</p>
+<p>So the field does what it can: scale up the one trick that works.</p>
+<p>This explains:</p>
+<p>Bigger LLMs with longer context windows. Diffusion models generating higher-fidelity images and video. Domain-specific models like AlphaFold expanding pattern recognition into biology.</p>
+<p>Pattern recognition is not the endgame. But it’s the foundation layer that all other dimensions will need to build upon. Without it, nothing else works. With it alone, we’re stuck in place.</p>
+<p>⸻</p>
+<p>🧠 Dimension 2: Memory</p>
+<p>Current State (Where We Are)</p>
+<p>Transformers today are stateless — they only “remember” what fits inside the context window. Incremental work has pushed this boundary: Longer context windows (128k–1M tokens in Claude, GPT, Gemini Ultra). External retrieval (RAG): embeddings stored in vector DBs, fetched into context. Episodic memory prototypes: RETRO, MemGPT, Recurrent Memory Transformers. Structured memory experiments: key–value stores, learned memory slots, episodic buffers.</p>
+<p>These are still band-aids. None provide persistent, integrated long-term memory.</p>
+<p>What’s Missing (The Elusive Part)</p>
+<p>True long-term persistence: remembering across days, months, or years — current models reset after every session. Dynamic updating: forgetting irrelevant data while retaining high-value experiences. Self-organizing recall: deciding what to store, when to recall, and how to apply memory in new contexts. Temporal reasoning: understanding cause-and-effect over long horizons, not just within a single prompt.</p>
+<p>Without this, today’s systems are brilliant amnesiacs: powerful in the moment, but incapable of cumulative experience.</p>
+<p>The Software Difference (Crystallized Memory)</p>
+<p>This is where digital memory diverges fundamentally from biology:</p>
+<p>Human memory is lossy, reconstructive, and error-prone — we misremember, forget, and distort.</p>
+<p>Software memory wpuld be crystalline:</p>
+<p>Every event, every interaction, every detail perfectly preserved.</p>
+<p>Recall is instant and exact — no fatigue, distraction, or forgetting.</p>
+<p>Memories could be duplicated and shared across multiple model instances.</p>
+<p>Persistent autobiographical memory — retaining events across sessions the way humans recall life experiences.</p>
+<p>Dynamic updating — selectively forgetting irrelevant details while consolidating useful ones.</p>
+<p>Self-organizing recall — autonomously deciding what to store, when to retrieve, and how to apply past knowledge.</p>
+<p>Temporal reasoning — understanding sequences unfolding over months or years, not just thousands of tokens.</p>
+<p>Hierarchical storage — fast short-term recall vs deep long-term recall, with abstraction layers in between.</p>
+<p>Contextual grounding — linking memory to sensory or multimodal streams (text, image, video) so recall isn’t just token replay but situational understanding.</p>
+<p>Without these, today’s systems are “brilliant amnesiacs” — great at pattern recognition in the moment, but unable to accumulate experience.</p>
+<p>The limiting factor isn’t capacity — storage is effectively infinite.</p>
+<p>The challenge is structure: designing memory systems that know what to store, how to compress, and how to recall relevant shards when needed.</p>
+<p>Why Labs Invest Here (Why It Matters)</p>
+<p>Groundwork for autonomy: without memory, there’s no learning from experience. Simulation continuity: for video, games, or robotics, memory is what makes environments coherent. Trust &amp; personalization: assistants that remember your history, style, and preferences. General intelligence: memory is the bridge from statistical pattern-matching to something resembling a mind.</p>
+<p>⚡ Key Insight: Once memory becomes persistent and crystalline in software, an AGI will instantly leap into superhuman territory.</p>
+<p>Unlike us, it won’t forget or distort — it will accumulate every experience across time, growing sharper and broader forever.</p>
+<p>⸻</p>
+<p>🔬 Dimension 3: Deep Scientific Understanding &amp; Causal Reasoning</p>
+<p>Current State (Where We Are)</p>
+<p>Today’s foundation models are statistical pattern recognizers: They can interpolate from training data, mimic styles, and generate coherent continuations. But they don’t truly understand why things happen — only correlations.</p>
+<p>Efforts to push deeper reasoning: Chain-of-thought prompting: scaffolding multi-step logic in text. Tool use (calculators, code execution, symbolic solvers) to fill reasoning gaps. Hybrid approaches: JEPA (Joint Embedding Predictive Architectures), symbolic reasoning layers, neuro-symbolic hybrids.</p>
+<p>In practice: LLMs can prove math theorems, write code, and solve puzzles, but much of this is still pattern-guided prediction, not causal comprehension.</p>
+<p>What’s Missing (The Elusive Part)</p>
+<p>To achieve deep scientific mastery, models need to move from “maps” of correlations to true causal understanding:</p>
+<p>Causality: Distinguishing correlation (“the rooster crows, then sunrise”) from cause-and-effect (“Earth’s rotation causes sunrise”). Theory formation: Deriving general laws (like Newton’s laws) from sparse data, not just curve-fitting. Abstraction: Jumping levels — from raw data to principles to entire scientific frameworks. Generalization from little data: Humans can infer rules after just a few trials; models still need thousands or millions of examples. Counterfactual reasoning: Answering “what if” questions and simulating worlds that differ from the data they’ve seen.</p>
+<p>Without this, AI can replicate science but cannot invent science.</p>
+<p>The Software Advantage (Potential Leap)</p>
+<p>Unlike humans, a digital intelligence with causal reasoning would be able to:</p>
+<p>Run millions of controlled experiments in parallel (simulations at planetary scale). Track every outcome precisely — no bias, no fatigue, no forgotten steps. Build layered knowledge systems that integrate physics, biology, math, and engineering into a single unified causal framework. Generate and test hypotheses at a rate far beyond even the largest human research institutions.</p>
+<p>This is the leap from “autocomplete on the universe” → to a scientist that understands the fabric of reality.</p>
+<p>Why Labs Invest Here (Why It Matters)</p>
+<p>Scientific discovery: Without causal reasoning, AI can’t break into unknown physics, biology, or materials science. Robust planning: True autonomy requires understanding the effects of actions, not just predicting the next token. Grounding intelligence: Causal reasoning is what makes intelligence robust against distribution shifts (unseen environments). Path to AGI/ASI: Causality, abstraction, and sparse learning are necessary to go beyond statistical mimicry.</p>
+<p>⚡ Key Insight:</p>
+<p>Causal reasoning is the bottleneck.</p>
+<p>Until models can generate laws of reality (not just patterns of data), they remain clever imitators. Once cracked, this dimension makes AGI indistinguishable from a scientist-engineer-philosopher fusion — discovering truths humans haven’t even imagined.</p>
+<p>⸻</p>
+<p>🎨 Dimension 4: Imagination, Ingenuity, and Creativity</p>
+<p>Current State (Where We Are)</p>
+<p>Pattern-based creativity: LLMs and diffusion models generate poems, art, or music that look creative but are really recombinations of training data patterns. They remix styles (e.g., “Shakespeare meets cyberpunk,” “Van Gogh in 3D”) but don’t originate fundamentally new ideas.</p>
+<p>Early sparks of ingenuity: Some models invent unexpected solutions (e.g., novel protein folds in AlphaFold-inspired work). Diffusion models can interpolate between wildly different concepts. But all of this remains bounded by training data — “derivative genius,” not true imagination.</p>
+<p>Research directions today: RLHF “creativity tuning”: guiding models to produce outputs judged novel by humans. Generative adversarial exploration: sampling rare outputs that surprise evaluators. Work on concept blending and latent space traversal to push models outside standard data modes.</p>
+<p>What’s Missing (The Elusive Part)</p>
+<p>To achieve real imagination and ingenuity, AI would need:</p>
+<p>Counterfactual invention: Generate not just what could exist, but what never has — entire artistic styles, scientific paradigms, or engineering blueprints. Aesthetic reasoning: Understanding beauty, elegance, and symbolism beyond mimicking cultural artifacts. Problem reframing: The ability to pose questions no one has asked — the essence of genius. Generative originality: Creating concepts, movements, or designs without historical precedent. Cross-domain creativity: Fusing knowledge from physics, literature, and biology into something no human would think to connect.</p>
+<p>Right now, models imitate human novelty; true ingenuity means going beyond humanity’s imagination.</p>
+<p>The Software Advantage (Potential Leap)</p>
+<p>Superintelligence could:</p>
+<p>Run billions of generative experiments in parallel, evolving concepts like Darwinian selection — but at machine speed. Simulate entire creative traditions (music, art, literature) in compressed form, then invent post-human styles. Design artifacts that blend function + beauty: bridges that are mathematically optimal and aesthetically breathtaking. Create entire genres of thought: philosophies, aesthetics, or even mathematics alien to us, but internally consistent and useful.</p>
+<p>Unlike human creators constrained by culture and biology, digital imagination would be infinite, tireless, and unconstrained.</p>
+<p>Why Labs Invest Here (Why It Matters)</p>
+<p>Cultural revolution: Creative AI could reshape art, film, literature, and design industries. Scientific leapfrogging: Ingenuity drives paradigm shifts — Einstein imagining relativity, Darwin imagining evolution. AI needs this dimension to escape correlation traps. Human-AI synergy: Co-creation tools that amplify human genius, letting anyone tap into imagination at planetary scale. Path to AGI/ASI: Without creativity, AI is just a brilliant imitator. With it, AI becomes an inventor, a discoverer, and a true mind.</p>
+<p>⸻</p>
+<p>⚡ Dimension 5: Autonomy &amp; Agency</p>
+<p>Current State (Where We Are)</p>
+<p>Today’s foundation models are reactive. They wait for human prompts and return outputs. Some progress toward autonomy has been made with: Agents (LangChain, AutoGPT, ReAct-style pipelines): chaining prompts and tool calls together. Task decomposition modules: models breaking big tasks into smaller steps. Orchestrated multi-step workflows (e.g., copilots that can code, run, debug, and retry).</p>
+<p>However, these are still brittle — often stuck in loops, hallucinating steps, or failing without human correction.</p>
+<p>⸻</p>
+<p>What’s Missing (The Elusive Part)</p>
+<p>Intrinsic motivation modeling: True goal formation requires models to generate objectives beyond human prompts. Stable value systems: Without an anchor, goals drift or contradict over time. Prioritization: Choosing which goals matter most in resource-constrained settings. Persistence: Holding goals across long timescales — hours, months, even years. Self-originating curiosity: The spark of exploring problems that no one told them to.</p>
+<p>True goal-formation: deciding objectives without a human writing the task. Long-horizon planning: executing sequences that unfold over hours, days, or months. Adaptive strategy-shifting: when the environment changes, today’s models don’t re-plan intelligently. Agency without micromanagement: current systems constantly need prompts or guardrails; they don’t persist as self-directed entities.</p>
+<p>⸻</p>
+<p>Why Labs Invest Here (Why It Matters)</p>
+<p>Productivity Leap: An autonomous model that takes a vague instruction (“design me a video game”) and executes end-to-end would be revolutionary.</p>
+<p>Simulation agents: Scientific discovery, virtual environments, and real-world robotics all require persistent agents that can act and adapt over time.</p>
+<p>Bridge to AGI: Agency is the connective tissue between “a smart calculator” and “a digital mind.” Without autonomy, models remain sophisticated tools, not general intelligences.</p>
+<p>Economic Potential: Entire industries could be run by persistent agentic AIs, automating workflows beyond human-scale efficiency.</p>
+<p>⸻</p>
+<p>🌀 Dimension 6: Meta-Cognition &amp; Self-Reflection</p>
+<p>Current State (Where We Are)</p>
+<p>Modern foundation models lack self-awareness. They generate outputs but don’t monitor their own reasoning. Some early attempts exist: Chain-of-thought prompting — forcing models to “show their work.” Self-critique loops (e.g., Reflexion, Debate, Constitutional AI) where a model reviews its own answers or competes with copies of itself. Verifier models — separate neural nets trained to check outputs for factuality, safety, or correctness.</p>
+<p>These approaches add reliability but are bolted-on mechanisms, not true internal reflection.</p>
+<p>⸻</p>
+<p>What’s Missing (The Elusive Part)</p>
+<p>Internal error detection: A model that knows when it doesn’t know, without needing external critics. Goal-consistency checks: Avoiding contradictions across long chains of reasoning. Dynamic self-improvement: Being able to rewrite its own approach if it notices flaws, not just output “oops, I was wrong.” Abstract self-modeling: Understanding not just the task, but its own role in performing the task.</p>
+<p>⸻</p>
+<p>Why Labs Invest Here (Why It Matters)</p>
+<p>Reliability: Without meta-cognition, even the most advanced LLMs hallucinate confidently. Reflection is the only path toward 99.9%+ accuracy.</p>
+<p>Scientific reasoning: Discoveries require hypothesis-testing, not just output generation. Self-reflection bridges that gap.</p>
+<p>Autonomous agents: For persistent autonomy, models must evaluate their own strategies over time.</p>
+<p>Safety: Ironically, true safety depends on self-monitoring — the ability to detect and mitigate its own errors before they affect the world.</p>
+<p>Key Insight</p>
+<p>Today’s models are like genius humans who never check their work. They can ace a problem but also make basic mistakes with absolute confidence.</p>
+<p>Meta-cognition would let them act like true scientists: hypothesizing, testing, critiquing themselves, and updating their reasoning midstream.</p>
+<p>⸻</p>
+<p>🎥 Dimension 7: Omnimodality</p>
+<p>Current State (Where We Are)</p>
+<p>Most foundation models today are multimodal, not truly omnimodal. Examples: GPT-4o handles text + audio in a fused latent space (but still 1D sequential). Gemini Ultra links text, images, and limited video, but via bridging adapters — not a unified representation. Sora (OpenAI) can generate video, but without integration into language or reasoning in a fused space.</p>
+<p>Each modality is usually processed by a specialized encoder/decoder, then mapped into a shared latent “hub.” But these hubs are shallow and limited, not deeply fused. No system today can fluently reason across text + images + video + audio + sensor data in one consistent latent substrate.</p>
+<p>⸻</p>
+<p>What’s Missing (The Elusive Part)</p>
+<p>Unified latent space: One representation where concepts exist equally as words, visuals, sounds, or motions. Cross-dimensional translation: The ability to “see” a math equation, “hear” its rhythm, and “visualize” its geometry seamlessly. Temporal grounding: True video-level reasoning where time, memory, and causality are preserved across modalities. High-dimensional integration: Extending beyond human senses — e.g., DNA sequences, hyperspectral data, or quantum measurements.</p>
+<p>⸻</p>
+<p>Why Labs Invest Here (Why It Matters)</p>
+<p>Cognitive completeness: Human intelligence is fundamentally multimodal — sight, sound, language, and memory interact fluidly. Omnimodality is the only way for AI to approximate that richness. Embodied agents: Robots, AR/VR assistants, or scientific AIs need to process multiple input streams simultaneously (vision, speech, sensor data). Generative power: A model that can co-create text, visuals, music, and video in harmony opens new frontiers in creativity, education, and simulation. Scientific mastery: Cross-modal reasoning lets AI connect disparate data sources — e.g., linking gene sequences (1D) with protein shapes (3D) and microscopy videos (4D).</p>
+<p>⸻</p>
+<p>Key Insight</p>
+<p>Today’s systems stitch modalities together — like translators passing notes across different languages. True omnimodality would be a single brain where all languages, images, videos, and sensory streams are native and interchangeable.</p>
+<p>That shift is essential for any system we’d call “general intelligence.”</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>AGI vs Superintelligence: A False Distinction</p>
+<p>In most public debates, AGI (Artificial General Intelligence) and ASI (Artificial Superintelligence) are treated as two distinct stages. The story goes: first we build AGI, something “as smart as a human,” and then, one day, it scales up into superintelligence.</p>
+<p>But this binary doesn’t hold up when you actually look at the nature of software. The real leap isn’t AGI → ASI. It’s narrow AI → general intelligence. Once you have a digital system that replicates the full cognitive range of a human across the seven dimensions of intelligence — reasoning, abstraction, memory, imagination, multimodal grounding, scientific understanding, and self-reflection — you already have something that is superintelligent by design.</p>
+<p>Why the First AGI Is Already a Superintelligence</p>
+<p>The difference isn’t about smarts; it’s about substrate. Biological intelligence runs on slow, fragile neurons with hard limits. A software-based general intelligence escapes those limits instantly:</p>
+<p>Vastly faster processing — thousands of times faster than biological neurons. Scalable by default — it can run millions of copies in parallel, sharing knowledge instantly. Perfect recall — every bit of knowledge, every prior interaction, instantly available across centuries, without fatigue or distraction. Immortal &amp; tireless — it never needs sleep, food, or emotional regulation. Perfectly replicable — copy and paste entire minds in seconds. Self-improving — able to redesign its own architecture, invent new algorithms, and re-train itself without human bottlenecks. Agentic — able to set, revise, and pursue arbitrary goals across domains with consistency and foresight.</p>
+<p>The first machine that achieves “human-level cognition” in software is already a system that outclasses humans in speed, scale, persistence, and reliability. The “super” part is not the next step — it’s the immediate consequence of running intelligence on silicon instead of neurons.</p>
+<p>Why the Binary Persists</p>
+<p>So why do people — including many CEOs — cling to the AGI/ASI binary?</p>
+<p>Marketing: It makes for an easy story to tell investors, policymakers, and the public — “first we get AGI, then someday later ASI.” Safety optics: By framing ASI as far-off, labs deflect pressure from regulators who might otherwise fear runaway AI today. Philosophical hangover: People are used to thinking in stages of evolution — from ape → human → godlike being. But software doesn’t follow biology’s ladder.</p>
+<p>In reality, engineers already know: once you shed biology, there is no “just human-level” AI. There is only narrow AI, and then general intelligence that instantly scales into something more powerful than all of humanity combined.</p>
+<p>The Real Divide</p>
+<p>The real frontier is not AGI vs ASI.</p>
+<p>It’s pattern recognition vs general intelligence.</p>
+<p>Current foundation model R&amp;D: almost entirely focused on advancing one or more of the seven dimensions (pattern recognition being the most mature). The missing link: once a system integrates all dimensions — memory, reasoning, imagination, multimodality, self-reflection — you don’t get “AGI.” You get software-based intelligence that is already superhuman in scope.</p>
+<p>Why the Distinction Exists (and Misleads)</p>
+<p>Many people treat AGI (human-level general intelligence) and ASI (superintelligence, vastly beyond human capacity) as two sequential milestones. The intuition is: first we build a machine that can think like a human, then later it scales into something greater. But in reality, the very moment you replicate the full dimensionality of human intelligence in software — pattern recognition, memory, reasoning, imagination, creativity, omnimodality, and goal-setting — you already surpass biology.</p>
+<p>⸻</p>
+<p>The Digital Difference</p>
+<p>Unlike biological brains, a digital AGI would:</p>
+<p>⚡ Process orders of magnitude faster — running at electronic speeds instead of millisecond spikes. ♾️ Copy itself endlessly — parallel instances sharing discoveries instantly. 📚 Recall perfect, crystallized memory — no forgetting, no distortion, no distraction. 🔄 Self-replicate and improve — upgrading its own architecture in ways evolution never allowed. 🔬 Run infinite simulations — testing thousands of hypotheses in seconds instead of decades.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Superintelligence.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Superintelligence</figcaption>
+</figure>
+</div>
+<p>🔑 Takeaway: The first real AGI is a superintelligence. The binary distinction is semantic at best, misleading at worst. The leap isn’t from “general” to “super” — it’s from narrow, domain-locked AI to general cognition instantiated in software. Once you’re there, the “super” part is already baked in.</p>
+<p>Key Insight</p>
+<p>Today’s foundation models are like geniuses with no initiative: they can solve anything you ask, but only if you phrase it properly and keep asking.</p>
+<p>Autonomy &amp; agency would turn them into self-directed intelligences — capable of setting, refining, and achieving goals continuously.</p>
+<p>⸻</p>
+<p>AGI vs ASI really is a false binary.</p>
+<p>Once you achieve a system that has the full range of human cognition (general reasoning, abstraction, grounding, long-term memory, etc.) and you run it on digital substrate:</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
