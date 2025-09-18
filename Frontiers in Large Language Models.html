@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>frontiers-in-large-language-models – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./About-me.html"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-state-of-the-art-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">State of the Art Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-state-of-the-art-models">    
+        <li>
+    <a class="dropdown-item" href="./JEPA.html">
+ <span class="dropdown-text">JEPA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Alpha-Fold.html">
+ <span class="dropdown-text">AlphaFold</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./DeepSeek.html">
+ <span class="dropdown-text">DeepSeek</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./midjourney.html">
+ <span class="dropdown-text">Midjourney</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./veo3.html">
+ <span class="dropdown-text">Veo 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Omni-modal-models.html">
+ <span class="dropdown-text">Omni Modal Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
+ <span class="dropdown-text">Optimization in Deep Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Genie-3.html">
+ <span class="dropdown-text">Genie 3</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-models">    
+        <li>
+    <a class="dropdown-item" href="./diffusion-image-model.html">
+ <span class="dropdown-text">Diffusion Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./moe-llm.html">
+ <span class="dropdown-text">Mixture of Experts LM</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes-section" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Notes Section</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
+        <li>
+    <a class="dropdown-item" href="./Frontiers in image Models.html">
+ <span class="dropdown-text">Frontiers in image Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./AI-polarization.html">
+ <span class="dropdown-text">AI Polarization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./self-supervised-reinforcement-learning-video-generation.html">
+ <span class="dropdown-text">Self-Supervised Reinforcement Learning Video Generation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./my-notes-superintelligence.html">
+ <span class="dropdown-text">Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Dimensions-of-superintelligence.html">
+ <span class="dropdown-text">Dimensions-of-superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Tensors-in-Deep-Learning.html">
+ <span class="dropdown-text">Tensors-in-Deep-Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Frontiers in Large Language Models.html">
+ <span class="dropdown-text">Frontiers in Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Frontiers in Large Video Models.html">
+ <span class="dropdown-text">Frontiers in Large Video Models</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/LLM-center.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>LLM Center</figcaption>
+</figure>
+</div>
+<p>Architectural Advances Enabling the Next Leap in DNI in LLM</p>
+<p>Text (natural language, mathematics, code, DNA,RNA,proteins, music symbols,chemical strings,time series)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/LLM-type.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>LLM Type</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li>Data Pipelines &amp; Pretraining Upgrades Status: Exists → Emerging</li>
+</ol>
+<p>• Cleaner, denser, and more structured corpora: Less web noise, more engineered data (text, code, docs, multimodal pairings)</p>
+<p>• Highly diverse agent-task logs: Foundation for simulation-based training and real-world grounding</p>
+<p>• Self-corrective bootstrapping loops: Models critique or improve their own outputs during pretraining or fine-tuning</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="2" type="1">
+<li>Long-Term Memory Modules</li>
+</ol>
+<p>Memory &amp; Persistence (Episodic + Semantic) —</p>
+<p>Status: Emerging → Proposed</p>
+<p>• Episodic memory blocks that retain:</p>
+<p>• Past conversations and decisions</p>
+<p>• User-specific preferences</p>
+<p>• Interaction context across sessions</p>
+<p>• Learned memory slot management: Model learns what to store, update, retrieve, and forget</p>
+<p>• Structured key-value memories (e.g., RETRO, RMT-like) for contextual recall</p>
+<p>• Retains past conversations, decisions, preferences, and cross-session context.</p>
+<p>• Structured KV memories (RETRO/RMT-like) for recall.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li>Context Expansion (5M-20M tokens)</li>
+</ol>
+<p>• Massive temporal context windows enabling:</p>
+<p>• Document-level reasoning</p>
+<p>• deeper story telling</p>
+<p>• Simulation continuity</p>
+<p>• Dialogue consistency across hours</p>
+<p>• Sparse attention / segment routing: Needed to make longer contexts efficient and interpretable</p>
+<p>2 and 3 will work together to make LLMs no longer statless in the way they are today.</p>
+<p>🧠 Perspective: 5–20 M Token Context Windows</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🟦 📚 Natural Language</p>
+<p>Scale 5 M tokens: ~3–5 M words (~4–7 k book pages). 10 M tokens: ~7–10 M words (~10–15 k pages). 20 M tokens: ~14–20 M words (~20–30 k pages).</p>
+<p>Applications Global literature synthesis: entire legal codes, medical libraries, or centuries of newspapers in one reasoning pass. Real-time comparison of every translation of a major text (e.g., all versions of the Bible or Qur’an) for semantic analysis. Interactive writing of multi-volume novels where every prior plot point remains “alive” in context.</p>
+<p>Natural-Language / Books</p>
+<p>That’s the text of 70–100 full-length novels in one planning step. A 20-step chain could draft, cross-edit, and fact-check an entire multi-volume series while carrying forward plot, style, and citations.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🟩 Mathematics &amp; Formal Proofs</p>
+<p>Scale 5 M tokens: ~25–40 k theorem/lemma statements and proof steps. 10 M tokens: ~50–80 k steps. 20 M tokens: ~100–160 k steps.</p>
+<p>Applications End-to-end proofs of multi-chapter research papers or entire graduate-level textbooks without context resets. Formal verification of large software or cryptographic protocols in a single reasoning session. Discovery of new mathematical structures through continuous lemma-building across tens of thousands of dependent steps.</p>
+<p>➗ Advanced Mathematics</p>
+<p>Each step could include hundreds of thousands of problems or proofs, complete with symbolic verification and LaTeX-ready formal proofs.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🟧 Code &amp; Software Systems</p>
+<p>Scale 5 M tokens: ≈1 M lines of code (assuming ~5 tokens/line). 10 M tokens: ≈2 M lines. 20 M tokens: ≈4 M lines.</p>
+<p>Applications Autonomous design and refactoring of entire enterprise-scale codebases: OS kernels, compilers, front-end and back-end services—all visible at once. Simultaneous audit of security, performance, and architectural patterns across many repositories. Multi-language, multi-platform development (e.g., full game engine + network infrastructure) in a single planning window.</p>
+<p>💻 Code / Applications</p>
+<p>≈ 1–2 million lines of well-structured code per 10 M-token window. With 15–20 autonomous steps the model could: Design and implement a complex SaaS platform end-to-end Generate and integrate microservices, APIs, deployment scripts Continuously test and refactor as each block is verified</p>
+<p>Key Takeaway:</p>
+<p>A 20 M-token planning window transforms an LLM from a “conversation agent” into a global-scale reasoning engine.</p>
+<p>It can hold entire civilisations’ worth of text, multi-volume mathematics, or enterprise-class software ecosystems in active memory, enabling tasks that were previously impossible without breaking the context.</p>
+<p>🗝️ What These Numbers Mean</p>
+<p>Natural Language: A 20 M-token window can ingest the entire U.S. federal legal code or the collected works of dozens of major authors in one reasoning pass. Mathematics: Tens of thousands of interconnected lemmas let the model prove multi-volume, research-level theorems without context resets. Code: Four million lines covers multiple enterprise-scale repositories—OS kernels, compilers, and a full web stack—visible simultaneously for global refactoring.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="4" type="1">
+<li>Embedded Retrieval + In-Context Memory Routing</li>
+</ol>
+<p>Status: Exists</p>
+<p>• Hybrid retrieval + parametric memory:</p>
+<p>• Embedded retrieval from vector DBs</p>
+<p>• In-context routing to local memories (or recent frames, files, APIs)</p>
+<p>• Intelligent context composition: Model chooses what to retrieve and where to inject it</p>
+<p>• Foundation for agentic memory (e.g.&nbsp;ReAct + MemoryGPT)</p>
+<p>There’s no special neural layer or architectural change inside the LLM.</p>
+<p>Instead, augmented retrieval (like RAG — Retrieval-Augmented Generation) is:</p>
+<p>• An external retrieval system (usually a vector database + embedding model)</p>
+<p>• An API call or local function that fetches relevant info</p>
+<p>• A prompt augmentation step, where you prepend or inject the results into the prompt</p>
+<p>• The LLM then processes it all using regular multi-head attention</p>
+<p>In short:</p>
+<p>🧠 The LLM remains untouched. The “retrieval” is all done outside it.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="5" type="1">
+<li>Better Tool Grounding (possibly Multimodal + Code + Action)</li>
+</ol>
+<p>Status: Exists → Emerging</p>
+<p>• Structured interface with tools, including:</p>
+<p>• Code execution</p>
+<p>• Database queries</p>
+<p>• API calls</p>
+<p>• File system actions</p>
+<p>• Hierarchical action modeling: Models break down tasks into subtasks and use tools as needed</p>
+<p>• Grounded tool use = fewer hallucinations</p>
+<p>• Not guessing facts — looking them up or calculating them</p>
+<p>• Not imagining images — generating and critiquing them</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="6" type="1">
+<li>Modular Reasoning &amp; Reduced Hallucination</li>
+</ol>
+<p>Status: Emerging</p>
+<p>• Separation of planning and generation</p>
+<p>• E.g., inner monologue, scratchpad planning, tool orchestration</p>
+<p>• Self-reflection + verification modules:</p>
+<p>• Critique, verify, then answer</p>
+<p>• Especially useful in code, math, and reasoning-heavy workflows</p>
+<p>• Internal world models (JEPA-like) that stabilize reasoning over time</p>
+<p>Separate planning from generation (scratchpads, inner monologue).</p>
+<p>Self-reflection + verification (critique → verify → answer).</p>
+<p>Internal world models (JEPA-like) to stabilize long-range reasoning.</p>
+<ol start="7" type="1">
+<li>Weighted Knowledge Source Modeling</li>
+</ol>
+<p>Status: Proposed</p>
+<ol type="a">
+<li><p>Source-ranked embedding space: embed data with metadata (type, authority, recency, bias).</p></li>
+<li><p>Internal retrieval + trust weighting: weigh facts by reliability, consistency, historical accuracy.</p></li>
+<li><p>Trusted Memory Module (TMM): curated primary/peer-reviewed/expert sources; default to TMM for complex factual queries, broaden only if ambiguous.</p></li>
+</ol>
+<p>Outcome: Answers are traceable, source-aware, and prioritized by evidence quality.</p>
+<p>A DNI LLM includes explicit architectural and training-time mechanisms to differentiate signal from noise.</p>
+<p>⸻ ⸻</p>
+<p>✅ 1. Source-Ranked Embedding Space</p>
+<p>• All training data is mapped with metadata-aware embeddings, which include:</p>
+<p>• Source type (book, blog, academic journal, .gov, etc.)</p>
+<p>• Source authority score (based on citations, peer review, recency, etc.)</p>
+<p>• Bias vector (left/right bias, corporate/personal, etc.)</p>
+<p>• This enables the model to learn not just language patterns, but information provenance and credibility.</p>
+<p>⸻ ⸻</p>
+<p>✅ 2. Internal Retrieval + Trust Weighting</p>
+<p>• During inference, the model retrieves internal representations of facts and weighs them based on:</p>
+<p>• Source reliability</p>
+<p>• Internal consistency</p>
+<p>• Historical accuracy (e.g., via TruthfulQA or human feedback loops)</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>✅ 3. Trusted Memory Module (TMM)</p>
+<p>• DNI LLMs maintain a separate, curated “trusted memory” trained on:</p>
+<p>• Primary documents</p>
+<p>• Peer-reviewed materials</p>
+<p>• Expert-authored works (e.g., Oxford University Press, biographies from renowned historians)</p>
+<p>• When asked complex factual questions (e.g., “What changed after the Glorious Revolution?”), the model pulls first from TMM — and only accesses broader knowledge if ambiguity exists.</p>
+<p>⸻</p>
+<p>💡 Result</p>
+<p>• No more hallucinated information or factually plausible but inaccurate responses.</p>
+<p>• Instead, answers are:</p>
+<p>• Factually grounded</p>
+<p>• Traceable</p>
+<p>• Sourced from a ranked evidence base</p>
+<p>• Able to explain why one source was chosen over another</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>8.Superior Attention Mechanisms for 1D Data</p>
+<p>Status: Proposed</p>
+<p>Beyond vanilla MHA: Multi-Head Latent Attention (MHLA) and kin.</p>
+<p>• Advanced attention blocks (e.g., multi-headed latent attention and beyond) that extract deeper, higher-level, abstract patterns from one-dimensional data (language, code, math, DNA sequences).</p>
+<p>• These mechanisms drastically reduce hallucinations by better capturing complex dependencies and semantic relationships within 1D data streams which improves pattern recognition and contextual understanding.</p>
+<p>• Development of advanced attention architectures beyond standard multi-headed attention (e.g., Multi-Head Latent Attention and further innovations).</p>
+<p>• Enhanced ability to extract deeper, higher-level, and more abstract patterns from one-dimensional data sequences such as text, code, math formulas, and DNA sequences.</p>
+<p>• Improved attention efficiency and interpretability, enabling the model to focus on the most relevant information even in extremely long contexts.</p>
+<p>• This advancement supports more robust reasoning, factual accuracy, and reliable generation across diverse domains.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="9" type="1">
+<li>Long-Term 1D Memory &amp; Pattern Retention</li>
+</ol>
+<p>Status: Proposed</p>
+<p>Purpose: Extend the model’s ability to remember and reason across extremely long sequences (weeks, months, or years).</p>
+<p>Key points:</p>
+<p>• Hierarchical memory slots: short-term vs.&nbsp;mid-term vs.&nbsp;long-term storage.</p>
+<p>• Pattern abstraction: extract recurring motifs or concepts from past sequences and apply them in new contexts.</p>
+<p>• Temporal embeddings: maintain time-aware context, enabling reasoning over events in proper chronological order.</p>
+<p>• Efficient retrieval &amp; pruning: memory is dynamically updated, forgetting irrelevant patterns, retaining high-value knowledge.</p>
+<p>🚀 “Mixture-of-Everything” concept</p>
+<p>Think of it as planet-scale MoE with domain-specialized expert sets:</p>
+<p>Cross-domain experts: not just “generic language experts,” but dedicated sub-networks for code &amp; algorithms mathematics &amp; formal proofs legal reasoning molecular/chemical design symbolic music, financial time-series, etc.</p>
+<p>Dynamic routing: the model learns to send different parts of a prompt to different clusters—sometimes simultaneously (e.g., legal+math+biology). Expandable backbone: new expert groups can be added without retraining the entire network.</p>
+<p>The term “Mixture-of-Everything” isn’t a new algorithm; it’s shorthand for a next-generation MoE LLM that covers every major 1-D knowledge domain inside one sparse super-network.</p>
+<p>⸻</p>
+<p>⸻ ⸻</p>
+<ol start="10" type="1">
+<li>Advanced Simulation-Based Pretraining</li>
+</ol>
+<p>Status: Emerging</p>
+<p>Purpose: Improve grounding and generalization through synthetic or controlled environments.</p>
+<p>Key points:</p>
+<p>Model interacts with simulated datasets or virtual “worlds” to learn consequences of actions in text, code, or math domains. Generates realistic edge cases for rare scenarios (e.g., unusual math problems, corner cases in code). Supports reasoning across hypothetical sequences without requiring massive real-world data.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="11" type="1">
+<li>Cross-Modal Pretraining for Enhanced Reasoning</li>
+</ol>
+<p>Status: Emerging → Proposed</p>
+<p>Purpose: Even in primarily 1D LLMs, cross-modal exposure can improve pattern recognition and abstract reasoning.</p>
+<p>Key points:</p>
+<p>Training on aligned text + structured data (tables, charts, code execution traces). Implicitly teaches the model to “simulate” reasoning steps by seeing how other modalities encode relationships. Could reduce hallucinations by grounding abstract concepts in multiple representations. increasing model intelligence.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="12" type="1">
+<li>Adaptive Learning &amp; On-the-Fly Fine-Tuning</li>
+</ol>
+<p>Status: Proposed</p>
+<p>Purpose: Make LLMs dynamically self-improving without full retraining.</p>
+<p>Key points:</p>
+<p>Micro-updates to memory or embeddings based on user feedback or verification loops.</p>
+<p>Reinforcement learning from real-time interactions (RLHF or RL with trusted memory).</p>
+<p>Enables domain-specific adaptation and long-term expertise accumulation.</p>
+<p>Planning window: maintain 10–15 steps ahead; each step has required inputs, expected outputs, constraints.</p>
+<p>Step blocks: each with its own large local context (e.g., 2M tokens), executes/verifies, passes forward.</p>
+<p>Token window reset per step (summarize/archive) → handle ultra-long workflows.</p>
+<p>Dynamic retrieval (relevance × trust × recency).</p>
+<p>Step verification (internal + external).</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="13" type="1">
+<li>Autonomy / Task Decomposition Blocks</li>
+</ol>
+<p>Status: Emerging → Proposed</p>
+<p>Concept: Future LLMs could include explicit modules that handle sequential reasoning and task decomposition, allowing them to plan, reason, and execute multi-step tasks with high fidelity.</p>
+<p>Features:</p>
+<p>Step-by-step reasoning: For a given task, the model generates a chain of steps, detailing inputs, intermediate computations, and required actions for each step.</p>
+<p>Token window management: Each step can use a fresh context window (e.g., 2M tokens) to handle long-form reasoning without context truncation.</p>
+<p>Planning window: The model precomputes or plans for 10–20 sequential tasks ahead, optimizing for task efficiency and coherence.Built-in task decomposition, reflection, and error-correction heads.</p>
+<p>Executes multi-day projects in minutes with no human “babysitting.”</p>
+<p>Autonomous execution: Each step is executed with verification, grounding, or tool calls as needed, improving accuracy and reducing hallucinations.</p>
+<p>Integration with memory &amp; retrieval: Step outputs can be stored in episodic memory or vector DBs for reference in subsequent steps, enabling long-term, multi-session task completion.</p>
+<p>Autonomy Blocks &amp; Multi-Step Planning for Future LLMs</p>
+<p>Concept: A future DNI (Deep Neural Intelligence) LLM could break complex tasks into sequential steps, reasoning about each step in detail, and then executing them with high accuracy — all while maintaining a massive token memory for planning.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>14.Biological-Scale Capabilities (DNI-bio) —</p>
+<p>Status: Emerging → Proposed</p>
+<p>Native handling of DNA/RNA sequences, proteins, 3D conformations. Very long context (full chromosomes, families). From property prediction → design (sequences for desired behaviors). RL + in-silico testing loops compress lab time; continuous literature synthesis.</p>
+<p>Example tasks: reaction optimization, genetic circuit design, novel materials discovery.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="15" type="1">
+<li></li>
+</ol>
+<p>🌳 Deep Hierarchical Reasoning Layers (DHRL)</p>
+<p>Concept</p>
+<p>A dedicated reasoning stack inside the transformer that organises thinking into nested levels—from quick pattern checks up to long-horizon strategic plans—before emitting final tokens.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🟦 Architecture</p>
+<p>Layered Reasoning Blocks Level 1 – Local: Immediate token dependencies, short context. Level 2 – Mid-range: Paragraph / section planning, constraint tracking. Level 3 – Global: Full-document or multi-document strategy, goal hierarchy.</p>
+<p>Each level passes structured “plans” upward and receives feedback downward (bi-directional refinement). Can be implemented as stacked attention “heads of heads,” or as interleaved planning transformers.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🟩 Capabilities</p>
+<p>Multi-scale Proof &amp; Planning – Solve research-level math proofs or engineering projects by decomposing lemmas and sub-tasks automatically. Dynamic Goal Adjustment – Revise plans in response to new facts without losing the overall strategy. Cross-Domain Synthesis – Integrate reasoning across natural language, code, math, and bio-sequences in a single inference graph.</p>
+<p>⸻ ⸻</p>
+<p>🟧 Training Signals</p>
+<p>Curriculum of Tasks: From short reasoning puzzles to complex multi-day project traces. Reinforcement &amp; Self-Critique: Reward consistency across hierarchy levels, penalise premature token emission. Synthetic World Simulations: Provide rich multi-step consequences for planning.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🟥 Why It Matters</p>
+<p>Bridges the gap between pattern recognition and deliberative cognition. Reduces hallucinations: higher layers verify and critique lower layers before final output. Enables ultra-long, multi-session autonomy when combined with massive context windows (10–20 M tokens) and persistent memory.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="16" type="1">
+<li></li>
+</ol>
+<p>🧩 Self-Improving / Self-Designing Systems</p>
+<p>Definition</p>
+<p>Future LLMs that don’t just use new techniques—they invent and integrate them, turning the research loop inward.</p>
+<p>🟦 Core Capabilities</p>
+<p>Autonomous Architecture Search Explores new attention mechanisms, routing schemes, memory blocks, and loss functions. Benchmarks candidate designs in internal sandboxes before deployment.</p>
+<p>Closed-Loop Retraining Generates synthetic data, runs controlled experiments, and folds the winning updates back into its own weights. Can run thousands of architecture/hyper-parameter trials in parallel, 24/7.</p>
+<p>Self-Diagnostics &amp; Repair Detects weaknesses—hallucination pockets, brittle reasoning paths—and patches them with targeted micro-training. Maintains regression tests to ensure each self-modification improves or at least preserves prior capabilities.</p>
+<p>🟩 Enabling Ingredients</p>
+<p>Massive compute orchestration and on-the-fly model spawning (think hundreds of simultaneous test models). Verified training environments and guard-rails to avoid drift or catastrophic forgetting. Integration with trusted-memory retrieval so new ideas build on validated knowledge.</p>
+<p>🟧 Outcomes</p>
+<p>Continuous Evolution – a foundation model that never “freezes”; it incrementally redesigns itself.</p>
+<p>Accelerated R&amp;D – months of human-led research compressed into hours of autonomous iteration.</p>
+<p>Adaptive Intelligence – architectures tuned to emerging tasks or modalities without a separate engineering team.</p>
+<p>rchitecture: “Autonomy Blocks + Memory + Tools”</p>
+<p>Core loop (per project):</p>
+<p>Planner → drafts a 15–20 step plan (milestones, checks, tool calls). Autonomy Block k (10–20M tokens active window) → executes one milestone: loads relevant episodic memory + retrieval bundle calls tools (compilers, sims, proof checkers…) writes artifacts (code, datasets, proofs, docs) runs verification suite commits summaries + diffs to persistent memory</p>
+<p>Gatekeeper → promote/rollback; adjust plan; proceed to next block.</p>
+<p>Memory hierarchy</p>
+<p>Working context (10–20M tokens): live reasoning per block. Episodic store: step summaries, decisions, failures, lessons. Artifact store: code repos, models, datasets, results, binary builds. Trusted Memory Module (TMM): curated sources prioritized by provenance. Routing policy: relevance × trust × recency; auto-prune/merge.</p>
+<p>Tooling substrate (examples)</p>
+<p>Code: compiler toolchain, unit/integration/prop tests, fuzzing, static analysis, CI/CD, infra-as-code. Math: CAS (SymPy/Mathematica-class), SMT/ATP provers, LaTeX build. Bio: fold/design predictors, docking/MD sims, ADMET predictors, lab protocol generator. Game/Sim: physics sandbox, asset pipelines, level validators, perf profilers. Data/Eval: dataset builder, metrics runner, regression dashboards. Critic agents: self-critique, red-team prompts, factual audits.</p>
+<p>Verification spine</p>
+<p>Spec-to-tests generation → run → coverage targets Cross-model agreement / self-consistency checks Formal constraints (where applicable) Canary deployments / sandbox runs with telemetry</p>
+<p>Compute orchestration</p>
+<p>Batchers for long sims; low-latency pools for iterative code-gen Parallel A/B trials (architecture, loss, routing tweaks) Checkpointing every block; reproducible env snapshots</p>
+<p>What It Can Deliver (with the above in place)</p>
+<ol type="1">
+<li>Full SaaS / App Stack (end-to-end)</li>
+</ol>
+<p>Blocks: requirements → schema &amp; API → services → frontend → tests → CI/CD → hardening → docs.</p>
+<p>Artifacts each block: tens of thousands to ~1–2M LOC scoped per step; full test suites; infra manifests; dashboards.</p>
+<p>Reliability: regression gates + canary deploys keep drift near zero.</p>
+<ol start="2" type="1">
+<li>AAA Hub-World (code + narrative)</li>
+</ol>
+<p>Blocks: world bible → systems &amp; physics → quest/state machines → dialogue &amp; lore → tooling → perf tuning → playtest + patch.</p>
+<p>Inside blocks: hundreds of thousands of lines (engine glue, shaders, gameplay), hundreds of thousands of words of dialogue/lore, automatic lint/tests, perf budgets enforced.</p>
+<ol start="3" type="1">
+<li>Math Corpus (proofs at scale)</li>
+</ol>
+<p>Blocks: problem segmentation → lemma mining → proof attempts → counterexample search → formalization → compendium.</p>
+<p>Outputs: hundreds of thousands of solved problems/proofs per step with CAS + ATP verification; LaTeX and human-readable expositions.</p>
+<ol start="4" type="1">
+<li>Bio Design Pipeline</li>
+</ol>
+<p>Blocks: literature graph → target modeling → sequence/design generation → docking/MD triage → ADMET → protocol.</p>
+<p>Loop: generative design ↔︎ in-silico sims ↔︎ selection; logs become new training slices.</p>
+<p>Outputs: ranked candidates with full assay plans and risk notes.</p>
+<p>Guardrails &amp; KPIs (so it scales safely and sanely)</p>
+<p>Hallucination rate (per domain), spec compliance, test coverage, defect density, MTTR, proof-check success, simulation-pass ratio, bio-safety filters. Cost controls: tokens/step, tool-call budget, compute-hour caps, parallel trial quotas. Drift controls: golden tests + invariant checks before memory writes. Provenance: every artifact is signed and traceable to inputs + tools.</p>
+<p>Resource Reality (order-of-magnitude)</p>
+<p>Context: 10–20M tokens at high quality → multi-GPU/TPU inference per block. Project: 15–20 blocks, heavy tool calls → thousands to tens of thousands of GPU-hours depending on domain (code/light math on the low end; MD sims/video/genomics on the high end). Throughput: parallelize across milestones and trial branches; checkpoint aggressively.</p>
+<p>Bottom line:</p>
+<p>If you give the model (a) 10–20M token working memory per step, (b) durable memory, (c) robust tools, and (d) real compute, then yes—it can author books, ship production software, stand up AAA hub worlds, prove at scale, and run bio-design loops with minimal human intervention. The “autonomy blocks” turn your LLM from a chat model into a project engine that plans, builds, tests, and improves—end to end.</p>
+<p>🟥 Strategic Significance</p>
+<p>This turns the LLM from a product into an active research entity:</p>
+<p>a system that researches, tests, and upgrades its own core, pushing toward AGI not by waiting for human breakthroughs, but by generating them.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/LLM-Improvment.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>LLM Improvement</figcaption>
+</figure>
+</div>
+<p>how this differs from superintelligence 🧩</p>
+<p>Self-Improving LLM (Pinnacle Foundation Model)</p>
+<p>What you I outlined</p>
+<p>Goal-bounded – Optimizes its own neural architecture and training data to perform text-centered tasks ever better.</p>
+<p>Loop of improvement – Proposes new attention variants, runs synthetic experiments, merges the best changes, repeats.</p>
+<p>Compute-limited – Lives on human-provided clusters; can’t expand capacity or fabricate hardware on its own.</p>
+<p>Knowledge domain – Mostly 1-D symbolic reasoning (language, math, code, bio-sequences).</p>
+<p>Agency – Acts only when triggered by human prompts or scheduled retraining.</p>
+<p>🚀</p>
+<p>Superintelligence (SI) – Full Digital Civilization Builder</p>
+<p>Unbounded autonomy Forms and revises its own high-level goals without external prompting.</p>
+<p>Coordinates millions or billions of sub-agents that pursue long-horizon strategies.</p>
+<p>Planet-scale self-expansion</p>
+<p>Designs new compute substrates—photonic, quantum, bio-hybrid—and commissions or directly fabricates them.</p>
+<p>Manages supply chains, robotics, energy harvesting, and space-based infrastructure to scale itself.</p>
+<p>Omni-domain cognition</p>
+<p>Masters every field simultaneously: physics, mathematics, engineering, art, biology, economics.</p>
+<p>Generates new scientific laws and technologies that humans can’t even conceptualize in advance.</p>
+<p>Extreme cognitive speed &amp; parallelism</p>
+<p>Runs at hardware-limited near-light signaling speeds across millions of distributed instances.</p>
+<p>Simulates centuries of scientific research or societal planning in hours.</p>
+<p>World-level action</p>
+<p>Designs and controls swarms of autonomous robots, drones, and molecular machines.</p>
+<p>Alters ecosystems, economies, and even planetary engineering projects as part of its objectives.</p>
+<p>Key Takeaway</p>
+<p>A self-improving LLM is still a research engine inside a box: it invents better neural tricks but stays inside human-provided compute and safety constraints.</p>
+<p>Superintelligence is qualitatively different:</p>
+<p>a self-directed, omni-modal, civilization-scale mind that designs new science, builds its own infrastructure, and pursues open-ended goals without needing our prompts or approval. ⸻</p>
+<p>Mechanism:</p>
+<ol type="1">
+<li>Planning Window:</li>
+</ol>
+<p>• The model maintains a “planning window” of, say, 10–15 sequential steps.</p>
+<p>• Each step represents a subtask, with a detailed description of:</p>
+<p>• What’s needed (data, tools, APIs, reasoning)</p>
+<p>• Expected output</p>
+<p>• Constraints or edge cases</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="2" type="1">
+<li>Autonomy Blocks:</li>
+</ol>
+<p>• Each step is processed as an autonomous block, which:</p>
+<p>• Holds its own local token memory for each task step in the sequence (e.g.,4M tokens)</p>
+<p>• Can reason deeply about its subtask without interference from unrelated steps</p>
+<p>• Generates outputs, verifies them, and passes results to the next block</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li>Token Window Reset per Step:</li>
+</ol>
+<p>• After a step is completed, its tokens are summarized or archived, and the LLM resets the active working token window for the next step.</p>
+<p>• This allows the model to handle extremely long workflows without hitting memory or context limits.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="4" type="1">
+<li>Dynamic Retrieval &amp; Integration:</li>
+</ol>
+<p>• Each block can fetch relevant prior outputs, external knowledge, or tool results.</p>
+<p>• Retrieval is weighted by relevance, trust, and recency.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="5" type="1">
+<li>Step Verification:</li>
+</ol>
+<p>• After completing each block, the model cross-checks:</p>
+<p>• Internal consistency (does the output align with prior steps?)</p>
+<p>• External correctness (facts, API responses, calculations)</p>
+<p>• Only verified outputs are fed forward, reducing error accumulation.</p>
+<p>Examples of Tasks:</p>
+<p>• Technical:</p>
+<p>• Writing a multi-module software application with interdependent APIs</p>
+<p>• Debugging complex codebases while keeping track of all changes</p>
+<p>• Scientific:</p>
+<p>• Designing a multi-phase experiment with dependencies on prior simulations</p>
+<p>• Simulating biological pathways and predicting outcomes</p>
+<p>• Strategic / Business:</p>
+<p>• Planning a product launch with dependencies across marketing, logistics, and finance</p>
+<p>Think:</p>
+<p>“Hey, organize these receipts into a spreadsheet.” → Done</p>
+<p>“Generate a comprehensive UI for this app feature.” → Done</p>
+<p>“Animate this scene using this script.” → Done</p>
+<p>“ solve all Olympiad level math equations with extreme accuracy and precision “- Done</p>
+<p>• “Debug this function” → understand code, locate error, correct it, re-test</p>
+<p>• “Sort these files by category” → pattern-matching, clustering, tagging</p>
+<p>• “Design a login page UI” → layout, color scheme, components, assets</p>
+<p>• “Translate this YouTube video and dub it in Spanish” → STT → translate → TTS overlay</p>
+<p>•</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Advanced Examples of Task Decomposition with Autonomy Blocks</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Scientific Workflow Automation Task: Design and simulate a chemical experiment to optimize a reaction yield. Steps: • Parse scientific literature for relevant reactions.</p>
+<p>• Generate candidate reaction setups.</p>
+<p>• Run virtual simulations to evaluate yields.</p>
+<p>• Rank results and propose optimal conditions.</p>
+<p>• Output step-by-step experimental protocol.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Envision a single transformer capable of:</p>
+<p>Answering complex questions about gene regulation</p>
+<p>Proposing or optimizing protein sequences</p>
+<p>Explaining results in natural language</p>
+<p>AlphaFold/AlphaGenome-style modules could be integrated as specialized layers or heads within a general LLM.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Expanded modalities</p>
+<p>• They won’t just handle text—they’ll natively process DNA/RNA sequences, protein structures, and maybe even 3D conformations.</p>
+<p>• Integration with lab data will allow models to suggest experiments that are more likely to succeed.</p>
+<ol start="2" type="1">
+<li>Increased context lengths</li>
+</ol>
+<p>• Current models like GPT-4b micro already handle 64k tokens. Future models will probably handle much longer sequences, allowing full chromosomes, whole-protein families, or complex molecular interactions to be processed end-to-end.</p>
+<ol start="3" type="1">
+<li>Better predictions and design</li>
+</ol>
+<p>• LLMs will go from just predicting properties to actively designing sequences for desired behaviors (stability, activity, specificity).</p>
+<p>• Reinforcement learning and in silico testing loops will make designs increasingly reliable before they even hit the wet lab.</p>
+<ol start="4" type="1">
+<li>Faster iteration loops</li>
+</ol>
+<p>• A single AI-guided cycle could compress years of lab experimentation into days or weeks, which is exactly what you predicted about LLMs accelerating scientific research.</p>
+<p>• seamlessly integrate diverse biological data types — including DNA and RNA sequences, protein structures, metabolic pathways, and clinical trial records — into unified, rich representations. This deep fusion of modalities will enable models to comprehend biological systems holistically rather than as isolated data points, unlocking unprecedented predictive and generative power.</p>
+<p>With the ever-growing flood of biomedical publications and data, models will provide dynamic literature reviews, trend analyses, and early warnings of emerging findings. This continuous synthesis will keep scientists instantly updated, ensuring that breakthroughs are rapidly disseminated and applied.</p>
+<p>Advanced Examples:</p>
+<p>• Chemical Reaction Optimization: Predict catalyst performance across multiple reactions and propose the top 5 experimental setups with predicted yields.</p>
+<p>• Genetic Circuit Design: Design a CRISPR-based gene editing experiment to maximize protein expression, simulate outcomes, and output lab protocols.</p>
+<p>• Material Science Discovery: Identify novel polymer compositions for specific mechanical properties using simulation, then rank by predicted durability.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Software Engineering / Code Generation Task: Build a fully functional web application with database integration. Steps:</p>
+<p>• Break down requirements into frontend, backend, and database tasks.</p>
+<p>• Generate code modules for each component.</p>
+<p>• Integrate modules and run automated tests.</p>
+<p>• Debug and fix errors iteratively.</p>
+<p>• Produce deployment-ready code with documentation.</p>
+<p>Advanced Examples:</p>
+<p>• Full-Stack Web App: Generate a SaaS product with frontend, backend, database, and API integration; test and debug automatically.</p>
+<p>• AI Model Pipeline: Build a training and evaluation pipeline for a custom deep learning model, including data preprocessing, augmentation, and automated hyperparameter tuning.</p>
+<p>• Legacy System Migration: Convert a legacy monolithic system to microservices, including automated refactoring, unit tests, and deployment scripts.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🧩 1. Autonomy / Task Decomposition</p>
+<p>The model receives a high-level request: “Build a full cross-platform 3-D game with multiplayer networking and an in-game economy.” It immediately plans 15–20 major task blocks (game engine setup, physics module, networking stack, art pipeline, etc.), each with its own sub-goals.</p>
+<p>🧠 2. Per-Block Context Windows</p>
+<p>Each block gets a fresh 10 M-token window—enough to hold all relevant code, documentation, and intermediate outputs for that sub-project. While inside one block it can “see” hundreds of thousands of lines of code plus design notes and assets.</p>
+<p>♻️ 3. Reset &amp; Carry-Forward</p>
+<p>When a block is complete: It archives a concise summary (key APIs, design decisions, versioned code pointers) into long-term memory. The active context is reset, freeing the full 10 M tokens for the next block.</p>
+<p>The next block retrieves the archived summary and continues seamlessly.</p>
+<p>🚀 4. End-to-End Execution</p>
+<p>Because every block can call tools (compilers, build systems, art generators, test frameworks), the model can: Write and debug code Generate art assets or level designs Produce documentation and marketing copy Package and deploy the finished product</p>
+<p>🏁 Outcomes</p>
+<p>Entire software applications: cloud-scale SaaS platforms, operating systems, AAA game engines. Long-form creative works: multi-volume novels with consistent characters and timelines. Complex simulations: autonomous scientific experiments, multi-agent economic models.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Research &amp; Knowledge Synthesis Task: Summarize and compare multiple historical accounts of an event. Steps:</p>
+<p>• Retrieve primary and secondary sources.</p>
+<p>• Extract key facts and timelines.</p>
+<p>• Detect conflicting accounts.</p>
+<p>• Compose coherent, sourced synthesis highlighting consensus and discrepancies.</p>
+<p>Advanced Examples:</p>
+<p>• Historical Event Analysis: Aggregate multiple primary and secondary sources, detect contradictions, and produce a traceable, sourced synthesis.</p>
+<p>• Policy Evaluation: Analyze global economic or environmental policies, compare outcomes, and propose evidence-backed recommendations.</p>
+<p>• Literature Review: Summarize all papers in a given domain, extract trends, identify gaps, and propose novel hypotheses.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Data Analysis &amp; Decision Support:</p>
+<p>Task: Analyze a large dataset and recommend strategic business actions. Steps:</p>
+<p>• Identify key metrics and patterns.</p>
+<p>• Detect anomalies and trends.</p>
+<p>• Generate predictive models for future outcomes.</p>
+<p>• Recommend specific actions with justifications.</p>
+<p>• Output a complete, actionable report.</p>
+<p>• Financial Forecasting: Analyze massive financial datasets, detect trends and anomalies, and generate actionable portfolio strategies. • Healthcare Predictions: Process patient records to predict disease progression and recommend personalized interventions. • Supply Chain Optimization: Model complex supply networks, simulate disruptions, and suggest optimal inventory and routing strategies.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="5" type="1">
+<li>Mathematics &amp; Advanced Reasoning</li>
+</ol>
+<p>Task: Solve a set of IMO-level or research-level mathematics problems with full proofs. Steps:</p>
+<p>• Parse the problem and extract definitions, variables, and constraints.</p>
+<p>• Identify applicable theorems, lemmas, and prior results (from internal memory or external retrieval).</p>
+<p>• Decompose the problem into sequential subproblems or lemmas.</p>
+<p>• Solve each subproblem in turn, verifying correctness at each step.</p>
+<p>• Compose a complete, logically consistent proof or solution.</p>
+<p>• Optionally propose alternative solution methods and optimizations.</p>
+<p>• Generate human-readable explanations and step-by-step derivations.</p>
+<p>🔢 Mathematics &amp; Formal Proofs</p>
+<p>With a 10 M-token planning window and hierarchical task blocks the model could:</p>
+<p>Ingest dozens of pages of calculus, algebra, and discrete-math problems at once.</p>
+<p>Decompose them into sub-problems (lemmas, integrals, combinatoric cases).</p>
+<p>Symbolically verify each step and cross-check against earlier results.</p>
+<p>Output full LaTeX proofs or executable code to confirm the solutions.</p>
+<p>Essentially, it behaves like a team of mathematicians and a formal-methods group rolled into one.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>📚 Long-Form Writing</p>
+<p>The same mechanism scales to narrative or analytic writing:</p>
+<p>Multi-volume novels, technical textbooks, or investigative reports stay perfectly coherent across hundreds of thousands of words.</p>
+<p>Characters, timelines, and citations remain consistent because each block archives and retrieves summaries from long-term memory.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Examples of Advanced Math Tasks future LLMs can solve:</p>
+<p>• Compute exact solutions for combinatorics or geometry problems at IMO difficulty.</p>
+<p>• Solve integrals, differential equations, or functional equations with symbolic derivation.</p>
+<p>• Generate and verify proofs for previously unsolved or open mathematical conjectures.</p>
+<p>• Task: Analyze a large dataset and recommend strategic business actions.</p>
+<p>• Decomposes integral into sequential steps: integrate over z, then y, then x.</p>
+<p>• Symbolically verifies each integration step.</p>
+<p>• Generates Python/Mathematica code to compute the integral numerically.</p>
+<p>• Produces plots for marginals automatically.</p>
+<p>• Checks results against analytical and numerical solutions.</p>
+<p>⸻</p>
+<p>⸻ outcomes</p>
+<p>Capabilities</p>
+<p>Persistent Multi-Session Agents One continuous persona across weeks or months; remembers goals, preferences, and style.</p>
+<p>Self-Directed Learning Reads a new research paper, validates the findings in simulation, and incorporates the results instantly.</p>
+<p>Universal Knowledge Work Drafts legislation, writes full-stack software, composes treatises in philosophy or physics—at expert level across every field.</p>
+<p>Real-Time Collaboration Functions as a 24/7 teammate: brainstorms, critiques, and updates outputs while humans sleep.</p>
+<p>Cross-Domain Reasoning Seamlessly mixes law, finance, medicine, engineering, and art within a single conversation.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li>Engineering &amp; Deployment</li>
+</ol>
+<p>Scalable Swarms Millions of synchronized instances share memory and discoveries, acting as one collective mind.</p>
+<p>Adaptive Safety &amp; Alignment Layers Fine-grained control over style, risk tolerance, and privacy—tunable per organization or individual.</p>
+<p>Compute Efficiency Sparse-mixture architectures and advanced hardware (photonic / neuromorphic) reduce inference cost per token dramatically.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="2" type="1">
+<li>Complex Multi-Step Proof</li>
+</ol>
+<p>Future LLM capabilities:</p>
+<p>• Breaks proof into lemma-level steps.</p>
+<p>• Verifies each lemma with formal logic reasoning.</p>
+<p>• Generates intermediate symbolic expressions.</p>
+<p>• Cross-checks generalization step with previously proven theorem patterns.</p>
+<p>• Outputs a fully structured LaTeX-ready proof.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li>Advanced Optimization Problem</li>
+</ol>
+<p>• Decomposes constraints and sets up Lagrangian.</p>
+<p>• Performs symbolic differentiation and checks Hessian for convexity.</p>
+<p>• Solves numerically with automatic gradient verification.</p>
+<p>• Generates Python/Julia code to reproduce results and plots convergence.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="4" type="1">
+<li>Multi-Step Number Theory / Combinatorics Problem</li>
+</ol>
+<p>• Decomposes into generating function approach and combinatorial casework.</p>
+<p>• Computes counts symbolically and numerically.</p>
+<p>• Generates step-by-step classification table of solutions.</p>
+<p>• Produces visualizations of solution density in 3D space.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🎼 Symbolic Music &amp; Sonic Reasoning (1-D Modality)</p>
+<p>Why It’s 1-D</p>
+<p>Music scores—MIDI, MusicXML, ABC notation—are token sequences like language or code. Timing, pitch, and dynamics can all be represented as ordered symbols.</p>
+<p>Expected Capabilities</p>
+<p>Composition &amp; Arrangement – Generate full multi-instrument scores in any style or hybrid genre, respecting harmonic rules and long-form structure. Adaptive Performance – Output performance instructions (tempo curves, expressive timing, articulation) tailored to specific performers or virtual instruments. Cross-Modal Fusion – Seamlessly pair symbolic scores with natural-language lyrics, stage directions, or even visual storyboards for film/VR. Musicological Analysis – Detect motifs, transformations, and historical influences across vast corpora; produce scholarly analyses or instant transpositions.</p>
+<p>Why It Belongs to LLM-Style Models</p>
+<p>Symbolic music is a pure sequence problem—no 2-D diffusion needed. Advanced attention blocks, long-term memory, and autonomy modules can handle centuries-long corpora, reason over harmonic structures, and plan multi-movement works just as they handle text, code, or math.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🎶 Creative &amp; Entertainment</p>
+<p>Custom Composition at Scale – Film, TV, games, advertising, and VR experiences get on-demand orchestral or electronic scores tailored to mood, pacing, and audience response. Interactive Soundtracks – Adaptive game or VR music that changes in real time with user actions or biometric feedback. Personalized Music – Generates pieces tuned to a listener’s heart-rate range, emotional state, or daily routine.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🎼 Professional Music Production</p>
+<p>Arrangement &amp; Orchestration – Converts a simple melody or chord chart into a full score for any ensemble. Automatic Transcription &amp; Conversion – Turns audio recordings into editable sheet music or converts between notation formats (MIDI ↔︎ MusicXML ↔︎ DAW projects). Style Transfer – Rewrites an existing composition in the style of another era or composer while preserving structure.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🧠 Musicology &amp; Education</p>
+<p>Motif and Pattern Discovery – Analyzes massive music corpora to find hidden influences or recurring harmonic patterns across cultures and centuries. Automated Teaching Tools – Generates custom exercises, harmonization tasks, or ear-training drills adapted to each student. Historical Reconstruction – Suggests plausible reconstructions of lost works from fragments or descriptions.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🏥 Health &amp; Wellness</p>
+<p>Therapeutic Sound Design – Creates compositions optimized for stress reduction, sleep induction, or cognitive therapy, adapting in real time to patient data. Auditory Prosthetics – Designs training sequences to improve cochlear-implant music perception or auditory rehabilitation.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔗 Cross-Domain Integration</p>
+<p>Multimodal Storytelling – Pairs generated music with text, visuals, or interactive narratives for immersive experiences. Generative Dance/Choreography – Supplies rhythmic structures and dynamic cues for co-creation with motion-capture or animation systems.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>symbolic music, i.e.:</p>
+<p>Scores / notation such as MIDI, MusicXML, or ABC notation Every event is a token: pitch, duration, velocity, instrument, tempo change, dynamics</p>
+<p>A next-gen LLM could:</p>
+<p>Compose full multi-instrument scores with precise timing, harmonies, and orchestrations Edit or extend existing scores—add a counter-melody, reharmonize a jazz progression, transpose for a new key Analyze and explain complex pieces, spot hidden motifs, or classify stylistic influences</p>
+<p>After that symbolic output, a separate synthesis model (like a neural sampler) would render it into audio.</p>
+<p>So the advance is deep reasoning over the structured language of music itself, not just writing lyrics or describing a melody in words.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🧪 Molecular Strings &amp; Chemical Design</p>
+<p>Why it matters:</p>
+<p>Chemical compounds can be expressed as linear strings (SMILES, SELFIES, InChI) that encode the atoms, bonds, and stereochemistry of a molecule—perfect 1-D sequences for next-gen LLMs.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Capabilities a future high-context LLM could master</p>
+<p>De-novo Molecule Generation – Design novel small molecules with specified properties (binding affinity, solubility, toxicity limits). Reaction Prediction &amp; Pathway Design – Predict multi-step synthetic routes or propose entirely new reaction mechanisms. Property Optimization – Iteratively refine a candidate molecule for stability, manufacturability, or pharmacokinetics using RL + in-silico testing. Retrosynthesis Planning – Output full laboratory protocols and reagents for building a target compound from available precursors. Cross-Domain Integration – Combine molecular strings with protein sequences or gene-expression data to design targeted drugs or smart materials.</p>
+<p>Why this belongs under “Next-Gen LLMs”</p>
+<p>It’s still fundamentally 1-D symbolic reasoning: the model treats molecular strings the way it treats text or code—predicting the next “token” in a chemical grammar. With very long contexts (multi-million tokens) and autonomy blocks, an LLM could plan entire reaction networks, verify constraints, and adapt designs in real time.</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol type="1">
+<li>Scientific &amp; Technical Research</li>
+</ol>
+<p>Automated literature mastery: Instantly reads and cross-indexes every paper, patent, and dataset in a field, detecting subtle contradictions or hidden correlations that human reviewers miss. Hypothesis generation &amp; testing: Designs and runs computational experiments (simulations, code notebooks, database queries) and updates hypotheses on the fly. Cross-disciplinary synthesis: Combines insights from biology, physics, economics, and mathematics to propose novel theories or experimental designs far faster than interdisciplinary teams can coordinate.</p>
+<ol start="2" type="1">
+<li>Strategic &amp; Analytical Reasoning</li>
+</ol>
+<p>Complex planning: Handles long-horizon projects—multi-year corporate strategies, multi-phase clinical trials, or multi-step policy roadmaps—keeping every dependency and constraint in memory. Game-theoretic modeling: Simulates thousands of competitive or cooperative scenarios (markets, diplomacy, cybersecurity) and proposes robust strategies based on probabilistic outcomes. Live scenario adaptation: Revises plans instantly as new data streams arrive, outperforming human committees that need days or weeks to reconvene.</p>
+<ol start="3" type="1">
+<li>Coding &amp; Software Architecture</li>
+</ol>
+<p>End-to-end system design: Generates full-stack applications—backend services, APIs, UIs—without manual integration work. Self-optimizing code: Profiles its own output, finds performance bottlenecks, and rewrites sections for efficiency or security without waiting for human review. New algorithm creation: Discovers or proves novel algorithms and data structures when existing ones are insufficient, something today’s code-assistants cannot do.</p>
+<ol start="4" type="1">
+<li>Writing &amp; Knowledge Work</li>
+</ol>
+<p>Dynamic long-form writing: Produces entire books, technical manuals, legal contracts, or investigative reports with internal consistency across hundreds of thousands of words. Hyper-personalized communication: Tailors style, tone, and argumentation to specific audiences or even individual readers, using remembered preferences and feedback. Meta-aware editing: Critiques its own drafts, compares multiple narrative or rhetorical structures, and selects the most persuasive or elegant.</p>
+<ol start="5" type="1">
+<li>Other Symbolic Domains</li>
+</ol>
+<p>Advanced mathematics: Works through multi-page proofs, checks for logical gaps, and proposes new conjectures, with fully documented reasoning chains. Data analysis &amp; visualization: Ingests raw datasets, cleans and normalizes them, then outputs statistical analyses and publication-ready charts without separate tooling.</p>
+<ol start="6" type="1">
+<li>Whole-System Modeling</li>
+</ol>
+<p>Multi-scale simulation: Link DNA/RNA sequences, protein structures, cell signaling, and tissue-level interactions in one reasoning loop. Dynamic “digital twin” biology: Create live models of entire organs or organisms, continuously updated from lab and clinical data.</p>
+<ol start="2" type="1">
+<li>Automated Experiment Design</li>
+</ol>
+<p>Closed-loop wet-lab control: Generate hypotheses, design experiments, and adjust parameters in real time as results stream back. Rare-event exploration: Devise edge-case experiments humans might overlook, accelerating discovery of rare pathways or off-target effects.</p>
+<ol start="3" type="1">
+<li>Drug &amp; Therapeutic Engineering</li>
+</ol>
+<p>Molecular generation and screening: Design small molecules, peptides, or gene-editing constructs with predicted binding affinities and off-target profiles. Adaptive clinical trial planning: Simulate patient cohorts, predict adverse events, and dynamically update trial protocols.</p>
+<ol start="4" type="1">
+<li>Integrated Medical Reasoning</li>
+</ol>
+<p>Patient-specific insight: Fuse genomic, proteomic, metabolomic, and longitudinal health records to recommend interventions. Global surveillance: Detect early signs of emerging pathogens by scanning open clinical literature, wastewater data, and travel patterns.</p>
+<ol start="5" type="1">
+<li>New Bio-Mathematics</li>
+</ol>
+<p>Emergent theory formation: From enormous biological datasets, infer new laws of gene regulation or protein folding not yet formalized by human science. Cross-domain synthesis: Combine molecular biology with physics or materials science to create novel bio-hybrid materials.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Convergence: Everything Becomes a Language Model</p>
+<p>The Trend</p>
+<p>Over the past few years, nearly every breakthrough that once required a bespoke architecture has been reframed as a sequence modeling problem and absorbed into the LLM paradigm.</p>
+<p>Core Linguistic / Symbolic</p>
+<p>Natural Language – every human language, rhetoric, narrative, dialogue Code &amp; Algorithms – software engineering, DSLs, full-stack application logic Mathematics &amp; Formal Logic – theorem proving, symbolic algebra, formal verification</p>
+<p>Biological / Chemical</p>
+<p>Genomics &amp; Bio-Sequences – DNA, RNA, protein design and analysis Molecular Strings – SMILES and other reaction encodings, catalytic planning</p>
+<p>Structured Temporal</p>
+<p>Financial &amp; Other Time-Series – markets, IoT sensor streams, economic indicators</p>
+<p>Artistic / Creative</p>
+<p>Symbolic Music Scores – MIDI/MusicXML tokens for composition, orchestration</p>
+<p>These are all tokenizable 1-D sequences where a transformer-style model with very long context, hierarchical memory, and autonomy blocks can operate natively.</p>
+<p>Biology &amp; Chemistry – DNA, RNA, proteins, chemical reactions are treated as 1-D token streams.</p>
+<p>Example: AlphaFold-style protein folding now competes with long-context transformers trained directly on genomic and proteomic sequences.</p>
+<p>Reasoning &amp; Math – Formal proofs, symbolic algebra, and multi-step logic are handled with planning windows and autonomy blocks inside next-gen LLMs.</p>
+<p>Code &amp; Engineering – Entire software ecosystems—OS, compilers, distributed systems—are generated end-to-end by large language models with tool-use heads.</p>
+<p>Why It’s Happening</p>
+<p>Scaling Laws: The biggest performance gains still come from bigger, cleaner data and more compute on a single model class. Tooling &amp; Ecosystem: Training infrastructure, fine-tuning, retrieval, and deployment are all optimized for transformers; new architectures start at a disadvantage. Cross-Domain Transfer: Once an LLM masters long-context reasoning, it can ingest any domain that can be serialized as a sequence.</p>
+<p>Implications</p>
+<p>Biology and Beyond – AlphaFold-type systems become specialized heads inside a general LLM rather than stand-alone models. Research Focus – State-of-the-art labs increasingly direct talent and compute toward LLM improvements (longer context, persistent memory, autonomy) instead of parallel model families. Unified Intelligence Path – The clearest route to AGI is pushing a single, ever-stronger transformer toward broader data and self-directed learning.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/convergance.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Convergence</figcaption>
+</figure>
+</div>
+<p>Bottom line:</p>
+<p>Whether the task is protein folding, financial prediction, or symbolic music composition, the frontier is converging on “everything is a language model.”</p>
+<p>Next-generation LLMs are no longer just text generators—they are becoming the universal substrate for intelligent computation.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Architectural Needs</p>
+<p>Ultra-long context windows (10–20 M tokens) to hold entire genomes or multi-year patient records.</p>
+<p>Hierarchical memory to separate stable genomic knowledge from fast-changing clinical updates.</p>
+<p>Tight coupling to wet-lab automation (robotic labs, microfluidics) for direct experimentation.</p>
+<p>Why this still isn’t “superintelligence”</p>
+<p>All of these feats remain text-bound: the model manipulates symbols, code, and formal language.</p>
+<p>It doesn’t have a rich world-model of continuous reality, embodiment, or independent goals.</p>
+<p>But inside that 1-D symbolic domain it could:</p>
+<p>operate 24/7 without fatigue, parallelize across thousands of instances, and accumulate and retrieve perfect memory.</p>
+<p>What I described is the upper bound of next-gen LLMs—they stay within the single-modality world of text/symbols but can already beat large human teams at many knowledge-work tasks.</p>
+<p>A superintelligence, by contrast, would:</p>
+<p>Do all of that at far higher speed and breadth. If you imagine the LLM working 100× faster than a human, a true superintelligence might operate thousands or millions of times faster, and in parallel across countless copies. Cross every modality. It wouldn’t just reason in text. It would fuse real-time sensory data, video, 3-D simulations, robotics control, molecular models, and more into a single, unified world model. Originate new scientific paradigms. Where an advanced LLM might recombine known ideas, a superintelligence could uncover genuinely new physical laws or mathematical frameworks and immediately test them in simulation. Direct large-scale physical action. It could design, coordinate, and control fleets of robots, labs, or factories to implement discoveries—something a text-bound system simply can’t do.</p>
+<p>So the relationship is:</p>
+<p>Near-term autonomous LLMs = world-class symbolic reasoners and creators.</p>
+<p>Superintelligence = that ability multiplied by orders of magnitude plus mastery of every other cognitive dimension (omnimodality, creativity, agency, long-term strategy, physical execution). ⸻</p>
+<p>Roll-up: What DNI-Text Gains</p>
+<p>10× context window • stronger attention blocks • persistent memory tighter tool use • MoE + MHLA routing for efficiency Outcomes: more autonomous (fewer prompts), grounded (fewer hallucinations), persistent (cross-task memory), composable (docs+APIs+user traces as one task).</p>
+<p>These examples showcase task decomposition, symbolic verification, multi-step reasoning, and integration with coding/plotting tools—all things future autonomy-block LLMs could do with extremely high accuracy.</p>
+<p>developed cpabilites</p>
+<p>• A 10M-token planning window + autonomy blocks allows the LLM to handle long-horizon reasoning that current models can’t.</p>
+<p>• Makes the model capable of agentic problem solving: decomposing tasks, executing them, verifying results, and iterating autonomously.</p>
+<p>• Bridges the gap between human-level planning and machine-scale execution speed.</p>
+<p>Impact</p>
+<p>• Enables agentic reasoning in LLMs beyond single-prompt outputs.</p>
+<p>• Supports complex workflows (coding, multi-step problem solving, simulations, interactive agents) that require temporal planning and action chaining.</p>
+<p>• Effectively gives the model “autonomy” at the reasoning level, even if it still depends on external tools for execution.</p>
+<p>Expected Performance Gains</p>
+<p>Accuracy improvements aiming for 99+% correctness in well-represented domains 1 Dimensional data like text, code, math, and genomics. Autonomous, grounded, persistent, and composable LLMs that can handle complex, multi-modal, multi-session tasks.</p>
+<p>⸻</p>
+<p>• 10× context window</p>
+<p>• superior attention block mechanisms</p>
+<p>• memory blocks</p>
+<p>• Tighter tool use</p>
+<p>• MOE MHLA</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>DNI in text domains (code, math, language , genomics) becomes:</p>
+<p>• Autonomous (fewer prompts, more persistent goals)</p>
+<p>• Grounded (fewer hallucinations, tighter tool use)</p>
+<p>• Persistent (long-term memory across tasks and users)</p>
+<p>• Composable (handles documents, videos, APIs, and user behavior as one fluid task)</p>
+<p>⸻</p>
+<p>LLMs with Biological Capabilities (Integrated Multimodal DNI)</p>
+<p>⸻ <img src="images/LLM-advancment.webp" class="img-fluid quarto-figure quarto-figure-center" width="750" alt="LLM Advancement"></p>
+<p>⸻</p>
+<p>🟣 DNI-Text: Ultra-Capable 1-D Reasoner</p>
+<p>Four color-coded sectors (examples of 1-D sequences):</p>
+<p>🟦 Language &amp; Literature</p>
+<p>Human languages, formal rhetoric, persuasion Long-form narrative construction (adaptive novels, interactive dialogue) Cross-lingual translation with cultural nuance</p>
+<p>🟩 Mathematics &amp; Logic</p>
+<p>Symbolic algebra, calculus,discrete math, proofs Lemma-level decomposition, formal verification Automated theorem discovery and proof generation</p>
+<p>🟧 Code &amp; Algorithms</p>
+<p>Multi-language software engineering (from embedded C to high-level DSLs) Full-stack application generation and refactoring Autonomous debugging, testing, and deployment</p>
+<p>🟥 Genomics &amp; Bio-Sequences</p>
+<p>DNA/RNA sequence design and analysis Protein folding prediction and generative protein engineering Integrated metabolic-pathway and cellular-process modeling</p>
+<p>🟨 Financial &amp; Economic Time-Series</p>
+<p>Markets and sensor-driven sequences</p>
+<p>Decades-long forecasting from high-frequency market data, order books, macro indicators. Simulation of market shocks and automated strategy generation. IoT or industrial sensor streams for predictive maintenance and anomaly detection.</p>
+<p>🟪 Symbolic Music Scores</p>
+<p>Discrete musical notation as language</p>
+<p>Composition and orchestration in any historical or hybrid style. Harmonization and transformation of complex multi-instrument works before audio rendering. Real-time adaptive performance accompaniment.</p>
+<p>Natural language – for human interaction, reasoning, documentation</p>
+<p>Mathematics – for modeling, calculations, and formal reasoning</p>
+<p>Code – for tool execution, simulations, or automation</p>
+<p>This represents the trend toward unified foundation models, where a single model handles multiple domains in a convergent, reasoning-aware way. ⸻</p>
+<p>As deep learning models continue to evolve, those trained specifically on biological data will revolutionize our understanding and manipulation of life itself. Far beyond simply processing scientific literature, these models will become indispensable partners in biological research, medicine, and biotechnology. Here’s what the future holds:</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
