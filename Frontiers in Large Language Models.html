@@ -188,6 +188,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./Frontiers in Large Video Models.html">
  <span class="dropdown-text">Frontiers in Large Video Models</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./Superintelligence feats">
+ <span class="dropdown-text">Superintelligence-feats.qmd</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -224,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Super LLM — Definition</p>
 <p>Super LLM:</p>
-<p>A next-generation large-language-model architecture that extends the transformer paradigm with multi-million-token reasoning windows, persistent long-term memory, autonomous task-decomposition blocks, and self-directed research capabilities.</p>
+<p>The next-generation large-language-model architecture that extends the transformer paradigm with multi-million-token reasoning windows, persistent long-term memory, autonomous task-decomposition blocks, and self-directed research capabilities.</p>
 <p>It is designed to execute and verify complex, multi-domain projects with minimal human intervention.</p>
 <p>Core Architectural Traits</p>
 <p>Massive Context Windows – 15–20 million tokens per block, enabling entire codebases, genomes, or multi-volume texts to remain in active memory. Persistent Memory – episodic and semantic storage of goals, constraints, and prior work across sessions. Autonomy Blocks – self-contained planning units that break a high-level goal into 10–20 sequential tasks, each with its own fresh context window. Meta-Verification Layer – built-in self-critique: static analysis, property tests, fuzzing, formal checks, and automated self-correction. Self-Research &amp; Architecture Discovery – ability to propose, benchmark, and integrate new neural modules or training methods, with human oversight.</p>
@@ -469,7 +473,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Micro-updates to memory or embeddings based on user feedback or verification loops.</p>
 <p>Reinforcement learning from real-time interactions (RLHF or RL with trusted memory).</p>
 <p>Enables domain-specific adaptation and long-term expertise accumulation.</p>
-<p>Planning window: maintain 10–15 steps ahead; each step has required inputs, expected outputs, constraints.</p>
+<p>Planning window: maintain 10–20 steps ahead; each step has required inputs, expected outputs, constraints.</p>
 <p>Step blocks: each with its own large local context (e.g., 2M tokens), executes/verifies, passes forward.</p>
 <p>Token window reset per step (summarize/archive) → handle ultra-long workflows.</p>
 <p>Dynamic retrieval (relevance × trust × recency).</p>
@@ -502,7 +506,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="15" type="1">
 <li></li>
 </ol>
-<p>🌳 Deep Hierarchical Reasoning Layers (DHRL)</p>
+<p>🌳 Deep Hierarchical casual Reasoning Layers (DHCRL)</p>
 <p>Concept</p>
 <p>A dedicated reasoning stack inside the transformer that organises thinking into nested levels—from quick pattern checks up to long-horizon strategic plans—before emitting final tokens.</p>
 <p>⸻</p>
@@ -586,7 +590,27 @@ ul.task-list li input[type="checkbox"] {
 <p>Sits at the end of each Autonomy Block’s pipeline.</p>
 <p>Only when the Meta Block signs off does the block commit its artifacts and summary to persistent memory.</p>
 <p>If it detects a failure, it re-queues the task with guidance for the generator component.</p>
-<p>⸻</p>
+<p>⸻ ### Meta-Reasoning for Quality Awareness</p>
+<p>Current frontier LLMs—even at trillion-parameter scale—cannot reliably <em>notice</em> when they are missing something or when the quality of their own output is poor.</p>
+<p>They excel at high-dimensional pattern completion, but they lack an intrinsic “sense of gap,” a point often raised by practitioners and critics alike.</p>
+<p><strong>Key deficits today</strong></p>
+<ul>
+<li><p><strong>No built-in self-critique of quality</strong> – models produce text that <em>sounds</em> correct but have no internal yardstick for factuality, originality, or clarity.</p></li>
+<li><p><strong>Blind to omissions</strong> – they cannot detect when an argument is incomplete or when evidence is missing.</p></li>
+<li><p><strong>First-pass sufficiency bias</strong> – once a response is generated, the model does not spontaneously re-examine it for coverage or alternative reasoning.</p></li>
+</ul>
+<p><strong>Direction for advanced meta-blocks</strong></p>
+<p>To address these limitations, future hierarchical meta-reasoning layers should include:</p>
+<ul>
+<li><p><strong>Self-evaluation modules</strong> – scoring their own outputs against multi-criteria rubrics (factuality, novelty, stylistic goals) and flagging low-confidence regions.</p></li>
+<li><p><strong>Gap-detection mechanisms</strong> – counterfactual probes or “coverage checks” that explicitly ask, <em>What might I have overlooked?</em></p></li>
+<li><p><strong>Iterative refinement loops</strong> – automatic secondary passes or sub-queries triggered whenever confidence falls below a threshold, rather than assuming the first draft is sufficient.</p></li>
+</ul>
+<p>These additions don’t imply a sudden leap to human-level introspection.</p>
+<p>Instead, they outline a realistic engineering path: layered meta-reasoning blocks that progressively tighten feedback between generation, evaluation, and revision—allowing future LLMs to recognize and correct their own blind spots.</p>
+<p>Meta-Reasoning for Quality Awareness</p>
+<p>Current LLMs—even at frontier scale—cannot reliably notice when they are missing something or when the quality of their own output is poor. They excel at pattern-completion but lack an intrinsic “sense of gap.” Advanced meta-blocks should therefore include mechanisms for:</p>
+<p>Self-Critique of Quality – scoring their own responses against multi-criteria rubrics (factuality, originality, clarity) and flagging low-confidence regions. Detection of Missing Elements – running explicit “coverage” checks or counterfactual probes to see if key arguments, evidence, or perspectives are absent. Iterative Refinement – launching secondary passes or sub-queries whenever confidence falls below a threshold, rather than assuming first-pass sufficiency.</p>
 <p>⸻</p>
 <p>⸻</p>
 <p>Key Takeaway</p>
