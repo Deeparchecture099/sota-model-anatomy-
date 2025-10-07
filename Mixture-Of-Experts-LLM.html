@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tensors in Large Language Models – My AI Site</title>
+<title>Mixture-of-Experts LLMs: A Practical Guide – My AI Site</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -219,22 +219,32 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link active" data-scroll-target="#table-of-contents">Table of Contents</a></li>
-  <li><a href="#what-is-a-tensor" id="toc-what-is-a-tensor" class="nav-link" data-scroll-target="#what-is-a-tensor">What is a Tensor?</a></li>
-  <li><a href="#shapes-dtypes-layout" id="toc-shapes-dtypes-layout" class="nav-link" data-scroll-target="#shapes-dtypes-layout">Shapes, Dtypes, Layout</a></li>
-  <li><a href="#canonical-shapes" id="toc-canonical-shapes" class="nav-link" data-scroll-target="#canonical-shapes">LLM Canonical Shapes (B, T, D)</a></li>
-  <li><a href="#embeddings" id="toc-embeddings" class="nav-link" data-scroll-target="#embeddings">Embeddings &amp; Tokenization Tensors</a></li>
-  <li><a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention">Attention Tensors (Q, K, V, Heads)</a></li>
-  <li><a href="#positions" id="toc-positions" class="nav-link" data-scroll-target="#positions">Position &amp; Time: Positional/Timestep Tensors</a></li>
-  <li><a href="#kv-cache" id="toc-kv-cache" class="nav-link" data-scroll-target="#kv-cache">KV Cache: Memory vs Throughput</a></li>
-  <li><a href="#mlp" id="toc-mlp" class="nav-link" data-scroll-target="#mlp">Feedforward/MLP Tensors</a></li>
-  <li><a href="#training-tensors" id="toc-training-tensors" class="nav-link" data-scroll-target="#training-tensors">Training-Time Tensors (Grads, Optimizer States)</a></li>
-  <li><a href="#parallel" id="toc-parallel" class="nav-link" data-scroll-target="#parallel">Tensor Parallelism &amp; Sharding</a></li>
-  <li><a href="#compression" id="toc-compression" class="nav-link" data-scroll-target="#compression">Quantization, Low-Rank &amp; MoE</a></li>
-  <li><a href="#tensor-cores" id="toc-tensor-cores" class="nav-link" data-scroll-target="#tensor-cores">Tensor Core Math: Throughput Reality</a></li>
-  <li><a href="#pitfalls" id="toc-pitfalls" class="nav-link" data-scroll-target="#pitfalls">Debugging by Shape: Common Pitfalls</a></li>
-  <li><a href="#cheatsheet" id="toc-cheatsheet" class="nav-link" data-scroll-target="#cheatsheet">Mini Cheatsheet</a>
+  <li><a href="#why-moe" id="toc-why-moe" class="nav-link" data-scroll-target="#why-moe">Why MoE?</a></li>
+  <li><a href="#canonical-block" id="toc-canonical-block" class="nav-link" data-scroll-target="#canonical-block">Canonical MoE Block</a></li>
+  <li><a href="#routing" id="toc-routing" class="nav-link" data-scroll-target="#routing">Routing &amp; Balancing</a></li>
+  <li><a href="#train-from-scratch" id="toc-train-from-scratch" class="nav-link" data-scroll-target="#train-from-scratch">Training From Scratch</a></li>
+  <li><a href="#dense-to-moe" id="toc-dense-to-moe" class="nav-link" data-scroll-target="#dense-to-moe">Convert Dense → MoE / Continued Pretraining</a></li>
+  <li><a href="#systems" id="toc-systems" class="nav-link" data-scroll-target="#systems">Parallelism &amp; Systems</a></li>
+  <li><a href="#inference" id="toc-inference" class="nav-link" data-scroll-target="#inference">Inference &amp; Serving</a></li>
+  <li><a href="#flashattention" id="toc-flashattention" class="nav-link" data-scroll-target="#flashattention">FlashAttention &amp; Friends</a></li>
+  <li><a href="#defaults" id="toc-defaults" class="nav-link" data-scroll-target="#defaults">Best-Practice Defaults</a></li>
+  <li><a href="#pitfalls" id="toc-pitfalls" class="nav-link" data-scroll-target="#pitfalls">Pitfalls &amp; Debugging</a></li>
+  <li><a href="#kpis" id="toc-kpis" class="nav-link" data-scroll-target="#kpis">What to Log (KPIs)</a></li>
+  <li><a href="#pseudocode" id="toc-pseudocode" class="nav-link" data-scroll-target="#pseudocode">Minimal Pseudocode</a></li>
+  <li><a href="#capacity-per-expert" id="toc-capacity-per-expert" class="nav-link" data-scroll-target="#capacity-per-expert">capacity per expert</a></li>
+  <li><a href="#build-per-expert-token-lists-pack-for-all-to-all" id="toc-build-per-expert-token-lists-pack-for-all-to-all" class="nav-link" data-scroll-target="#build-per-expert-token-lists-pack-for-all-to-all">build per-expert token lists (pack for all-to-all)</a></li>
+  <li><a href="#dispatch-all-to-all-and-run-experts" id="toc-dispatch-all-to-all-and-run-experts" class="nav-link" data-scroll-target="#dispatch-all-to-all-and-run-experts">dispatch (all-to-all) and run experts</a></li>
+  <li><a href="#combine-back-to-b-t-d" id="toc-combine-back-to-b-t-d" class="nav-link" data-scroll-target="#combine-back-to-b-t-d">combine back to [B, T, D]</a></li>
+  <li><a href="#add-aux-balancing-loss" id="toc-add-aux-balancing-loss" class="nav-link" data-scroll-target="#add-aux-balancing-loss">add aux balancing loss</a>
   <ul class="collapse">
-  <li><a href="#optional-images-to-add" id="toc-optional-images-to-add" class="nav-link" data-scroll-target="#optional-images-to-add">Optional images to add</a></li>
+  <li><a href="#input-handling" id="toc-input-handling" class="nav-link" data-scroll-target="#input-handling">Input Handling</a></li>
+  <li><a href="#training-phases" id="toc-training-phases" class="nav-link" data-scroll-target="#training-phases">Training Phases</a></li>
+  <li><a href="#flashattention-explained" id="toc-flashattention-explained" class="nav-link" data-scroll-target="#flashattention-explained">FlashAttention Explained</a>
+  <ul class="collapse">
+  <li><a href="#why-tiling-exists" id="toc-why-tiling-exists" class="nav-link" data-scroll-target="#why-tiling-exists">Why Tiling Exists</a></li>
+  <li><a href="#conceptual-diagram-of-tiling" id="toc-conceptual-diagram-of-tiling" class="nav-link" data-scroll-target="#conceptual-diagram-of-tiling">Conceptual Diagram of Tiling</a></li>
+  </ul></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -244,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tensors in Large Language Models</h1>
+<h1 class="title">Mixture-of-Experts LLMs: A Practical Guide</h1>
 </div>
 
 
@@ -263,198 +273,342 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Shapes-in-Transformers-Models.webp" class="img-fluid figure-img" width="750"></p>
-<figcaption>Shapes in Transformers Models</figcaption>
+<p><img src="images/moe-hero.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>MoE</figcaption>
 </figure>
 </div>
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ul>
-<li><a href="#what-is-a-tensor">What is a Tensor?</a></li>
-<li><a href="#shapes-dtypes-layout">Shapes, Dtypes, Layout</a></li>
-<li><a href="#canonical-shapes">LLM Canonical Shapes (B, T, D)</a></li>
-<li><a href="#embeddings">Embeddings &amp; Tokenization Tensors</a></li>
-<li><a href="#attention">Attention Tensors (Q, K, V, Heads)</a></li>
-<li><a href="#positions">Position &amp; Time: Positional/Timestep Tensors</a></li>
-<li><a href="#kv-cache">KV Cache: Memory vs Throughput</a></li>
-<li><a href="#mlp">Feedforward/MLP Tensors</a></li>
-<li><a href="#training-tensors">Training-Time Tensors (Grads, Optimizer States)</a></li>
-<li><a href="#parallel">Tensor Parallelism &amp; Sharding</a></li>
-<li><a href="#compression">Quantization, Low-Rank &amp; MoE</a></li>
-<li><a href="#tensor-cores">Tensor Core Math: Throughput Reality</a></li>
-<li><a href="#pitfalls">Debugging by Shape: Common Pitfalls</a></li>
-<li><a href="#cheatsheet">Mini Cheatsheet</a></li>
+<li><p><a href="#why-moe">Why MoE?</a></p></li>
+<li><p><a href="#canonical-block">Canonical MoE Block</a></p></li>
+<li><p><a href="#routing">Routing &amp; Balancing</a></p></li>
+<li><p><a href="#train-from-scratch">Training From Scratch</a></p></li>
+<li><p><a href="#dense-to-moe">Convert Dense → MoE / Continued Pretraining</a></p></li>
+<li><p><a href="#systems">Parallelism &amp; Systems</a></p></li>
+<li><p><a href="#inference">Inference &amp; Serving</a></p></li>
+<li><p><a href="#flashattention">FlashAttention &amp; Friends</a></p></li>
+<li><p><a href="#defaults">Best-Practice Defaults</a></p></li>
+<li><p><a href="#pitfalls">Pitfalls &amp; Debugging</a></p></li>
+<li><p><a href="#kpis">What to Log (KPIs)</a></p></li>
+<li><p><a href="#pseudocode">Minimal Pseudocode</a></p></li>
+<li><p><a href="#input-handling">Input Handling</a></p></li>
+<li><p><a href="#core-transformer-architecture">Core Transformer Architecture</a></p></li>
+<li><p><a href="#training-phases">Training Phases</a></p></li>
+<li><p><a href="#flashattention-explained">FlashAttention Explained</a></p></li>
+<li><p><a href="#key-takeaways">Key Takeaways</a></p></li>
+<li><p><a href="#glossary">Glossary</a></p></li>
 </ul>
 <hr>
 </section>
-<section id="what-is-a-tensor" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-tensor">What is a Tensor?</h2>
-<p>A tensor is just a multi-dimensional array with: - <strong>shape</strong> (sizes along each axis), - <strong>dtype</strong> (numeric type: fp32, bf16, fp8, int8…), - <strong>layout/stride</strong> (how it’s stored/stepped in memory).</p>
-<p>In LLMs, almost every operation is tensor algebra: embedding lookups, batched matmuls, convolutions over time (attention), non-linearities, normalizations.</p>
+<section id="why-moe" class="level2">
+<h2 class="anchored" data-anchor-id="why-moe">Why MoE?</h2>
+<p><strong>Goal:</strong> Scale <em>parameters</em> without scaling <em>per-token FLOPs</em>.<br>
+MoE replaces dense MLPs with a <em>bank of experts</em> but activates only <strong>top-k</strong> experts per token.</p>
+<ul>
+<li><strong>Compute:</strong> stays ~close to dense (k experts active).<br>
+</li>
+<li><strong>Capacity:</strong> total parameters ↑ massively (many experts).<br>
+</li>
+<li><strong>Quality:</strong> often better perplexity/accuracy at same compute.</li>
+</ul>
 <hr>
 </section>
-<section id="shapes-dtypes-layout" class="level2">
-<h2 class="anchored" data-anchor-id="shapes-dtypes-layout">Shapes, Dtypes, Layout</h2>
-<p><strong>Shape</strong> examples: - <code>[B, T, D]</code> = batch, sequence length, hidden width. - <code>[B, nH, T, Dh]</code> = per-head attention (nH heads, head dim Dh). - <code>[V, D]</code> = vocab embedding table.</p>
-<p><strong>Dtype</strong> trade-offs: - <strong>fp32</strong> training is precise but slow/memory-heavy. - <strong>bf16/fp16</strong>: standard for training. - <strong>int8/fp8</strong>: inference-oriented, needs calibration. - <strong>NF4/FP4</strong>: ultra-low precision quant for weights/activations.</p>
-<p><strong>Layout</strong>: - <strong>row-major vs col-major</strong> affects BLAS kernels. - <strong>contiguous vs strided</strong>: non-contiguous hurts kernel efficiency. - <strong>packed heads</strong>: <code>[B, T, nH, Dh]</code> vs <code>[B, nH, T, Dh]</code> can change memory locality.</p>
+<section id="canonical-block" class="level2">
+<h2 class="anchored" data-anchor-id="canonical-block">Canonical MoE Block</h2>
+<p>MoE typically swaps in for the <strong>FFN/MLP</strong> inside a transformer layer. Attention stays dense.</p>
+<p><strong>Shapes (batch-first):</strong> input <code>X ∈ ℝ[B, T, D]</code>.</p>
+<ol type="1">
+<li><strong>Router (gate):</strong> <code>g = softmax( X W_g + ε )  →  ℝ[B, T, E]</code><br>
+</li>
+<li><strong>Top-k selection:</strong> pick k experts per token; compute combine weights.<br>
+</li>
+<li><strong>Capacity:</strong> each expert has a max token capacity <code>C = ⌈ α · (B·T·k)/E ⌉</code> (α = capacity factor).<br>
+</li>
+<li><strong>Dispatch:</strong> all-to-all route token slices to experts.<br>
+</li>
+<li><strong>Experts (MLPs):</strong> each expert <code>f_i: ℝ[D]→ℝ[D]</code> (often larger/wider than dense FFN).<br>
+</li>
+<li><strong>Combine:</strong> weighted sum of expert outputs per token + residual.</li>
+</ol>
+<blockquote class="blockquote">
+<p>Only the MLP is sparse; <strong>attention remains dense</strong> (use FlashAttention there).</p>
+</blockquote>
 <hr>
 </section>
-<section id="canonical-shapes" class="level2">
-<h2 class="anchored" data-anchor-id="canonical-shapes">LLM Canonical Shapes (B, T, D)</h2>
+<section id="routing" class="level2">
+<h2 class="anchored" data-anchor-id="routing">Routing &amp; Balancing</h2>
+<p><strong>Gating:</strong><br>
+- <code>logits = X W_g</code> (optionally add Gaussian noise for exploration).<br>
+- <code>probs = softmax(logits / τ)</code> (temperature τ).<br>
+- Choose <strong>top-k</strong> experts; gather their probs as combine weights.</p>
+<p><strong>Balancing (avoid expert collapse):</strong> - <strong>Aux loss</strong> encourages uniform <em>importance</em> and <em>load</em> across experts.<br>
+- Practical forms: minimize variance of tokens-per-expert, or KL divergence to uniform, or use a product-based loss (importance × load).<br>
+- <strong>Jitter/noise</strong> on router logits during warmup helps exploration.<br>
+- <strong>Capacity factor</strong> α≈1.0–1.25; overflow tokens can be: - <strong>Dropped</strong> (Switch-style) with train-time penalty, or<br>
+- <strong>Buffered/second-choice</strong> (top-2 with spillover).</p>
+<p><strong>Stability tricks:</strong> - <strong>Z-loss / logit clipping</strong> on router to keep probs well-behaved. - <strong>Router LR</strong> often lower than main LR (or separate schedule). - <strong>Entropy bonus</strong> early to keep routing high-entropy.</p>
+<hr>
+</section>
+<section id="train-from-scratch" class="level2">
+<h2 class="anchored" data-anchor-id="train-from-scratch">Training From Scratch</h2>
+<p><strong>Warmup (first 1–5% steps):</strong> - Start with <strong>higher α</strong> (more capacity), <strong>higher τ</strong> (softer routing), <strong>router noise on</strong>. - Optional: temporarily <strong>top-1</strong> before enabling <strong>top-2</strong>.</p>
+<p><strong>Core recipe:</strong> - Optimizer: AdamW (bf16/FP16); weight decay on experts/MLPs; <strong>no decay on norms/biases</strong>. - Dropout: light on expert MLPs if needed; avoid over-regularizing router. - <strong>Aux balance loss</strong> (λ≈0.01–0.1) — tune so no expert hogs &gt;3–5× mean load. - <strong>Activation checkpointing</strong> for expert MLPs; bf16 activations. - <strong>All-to-all</strong> token dispatch (expert parallel) with overlapping compute/comm.</p>
+<p><strong>Decays &amp; schedules:</strong> - Cosine or linear warmup/decay; consider a <strong>lower LR for router</strong>. - Grad clipping on router weights (e.g., 0.5–1.0 norm).</p>
+<hr>
+</section>
+<section id="dense-to-moe" class="level2">
+<h2 class="anchored" data-anchor-id="dense-to-moe">Convert Dense → MoE / Continued Pretraining</h2>
+<p>When you have a good dense checkpoint:</p>
+<ol type="1">
+<li><strong>Replace FFN with MoE bank.</strong>
 <ul>
-<li><strong>Input tokens</strong>: <code>X_ids: [B, T]</code></li>
-<li><strong>Embeddings</strong>: <code>E: [V, D]</code> → <code>X: [B, T, D]</code></li>
-<li><strong>Self-Attention</strong>:
-<ul>
-<li>project to <strong>Q, K, V</strong>: each <code>[B, T, nH, Dh]</code> where <code>D = nH * Dh</code></li>
-<li>attention weights: <code>[B, nH, T, T]</code></li>
-<li>head concat: <code>[B, T, D]</code></li>
+<li><strong>Clone dense FFN</strong> into each expert + small noise; or</li>
+<li>Partition the dense FFN across experts (structured init).</li>
 </ul></li>
-<li><strong>MLP/FFN</strong>:
+<li><strong>Freeze router</strong> (or very low LR) for N steps; train experts to match dense behavior.</li>
+<li>Enable routing, then gradually <strong>sharpen τ</strong>, lower capacity α to target.</li>
+<li>Turn on aux loss; monitor load balance, overflow, and loss stability.</li>
+<li>Resume regular schedule; optional SFT/RLHF after MoE converges.</li>
+</ol>
+<hr>
+</section>
+<section id="systems" class="level2">
+<h2 class="anchored" data-anchor-id="systems">Parallelism &amp; Systems</h2>
 <ul>
-<li>expand: <code>[B, T, D] → [B, T, 4D]</code> (often), activate, contract back to <code>[B, T, D]</code></li>
-</ul></li>
+<li><strong>Data parallel (DP):</strong> across batches.</li>
+<li><strong>Tensor/model parallel (TP):</strong> shard big matrices along D.<br>
+</li>
+<li><strong>Pipeline parallel (PP):</strong> split layers.<br>
+</li>
+<li><strong>Expert parallel (EP):</strong> <strong>each expert lives on a rank</strong>; tokens routed via <strong>all-to-all</strong>.</li>
+<li>Combine as needed: e.g., DP × TP × EP (+ optional PP).</li>
+</ul>
+<p><strong>Systems tips:</strong> - <strong>Group experts</strong> by layer per node to keep traffic on NVLink/PCIe.<br>
+- <strong>Token packing</strong> (pack non-contiguous token slices into contiguous blocks per expert).<br>
+- <strong>Overlap</strong>: start expert compute as soon as a chunk arrives.<br>
+- <strong>Pinned memory</strong> for host/device staging; use NCCL all-to-all.<br>
+- <strong>Mixed precision</strong> for router and experts; keep softmax stable.</p>
+<hr>
+</section>
+<section id="inference" class="level2">
+<h2 class="anchored" data-anchor-id="inference">Inference &amp; Serving</h2>
+<ul>
+<li><strong>Deterministic routing</strong> (no noise; fixed τ).<br>
+</li>
+<li><strong>Capacity α≈1.0</strong> (no drops ideally).<br>
+</li>
+<li><strong>Batching:</strong> route tokens from many users together to keep experts busy.<br>
+</li>
+<li><strong>Placement:</strong> co-locate most-used experts with the KV-heavy attention ranks to reduce hops.<br>
+</li>
+<li><strong>Quantization:</strong> INT8/FP8 experts; keep router in bf16/fp16.<br>
+</li>
+<li><strong>Speculative decoding</strong> works (MoE mainly impacts MLP, not KV cache).<br>
+</li>
+<li><strong>Caching experts:</strong> pin hot experts per instance; lazy-load cold ones if model zoo is large.</li>
 </ul>
 <hr>
 </section>
-<section id="embeddings" class="level2">
-<h2 class="anchored" data-anchor-id="embeddings">Embeddings &amp; Tokenization Tensors</h2>
-<ul>
-<li><strong>Token embeddings</strong>: <code>E_tok: [V, D]</code></li>
-<li><strong>Optional sub-tables</strong>: special tokens, adapters, soft prompts <code>E_soft: [P, D]</code></li>
-<li><strong>Output (LM head)</strong>: often tied: <code>E_out = E_tok^T</code> → logits <code>[B, T, V]</code></li>
-</ul>
-<p>Memory note: <code>V</code> is large (e.g., 128k). Tying weights saves parameters; logit matmul dominates when <code>V</code> is huge.</p>
+<section id="flashattention" class="level2">
+<h2 class="anchored" data-anchor-id="flashattention">FlashAttention &amp; Friends</h2>
+<p>MoE <strong>does not change attention</strong> — keep attention dense and fast: - <strong>FlashAttention</strong> or FA-2 kernels for <code>[B, T, D]</code>. - Fused norms, fused QKV projections, RoPE applied before split to heads. - The <strong>sparse</strong> part is only the <strong>FFN/MLP</strong>, swapped for experts.</p>
 <hr>
 </section>
-<section id="attention" class="level2">
-<h2 class="anchored" data-anchor-id="attention">Attention Tensors (Q, K, V, Heads)</h2>
-<p>Given input <code>X: [B, T, D]</code>:</p>
+<section id="defaults" class="level2">
+<h2 class="anchored" data-anchor-id="defaults">Best-Practice Defaults</h2>
 <ul>
-<li>Linear projections:
-<ul>
-<li><code>Q = X W_Q</code>, <code>K = X W_K</code>, <code>V = X W_V</code></li>
-<li><code>W_*: [D, D]</code> (or <code>[D, nH*Dh]</code>)</li>
-<li>Reshape → <code>[B, T, nH, Dh]</code></li>
-</ul></li>
-<li>Scaled dot-product per head:
-<ul>
-<li><code>Scores = (Q ⋅ K^T) / sqrt(Dh)</code> → <code>[B, nH, T, T]</code></li>
-<li><code>Attn = softmax(Scores)</code></li>
-<li><code>Out_head = Attn ⋅ V</code> → <code>[B, nH, T, Dh]</code></li>
-<li>Concat heads → <code>[B, T, D]</code>, project with <code>W_O: [D, D]</code></li>
-</ul></li>
-</ul>
-<p><strong>FlashAttention</strong> collapses softmax + matmuls with tiling to cut memory traffic from <code>[T, T]</code> intermediates.</p>
-<hr>
-</section>
-<section id="positions" class="level2">
-<h2 class="anchored" data-anchor-id="positions">Position &amp; Time: Positional/Timestep Tensors</h2>
-<ul>
-<li><strong>Absolute</strong>: learned table <code>P: [T_max, D]</code> added to embeddings.</li>
-<li><strong>Sinusoidal</strong>: analytic <code>[T, D]</code> functions.</li>
-<li><strong>RoPE</strong>: complex rotation of Q/K in head-dim space; no extra params, but needs consistent rotation shapes: apply on <code>[B, T, nH, Dh]</code>.</li>
-<li><strong>ALiBi</strong>: bias over distance, avoids explicit position vectors.</li>
-</ul>
-<p>All are tensors aligned on the <strong>T</strong> axis and broadcast over <strong>B</strong> and <strong>nH</strong>.</p>
-<hr>
-</section>
-<section id="kv-cache" class="level2">
-<h2 class="anchored" data-anchor-id="kv-cache">KV Cache: Memory vs Throughput</h2>
-<p>For autoregressive inference, we store past <code>K, V</code>: - <strong>Cache</strong> shape per layer: <code>[B, nH, T_total, Dh]</code> for both K and V. - <strong>Memory cost</strong> (rough): <code>2 * L * B * nH * T_total * Dh * dtype_size</code>. - <strong>Trade-offs</strong>: - Larger <strong>T_total</strong> → faster per-token (reuse past) but high RAM/VRAM. - Quantized KV (int8/fp8) cuts memory; must keep accuracy. - <strong>Paged KV</strong>/block-KV organizes cache as fixed blocks to reduce fragmentation.</p>
-<hr>
-</section>
-<section id="mlp" class="level2">
-<h2 class="anchored" data-anchor-id="mlp">Feedforward/MLP Tensors</h2>
-<p>Typical gated GLU/SiLU FFN: - Expand: <code>W1: [D, D_ff]</code>, <code>W3: [D, D_ff]</code>, then <code>silu(X W1) ⊙ (X W3)</code> - Project back: <code>W2: [D_ff, D]</code> - Shapes: - Activations: <code>[B, T, D_ff]</code> (often <code>D_ff ≈ 4D</code>) - Params: <code>D*D_ff</code> dominates per layer.</p>
-<hr>
-</section>
-<section id="training-tensors" class="level2">
-<h2 class="anchored" data-anchor-id="training-tensors">Training-Time Tensors (Grads, Optimizer States)</h2>
-<ul>
-<li><strong>Gradients</strong>: same shape as weights.</li>
-<li><strong>Adam/AdamW states</strong>: <code>m, v</code> → <strong>2×</strong> the parameter memory.</li>
-<li><strong>Mixed precision</strong>: master fp32 weights + bf16 activations.</li>
-<li><strong>Activation checkpointing</strong> reduces saved activations (recompute in backward).</li>
-</ul>
-<p>Rule of thumb: training memory ≈ params (fp16/bf16) + optimizer (≈2× params fp32) + activations (batch-/sequence-dependent).</p>
-<hr>
-</section>
-<section id="parallel" class="level2">
-<h2 class="anchored" data-anchor-id="parallel">Tensor Parallelism &amp; Sharding</h2>
-<ul>
-<li><strong>Data parallel</strong>: replicate weights, split batches <code>[B]</code>.</li>
-<li><strong>Tensor/model parallel</strong>: shard weight matrices along <strong>D</strong> or <strong>D_ff</strong> (Megatron-LM style).</li>
-<li><strong>Pipeline parallel</strong>: split layers; micro-batches stream through.</li>
-<li><strong>Sequence parallel</strong>: split <strong>T</strong> across devices (useful with long context).</li>
-<li><strong>ZeRO</strong>: shard optimizer states/gradients/params across ranks.</li>
-</ul>
-<p>Each choice changes the <strong>effective tensor shapes per device</strong> and the required all-reduce/all-gather patterns.</p>
-<hr>
-</section>
-<section id="compression" class="level2">
-<h2 class="anchored" data-anchor-id="compression">Quantization, Low-Rank &amp; MoE</h2>
-<ul>
-<li><strong>Quantization</strong>:
-<ul>
-<li>Weights/activations to int8/fp8/FP4/NF4.</li>
-<li>Tensor-wise vs group-wise scaling tensors (per-channel scales <code>[D]</code> or <code>[groups, …]</code>).</li>
-</ul></li>
-<li><strong>Low-Rank (LoRA/QLoRA)</strong>:
-<ul>
-<li>Replace <code>W ∈ ℝ^{D_out×D_in}</code> with <code>W + A B</code> where <code>A: [D_out, r]</code>, <code>B: [r, D_in]</code>, <code>r ≪ D</code>.</li>
-</ul></li>
-<li><strong>MoE</strong>:
-<ul>
-<li>Gating tensor <code>G: [B, T, nExperts]</code> (often top-k).</li>
-<li>Expert FFNs see routed tokens: shapes become <strong>ragged</strong>; implement with packed blocks for kernel efficiency.</li>
-<li>Load-balancing loss acts on gating tensor statistics.</li>
-</ul></li>
-</ul>
-<hr>
-</section>
-<section id="tensor-cores" class="level2">
-<h2 class="anchored" data-anchor-id="tensor-cores">Tensor Core Math: Throughput Reality</h2>
-<ul>
-<li>GPUs/TPUs peak on <strong>dense GEMMs</strong> with specific tile sizes.</li>
-<li>Best throughput when shapes are multiples of hardware tiles (e.g., 64/128).</li>
-<li><strong>Fused kernels</strong> (RMSNorm → QKV → bias → RoPE) minimize reads/writes.</li>
-<li>Performance killers: non-contiguous tensors, tiny batch/head dims, excessive transposes.</li>
+<li><strong>Where to MoE:</strong> start with <strong>every other FFN</strong> layer; scale up if stable.<br>
+</li>
+<li><strong>Experts per layer (E):</strong> 8–64 (common); large models go 64–256.<br>
+</li>
+<li><strong>Top-k:</strong> <strong>top-2</strong> for quality; <strong>top-1</strong> for max throughput.<br>
+</li>
+<li><strong>Capacity factor α:</strong> 1.0–1.25 (train higher, infer near 1.0).<br>
+</li>
+<li><strong>Router temp τ:</strong> warmup high (e.g., 1.5–2.0), decay to ~1.0 or &lt;1.0.<br>
+</li>
+<li><strong>Aux balance loss λ:</strong> 0.01–0.1; tune to keep expert loads within ~±50%.<br>
+</li>
+<li><strong>Router LR:</strong> 0.5–1.0× base LR, sometimes lower early.<br>
+</li>
+<li><strong>Expert width:</strong> can match dense FFN or be wider (quality ↑, memory ↑).</li>
 </ul>
 <hr>
 </section>
 <section id="pitfalls" class="level2">
-<h2 class="anchored" data-anchor-id="pitfalls">Debugging by Shape: Common Pitfalls</h2>
+<h2 class="anchored" data-anchor-id="pitfalls">Pitfalls &amp; Debugging</h2>
 <ul>
-<li>Q/K/V reshape/order mismatch: <code>[B, T, nH, Dh]</code> vs <code>[B, nH, T, Dh]</code>.</li>
-<li>RoPE applied on wrong dims or after projection merge.</li>
-<li>KV cache dtype/shape drift across tokens (e.g., bf16 vs fp16).</li>
-<li>Logits with tied weights: ensure <code>E_tok</code> and <code>LM_head</code> share transposed shape.</li>
-<li>MoE routing: padding vs packing; silent throughput collapse if not packed.</li>
+<li><strong>Expert collapse:</strong> few experts take most tokens.
+<ul>
+<li>↑ λ (balance), ↑ τ (softer), add router noise, raise α temporarily.</li>
+</ul></li>
+<li><strong>Overflow/drops too high:</strong>
+<ul>
+<li>Raise α, or move to top-2 with spillover. Check batching (ragged batches skew load).</li>
+</ul></li>
+<li><strong>Router instability / NaNs:</strong>
+<ul>
+<li>Clip router grads; add z-loss/logit clamp; lower router LR; bf16 everywhere.</li>
+</ul></li>
+<li><strong>Comm bottleneck:</strong>
+<ul>
+<li>Co-locate experts; overlap all-to-all with compute; bigger token-pack blocks.</li>
+</ul></li>
+<li><strong>Under-utilized experts:</strong>
+<ul>
+<li>Entropy bonus early; freeze “greedy” experts briefly; curriculum on data.</li>
+</ul></li>
 </ul>
 <hr>
 </section>
-<section id="cheatsheet" class="level2">
-<h2 class="anchored" data-anchor-id="cheatsheet">Mini Cheatsheet</h2>
+<section id="kpis" class="level2">
+<h2 class="anchored" data-anchor-id="kpis">What to Log (KPIs)</h2>
 <ul>
-<li><strong>Embeddings</strong>: <code>E[V, D]</code>, inputs → <code>[B, T, D]</code></li>
-<li><strong>Attention heads</strong>: <code>nH = D / Dh</code>, Q/K/V <code>[B, T, nH, Dh]</code></li>
-<li><strong>Scores/attn</strong>: <code>[B, nH, T, T]</code> (fused via FlashAttention)</li>
-<li><strong>FFN</strong>: <code>D_ff ≈ 4D</code>, shapes <code>[B, T, D_ff]</code></li>
-<li><strong>KV cache / layer</strong>: <code>2 × [B, nH, T_total, Dh]</code></li>
-<li><strong>Adam states</strong>: <code>2 × params</code></li>
-<li><strong>LoRA rank r</strong>: extra params <code>r(D_in + D_out)</code></li>
-<li><strong>MoE gating</strong>: <code>G[B, T, nExperts]</code>, top-k routing</li>
+<li><strong>Per-expert tokens / step</strong> (mean, std, max; coefficient of variation).<br>
+</li>
+<li><strong>Overflow / drop rate</strong> per layer.<br>
+</li>
+<li><strong>Routing entropy</strong> and router logit norms.<br>
+</li>
+<li><strong>Time breakdown</strong>: all-to-all %, expert compute %, attention %.<br>
+</li>
+<li><strong>Throughput</strong> (tokens/s) vs dense baseline at same FLOPs.<br>
+</li>
+<li><strong>Eval loss</strong> vs dense at same compute.<br>
+</li>
+<li><strong>Memory</strong> (activations, params) per rank; OOM events.</li>
 </ul>
 <hr>
-<section id="optional-images-to-add" class="level3">
-<h3 class="anchored" data-anchor-id="optional-images-to-add">Optional images to add</h3>
-<ul>
-<li>A one-panel diagram of shapes through a transformer block.</li>
-<li>A KV cache memory budget bar chart (bf16 vs int8).</li>
-<li>A MoE routing sketch (gate → pack → expert FFNs → merge).</li>
-</ul>
+</section>
+<section id="pseudocode" class="level2">
+<h2 class="anchored" data-anchor-id="pseudocode">Minimal Pseudocode</h2>
+<p>```python # X: [B, T, D] logits = X @ W_g # [B, T, E] if train: logits += normal(0, sigma) # exploration noise probs = softmax(logits / tau, dim=-1) # [B, T, E]</p>
+<p>topk_vals, topk_idx = probs.topk(k, dim=-1) # [B, T, k]</p>
+</section>
+<section id="capacity-per-expert" class="level1">
+<h1>capacity per expert</h1>
+<p>C = ceil(alpha * (B<em>T</em>k) / E)</p>
+</section>
+<section id="build-per-expert-token-lists-pack-for-all-to-all" class="level1">
+<h1>build per-expert token lists (pack for all-to-all)</h1>
+<p>buckets = pack_tokens(X, topk_idx, topk_vals, capacity=C)</p>
+</section>
+<section id="dispatch-all-to-all-and-run-experts" class="level1">
+<h1>dispatch (all-to-all) and run experts</h1>
+<p>Y_parts = [] for e in range(E): Xe, we = buckets[e] # [Ne, D], [Ne] Ye = expert_MLP<a href="Xe">e</a> # [Ne, D] Y_parts.append((e, Ye, we))</p>
+</section>
+<section id="combine-back-to-b-t-d" class="level1">
+<h1>combine back to [B, T, D]</h1>
+<p>Y = combine_and_scatter(Y_parts, topk_idx, topk_vals, B, T, D)</p>
+</section>
+<section id="add-aux-balancing-loss" class="level1">
+<h1>add aux balancing loss</h1>
+<p>L += lambda_bal * balance_loss(probs, assignments=buckets)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Mixture-of-experts.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Mixture of Experts</figcaption>
+</figure>
+</div>
+<p>Mixture-of-Experts Transformer Block (Simplified Flow)</p>
+<section id="input-handling" class="level2">
+<h2 class="anchored" data-anchor-id="input-handling">Input Handling</h2>
+<p>Input Handling Tokenizer → converts text into tokens. Embedding Layer → maps tokens to continuous vectors. Positional Encoding → injects order information.</p>
+<p>Core Transformer Stack (repeated across many layers) Per Layer Flow (for MoE variant): LayerNorm (LN) → stabilize inputs. Router (MoE Gate) → selects top-k experts (usually 1 or 2). Expert MLPs → each expert processes its assigned tokens. Combine Outputs → weighted sum of expert outputs. Residual Connection → add back input.</p>
+<p>Then: LayerNorm (LN) Multi-Head Attention (MHA / FlashAttention) Residual Connection</p>
+<p>🔁 Repeat LN → Router → Experts → Residual → LN → MHA → Residual for each block.</p>
+</section>
+<section id="training-phases" class="level2">
+<h2 class="anchored" data-anchor-id="training-phases">Training Phases</h2>
+<p>Training Phases</p>
+<p>Pretraining (Base Model) Large corpus, self-supervised (next token prediction). MoE routing learns to specialize experts. FlashAttention or equivalent is standard for scalability.</p>
+<p>Fine-Tuning (Instruction / RLHF) Experts adapt further with alignment objectives. Often fewer experts are “hot” depending on task domain.</p>
+<p>So yes: LN → Router → MLP-Experts → Residual → LN → MHA → Residual is the repeating MoE transformer pattern.</p>
+</section>
+<section id="flashattention-explained" class="level2">
+<h2 class="anchored" data-anchor-id="flashattention-explained">FlashAttention Explained</h2>
+<p>🔹 In plain English:</p>
+<p>A tile is just a small rectangular chunk of data — a subset of the full Q, K, V matrices — that fits in fast GPU on-chip memory (SRAM) instead of the big slow global memory (HBM).</p>
+<section id="why-tiling-exists" class="level3">
+<h3 class="anchored" data-anchor-id="why-tiling-exists">Why Tiling Exists</h3>
+<p>🔹 Why tiles exist</p>
+<p>When you do attention normally, you have:</p>
+<p>Q: [Batch, Heads, SeqLen, Dim] K: [Batch, Heads, SeqLen, Dim] Computing QK^T means comparing every token with every other token → a massive NxN matrix.</p>
+<p>That doesn’t fit in fast memory. So GPUs have to keep reading from slow memory repeatedly — and that’s the bottleneck.</p>
+<p>FlashAttention fixes this by saying:</p>
+<p>“Instead of computing the entire QKᵀ at once, let’s compute it piece by piece in small tiles that fit in SRAM.”</p>
+</section>
+<section id="conceptual-diagram-of-tiling" class="level3">
+<h3 class="anchored" data-anchor-id="conceptual-diagram-of-tiling">Conceptual Diagram of Tiling</h3>
+<p>🔹 How it looks conceptually</p>
+<p>Imagine your full attention matrix as a giant grid:</p>
+<p>[ QKᵀ full matrix ]</p>
+<p>┌────────────────────────────┐</p>
+<p>│ ■■■■■■■■■■■■■■■■■■■■■■■■ │</p>
+<p>│ ■■■■■■■■■■■■■■■■■■■■■■■■ │</p>
+<p>│ ■■■■■■■■■■■■■■■■■■■■■■■■ │</p>
+<p>└────────────────────────────┘</p>
+<p>Instead of handling the whole thing, FlashAttention takes it in small squares (tiles):</p>
+<p>┌────────────────────────────┐</p>
+<p>│ ▣▣▣ ▣▣▣ ▣▣▣ ▣▣▣ │</p>
+<p>│ ▣▣▣ ▣▣▣ ▣▣▣ ▣▣▣ │</p>
+<p>│ ▣▣▣ ▣▣▣ ▣▣▣ ▣▣▣ │</p>
+<p>└────────────────────────────┘</p>
+<p>Each tile (say 128×128 or 64×64) is:</p>
+<p>Loaded into fast memory, Processed (softmax(QKᵀ tile) × V tile), Then written back and discarded before the next tile is loaded.</p>
+<p>So you never have to hold the full NxN matrix in memory — only one tile at a time.</p>
+<p>🔹 Why this matters</p>
+<p>GPUs have a hierarchy of memory speeds: Registers (fastest) Shared memory / SRAM (very fast) Global memory (slow)</p>
+<p>Tiles make sure all heavy math happens in fast memory, which drastically cuts read/write overhead.</p>
+<p>✅ TL;DR:</p>
+<p>A tile = a small sub-block of QKᵀ that fits in GPU’s fast memory.</p>
+<p>FlashAttention streams through these tiles so it never stores the full attention map — same math, far faster.</p>
+</section>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<p>🔹 The real purpose of GQA &amp; FlashAttention</p>
+<p>They don’t directly make the model more intelligent — they make it more efficiently intelligent.</p>
+<p>They’re scaling enablers, not capability breakthroughs in themselves.</p>
+<p>They allow intelligence to manifest at larger scales because they:</p>
+<p>• Preserve compute (so you can train bigger models or longer contexts).</p>
+<p>• Preserve memory bandwidth (so the model fits on available hardware).</p>
+<p>• Maintain identical representational power (the math is the same — they just perform it smarter).</p>
+<p>⸻</p>
+<p>🔹 Think of them as “enablers of scale,” like MoE</p>
+<p>Technique Core function Efficiency gain Conceptual analogy</p>
+<p>FlashAttention Computes attention in on-chip tiles Reduces O(N²) memory overhead Efficient GPU kernel for attention math</p>
+<p>GQA Shares K/V heads across queries Shrinks KV cache (2–8×) Memory-sharing optimization</p>
+<p>MoE Activates only a subset of experts Cuts dense FFN compute Sparse compute routing</p>
+<p>All three let you scale up without linearly scaling cost.</p>
+<p>Without them, models like GPT-4, Claude 3, and Gemini 1.5 would be physically untrainable even on thousands of GPUs.</p>
+<p>⸻</p>
+<p>🔹 Where “intelligence” comes from</p>
+<p>• It’s still the same Transformer architecture doing self-attention and feed-forward transformation.</p>
+<p>• The “intelligence” improves because we can now afford more parameters, longer training runs, and longer contexts thanks to these efficiency breakthroughs.</p>
+<p>So:</p>
+<p>FlashAttention, GQA, and MoE don’t invent new cognition — they remove the computational bottlenecks that unlock higher-order cognition at scale.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Glossary {#glossary}</p>
+<p>Expert (E): one MLP block; MoE layer has many experts. Top-k routing: activate k experts per token. Capacity factor (α): max tokens/expert relative to uniform share. Overflow/drop: tokens exceeding capacity (Switch drops). Aux balance loss: regularizer to equalize expert usage. Expert parallel: distribute experts across ranks; route tokens all-to-all. A tile: is just a small rectangular chunk of data — a subset of the full Q, K, V matrices — that fits in fast GPU on-chip memory (SRAM) instead of the big slow global memory (HBM). 1. Context Window (Input + Output)</p>
+<p>This is the working memory for a single generation.</p>
+<p>It’s purely stateless — meaning once the generation ends, that context is gone.</p>
+<p>For example:</p>
+<p>If GPT-5 has a 400K-token context, that means at any one time it can process 400K tokens combined from what you give it (input) + what it writes back (output). When that output finishes, the model forgets unless the conversation text is resent in the next input.</p>
+<p>So, the context window = active short-term reasoning space.</p>
+<p>🧩</p>
+<ol start="2" type="1">
+<li>Conversation Recall (or “memory”)</li>
+</ol>
+<p>This is external, not inside the model’s weights or context window.</p>
+<p>Platforms like ChatGPT simulate continuity by re-feeding prior messages each turn, or (if enabled) by storing key facts separately as structured “memory.”</p>
+<p>That’s how I remember long-term facts about you, for instance.</p>
+<p>But it’s not part of the model’s native transformer context.</p>
 
 
 </section>
