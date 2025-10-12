@@ -200,6 +200,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./Mixture-Of-Experts-LLM">
  <span class="dropdown-text">Mixture-Of-Experts-LLM.qmd</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./Intelligence First, Safety Precisely">
+ <span class="dropdown-text">Intelligence First, Safety Precisely.qmd</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -226,7 +230,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#dense-to-moe" id="toc-dense-to-moe" class="nav-link" data-scroll-target="#dense-to-moe">Convert Dense → MoE / Continued Pretraining</a></li>
   <li><a href="#systems" id="toc-systems" class="nav-link" data-scroll-target="#systems">Parallelism &amp; Systems</a></li>
   <li><a href="#inference" id="toc-inference" class="nav-link" data-scroll-target="#inference">Inference &amp; Serving</a></li>
-  <li><a href="#flashattention" id="toc-flashattention" class="nav-link" data-scroll-target="#flashattention">FlashAttention &amp; Friends</a></li>
+  <li><a href="#flashattention" id="toc-flashattention" class="nav-link" data-scroll-target="#flashattention">FlashAttention &amp; Friends</a>
+  <ul class="collapse">
+  <li><a href="#why-tiling-exists" id="toc-why-tiling-exists" class="nav-link" data-scroll-target="#why-tiling-exists">Why Tiling Exists</a></li>
+  </ul></li>
   <li><a href="#defaults" id="toc-defaults" class="nav-link" data-scroll-target="#defaults">Best-Practice Defaults</a></li>
   <li><a href="#pitfalls" id="toc-pitfalls" class="nav-link" data-scroll-target="#pitfalls">Pitfalls &amp; Debugging</a></li>
   <li><a href="#kpis" id="toc-kpis" class="nav-link" data-scroll-target="#kpis">What to Log (KPIs)</a></li>
@@ -239,12 +246,11 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#input-handling" id="toc-input-handling" class="nav-link" data-scroll-target="#input-handling">Input Handling</a></li>
   <li><a href="#training-phases" id="toc-training-phases" class="nav-link" data-scroll-target="#training-phases">Training Phases</a></li>
-  <li><a href="#flashattention-explained" id="toc-flashattention-explained" class="nav-link" data-scroll-target="#flashattention-explained">FlashAttention Explained</a>
-  <ul class="collapse">
-  <li><a href="#why-tiling-exists" id="toc-why-tiling-exists" class="nav-link" data-scroll-target="#why-tiling-exists">Why Tiling Exists</a></li>
-  <li><a href="#conceptual-diagram-of-tiling" id="toc-conceptual-diagram-of-tiling" class="nav-link" data-scroll-target="#conceptual-diagram-of-tiling">Conceptual Diagram of Tiling</a></li>
-  </ul></li>
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#rotary-position-embeddings-rope" id="toc-rotary-position-embeddings-rope" class="nav-link" data-scroll-target="#rotary-position-embeddings-rope">Rotary Position Embeddings (RoPE)</a></li>
+  <li><a href="#scaled-ntk-aware-rope" id="toc-scaled-ntk-aware-rope" class="nav-link" data-scroll-target="#scaled-ntk-aware-rope">Scaled / NTK-Aware RoPE</a></li>
+  <li><a href="#alibi-attention-with-linear-biases" id="toc-alibi-attention-with-linear-biases" class="nav-link" data-scroll-target="#alibi-attention-with-linear-biases">ALiBi (Attention with Linear Biases)</a></li>
+  <li><a href="#grouped-query-attention" id="toc-grouped-query-attention" class="nav-link" data-scroll-target="#grouped-query-attention">Grouped Query Attention (GQA)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -280,24 +286,30 @@ ul.task-list li input[type="checkbox"] {
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ul>
-<li><p><a href="#why-moe">Why MoE?</a></p></li>
-<li><p><a href="#canonical-block">Canonical MoE Block</a></p></li>
-<li><p><a href="#routing">Routing &amp; Balancing</a></p></li>
-<li><p><a href="#train-from-scratch">Training From Scratch</a></p></li>
-<li><p><a href="#dense-to-moe">Convert Dense → MoE / Continued Pretraining</a></p></li>
-<li><p><a href="#systems">Parallelism &amp; Systems</a></p></li>
-<li><p><a href="#inference">Inference &amp; Serving</a></p></li>
-<li><p><a href="#flashattention">FlashAttention &amp; Friends</a></p></li>
-<li><p><a href="#defaults">Best-Practice Defaults</a></p></li>
-<li><p><a href="#pitfalls">Pitfalls &amp; Debugging</a></p></li>
-<li><p><a href="#kpis">What to Log (KPIs)</a></p></li>
-<li><p><a href="#pseudocode">Minimal Pseudocode</a></p></li>
-<li><p><a href="#input-handling">Input Handling</a></p></li>
-<li><p><a href="#core-transformer-architecture">Core Transformer Architecture</a></p></li>
-<li><p><a href="#training-phases">Training Phases</a></p></li>
-<li><p><a href="#flashattention-explained">FlashAttention Explained</a></p></li>
-<li><p><a href="#key-takeaways">Key Takeaways</a></p></li>
-<li><p><a href="#glossary">Glossary</a></p></li>
+<li><a href="#why-moe">Why MoE?</a></li>
+<li><a href="#canonical-block">Canonical MoE Block</a></li>
+<li><a href="#routing">Routing &amp; Balancing</a></li>
+<li><a href="#train-from-scratch">Training From Scratch</a></li>
+<li><a href="#dense-to-moe">Convert Dense → MoE / Continued Pretraining</a></li>
+<li><a href="#systems">Parallelism &amp; Systems</a></li>
+<li><a href="#inference">Inference &amp; Serving</a></li>
+<li><a href="#flashattention">FlashAttention &amp; Friends</a></li>
+<li><a href="#defaults">Best-Practice Defaults</a></li>
+<li><a href="#pitfalls">Pitfalls &amp; Debugging</a></li>
+<li><a href="#kpis">What to Log (KPIs)</a></li>
+<li><a href="#pseudocode">Minimal Pseudocode</a></li>
+<li><a href="#input-handling">Input Handling</a></li>
+<li><a href="#core-transformer-architecture">Core Transformer Architecture</a></li>
+<li><a href="#training-phases">Training Phases</a></li>
+<li><a href="#flashattention-explained">FlashAttention Explained</a></li>
+<li><a href="#rotary-position-embeddings-rope">Rotary Position Embeddings (RoPE)</a></li>
+<li><a href="#scaled--ntk-aware-rope">Scaled / NTK-Aware RoPE</a></li>
+<li><a href="#alibi-attention-with-linear-biases">ALiBi (Attention with Linear Biases)</a></li>
+<li><a href="#grouped-query-attention">Grouped Query Attention (GQA)</a></li>
+<li><a href="#layer-normalization-strategies">Layer Normalization Strategies (Pre-LN &amp; Final-LN)</a></li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+<li><a href="#glossary">Glossary</a></li>
 </ul>
 <hr>
 </section>
@@ -412,8 +424,42 @@ MoE replaces dense MLPs with a <em>bank of experts</em> but activates only <stro
 </section>
 <section id="flashattention" class="level2">
 <h2 class="anchored" data-anchor-id="flashattention">FlashAttention &amp; Friends</h2>
+<p>🔹 In plain English:</p>
+<p>A tile is just a small rectangular chunk of data — a subset of the full Q, K, V matrices — that fits in fast GPU on-chip memory (SRAM) instead of the big slow global memory (HBM).</p>
+<section id="why-tiling-exists" class="level3">
+<h3 class="anchored" data-anchor-id="why-tiling-exists">Why Tiling Exists</h3>
+<p>🔹 Why tiles exist</p>
+<p>When you do attention normally, you have:</p>
+<p>Q: [Batch, Heads, SeqLen, Dim] K: [Batch, Heads, SeqLen, Dim] Computing QK^T means comparing every token with every other token → a massive NxN matrix.</p>
+<p>That doesn’t fit in fast memory. So GPUs have to keep reading from slow memory repeatedly — and that’s the bottleneck.</p>
+<p>FlashAttention fixes this by saying:</p>
+<p>“Instead of computing the entire QKᵀ at once, let’s compute it piece by piece in small tiles that fit in SRAM.”</p>
+<p>🔹 How it looks conceptually</p>
+<p>Imagine your full attention matrix as a giant grid:</p>
+<p>[ QKᵀ full matrix ]</p>
+<p>┌────────────────────────────┐</p>
+<p>│ ■■■■■■■■■■■■■■■■■■■■■■■■ │</p>
+<p>│ ■■■■■■■■■■■■■■■■■■■■■■■■ │</p>
+<p>│ ■■■■■■■■■■■■■■■■■■■■■■■■ │</p>
+<p>└────────────────────────────┘</p>
+<p>Instead of handling the whole thing, FlashAttention takes it in small squares (tiles):</p>
+<p>┌────────────────────────────┐</p>
+<p>│ ▣▣▣ ▣▣▣ ▣▣▣ ▣▣▣ │</p>
+<p>│ ▣▣▣ ▣▣▣ ▣▣▣ ▣▣▣ │</p>
+<p>│ ▣▣▣ ▣▣▣ ▣▣▣ ▣▣▣ │</p>
+<p>└────────────────────────────┘</p>
+<p>Each tile (say 128×128 or 64×64) is:</p>
+<p>Loaded into fast memory, Processed (softmax(QKᵀ tile) × V tile), Then written back and discarded before the next tile is loaded.</p>
+<p>So you never have to hold the full NxN matrix in memory — only one tile at a time.</p>
+<p>🔹 Why this matters</p>
+<p>GPUs have a hierarchy of memory speeds: Registers (fastest) Shared memory / SRAM (very fast) Global memory (slow)</p>
+<p>Tiles make sure all heavy math happens in fast memory, which drastically cuts read/write overhead.</p>
+<p>✅ TL;DR:</p>
+<p>A tile = a small sub-block of QKᵀ that fits in GPU’s fast memory.</p>
+<p>FlashAttention streams through these tiles so it never stores the full attention map — same math, far faster.</p>
 <p>MoE <strong>does not change attention</strong> — keep attention dense and fast: - <strong>FlashAttention</strong> or FA-2 kernels for <code>[B, T, D]</code>. - Fused norms, fused QKV projections, RoPE applied before split to heads. - The <strong>sparse</strong> part is only the <strong>FFN/MLP</strong>, swapped for experts.</p>
 <hr>
+</section>
 </section>
 <section id="defaults" class="level2">
 <h2 class="anchored" data-anchor-id="defaults">Best-Practice Defaults</h2>
@@ -526,46 +572,6 @@ MoE replaces dense MLPs with a <em>bank of experts</em> but activates only <stro
 <p>Fine-Tuning (Instruction / RLHF) Experts adapt further with alignment objectives. Often fewer experts are “hot” depending on task domain.</p>
 <p>So yes: LN → Router → MLP-Experts → Residual → LN → MHA → Residual is the repeating MoE transformer pattern.</p>
 </section>
-<section id="flashattention-explained" class="level2">
-<h2 class="anchored" data-anchor-id="flashattention-explained">FlashAttention Explained</h2>
-<p>🔹 In plain English:</p>
-<p>A tile is just a small rectangular chunk of data — a subset of the full Q, K, V matrices — that fits in fast GPU on-chip memory (SRAM) instead of the big slow global memory (HBM).</p>
-<section id="why-tiling-exists" class="level3">
-<h3 class="anchored" data-anchor-id="why-tiling-exists">Why Tiling Exists</h3>
-<p>🔹 Why tiles exist</p>
-<p>When you do attention normally, you have:</p>
-<p>Q: [Batch, Heads, SeqLen, Dim] K: [Batch, Heads, SeqLen, Dim] Computing QK^T means comparing every token with every other token → a massive NxN matrix.</p>
-<p>That doesn’t fit in fast memory. So GPUs have to keep reading from slow memory repeatedly — and that’s the bottleneck.</p>
-<p>FlashAttention fixes this by saying:</p>
-<p>“Instead of computing the entire QKᵀ at once, let’s compute it piece by piece in small tiles that fit in SRAM.”</p>
-</section>
-<section id="conceptual-diagram-of-tiling" class="level3">
-<h3 class="anchored" data-anchor-id="conceptual-diagram-of-tiling">Conceptual Diagram of Tiling</h3>
-<p>🔹 How it looks conceptually</p>
-<p>Imagine your full attention matrix as a giant grid:</p>
-<p>[ QKᵀ full matrix ]</p>
-<p>┌────────────────────────────┐</p>
-<p>│ ■■■■■■■■■■■■■■■■■■■■■■■■ │</p>
-<p>│ ■■■■■■■■■■■■■■■■■■■■■■■■ │</p>
-<p>│ ■■■■■■■■■■■■■■■■■■■■■■■■ │</p>
-<p>└────────────────────────────┘</p>
-<p>Instead of handling the whole thing, FlashAttention takes it in small squares (tiles):</p>
-<p>┌────────────────────────────┐</p>
-<p>│ ▣▣▣ ▣▣▣ ▣▣▣ ▣▣▣ │</p>
-<p>│ ▣▣▣ ▣▣▣ ▣▣▣ ▣▣▣ │</p>
-<p>│ ▣▣▣ ▣▣▣ ▣▣▣ ▣▣▣ │</p>
-<p>└────────────────────────────┘</p>
-<p>Each tile (say 128×128 or 64×64) is:</p>
-<p>Loaded into fast memory, Processed (softmax(QKᵀ tile) × V tile), Then written back and discarded before the next tile is loaded.</p>
-<p>So you never have to hold the full NxN matrix in memory — only one tile at a time.</p>
-<p>🔹 Why this matters</p>
-<p>GPUs have a hierarchy of memory speeds: Registers (fastest) Shared memory / SRAM (very fast) Global memory (slow)</p>
-<p>Tiles make sure all heavy math happens in fast memory, which drastically cuts read/write overhead.</p>
-<p>✅ TL;DR:</p>
-<p>A tile = a small sub-block of QKᵀ that fits in GPU’s fast memory.</p>
-<p>FlashAttention streams through these tiles so it never stores the full attention map — same math, far faster.</p>
-</section>
-</section>
 <section id="key-takeaways" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
 <p>🔹 The real purpose of GQA &amp; FlashAttention</p>
@@ -590,6 +596,174 @@ MoE replaces dense MLPs with a <em>bank of experts</em> but activates only <stro
 <p>So:</p>
 <p>FlashAttention, GQA, and MoE don’t invent new cognition — they remove the computational bottlenecks that unlock higher-order cognition at scale.</p>
 <p>⸻</p>
+</section>
+<section id="rotary-position-embeddings-rope" class="level2">
+<h2 class="anchored" data-anchor-id="rotary-position-embeddings-rope">Rotary Position Embeddings (RoPE)</h2>
+<p>🧭</p>
+<p>Rotary Position Embeddings (RoPE)</p>
+<p>✅ Correct core idea:</p>
+<p>“RoPE rotates the input token embeddings in vector space so that the model understands their sequence.”</p>
+<p>Let’s make it exact:</p>
+<p>Each token embedding (for Q and K vectors) is rotated by an angle proportional to its position index. These rotations happen before the attention score QK^is computed. When two tokens interact, the dot product of their rotated vectors automatically encodes their relative distance (how far apart they are in the sequence).</p>
+<p>So instead of adding positional encodings, RoPE bakes positional order directly into the geometry of the attention computation itself.</p>
+<p>→ That’s why modern LLMs can reason about order, spacing, and relative structure natively.</p>
+</section>
+<section id="scaled-ntk-aware-rope" class="level2">
+<h2 class="anchored" data-anchor-id="scaled-ntk-aware-rope">Scaled / NTK-Aware RoPE</h2>
+<p>⚙️</p>
+<p>Scaled RoPE</p>
+<p>✅ You got the intuition:</p>
+<p>“The scaled version lets the model handle longer sequences.”</p>
+<p>Exactly.</p>
+<p>As context length increases (e.g.&nbsp;from 4k → 128k tokens), the rotation angles can become too extreme — like over-spinning. Scaled RoPE reduces the angular speed (via a scaling factor) so rotations stay meaningful even far along the sequence. → This is what enables GPT-4-Turbo, Claude 3, and Gemini 1.5 to maintain stable attention over hundreds of thousands of tokens.</p>
+<p>Think of it like zooming out the spiral so distant tokens still fit smoothly on the curve.</p>
+</section>
+<section id="alibi-attention-with-linear-biases" class="level2">
+<h2 class="anchored" data-anchor-id="alibi-attention-with-linear-biases">ALiBi (Attention with Linear Biases)</h2>
+<p>🧠</p>
+<p>ALiBi (Attention with Linear Biases)</p>
+<p>✅ Your intuition was right:</p>
+<p>“ALiBi suppresses tokens that are far apart.”</p>
+<p>Exactly that — but not by rotating embeddings.</p>
+<p>Instead, ALiBi adds a distance-based penalty directly to the attention scores.</p>
+<p>Formally:</p>
+<p>_{ij} = + b |i - j|</p>
+<p>where b &lt; 0 is a negative slope.</p>
+<p>So the farther apart two tokens are (larger |i - j|),</p>
+<p>→ the more their attention weight is reduced.</p>
+<p>This encourages the model to prioritize nearby context, while still letting it access distant tokens if needed.</p>
+<p>It’s lightweight, extrapolates well to longer sequences, and pairs beautifully with RoPE.</p>
+<p>⸻</p>
+<p>🧭 Why ALiBi adds distance-based penalties</p>
+<p>Think of an attention head as a “spotlight” scanning a sequence of tokens.</p>
+<p>At every new token, it can look back at all previous ones — but in natural language (and most sequences), recent tokens are almost always more relevant than far-away ones.</p>
+<p>For example:</p>
+<p>“The dog chased the ball because it was fast.”</p>
+<p>When the model predicts “it,” the word “dog” (a few tokens back) is far more relevant than words thousands of tokens earlier.</p>
+<p>If the model gives equal attention to every token regardless of distance, attention scores become noisy and inefficient — wasting compute on irrelevant long-range pairs.</p>
+<p>So ALiBi introduces a gentle bias that says:</p>
+<p>“The farther apart two tokens are, the less likely they should attend to each other — unless their relationship is really strong.”</p>
+<p>This is done mathematically by subtracting a linear penalty from the attention logits:</p>
+<p>_{ij} = -m |i - j|</p>
+<p>where m &gt; 0 is a constant slope.</p>
+<p>🔹 What this achieves</p>
+<p>Encourages local coherence: Nearby tokens (like within a sentence) get higher attention weights. Keeps gradients stable: Reduces noise from irrelevant far-back tokens. Improves generalization to long contexts: Even when the model sees sequences longer than it was trained on, it naturally keeps its attention “focused,” instead of spreading thin.</p>
+<p>🔹 Why it’s still flexible</p>
+<p>The penalty isn’t absolute — it just tilts the softmax surface.</p>
+<p>If a faraway token is truly important (like a repeated name, function definition, or memory reference), the model can still attend to it — it just has to earn that attention through a higher QK^similarity score.</p>
+<p>So ALiBi adds an inductive bias, not a hard constraint.</p>
+<p>It shapes the model’s natural tendency without removing its flexibility.</p>
+<p>⸻</p>
+</section>
+<section id="grouped-query-attention" class="level2">
+<h2 class="anchored" data-anchor-id="grouped-query-attention">Grouped Query Attention (GQA)</h2>
+<p>How Grouped-Query Attention saves compute</p>
+<p>In standard Multi-Head Attention, every Query head has its own Key and Value projections.</p>
+<p>So if you have 96 heads, you store and process 96 separate K/V matrices.</p>
+<p>Grouped-Query Attention (GQA) clusters these heads into small groups — say, 6 heads per group — and lets all heads in that group share the same K/V pair.</p>
+<p>Each head still has its own Query projection, so it can look for different patterns. But now, instead of 96 separate K/Vs, you only have 16 shared K/Vs.</p>
+<p>That change alone:</p>
+<p>Cuts the KV cache memory by ~6×, Reduces inference latency, And keeps almost identical accuracy, since Query diversity still exists.</p>
+<p>So, in your words:</p>
+<p>GQA “groups them together for processing,” which massively reduces compute and memory needs during inference — without sacrificing model intelligence.</p>
+<p>Clarifying What GQA Actually “Groups”</p>
+<p>You said:</p>
+<p>“If there are 100 attention heads, GQA combines multiple head calculations, grouping them together based on similar sub-patterns being compared across the input.”</p>
+<p>That’s exactly right in concept — here’s how to think of it at the next level of accuracy:</p>
+<p>🔹 1. In Standard Multi-Head Attention</p>
+<p>Each of the 100 heads learns to specialize on different sub-patterns in the sequence:</p>
+<p>One head might track subject–verb agreement. Another might capture indentation or code scope. Others might model long-range dependencies, syntax, or entity co-reference.</p>
+<p>Each of these heads has its own Q, K, and V projections, which means:</p>
+<p>100 × (K/V) matrices. 100 sets of cached vectors at inference time.</p>
+<p>That’s a lot of duplicated storage — even though many heads learn correlated or overlapping functions.</p>
+<p>🔹 2. In GQA</p>
+<p>The model still keeps 100 Query heads → preserving diversity and specialization. But those heads are clustered into groups (say, 10 groups of 10). Every group shares one Key/Value pair instead of 10 separate ones.</p>
+<p>So conceptually:</p>
+<p>The model assumes that several heads, although they ask different “questions” (Q projections), often look at similar feature sub-spaces (so they can share the same K/V representation).</p>
+<p>It’s like letting 10 analysts look at the same database table but pose different queries — no need to replicate the table for each analyst.</p>
+<p>🔹 3. How the grouping is determined</p>
+<p>During training, grouping isn’t manually decided — it’s architectural:</p>
+<p>The code specifies a grouping ratio (e.g., num_kv_heads = num_q_heads // 8). The network learns projections such that the shared K/V still cover all relevant features for their group. The implicit assumption (and proven empirical fact) is that many Q heads end up focusing on correlated sub-patterns anyway — so shared K/Vs barely hurt accuracy.</p>
+<p>🔹 4. Why this saves compute</p>
+<p>Memory: KV cache shrinks by the grouping ratio. Compute: fewer K/V matrix multiplications per token. Throughput: faster inference, especially in long-context decoding.</p>
+<p>In your example:</p>
+<p>100 heads grouped into 20 shared K/V pairs → 5× smaller KV cache, 5× fewer K/V matmuls, but same 100 unique query projections.</p>
+<p>✅ In summary</p>
+<p>GQA recognizes that many attention heads analyze overlapping sub-patterns in the input.</p>
+<p>It keeps their query diversity but lets them share the same K/V feature maps, dramatically reducing memory and compute without losing representational power.</p>
+<p>⸻ ## Layer Normalization Strategies (Pre-LN &amp; Final-LN) {#layer-normalization-strategies}</p>
+<p>🧩 1. Pre-RMSNorm — the default within each transformer block</p>
+<p>Structure (per block):</p>
+<p>x_{l+1} = x_l + ((x_l))</p>
+<p>So each attention or MLP sub-block first passes its input through RMSNorm before computation.</p>
+<p>This ensures that activations entering each sublayer have controlled magnitude, while the residual path (x_l) remains an identity — the key reason gradients stay stable across hundreds of layers.</p>
+<p>🧩 2. Final LayerNorm — the global stabilizer</p>
+<p>Even though Pre-RMSNorm keeps each layer locally stable, residual additions cause the entire network’s output scale to drift slightly upward as depth increases.</p>
+<p>To fix this, a Final LayerNorm (or Final RMSNorm) is applied once at the very top of the model, after the last block but before the language-model head (the final linear projection to logits):</p>
+<p>y = (x_{})</p>
+<p>This ensures that the final representation entering the softmax has a predictable distribution — crucial for stable logits and well-behaved probabilities during generation.</p>
+<p>🔹 Why it’s needed</p>
+<p>Keeps overall scale consistent across layers. Prevents logit explosion in long sequences. Allows mixed-precision inference without overflow. Enables cross-model alignment (important for instruction-tuning or distillation).</p>
+<p>🔹 Implementation notes</p>
+<p>Some models use RMSNorm here as well; others prefer full LayerNorm. In code, you’ll often see this as final_norm = nn.RMSNorm(hidden_dim) or norm_out = norm(x) before the final linear layer.</p>
+<p>✅</p>
+<p>Correct flow of computation in a Pre-RMSNorm MoE Transformer</p>
+<p>Let’s walk through what happens in order, from raw input to output:</p>
+<ol type="1">
+<li>Tokenization → Embeddings → Positional Encoding</li>
+</ol>
+<p>Tokenizer: Converts text/code/maths into discrete token IDs. Embedding layer: Turns each token into a dense vector representation. Sequential embeddings: Add relative position information via RoPE (rotary position embedding) or hybrid RoPE + ALiBi to encode order and distance between tokens.</p>
+<p>These three steps together form the input representation that enters the transformer stack.</p>
+<ol start="2" type="1">
+<li>Pre-RMSNorm</li>
+</ol>
+<p>Immediately after embedding (and at the start of each transformer block), we apply Pre-RMSNorm:</p>
+<p>x’ = (x)</p>
+<p>This normalizes the magnitude of each token’s vector before it flows into any heavy computation — keeping gradients stable and ensuring consistent activation scales from the start.</p>
+<ol start="3" type="1">
+<li>Attention and Feedforward Blocks (repeated many times)</li>
+</ol>
+<p>Each transformer layer then executes the following sequence:</p>
+<p>Self-Attention (FlashAttention + GQA): The normalized input is projected into Queries, Keys, and Values. FlashAttention streams QKᵀ → softmax → V in tiles, while GQA shares K/V groups across multiple heads for efficiency. Output captures cross-token dependencies (which token attends to which).</p>
+<p>Residual connection: x = x + (x’) Adds the attention output back to the original input — preserving information flow and aiding gradient propagation. Pre-RMSNorm again: The result is normalized once more before entering the MLP. MLP / MoE block: Dense linear layer + activation (SiLU or SwiGLU) to expand features. In MoE models, the router layer decides which experts (MLPs) to activate based on token content. Only top-k experts are used per token (e.g., top-2), massively saving compute.</p>
+<p>Residual connection: x = x + (x’)</p>
+<p>This entire process repeats for dozens to hundreds of layers, each deepening representation quality and abstraction.</p>
+<ol start="4" type="1">
+<li>Final LayerNorm (global normalization)</li>
+</ol>
+<p>After the last block:</p>
+<p>x_{} = (x)</p>
+<p>This globally normalizes the output representation before feeding it into the LM Head (the final linear layer projecting to vocabulary logits).</p>
+<p>Token → Embedding → RoPE/ALiBi</p>
+<pre><code>  ↓</code></pre>
+<p>Pre-RMSNorm</p>
+<pre><code>  ↓</code></pre>
+<p>Attention (Flash/GQA)</p>
+<pre><code>  ↓</code></pre>
+<ul>
+<li><p>Residual</p>
+<p>↓</p></li>
+</ul>
+<p>Pre-RMSNorm</p>
+<pre><code>  ↓</code></pre>
+<p>MoE-MLP (Router → Experts → Combine)</p>
+<pre><code>  ↓</code></pre>
+<ul>
+<li><p>Residual</p>
+<p>↓</p></li>
+</ul>
+<p>[Repeat N times]</p>
+<pre><code>  ↓</code></pre>
+<p>Final LayerNorm → LM Head → Logits</p>
+<p>🧠</p>
+<p>Key insight</p>
+<p>Pre-RMSNorm ensures stability within each block,</p>
+<p>Final LayerNorm ensures stability across the entire network.</p>
+<p>Together they allow deep MoE and attention stacks to scale to trillions of parameters without divergence.</p>
+<p>✅ Summary for your notes</p>
+<p>Pre-RMSNorm normalizes inputs before each sublayer to keep gradients stable and efficient in BF16/FP16.</p>
+<p>Final LayerNorm (or Final RMSNorm) is applied once at the model’s output to globally normalize representations and stabilize logits.</p>
+<p>Together, they form the normalization backbone of all modern SOTA LLMs.</p>
 <p>⸻</p>
 <p>⸻</p>
 <p>⸻</p>
