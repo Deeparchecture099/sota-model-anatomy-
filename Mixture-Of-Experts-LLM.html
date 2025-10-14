@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -185,8 +214,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Frontiers in Large Language Models</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Frontiers in Large Video Models.html">
- <span class="dropdown-text">Frontiers in Large Video Models</span></a>
+    <a class="dropdown-item" href="./The Myth of AI Cinema.html">
+ <span class="dropdown-text">The Myth of AI Cinema</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./turing-tests-for-superintelligence.html">
@@ -251,6 +280,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#scaled-ntk-aware-rope" id="toc-scaled-ntk-aware-rope" class="nav-link" data-scroll-target="#scaled-ntk-aware-rope">Scaled / NTK-Aware RoPE</a></li>
   <li><a href="#alibi-attention-with-linear-biases" id="toc-alibi-attention-with-linear-biases" class="nav-link" data-scroll-target="#alibi-attention-with-linear-biases">ALiBi (Attention with Linear Biases)</a></li>
   <li><a href="#grouped-query-attention" id="toc-grouped-query-attention" class="nav-link" data-scroll-target="#grouped-query-attention">Grouped Query Attention (GQA)</a></li>
+  <li><a href="#layer-normalization-strategies" id="toc-layer-normalization-strategies" class="nav-link" data-scroll-target="#layer-normalization-strategies">Layer Normalization Strategies (Pre-LN &amp; Final-LN)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -691,7 +721,10 @@ MoE replaces dense MLPs with a <em>bank of experts</em> but activates only <stro
 <p>✅ In summary</p>
 <p>GQA recognizes that many attention heads analyze overlapping sub-patterns in the input.</p>
 <p>It keeps their query diversity but lets them share the same K/V feature maps, dramatically reducing memory and compute without losing representational power.</p>
-<p>⸻ ## Layer Normalization Strategies (Pre-LN &amp; Final-LN) {#layer-normalization-strategies}</p>
+<p>⸻</p>
+</section>
+<section id="layer-normalization-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="layer-normalization-strategies">Layer Normalization Strategies (Pre-LN &amp; Final-LN)</h2>
 <p>🧩 1. Pre-RMSNorm — the default within each transformer block</p>
 <p>Structure (per block):</p>
 <p>x_{l+1} = x_l + ((x_l))</p>
@@ -765,6 +798,41 @@ MoE replaces dense MLPs with a <em>bank of experts</em> but activates only <stro
 <p>Final LayerNorm (or Final RMSNorm) is applied once at the model’s output to globally normalize representations and stabilize logits.</p>
 <p>Together, they form the normalization backbone of all modern SOTA LLMs.</p>
 <p>⸻</p>
+<p>🔹</p>
+<p>Role of Residual Connections in LLMs</p>
+<p>Residuals are the structural glue that holds every part of a transformer together.</p>
+<p>They preserve information, merge features from different sublayers, and stabilize both forward activations and backward gradients across hundreds of layers.</p>
+<ol type="1">
+<li>What Residuals Actually Do</li>
+</ol>
+<p>You’re absolutely right:</p>
+<p>Residuals combine the local features extracted by MLPs with the relational patterns captured by Multi-Head Attention (MHA).</p>
+<p>MHA discovers inter-token relationships — patterns across positions. MLPs (or MoE experts) discover intra-token features — meaning within each representation. Residuals merge both into a unified latent space, keeping the signal consistent and learnable over depth.</p>
+<p>Formally for each block:</p>
+<span class="math display">\[\begin{aligned} x’ &amp;= \text{RMSNorm}(x) \\ x_{\text{attn}} &amp;= \text{Attention}(x’) \\ x &amp;= x + x_{\text{attn}} \quad \text{(residual ①)}\\ x’ &amp;= \text{RMSNorm}(x) \\ x_{\text{mlp}} &amp;= \text{MoE-MLP}(x’) \\ x &amp;= x + x_{\text{mlp}} \quad \text{(residual ②)} \end{aligned}\]</span>
+<p>Each sub-block (Attention and MLP) gets its own residual path — that’s why you correctly noted there are two per block.</p>
+<ol start="2" type="1">
+<li>Why Residuals Are Essential</li>
+</ol>
+<p>Without residuals, the network would have to re-encode all prior information in every layer.</p>
+<p>With residuals, the network:</p>
+<p>Preserves learned structure across depth. Keeps gradients flowing through an identity path. Enables very deep (100-200 layer) models to train stably. Allows modular specialization — each MLP and attention unit refines, not replaces, previous representations.</p>
+<p>In essence:</p>
+<p>The residual stream is the model’s long-term memory highway — carrying everything each layer learns forward for fusion with new features and patterns.</p>
+<ol start="3" type="1">
+<li>Integration with Routing and Experts</li>
+</ol>
+<p>In MoE transformers:</p>
+<p>The router (a dense + softmax layer) classifies which MLP experts hold relevant information for each token. Each token is typically routed to top-2 experts (sometimes 3–4). These experts output refined features: (x) = _i g_i(x) _i(x) The combined expert output is then added back through the residual to the main hidden stream — preserving the model’s coherence across tokens and layers.</p>
+<p>This means every token’s output is a fusion of:</p>
+<p>The patterns attention discovered, The features MLPs extracted, The weights router determined, All merged through residual connections into a single, consistent representation.</p>
+<p>✅</p>
+<p>Summary (for your notes)</p>
+<p>Residual connections are the continuous thread running through every attention and MLP block in an LLM.</p>
+<p>They merge pattern-level information (from MHA) and feature-level information (from MLPs or experts) while preserving the original input signal.</p>
+<p>By keeping the hidden state consistent across depth, residuals make it possible for transformers to reason, remember, and scale to massive depths and parameter counts.</p>
+<p>In every transformer block, the input representation is first normalized by Pre-RMSNorm, then passed through FlashAttention + GQA to extract cross-token patterns. The attention output is added back through the first residual path, preserving the original signal while enriching it with relational context. A second Pre-RMSNorm precedes the Router + MoE-MLP, which sends each token to its top-k experts (typically 2–4) to refine feature representations. These expert outputs are recombined and added through the second residual path.</p>
+<p>Together, these dual residuals form the model’s “information highway,” letting gradients flow cleanly, features remain consistent, and each layer build on the stable foundation established by the previous ones—an essential design in all modern LLMs.</p>
 <p>⸻</p>
 <p>⸻</p>
 <p>⸻</p>
