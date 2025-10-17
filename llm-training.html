@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>intelligence-first-safety-precisely – My AI Site</title>
+<title>llm-training – My AI Site</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./About-me.html"> 
+    <a class="nav-link" href="./about-me.qmd"> 
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -115,16 +115,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">DeepSeek</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./midjourney.html">
- <span class="dropdown-text">Midjourney</span></a>
+    <a class="dropdown-item" href="./MidJourney.qmd">
+ <span class="dropdown-text">MidJourney</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./veo3.html">
+    <a class="dropdown-item" href="./Veo3.qmd">
  <span class="dropdown-text">Veo 3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Omni-modal-models.html">
- <span class="dropdown-text">Omni Modal Models</span></a>
+    <a class="dropdown-item" href="./omni-modal-models.qmd">
+ <span class="dropdown-text">Omni-Modal Models</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
@@ -147,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./moe-llm.html">
- <span class="dropdown-text">Mixture of Experts LM</span></a>
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
   </li>  
     </ul>
   </li>
@@ -157,8 +157,8 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
         <li>
-    <a class="dropdown-item" href="./Frontiers in image Models.html">
- <span class="dropdown-text">Frontiers in image Models</span></a>
+    <a class="dropdown-item" href="./frontiers-in-image-models.html">
+ <span class="dropdown-text">Frontiers-in-Image-Models</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./AI-polarization.html">
@@ -174,35 +174,39 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./Dimensions-of-superintelligence.html">
- <span class="dropdown-text">Dimensions-of-superintelligence</span></a>
+ <span class="dropdown-text">Dimensions of Superintelligence</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Tensors-in-Large-Language-Models.html">
- <span class="dropdown-text">Tensors-in-Large-Language-Models</span></a>
+ <span class="dropdown-text">Tensors in Large Language Models</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Frontiers in Large Language Models.html">
+    <a class="dropdown-item" href="./Frontiers-in-Large-Language-Models.html">
  <span class="dropdown-text">Frontiers in Large Language Models</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./The Myth of AI Cinema.html">
- <span class="dropdown-text">The Myth of AI Cinema</span></a>
+    <a class="dropdown-item" href="./The-myth-of-AI-cinema.qmd">
+ <span class="dropdown-text">the-myth-of-ai-cinema.qmd</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./turing-tests-for-superintelligence.html">
- <span class="dropdown-text">turing tests for superintelligence.qmd</span></a>
+ <span class="dropdown-text">Turing Tests for Superintelligence</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./pdoom-fallacy-and-boundaries">
- <span class="dropdown-text">pdoom-fallacy-and-boundaries.qmd</span></a>
+    <a class="dropdown-item" href="./pdoom-fallacy-and-boundaries.html">
+ <span class="dropdown-text">Pdoom Fallacy and Boundaries</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Mixture-Of-Experts-LLM">
- <span class="dropdown-text">Mixture-Of-Experts-LLM.qmd</span></a>
+    <a class="dropdown-item" href="./Mixture-Of-Experts-LLM.html">
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Intelligence First, Safety Precisely">
- <span class="dropdown-text">Intelligence First, Safety Precisely.qmd</span></a>
+    <a class="dropdown-item" href="./intelligence-first-safety-precisely.html">
+ <span class="dropdown-text">Intelligence First, Safety Precisely</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./LLM-training.qmd">
+ <span class="dropdown-text">LLM training</span></a>
   </li>  
     </ul>
   </li>
@@ -217,8 +221,38 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">1. Overview</a></li>
+  <li><a href="#pretraining" id="toc-pretraining" class="nav-link" data-scroll-target="#pretraining">2. Stage 1 — Pretraining</a>
+  <ul class="collapse">
+  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective">Objective</a></li>
+  <li><a href="#data-scale" id="toc-data-scale" class="nav-link" data-scroll-target="#data-scale">Data Scale</a></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">Architecture</a></li>
+  <li><a href="#emergent-structure" id="toc-emergent-structure" class="nav-link" data-scroll-target="#emergent-structure">Emergent Structure</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  </ul></li>
+  <li><a href="#continued-pretraining" id="toc-continued-pretraining" class="nav-link" data-scroll-target="#continued-pretraining">3. Stage 2 — Continued Pretraining / Domain Adaptation</a>
+  <ul class="collapse">
+  <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#techniques" id="toc-techniques" class="nav-link" data-scroll-target="#techniques">Techniques</a></li>
+  <li><a href="#outcome" id="toc-outcome" class="nav-link" data-scroll-target="#outcome">Outcome</a></li>
+  </ul></li>
+  <li><a href="#post-training" id="toc-post-training" class="nav-link" data-scroll-target="#post-training">4. Stage 3 — Post-Training &amp; Alignment</a>
+  <ul class="collapse">
+  <li><a href="#instruction-tuning" id="toc-instruction-tuning" class="nav-link" data-scroll-target="#instruction-tuning">4.1 Instruction Tuning</a></li>
+  <li><a href="#reinforcement-learning-from-human-feedback-rlhf" id="toc-reinforcement-learning-from-human-feedback-rlhf" class="nav-link" data-scroll-target="#reinforcement-learning-from-human-feedback-rlhf">4.2 Reinforcement Learning from Human Feedback (RLHF)</a></li>
+  <li><a href="#constitutional-preference-optimization" id="toc-constitutional-preference-optimization" class="nav-link" data-scroll-target="#constitutional-preference-optimization">4.3 Constitutional / Preference Optimization</a></li>
+  <li><a href="#trade-off" id="toc-trade-off" class="nav-link" data-scroll-target="#trade-off">4.4 Trade-off</a></li>
+  </ul></li>
+  <li><a href="#system-integration" id="toc-system-integration" class="nav-link" data-scroll-target="#system-integration">5. Stage 4 — System Integration</a></li>
+  <li><a href="#frontier-trends" id="toc-frontier-trends" class="nav-link" data-scroll-target="#frontier-trends">6. Stage 5 — Frontier Trends</a></li>
+  <li><a href="#closing" id="toc-closing" class="nav-link" data-scroll-target="#closing">7. Closing Perspective</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -226,8 +260,125 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">1. Overview</h2>
+<p>Every major foundation model—GPT, Claude, Gemini, Llama, Mistral—passes through a three-phase evolution: <strong>pretraining</strong>, <strong>continued pretraining</strong>, and <strong>post-training.</strong> Each stage expands a model’s intelligence from pattern recognition to reasoning and alignment.</p>
+</section>
+<section id="pretraining" class="level2">
+<h2 class="anchored" data-anchor-id="pretraining">2. Stage 1 — Pretraining</h2>
+<section id="objective" class="level3">
+<h3 class="anchored" data-anchor-id="objective">Objective</h3>
+<p>Self-supervised learning on vast text corpora using the <strong>next-token prediction</strong> objective: [ L = - P(x_t | x_{&lt;t}) ] The model learns to predict the next symbol in a sequence, which forces it to compress world-level regularities—language, logic, and cause-effect structure—into weights.</p>
+</section>
+<section id="data-scale" class="level3">
+<h3 class="anchored" data-anchor-id="data-scale">Data Scale</h3>
+<ul>
+<li>Typical scale: <strong>1–30 trillion tokens</strong>, drawn from filtered internet Natural langauge(web articles,books,academic papers),code,Mathematical equations, genetic code(genomes,DNA,RNA)</li>
+<li>Diversity is key: linguistic, cultural, and domain variety yields richer latent representations.</li>
+<li>Deduplication, normalization, and heuristic filters remove noise and contamination.</li>
+</ul>
+</section>
+<section id="architecture" class="level3">
+<h3 class="anchored" data-anchor-id="architecture">Architecture</h3>
+<ul>
+<li>Transformer backbone (decoder-only or hybrid).</li>
+<li>Positional encodings (usually RoPE).</li>
+<li>Optimization with AdamW or Lion; mixed-precision training and distributed parallelism across thousands of GPUs.</li>
+</ul>
+</section>
+<section id="emergent-structure" class="level3">
+<h3 class="anchored" data-anchor-id="emergent-structure">Emergent Structure</h3>
+<p>As the model minimizes next-token loss, <strong>higher-order structure</strong> emerges: - Syntax → semantics → discourse → reasoning precursors - Implicit world models and factual recall - Token embeddings align semantically in latent space</p>
+</section>
+<section id="limitations" class="level3">
+<h3 class="anchored" data-anchor-id="limitations">Limitations</h3>
+<p>Pretraining teaches <strong>knowledge</strong>, not <strong>behavior</strong>. The model predicts patterns but has no understanding of correctness, safety, or user intent.</p>
+</section>
+</section>
+<section id="continued-pretraining" class="level2">
+<h2 class="anchored" data-anchor-id="continued-pretraining">3. Stage 2 — Continued Pretraining / Domain Adaptation</h2>
+<p>After base training, models are often <em>refined</em> on curated corpora.</p>
+<section id="goals" class="level3">
+<h3 class="anchored" data-anchor-id="goals">Goals</h3>
+<ul>
+<li>Extend context window (e.g., 128k–1M tokens).</li>
+<li>Add specialized domains (code, math, scientific papers, multimodal data).</li>
+<li>Improve factual retention and robustness.</li>
+</ul>
+</section>
+<section id="techniques" class="level3">
+<h3 class="anchored" data-anchor-id="techniques">Techniques</h3>
+<ul>
+<li>Continued next-token prediction on domain-specific data.</li>
+<li>Synthetic data augmentation (self-generated Q/A or dialogue).</li>
+<li>Mixture-of-Experts scaling to expand capacity without linear compute growth.</li>
+</ul>
+</section>
+<section id="outcome" class="level3">
+<h3 class="anchored" data-anchor-id="outcome">Outcome</h3>
+<p>This stage transforms a generic foundation model into a <strong>high-fidelity domain model</strong>—capable of reasoning in specific technical, legal, or creative contexts.</p>
+</section>
+</section>
+<section id="post-training" class="level2">
+<h2 class="anchored" data-anchor-id="post-training">4. Stage 3 — Post-Training &amp; Alignment</h2>
+<p>The final training layer converts the pretrained model into a useful, aligned assistant.</p>
+<section id="instruction-tuning" class="level3">
+<h3 class="anchored" data-anchor-id="instruction-tuning">4.1 Instruction Tuning</h3>
+<p>Supervised fine-tuning (SFT) on human-written instructions and responses. - Aligns model behavior to conversational and directive tasks. - Creates base “helpfulness and coherence” priors.</p>
+</section>
+<section id="reinforcement-learning-from-human-feedback-rlhf" class="level3">
+<h3 class="anchored" data-anchor-id="reinforcement-learning-from-human-feedback-rlhf">4.2 Reinforcement Learning from Human Feedback (RLHF)</h3>
+<p>A reward model ( R_) scores model outputs; policy optimization (PPO or DPO) adjusts weights to maximize human-preferred behavior.</p>
+<p><strong>Goal:</strong> Steer the model toward responses rated as truthful, harmless, and helpful.</p>
+</section>
+<section id="constitutional-preference-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="constitutional-preference-optimization">4.3 Constitutional / Preference Optimization</h3>
+<p>Newer methods like <strong>Constitutional AI</strong> and <strong>Direct Preference Optimization (DPO)</strong> remove the need for separate reward models by directly adjusting policy toward ranked preferences or textual constitutions.</p>
+</section>
+<section id="trade-off" class="level3">
+<h3 class="anchored" data-anchor-id="trade-off">4.4 Trade-off</h3>
+<p>Post-training sharpens <em>helpfulness</em> but can suppress <em>raw capability</em> if over-regularized. Precision alignment seeks balance—preserving deep reasoning while minimizing harmful outputs.</p>
+</section>
+</section>
+<section id="system-integration" class="level2">
+<h2 class="anchored" data-anchor-id="system-integration">5. Stage 4 — System Integration</h2>
+<p>After post-training, models are embedded into ecosystems:</p>
+<ul>
+<li><strong>Retrieval-Augmented Generation (RAG)</strong> – external memory through vector search.</li>
+<li><strong>Tool Use</strong> – calling APIs, code execution, image generation.</li>
+<li><strong>Memory Routing</strong> – dynamic recall of prior sessions or documents.</li>
+<li><strong>Autonomy Layers</strong> – reasoning chains, planning blocks, or multi-agent frameworks.</li>
+</ul>
+<p>This converts static models into <strong>dynamic reasoning systems</strong>.</p>
+</section>
+<section id="frontier-trends" class="level2">
+<h2 class="anchored" data-anchor-id="frontier-trends">6. Stage 5 — Frontier Trends</h2>
+<p>Modern research pushes each training stage further:</p>
+<div class="line-block">Innovation | Description | Benefit |</div>
+<div class="line-block"><strong>Synthetic Data Loops</strong> | Models generate data, then train on their own verified outputs. | Scalability without human labeling. |<br>
+<strong>Curriculum Learning</strong> | Start with simple text → progressively complex reasoning tasks. | Improves stability and generalization. |<br>
+<strong>Active Learning</strong> | Query uncertain samples for human review. | Maximizes label efficiency. |<br>
+<strong>Long-Context Reinforcement</strong> | Rewards coherence across hundreds of thousands of tokens. | Enables multi-session memory. |</div>
+</section>
+<section id="closing" class="level2">
+<h2 class="anchored" data-anchor-id="closing">7. Closing Perspective</h2>
+<p>From pretraining to post-training, the process transforms raw pattern recognition into usable reasoning.</p>
+<div class="line-block">Stage | Focus | Output |</div>
+<div class="line-block">Pretraining | World representation | Knowledge model |<br>
+Continued Pretraining | Domain enrichment | Specialist foundation |<br>
+Post-Training | Human alignment | Conversational agent |<br>
+System Integration | Tool use &amp; retrieval | Interactive reasoning engine |</div>
+<p>Each phase stacks upon the last, evolving simple predictive learning into <strong>structured, aligned intelligence</strong> — the precursor to <em>Super-LLMs</em>.</p>
+<p><em>“Training is not a single act — it is the shaping of cognition itself.”</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pre-training.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Pre-Training</figcaption>
+</figure>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./About-me.html"> 
+    <a class="nav-link" href="./about-me.qmd"> 
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -115,16 +115,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">DeepSeek</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./midjourney.html">
- <span class="dropdown-text">Midjourney</span></a>
+    <a class="dropdown-item" href="./MidJourney.qmd">
+ <span class="dropdown-text">MidJourney</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./veo3.html">
+    <a class="dropdown-item" href="./Veo3.qmd">
  <span class="dropdown-text">Veo 3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Omni-modal-models.html">
- <span class="dropdown-text">Omni Modal Models</span></a>
+    <a class="dropdown-item" href="./omni-modal-models.qmd">
+ <span class="dropdown-text">Omni-Modal Models</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
@@ -147,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./moe-llm.html">
- <span class="dropdown-text">Mixture of Experts LM</span></a>
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
   </li>  
     </ul>
   </li>
@@ -157,8 +157,8 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
         <li>
-    <a class="dropdown-item" href="./Frontiers in image Models.html">
- <span class="dropdown-text">Frontiers in image Models</span></a>
+    <a class="dropdown-item" href="./frontiers-in-image-models.html">
+ <span class="dropdown-text">Frontiers-in-Image-Models</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./AI-polarization.html">
@@ -174,35 +174,39 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./Dimensions-of-superintelligence.html">
- <span class="dropdown-text">Dimensions-of-superintelligence</span></a>
+ <span class="dropdown-text">Dimensions of Superintelligence</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Tensors-in-Large-Language-Models.html">
- <span class="dropdown-text">Tensors-in-Large-Language-Models</span></a>
+ <span class="dropdown-text">Tensors in Large Language Models</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Frontiers in Large Language Models.html">
+    <a class="dropdown-item" href="./Frontiers-in-Large-Language-Models.html">
  <span class="dropdown-text">Frontiers in Large Language Models</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./The Myth of AI Cinema.html">
- <span class="dropdown-text">The Myth of AI Cinema</span></a>
+    <a class="dropdown-item" href="./The-myth-of-AI-cinema.qmd">
+ <span class="dropdown-text">the-myth-of-ai-cinema.qmd</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./turing-tests-for-superintelligence.html">
- <span class="dropdown-text">turing tests for superintelligence.qmd</span></a>
+ <span class="dropdown-text">Turing Tests for Superintelligence</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./pdoom-fallacy-and-boundaries">
- <span class="dropdown-text">pdoom-fallacy-and-boundaries.qmd</span></a>
+    <a class="dropdown-item" href="./pdoom-fallacy-and-boundaries.html">
+ <span class="dropdown-text">Pdoom Fallacy and Boundaries</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Mixture-Of-Experts-LLM">
- <span class="dropdown-text">Mixture-Of-Experts-LLM.qmd</span></a>
+    <a class="dropdown-item" href="./Mixture-Of-Experts-LLM.html">
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Intelligence First, Safety Precisely">
- <span class="dropdown-text">Intelligence First, Safety Precisely.qmd</span></a>
+    <a class="dropdown-item" href="./intelligence-first-safety-precisely.html">
+ <span class="dropdown-text">Intelligence First, Safety Precisely</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./LLM-training.qmd">
+ <span class="dropdown-text">LLM training</span></a>
   </li>  
     </ul>
   </li>
@@ -289,20 +293,21 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="#pitfalls">Debugging by Shape: Common Pitfalls</a></li>
 <li><a href="#cheatsheet">Mini Cheatsheet</a></li>
 </ul>
-<hr>
 </section>
 <section id="what-is-a-tensor" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-tensor">What is a Tensor?</h2>
 <p>A tensor is just a multi-dimensional array with: - <strong>shape</strong> (sizes along each axis), - <strong>dtype</strong> (numeric type: fp32, bf16, fp8, int8…), - <strong>layout/stride</strong> (how it’s stored/stepped in memory).</p>
 <p>In LLMs, almost every operation is tensor algebra: embedding lookups, batched matmuls, convolutions over time (attention), non-linearities, normalizations.</p>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="shapes-dtypes-layout" class="level2">
 <h2 class="anchored" data-anchor-id="shapes-dtypes-layout">Shapes, Dtypes, Layout</h2>
 <p><strong>Shape</strong> examples: - <code>[B, T, D]</code> = batch, sequence length, hidden width. - <code>[B, nH, T, Dh]</code> = per-head attention (nH heads, head dim Dh). - <code>[V, D]</code> = vocab embedding table.</p>
 <p><strong>Dtype</strong> trade-offs: - <strong>fp32</strong> training is precise but slow/memory-heavy. - <strong>bf16/fp16</strong>: standard for training. - <strong>int8/fp8</strong>: inference-oriented, needs calibration. - <strong>NF4/FP4</strong>: ultra-low precision quant for weights/activations.</p>
 <p><strong>Layout</strong>: - <strong>row-major vs col-major</strong> affects BLAS kernels. - <strong>contiguous vs strided</strong>: non-contiguous hurts kernel efficiency. - <strong>packed heads</strong>: <code>[B, T, nH, Dh]</code> vs <code>[B, nH, T, Dh]</code> can change memory locality.</p>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="canonical-shapes" class="level2">
 <h2 class="anchored" data-anchor-id="canonical-shapes">LLM Canonical Shapes (B, T, D)</h2>
@@ -320,7 +325,9 @@ ul.task-list li input[type="checkbox"] {
 <li>expand: <code>[B, T, D] → [B, T, 4D]</code> (often), activate, contract back to <code>[B, T, D]</code></li>
 </ul></li>
 </ul>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="embeddings" class="level2">
 <h2 class="anchored" data-anchor-id="embeddings">Embeddings &amp; Tokenization Tensors</h2>
@@ -330,7 +337,9 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Output (LM head)</strong>: often tied: <code>E_out = E_tok^T</code> → logits <code>[B, T, V]</code></li>
 </ul>
 <p>Memory note: <code>V</code> is large (e.g., 128k). Tying weights saves parameters; logit matmul dominates when <code>V</code> is huge.</p>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="attention" class="level2">
 <h2 class="anchored" data-anchor-id="attention">Attention Tensors (Q, K, V, Heads)</h2>
@@ -351,7 +360,9 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 <p><strong>FlashAttention</strong> collapses softmax + matmuls with tiling to cut memory traffic from <code>[T, T]</code> intermediates.</p>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="positions" class="level2">
 <h2 class="anchored" data-anchor-id="positions">Position &amp; Time: Positional/Timestep Tensors</h2>
@@ -362,17 +373,23 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>ALiBi</strong>: bias over distance, avoids explicit position vectors.</li>
 </ul>
 <p>All are tensors aligned on the <strong>T</strong> axis and broadcast over <strong>B</strong> and <strong>nH</strong>.</p>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="kv-cache" class="level2">
 <h2 class="anchored" data-anchor-id="kv-cache">KV Cache: Memory vs Throughput</h2>
-<p>For autoregressive inference, we store past <code>K, V</code>: - <strong>Cache</strong> shape per layer: <code>[B, nH, T_total, Dh]</code> for both K and V. - <strong>Memory cost</strong> (rough): <code>2 * L * B * nH * T_total * Dh * dtype_size</code>. - <strong>Trade-offs</strong>: - Larger <strong>T_total</strong> → faster per-token (reuse past) but high RAM/VRAM. - Quantized KV (int8/fp8) cuts memory; must keep accuracy. - <strong>Paged KV</strong>/block-KV organizes cache as fixed blocks to reduce fragmentation.</p>
-<hr>
+<p>For autoregressive inference, we store past <code>K, V</code>: - <strong>Cache</strong> shape per layer: <code>[B, nH, T_total, Dh]</code> for both K and V. - <strong>Memory cost</strong> (rough): <code>2 * L * B * nH * T_total * Dh * dtype_size</code>. - <strong>Trade-offs</strong>: - Larger <strong>T_total</strong> → faster per-token (reuse past) but high RAM/VRAM. - Quantized KV (int8/fp8) cuts memory; must keep accuracy. - <strong>Paged KV</strong>/block-KV organizes cache as fixed blocks to reduce fragmentation</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="mlp" class="level2">
 <h2 class="anchored" data-anchor-id="mlp">Feedforward/MLP Tensors</h2>
 <p>Typical gated GLU/SiLU FFN: - Expand: <code>W1: [D, D_ff]</code>, <code>W3: [D, D_ff]</code>, then <code>silu(X W1) ⊙ (X W3)</code> - Project back: <code>W2: [D_ff, D]</code> - Shapes: - Activations: <code>[B, T, D_ff]</code> (often <code>D_ff ≈ 4D</code>) - Params: <code>D*D_ff</code> dominates per layer.</p>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="training-tensors" class="level2">
 <h2 class="anchored" data-anchor-id="training-tensors">Training-Time Tensors (Grads, Optimizer States)</h2>
@@ -383,7 +400,9 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Activation checkpointing</strong> reduces saved activations (recompute in backward).</li>
 </ul>
 <p>Rule of thumb: training memory ≈ params (fp16/bf16) + optimizer (≈2× params fp32) + activations (batch-/sequence-dependent).</p>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="parallel" class="level2">
 <h2 class="anchored" data-anchor-id="parallel">Tensor Parallelism &amp; Sharding</h2>
@@ -395,7 +414,9 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>ZeRO</strong>: shard optimizer states/gradients/params across ranks.</li>
 </ul>
 <p>Each choice changes the <strong>effective tensor shapes per device</strong> and the required all-reduce/all-gather patterns.</p>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="compression" class="level2">
 <h2 class="anchored" data-anchor-id="compression">Quantization, Low-Rank &amp; MoE</h2>
@@ -416,7 +437,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Load-balancing loss acts on gating tensor statistics.</li>
 </ul></li>
 </ul>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="tensor-cores" class="level2">
 <h2 class="anchored" data-anchor-id="tensor-cores">Tensor Core Math: Throughput Reality</h2>
@@ -426,7 +448,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Fused kernels</strong> (RMSNorm → QKV → bias → RoPE) minimize reads/writes.</li>
 <li>Performance killers: non-contiguous tensors, tiny batch/head dims, excessive transposes.</li>
 </ul>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="pitfalls" class="level2">
 <h2 class="anchored" data-anchor-id="pitfalls">Debugging by Shape: Common Pitfalls</h2>
@@ -437,7 +460,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Logits with tied weights: ensure <code>E_tok</code> and <code>LM_head</code> share transposed shape.</li>
 <li>MoE routing: padding vs packing; silent throughput collapse if not packed.</li>
 </ul>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
 </section>
 <section id="cheatsheet" class="level2">
 <h2 class="anchored" data-anchor-id="cheatsheet">Mini Cheatsheet</h2>
@@ -449,9 +473,10 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>KV cache / layer</strong>: <code>2 × [B, nH, T_total, Dh]</code></li>
 <li><strong>Adam states</strong>: <code>2 × params</code></li>
 <li><strong>LoRA rank r</strong>: extra params <code>r(D_in + D_out)</code></li>
-<li><strong>MoE gating</strong>: <code>G[B, T, nExperts]</code>, top-k routing</li>
+<li><strong>MoE gating</strong>: <code>G[B, T, nExperts]</code>, top-k Routing</li>
 </ul>
-<hr>
+<p>⸻</p>
+<p>⸻</p>
 <section id="optional-images-to-add" class="level3">
 <h3 class="anchored" data-anchor-id="optional-images-to-add">Optional images to add</h3>
 <ul>
