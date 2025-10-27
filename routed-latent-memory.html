@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>routed-latent-memory – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about-me.qmd"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-state-of-the-art-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">State of the Art Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-state-of-the-art-models">    
+        <li>
+    <a class="dropdown-item" href="./JEPA.html">
+ <span class="dropdown-text">JEPA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Alpha-Fold.html">
+ <span class="dropdown-text">AlphaFold</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./DeepSeek.html">
+ <span class="dropdown-text">DeepSeek</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./MidJourney.qmd">
+ <span class="dropdown-text">MidJourney</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Veo3.qmd">
+ <span class="dropdown-text">Veo 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./omni-modal-models.qmd">
+ <span class="dropdown-text">Omni-Modal Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
+ <span class="dropdown-text">Optimization in Deep Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Genie-3.html">
+ <span class="dropdown-text">Genie 3</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-models">    
+        <li>
+    <a class="dropdown-item" href="./diffusion-image-model.html">
+ <span class="dropdown-text">Diffusion Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./moe-llm.html">
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes-section" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Notes Section</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
+        <li>
+    <a class="dropdown-item" href="./frontiers-in-image-models.html">
+ <span class="dropdown-text">Frontiers-in-Image-Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./AI-polarization.html">
+ <span class="dropdown-text">AI Polarization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./self-supervised-reinforcement-learning-video-generation.html">
+ <span class="dropdown-text">Self-Supervised Reinforcement Learning Video Generation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./my-notes-superintelligence.html">
+ <span class="dropdown-text">Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Dimensions-of-superintelligence.html">
+ <span class="dropdown-text">Dimensions of Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Tensors-in-Large-Language-Models.html">
+ <span class="dropdown-text">Tensors in Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Frontiers-in-Large-Language-Models.html">
+ <span class="dropdown-text">Frontiers in Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./The-myth-of-AI-cinema.qmd">
+ <span class="dropdown-text">the-myth-of-ai-cinema.qmd</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./turing-tests-for-superintelligence.html">
+ <span class="dropdown-text">Turing Tests for Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pdoom-fallacy-and-boundaries.html">
+ <span class="dropdown-text">Pdoom Fallacy and Boundaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Mixture-Of-Experts-LLM.html">
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./intelligence-first-safety-precisely.html">
+ <span class="dropdown-text">Intelligence First, Safety Precisely</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./llm-training.html">
+ <span class="dropdown-text">LLM training</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./large-language-model-vision.html">
+ <span class="dropdown-text">large language model vision</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./routed-latent-memory.html">
+ <span class="dropdown-text">Routed-Latent-Memory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Research-Engineer.html">
+ <span class="dropdown-text">Research Engineer</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#adra-routed-latent-memory-rlm" id="toc-adra-routed-latent-memory-rlm" class="nav-link active" data-scroll-target="#adra-routed-latent-memory-rlm">ADRA “Routed Latent Memory” (RLM)</a>
+  <ul class="collapse">
+  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#why-transformers-fail-at-long-range-recall" id="toc-why-transformers-fail-at-long-range-recall" class="nav-link" data-scroll-target="#why-transformers-fail-at-long-range-recall">2. Why Transformers Fail at Long-Range Recall</a></li>
+  <li><a href="#rlm-intuition-latent-routed-episodic-memory" id="toc-rlm-intuition-latent-routed-episodic-memory" class="nav-link" data-scroll-target="#rlm-intuition-latent-routed-episodic-memory">3. RLM Intuition: Latent, Routed, Episodic Memory</a></li>
+  <li><a href="#rlm-lifecycle-write-store-route-recall-update" id="toc-rlm-lifecycle-write-store-route-recall-update" class="nav-link" data-scroll-target="#rlm-lifecycle-write-store-route-recall-update">4. RLM Lifecycle: Write → Store → Route → Recall → Update</a></li>
+  <li><a href="#prototype-implementation-plan-re-focused" id="toc-prototype-implementation-plan-re-focused" class="nav-link" data-scroll-target="#prototype-implementation-plan-re-focused">5. Prototype Implementation Plan (RE Focused)</a></li>
+  <li><a href="#how-rlm-fits-into-the-adra-roadmap" id="toc-how-rlm-fits-into-the-adra-roadmap" class="nav-link" data-scroll-target="#how-rlm-fits-into-the-adra-roadmap">6. How RLM Fits into the ADRA Roadmap</a></li>
+  <li><a href="#section-7-rlm-as-a-modular-block-placement-scale-and-integration-strategy" id="toc-section-7-rlm-as-a-modular-block-placement-scale-and-integration-strategy" class="nav-link" data-scroll-target="#section-7-rlm-as-a-modular-block-placement-scale-and-integration-strategy">Section 7 — RLM as a Modular Block: Placement, Scale, and Integration Strategy</a></li>
+  <li><a href="#section-8-how-rlm-transforms-context-windows-from-storage-buffers-into-cognitive-workspaces" id="toc-section-8-how-rlm-transforms-context-windows-from-storage-buffers-into-cognitive-workspaces" class="nav-link" data-scroll-target="#section-8-how-rlm-transforms-context-windows-from-storage-buffers-into-cognitive-workspaces">Section 8 — How RLM Transforms Context Windows from Storage Buffers into Cognitive Workspaces</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="adra-routed-latent-memory-rlm" class="level1">
+<h1>ADRA “Routed Latent Memory” (RLM)</h1>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>ADRA “Routed Latent Memory” (RLM)</p>
+<p>⸻ ## 1. What is ADRA?</p>
+<p>ADRA (Autonomous Deep Reasoning Agent)</p>
+<p>ADRAs are next-phase LLM-based systems that retain pattern recognition as a core but expand cognition through advanced autonomous planning, deep scientific hierarchical reasoning , multi-step task decomposition, persistent memory-based attention, and Meta verification and reflection.</p>
+<p>They can operate across extended time horizons, recover from failure states, refine internal plans, and orchestrate tools and simulations.</p>
+<p>making them incredible agents.<br>
+</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>ABSTRACT (Version 1 — High-Level, ADRA-Aligned)</p>
+<p>Abstract</p>
+<p>Current transformer-based LLMs are fundamentally bounded by context window architecture, which forces them to relearn, re-attend, or forget information outside immediate token ranges. This makes coherent long-term reasoning, multi-step agentic execution, and deeply contextual task continuity impossible at ADRA scale.</p>
+<p>Routed Latent Memory (RLM) is a proposed auxiliary memory architecture that stores compressed latent embeddings of interaction history inside a set of dormant “memory blocks,” which are only activated via trainable routing layers. Unlike standard attention, RLM does not treat memory as active context, but as selectively retrievable episodic states that can hold millions of tokens in compressed latent form without incurring quadratic compute costs.</p>
+<p>This document presents RLM as a practical pathway toward transformer models with deterministic long-range recall, forming a necessary building block for ADRA-level agents and early-stage proto-AGI.</p>
+<p>⸻</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/RLM1.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>RLM1</figcaption>
+</figure>
+</div>
+<p>⸻</p>
+<p>Section 1 — Why Transformers Fail at Long-Range Recall (Linear Narrative Version)</p>
+<p>Modern transformer-based LLMs process information in a single continuous stream of tokens within a bounded context window. Even with extended contexts (e.g., 128K or 1M tokens), these models do not retain information; they merely attend to what is present in the active sequence. Once a token falls outside the window, it is functionally erased from the model’s working state.</p>
+<p>Even within the window, two deep limitations emerge:</p>
+<p>1.1. Quadratic Attention Makes Recall Expensive and Fuzzy</p>
+<p>Self-attention computes all token-to-token interactions with quadratic complexity. This means that forcing the model to reference distant content is computationally expensive and generally discouraged during training due to optimization pressures. As a result, long-range recall often emerges only weakly and inconsistently.</p>
+<p>1.2. Transformers Do Not Build Persistent Internal Representations Over Time</p>
+<p>Transformers are stateless between prompts. Every user interaction begins with a zeroed state, and memory must be re-fed manually via system/user prompting or external retrieval systems. This makes multi-step tasks, agents, and reasoning across multiple dialogue episodes brittle and heavily scaffolded.</p>
+<p>1.3. Scaling Context Windows Is a Dead-End Solution</p>
+<p>Vastly increasing context windows (e.g., to millions of tokens) does not solve the underlying issue — the model is still reading this information passively rather than writing selectively to persistent memory. Furthermore, long-context models struggle with retrieval fidelity, often showing “lost in the middle” effects or attending to irrelevant regions.</p>
+<p>1.4. Human-Like Task Continuity and Memory Is Impossible Under Pure Attention</p>
+<p>Tasks requiring memory of multi-step instructions (like agentic execution over hours or days), autobiographical recall (e.g., “what plan did I choose earlier?”), or narrative consistency (e.g., long-form story continuity) break because nothing is ever committed to memory. Everything must be constantly re-provided or retrieved externally.</p>
+<p>1.5. Current “Memory Systems” Are Wrapper-Level Hacks, Not Architectural Solutions</p>
+<p>Existing solutions like RAG, vector DBs, or external “episodic memory stores” live outside the model and rely on surface-level semantic matching. They do not embed memory into the model’s world representation or enable deterministic cognitive recall. These are retrieval hacks, not internal cognition.</p>
+<p>⸻</p>
+<p>⸻</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/RLM2.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>RLM2</figcaption>
+</figure>
+</div>
+<p>⸻</p>
+<p>why This Matters for ADRA and Beyond</p>
+<p>Autonomous Deep Reasoning Agents (ADRA) require models that:</p>
+<p>Can persistently store key task-state representations across long sequences Recall them deterministically instead of probabilistically “finding them again” Execute plans that exceed a single prompt window Accumulate knowledge and internal state over time Build and revise internal beliefs, hypotheses, and goals Reflect on previously attempted strategies</p>
+</section>
+<section id="why-transformers-fail-at-long-range-recall" class="level2">
+<h2 class="anchored" data-anchor-id="why-transformers-fail-at-long-range-recall">2. Why Transformers Fail at Long-Range Recall</h2>
+<p>Section 2 — RLM Intuition: Latent, Routed, Episodic Memory for ADRA</p>
+<p>If transformers fail at long-term recall because they lack native persistence, then the natural response is not “give them more context,” but “give them a memory system.”</p>
+<p>However, this memory cannot simply be bolted on like a retrieval engine. For memory to support ADRA-level reasoning and task continuity, it must meet four engineering requirements:</p>
+<p>Persistent — Survives beyond the current sequence Latent-Compressed — Stores meaning, not surface-level tokens Selective — Retrieved only when relevant Routable — Activated via internal gating logic rather than brute-force attention over everything</p>
+<p>This leads to the central idea:</p>
+<p>✅ Routed Latent Memory (RLM) treats memory as a separate, trainable latent space populated by compressed embeddings of prior conversational or task-relevant states, written selectively and retrieved via gating routers — similar in spirit to Mixture-of-Experts logic.</p>
+<p>🔍 Why “Routed”?</p>
+<p>RLM uses a router (inspired by MoE and router-based attention blocks) to determine which memory slots should activate given the current input. This avoids quadratic scanning of the entire memory bank and keeps recall efficient.</p>
+<p>🧠 Why “Latent”?</p>
+<p>Instead of re-storing raw tokens or long sequences, RLM writes compressed latent representations that encode intent, decisions, plans, key facts, or states. These are trainable representations, allowing the model to evolve richer memory structures through gradient descent — not just external lookup tables.</p>
+<p>📚 Why “Episodic”?</p>
+<p>RLM stores memories in units tied to meaningful episodes: problem states, commitments, user-defined preferences, intermediate plans, or high-level conclusions. This matches how ADRA agents need to reason over phases of problem-solving or multi-step workflows.</p>
+<p>🏗️ How RLM Fits Into the Transformer Architecture (Conceptually)</p>
+<p>We don’t discard transformers — we augment them by adding:</p>
+<p>✅ A Memory Write Head → decides whether current hidden states should be committed to memory (based on salience, novelty, or instruction)</p>
+<p>✅ A Latent Memory Bank → stores compact episodic representations, similar to a MoE expert pool but operating across time rather than parameters</p>
+<p>✅ A Memory Routing Layer → when processing new tokens, selectively attends not over the entire context but over only the relevant latent memories, retrieved using a relevance-based gating mechanism</p>
+<p>✅ A Memory Read Integration Step → retrieved latent memory vectors are merged into the hidden state (e.g., concatenated or gated through FiLM-like conditioning) before continuing forward propagation</p>
+<p>🚀 What This Enables (Even at Small Scale)</p>
+<p>Even in early prototypes, this would allow an LLM to:</p>
+<p>✅ Recall user preferences without constant re-prompting</p>
+<p>✅ Maintain multi-step reasoning chains across multiple forward passes</p>
+<p>✅ Persist intermediate hypotheses during intricate problem-solving</p>
+<p>✅ Improve plan consistency in agentic scaffolds without external databases</p>
+<p>✅ Enable early forms of autobiographical agent memory — a precursor to AGI-level continuity</p>
+</section>
+<section id="rlm-intuition-latent-routed-episodic-memory" class="level2">
+<h2 class="anchored" data-anchor-id="rlm-intuition-latent-routed-episodic-memory">3. RLM Intuition: Latent, Routed, Episodic Memory</h2>
+<p>✅ Section 3 — RLM Data Flow: From Token to Retrieved Memory (Narrative Form)</p>
+<p>To operate as a true cognitive extension, Routed Latent Memory follows a five-stage lifecycle: Write → Store → Route → Recall → Update. Below is a linear explanation of each stage in a way that fits naturally within a technical article or concept paper.</p>
+<p>⸻</p>
+<p>📍 Stage 1 — Write (When does the system decide something is worth remembering?)</p>
+<p>As the model processes tokens, each hidden state vector is evaluated by a “Salience Gate.”</p>
+<p>This gate checks signals like:</p>
+<p>• How novel the information is compared to what’s already known</p>
+<p>• Whether an instruction explicitly suggests significance (e.g., “remember this”)</p>
+<p>• Whether a sub-task or reasoning phase has just completed</p>
+<p>• Whether the model expresses high confidence or low entropy about a conclusion</p>
+<p>If these conditions are met, the content is marked for memory writing.</p>
+<p>⸻</p>
+<p>📍 Stage 2 — Store (How is memory represented?)</p>
+<p>The selected token embedding (or compressed representation of it) is projected into a latent vector and added to a dedicated Latent Memory Bank. This memory bank:</p>
+<p>• Holds multiple memory vectors</p>
+<p>• May have a fixed size with replacement logic (e.g., FIFO, least-referenced)</p>
+<p>• Can potentially be clustered by concept or task relevance</p>
+<p>• Acts similarly to parameter “experts” in MoE — but applies across time, not across function</p>
+<p>⸻</p>
+<p>📍 Stage 3 — Route (How does the model know which memory to retrieve later?)</p>
+<p>During subsequent processing, the current hidden state is passed through a lightweight routing network. The router evaluates which stored memory slots are most relevant based on similarity or learned matching signals. Only a small subset (e.g., top-3 most relevant memories) is activated. This keeps computation efficient and avoids attention overload.</p>
+<p>⸻</p>
+<p>📍 Stage 4 — Recall (How is memory used in generation or reasoning?)</p>
+<p>The retrieved memory vectors are integrated back into the main transformer computation. This can happen in multiple ways:</p>
+<p>• Adding them directly into the residual stream</p>
+<p>• Using them as conditional context that modulates the transformer block (like a FiLM gate)</p>
+<p>• Injecting them as additional key/value vectors for attention (so future tokens can attend to them directly)</p>
+<p>In all cases, the hidden state is now enhanced with external context that persists across long interactions.</p>
+<p>⸻</p>
+<p>📍 Stage 5 — Update or Freeze (Do memories evolve over time?)</p>
+<p>Once a memory has been used, the system may:</p>
+<p>• Freeze it, keeping it immutable (episodic-style memory)</p>
+<p>• Adjust it via gradient updates, letting memories evolve (semantic-style memory)</p>
+<p>• Merge or replace outdated memories based on usage patterns</p>
+<p>This allows the memory system to gradually transition from raw “episodic logs” to structured, compressed knowledge.</p>
+<p>⸻</p>
+<p>✅ Why this lifecycle works</p>
+<p>• It enables long-term continuity without massive context windows</p>
+<p>• It mirrors human-like episodic-to-semantic memory consolidation</p>
+<p>• It fits seamlessly into transformer workflows using existing routing and projection tools</p>
+<p>• It gives ADRA-level models persistent working context, which enables deep task decomposition and multi-session reasoning</p>
+<p>• It provides a concrete architectural stepping stone toward Proto-AGI’s “coherent self over time”</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="rlm-lifecycle-write-store-route-recall-update" class="level2">
+<h2 class="anchored" data-anchor-id="rlm-lifecycle-write-store-route-recall-update">4. RLM Lifecycle: Write → Store → Route → Recall → Update</h2>
+<p>Section 4 — Prototype Implementation Plan (Small, Demonstrable, RE-Oriented)</p>
+<p>The goal of this prototype is not to solve long-term memory entirely.</p>
+<p>The goal is to prove that Routed Latent Memory (RLM) provides better structured recall than a vanilla transformer, even at small scale (125M–350M parameters), using synthetic tasks.</p>
+<p>🎯 What we want to demonstrate</p>
+<p>We want to show that a transformer equipped with an RLM block can:</p>
+<p>Remember key tokens far beyond what its normal context allows. Retrieve that memory later in the task with higher reliability than the baseline model. Use that retrieved information to improve reasoning on multi-step prompts.</p>
+<p>If demonstrated, this provides early empirical justification that RLM is a scalable direction toward ADRA-level memory systems.</p>
+<p>📦 Recommended base for implementation</p>
+<p>Use a small, familiar transformer such as GPT-2 Small (124M params) or Pythia-160M. Implement using PyTorch and HuggingFace for easy extensibility. Begin training on synthetic tasks — no large dataset required yet.</p>
+<p>You are not trying to compete with benchmarks — you are trying to demonstrate architectural capability gain.</p>
+<p>🧠 What the RLM module adds</p>
+<p>Your prototype will inject three learnable components into the transformer:</p>
+<p>A salience gating mechanism that flags embeddings for memory write. A small latent memory bank, e.g.&nbsp;16–32 learnable memory slots stored outside normal context. A routing-and-injection mechanism that selects relevant memory slots and injects them into the residual stream when needed.</p>
+<p>Think of it as adding a learnable MoE-like expansion block that acts as “episodic recall,” not more context.</p>
+<p>🧪 Synthetic training tasks to validate RLM</p>
+<p>You can design simple but powerful training tasks such as:</p>
+<p>Memory Code Recall:</p>
+<p>“Remember: X3K9-P. Now continue. What was the code?”</p>
+<p>→ Baseline GPT-2 fails once the code is ~1,000 tokens earlier. RLM-augmented model should succeed more consistently.</p>
+<p>Instruction Continuation:</p>
+<p>“First instruction: Transform number A. Later: Solve B using the previous instruction.”</p>
+<p>→ Shows whether the model can persist intermediate task details.</p>
+<p>Dialog Consistency (Alpaca-style tests):</p>
+<p>Simulated conversation where identity or preference details must be recalled across multiple turns.</p>
+<p>📉 What to measure</p>
+<p>Recall accuracy: Does the model retrieve previously seen content more reliably? Distance robustness: How far back can it recall successfully vs baseline? Memory slot usage distribution: Do specific slots activate consistently for similar types of stored info? Continuity across truncated or reset contexts: Does it preserve task information when normal context is unavailable?</p>
+<p>📍 Suggested development phases</p>
+<p>Add an empty RLM module that passes inputs unchanged (no-op mode) — verify integration does not break baseline performance. Hardcode a simple mechanism where the model writes a fixed embedding to one slot and retrieves it in a later step — demonstrate trivial recall improvement. Replace fixed write/retrieve with learned salience gating and learned routing. Train on synthetic memory tasks and compare against baseline GPT-2. (Optional) Add multiple memory slots, multi-session recall, and scaling experiments.</p>
+<p>✅ What this delivers (by Stage 4)</p>
+<p>By the fourth stage of this prototype, you will have:</p>
+<p>A working architectural memory extension to transformers. Measurable recall improvement over baseline. A visual RLM flow diagram you can proudly put on your site. A concrete example of “I designed and implemented a new memory mechanism for LLMs.” A strong answer to any RE interview prompt: “Describe a system extension you’ve engineered to improve model capability.”</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="prototype-implementation-plan-re-focused" class="level2">
+<h2 class="anchored" data-anchor-id="prototype-implementation-plan-re-focused">5. Prototype Implementation Plan (RE Focused)</h2>
+<p>Section 5 — How RLM Fits into the ADRA Roadmap</p>
+<p>RLM is not the entire solution to memory. It is an enabling bridge — a transitional architecture that allows transformer-based systems to move beyond token-bounded, short-lived reasoning toward persistent task continuity.</p>
+<p>This aligns directly with your ADRA → Proto AGI → Full AGI hierarchy.</p>
+<p>📍 Phase 1: Current LLMs (Now)</p>
+<p>Context-bounded reasoning only. Fully reliant on sliding windows or retrieval hacks. Cannot hold onto evolving task structures. Memory is purely stimulus-driven — no persistent internal state unless manually scaffolded.</p>
+<p>Failure mode: Agents that “forget” what they are doing the moment context resets.</p>
+<p>📍 Phase 2: ADRA-Level RLM (Near-Term)</p>
+<p>RLM gives models usable task memory that can:</p>
+<p>✅ Persist information beyond token context</p>
+<p>✅ Be selectively queried</p>
+<p>✅ Be routed based on task relevance</p>
+<p>✅ Support multi-step planning</p>
+<p>This doesn’t yet give human-like episodic memory, but it lays the foundation for:</p>
+<p>✔️ Stable intermediate states</p>
+<p>✔️ Multi-step goal tracking</p>
+<p>✔️ Early forms of agentic continuity</p>
+<p>RLM = the first meaningful departure from purely reactive LLMs.</p>
+<p>📍 Phase 3: Integrated Reasoning + Memory Systems (Proto AGI)</p>
+<p>At this stage, RLM evolves and merges with:</p>
+<p>🧠 Deep Hierarchical Reasoning Layers (DHRL)</p>
+<p>🧭 Autonomous task decomposition</p>
+<p>🕸 Multi-modal integration (1D text/code → images/video/3D space → bio-molecular structures)</p>
+<p>🔁 Cross-session long-range recall (“learn from past failures”)</p>
+<p>Here, memory isn’t just episodic — it begins to interface with abstract concepts, scientific models, and causal chains.</p>
+<p>The model becomes able to sustain multi-hour, multi-step reasoning without forgetting prior commitments.</p>
+<p>📍 Phase 4: Absolute AGI / SI (Final Stage)</p>
+<p>At this point, RLM has matured into:</p>
+<p>✨ Fully persistent, lifelong memory</p>
+<p>✨ Self-updating causal world-models</p>
+<p>✨ Introspective meta-reasoning linking memory, goals, and knowledge</p>
+<p>✨ Ability to compress and generalize episodes into stable conceptual structures</p>
+<p>✨ Perfect recall with rapid search and recombination</p>
+<p>The system does not merely “retrieve past inputs” — it constructs coherent autobiographical understanding and uses it to synthesize new theories, designs, inventions, and long-term plans.</p>
+<p>📌 Why RLM Is a Necessary Step (Not Optional)</p>
+<p>Without a routed, selective memory layer:</p>
+<p>❌ Reasoning resets at every context shift</p>
+<p>❌ Agents cannot evolve understanding over extended tasks</p>
+<p>❌ Goals cannot be preserved or refined</p>
+<p>❌ Multi-stage scientific reasoning is impossible</p>
+<p>❌ Architectures remain stuck at “parrot + scaffolding” instead of adaptive cognition</p>
+<p>RLM is the minimal entry ticket to ADRA-level autonomy.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="how-rlm-fits-into-the-adra-roadmap" class="level2">
+<h2 class="anchored" data-anchor-id="how-rlm-fits-into-the-adra-roadmap">6. How RLM Fits into the ADRA Roadmap</h2>
+<ol start="6" type="1">
+<li></li>
+</ol>
+<p>How RLM Differs from Existing Memory Mechanisms</p>
+<p>To understand why Routed Latent Memory represents a new architectural capability rather than an extension of existing tricks, we must contrast it against current approaches to long-range recall.</p>
+<p>Context windows only allow the model to see tokens that are explicitly present in the immediate forward pass. Even with extensions reaching into the millions of tokens, this remains volatile short-term memory. Once the conversation moves on, earlier information must either be repeated or is functionally lost.</p>
+<p>Retrieval-Augmented Generation (RAG) augments the model by pulling external chunks from a vector database. However, retrieval depends on surface-level embedding similarity rather than internal cognitive relevance. The model does not store its internal reasoning paths; it can only retrieve approximate topical matches. This provides “external reference,” not “internal recall.”</p>
+<p>KV caching or rolling windows only offer sliding access to recent sequence history. They are good for efficiency but do not produce deliberate, structured memory. KV caches forget almost everything outside their moving window and are not semantically persistent.</p>
+<p>Tool-based long-term memory systems (e.g., agentic LLMs writing to external files or memory databases) simulate recollection but still operate outside the inference loop. The model can be instructed to “remember,” but this is a scripted behavior, not a latent-embedded, internally routed memory substrate. It’s procedural, not cognitive.</p>
+<p>Mixture-of-Experts (MoE) routing gave us token-level specialization by allowing expert MLPs to selectively activate for certain patterns. However, experts are static computation modules trained for general reasoning or domain specialization — they do not hold episodic memory or store past conversational states.</p>
+<p>Why RLM Is Fundamentally Different</p>
+<p>Routed Latent Memory proposes memory experts, not compute experts. Instead of routing tokens only to functional experts that transform them, RLM routes certain tokens to latent storage MLPs that are explicitly trained to absorb, persist, and later re-surface relevant informational clusters when queried. These are “dormant but recallable” internal representations — not static computation layers.</p>
+<p>Unlike RAG, the memory does not exist externally; it lives inside the model’s latent space. Unlike long contexts, it does not cause quadratic attention blow-ups. Unlike KV caching, it does not degrade over sequence progression. Unlike MoE, it is not merely doing better computation — it is retaining structured latent knowledge with the intent of future reuse.</p>
+<p>Key Takeaway</p>
+<p>RLM shifts memory from being incidental, temporary, or external — to being architecturally embedded, selectively recalled, and cognitively routed. It enables the first step toward transformer systems that can remember conversations, tasks, and internal commitments with deliberate continuity, forming the foundation for ADRA-level internal cognition.</p>
+</section>
+<section id="section-7-rlm-as-a-modular-block-placement-scale-and-integration-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="section-7-rlm-as-a-modular-block-placement-scale-and-integration-strategy">Section 7 — RLM as a Modular Block: Placement, Scale, and Integration Strategy</h2>
+<p>Section 7 — Transformer Integration &amp; Multi-Layer Scaling of RLM</p>
+<p>To function cohesively within an LLM-based agent, Routed Latent Memory (RLM) must integrate into the broader transformer pipeline without disrupting core autoregressive generation or attention flow. RLM is not a replacement for transformer blocks, but an adjacent memory substrate that can be selectively consulted, updated, and routed during reasoning. It lives alongside the token-processing backbone rather than being fused directly into each block.</p>
+<p>7.1 RLM as a Parallel Cognitive Module (Not a Single-Token Extension)</p>
+<p>A standard transformer block processes token streams using:</p>
+<p>Multi-headed self-attention to map token-token interactions Feedforward MLP layers to transform representations Residual + normalization to stabilize and scale computation</p>
+<p>RLM operates as a separate block, invoked only when memory interaction is required. Transformers continue to handle token-level reasoning and pattern recognition, while RLM specifically manages long-term, structured, latent memory slots that aggregate information across time.</p>
+<p>7.2 The Memory Lifecycle and Interaction Point</p>
+<p>During a forward pass, the model executes its normal sequence of transformer blocks. After selected layers (e.g., every N transformer blocks), the hidden state is passed to the RLM module for potential interaction. If activated, the following lifecycle occurs:</p>
+<p>Write phase: The hidden state is scanned through a salience gate to determine whether it contains content suitable for memory storage. Store phase: If triggered, the state is compressed to a latent vector and added to the memory bank. Route phase: The current hidden state is evaluated by a router to rank which latent memories are relevant. Recall phase: Top-ranked latent slots are projected back into the active hidden state as conditioning signals, added or gated into the residual stream. Update phase: The selected latent memory may be preserved, fine-tuned, or merged with new information.</p>
+<p>7.3 Why RLM Sits Outside the Transformer Block</p>
+<p>Keeping RLM external rather than embedding it directly inside the transformer block offers four key engineering benefits:</p>
+<p>✅ Modularity: Enables easy ablation, scaling, and replacement without rewriting core layers.</p>
+<p>✅ Efficiency: Memory routing occurs only when necessary, keeping token-level inference fast.</p>
+<p>✅ Gradient clarity: Memory write/read gradients are isolated and easier to stabilize.</p>
+<p>✅ Scalability: RLM can progressively grow in depth and capacity over time (e.g., from one layer → stacked multi-stage memory systems).</p>
+<p>7.4 Multi-Layer Scaling: From Single RLM Layer to Hierarchical Memory Stacks</p>
+<p>In early prototypes, a single RLM block is sufficient. As models move toward ADRA-level continuity, memory must scale both horizontally (more slots) and vertically (hierarchical representations).</p>
+<p>A future ADRA system may employ:</p>
+<p>Stage-1 RLM: Capturing immediate episodic embeddings (short-term recall) Stage-2 RLM: Aggregating episodic slots into conceptual clusters Stage-3 RLM: Consolidating concepts into evolving abstract knowledge</p>
+<p>This creates a depth-based memory ladder, where newer layers store compressed, more stable ideas while earlier layers handle granular details. This naturally supports multi-session planning and reflective reasoning — two prerequisites for Proto-AGI.</p>
+<p>7.5 Autoregressive Inference with RLM</p>
+<p>At generation time, RLM-enhanced transformers follow a modified inference loop:</p>
+<ol type="1">
+<li><p>Process token(s) through transformer backbone</p></li>
+<li><p>If salience detected → write latent memory</p></li>
+<li><p>Query memory via router based on current state</p></li>
+<li><p>Retrieve top latent memories</p></li>
+<li><p>Reinject memory representations into hidden state</p></li>
+<li><p>Continue next token inference</p></li>
+</ol>
+<p>This loop ensures that RLM becomes part of the cognitive cycle without dominating inference overhead or altering the autoregressive prediction mechanics.</p>
+<p>7.6 Final Takeaway</p>
+<p>By sitting as an independent, trainable auxiliary block, RLM allows transformer-based systems to:</p>
+<p>✅ Retain memory without bloating context windows</p>
+<p>✅ Perform deterministic recall instead of probabilistic re-attention</p>
+<p>✅ Scale memory depth independently of transformer depth</p>
+<p>✅ Function as a stepping stone toward DHRL-driven ADRA cognition</p>
+<p>This modular integration makes RLM a practical bridge from today’s purely reactive LLMs to future systems capable of persistent, evolving internal cognition.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="section-8-how-rlm-transforms-context-windows-from-storage-buffers-into-cognitive-workspaces" class="level2">
+<h2 class="anchored" data-anchor-id="section-8-how-rlm-transforms-context-windows-from-storage-buffers-into-cognitive-workspaces">Section 8 — How RLM Transforms Context Windows from Storage Buffers into Cognitive Workspaces</h2>
+<p>Section 8 — How RLM Transforms Context Windows from Storage Buffers into Cognitive Workspaces</p>
+<p>Today’s LLMs treat the context window as both short-term memory and active reasoning space. Every time a conversation or task progresses, the model is forced to reprocess its own history, repeatedly attending over past instructions, summaries, or compressed dialogue — even when this information is not logically part of current reasoning. This creates three core inefficiencies that prevent scalable agentic reasoning:</p>
+<p>8.1 — Current LLMs Burn Context on Recollection, Not Cognition</p>
+<p>Even with 128K or 1M tokens of context, most of that window is often wasted repeating background information, instructions, or “reminder summaries” supplied by wrapper agents. Because the model cannot internally store persistent embeddings, it must be fed its own past decisions every time it reasons forward.</p>
+<p>This forces the context window to behave like a scroll-based external working memory, rather than an intelligent reasoning canvas.</p>
+<p>8.2 — Repeated Summaries Are Brittle, Costly, and Lossy</p>
+<p>External summary injection (where an external system repeatedly summarizes past interactions and feeds them forward into the prompt) has three weaknesses:</p>
+<p>Lossy — repeated summarization strips nuance and often mutates key logic over time. Externally controlled — the model does not own its memory; it merely reconsumes approximations constructed by external logic. Prompt-bound — past knowledge must battle for relevance within limited token space during each new inference step.</p>
+<p>The result: LLMs simulate “continuity” through statistical rediscovery rather than cognitively grounded recall.</p>
+<p>8.3 — RLM Frees the Context Window from Memory Repetition</p>
+<p>Routed Latent Memory (RLM) introduces a fundamental shift: long-term context no longer needs to be re-fed — it is written once, persisted in latent form, and routed in when needed.</p>
+<p>This transforms the context window from:</p>
+<p>❌ A passive archive that must be reread repeatedly</p>
+<p>✅ Into an active reasoning workspace focused only on the present cognitive step</p>
+<p>Memory is now retrieved, not restated.</p>
+<p>The model no longer scans thousands of previous tokens, hoping to rediscover key points through attention; instead, router-driven retrieval cleanly inserts only the relevant episodic representation at the moment of reasoning.</p>
+<p>8.4 — Cognitive Implications: Context Becomes Workspace, Not History Log</p>
+<p>Under RLM, the model executes tasks using the context window as a dynamic space for:</p>
+<p>✅ Step-by-step reasoning</p>
+<p>✅ Hypothesis exploration</p>
+<p>✅ Local task decomposition</p>
+<p>✅ Live generation of symbolic structures (e.g., plans, equations, drafts)</p>
+<p>Meanwhile, history (e.g., prior decisions, goals, constraints) lives in routed latent form, summoned only when relevant and not continuously occupying space.</p>
+<p>This aligns transformers more closely with the human cognitive model where working memory (active reasoning) is distinct from episodic/long-term memory (past states).</p>
+<p>8.5 — ADRA-Level Agents Now Gain Multi-Step Coherence Without Prompt Bloat</p>
+<p>In an ADRA system, each agentic phase may span hundreds of forward passes. Without RLM, every forward pass requires the process to re-expose itself to its task-state, objectives, constraints, and partially completed logic.</p>
+<p>With RLM:</p>
+<p>✅ Past sub-decisions are stored as latent memory</p>
+<p>✅ Routing retrieves them as needed</p>
+<p>✅ The agent does not “mentally rewind” at every step</p>
+<p>✅ Cognitive flow persists smoothly across forward passes</p>
+<p>✅ The context window is now fully devoted to advancing the reasoning frontier</p>
+<p>8.6 — Scaling Impact: RLM Unlocks Larger Horizons Without Context Explosion</p>
+<p>As sequence length increases, vanilla attention complexity grows quadratically. The more we expand token windows, the more computationally expensive it becomes to simply maintain coherence.</p>
+<p>RLM allows us to scale memory without scaling compute linearly with token count. Memory becomes parametric and selective, not brute-force scanned.</p>
+<p>This is essential for any transition from LLMs as autocomplete engines to ADRA systems capable of multi-hour engineering, research, planning, or problem-solving tasks.</p>
+<p>8.7 — Key Insight: RLM Turns Transformers from “Sequence Processors” into “Stateful Cognitive Systems”</p>
+<p>By embedding persistent, retrievable, and update-capable latent memory modules into the model, RLM enables transformers to:</p>
+<p>Carry forward their own cognitive trajectory Retain identity, beliefs, plans, and intermediate solutions Allocate context only to immediate reasoning Move from “prompt-conditioned reactors” to “stateful thinkers with continuity”</p>
+<p>Final Takeaway</p>
+<p>RLM is not merely a memory hack — it fundamentally redefines the role of context in transformer cognition.</p>
+<p>It transforms the context window from a desperate space for recalling forgotten history into a purposeful stage for active reasoning.</p>
+<p>With RLM, transformers evolve from repeatedly re-reading their past to building upon it with continuity, stability, and long-range strategic coherence. This shift is foundational for ADRA and necessary for any credible path to Proto-AGI.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

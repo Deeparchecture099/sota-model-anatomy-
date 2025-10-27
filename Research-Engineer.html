@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>research-engineer – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about-me.qmd"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-state-of-the-art-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">State of the Art Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-state-of-the-art-models">    
+        <li>
+    <a class="dropdown-item" href="./JEPA.html">
+ <span class="dropdown-text">JEPA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Alpha-Fold.html">
+ <span class="dropdown-text">AlphaFold</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./DeepSeek.html">
+ <span class="dropdown-text">DeepSeek</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./MidJourney.qmd">
+ <span class="dropdown-text">MidJourney</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Veo3.qmd">
+ <span class="dropdown-text">Veo 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./omni-modal-models.qmd">
+ <span class="dropdown-text">Omni-Modal Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
+ <span class="dropdown-text">Optimization in Deep Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Genie-3.html">
+ <span class="dropdown-text">Genie 3</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-models">    
+        <li>
+    <a class="dropdown-item" href="./diffusion-image-model.html">
+ <span class="dropdown-text">Diffusion Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./moe-llm.html">
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes-section" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Notes Section</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
+        <li>
+    <a class="dropdown-item" href="./frontiers-in-image-models.html">
+ <span class="dropdown-text">Frontiers-in-Image-Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./AI-polarization.html">
+ <span class="dropdown-text">AI Polarization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./self-supervised-reinforcement-learning-video-generation.html">
+ <span class="dropdown-text">Self-Supervised Reinforcement Learning Video Generation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./my-notes-superintelligence.html">
+ <span class="dropdown-text">Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Dimensions-of-superintelligence.html">
+ <span class="dropdown-text">Dimensions of Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Tensors-in-Large-Language-Models.html">
+ <span class="dropdown-text">Tensors in Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Frontiers-in-Large-Language-Models.html">
+ <span class="dropdown-text">Frontiers in Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./The-myth-of-AI-cinema.qmd">
+ <span class="dropdown-text">the-myth-of-ai-cinema.qmd</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./turing-tests-for-superintelligence.html">
+ <span class="dropdown-text">Turing Tests for Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pdoom-fallacy-and-boundaries.html">
+ <span class="dropdown-text">Pdoom Fallacy and Boundaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Mixture-Of-Experts-LLM.html">
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./intelligence-first-safety-precisely.html">
+ <span class="dropdown-text">Intelligence First, Safety Precisely</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./llm-training.html">
+ <span class="dropdown-text">LLM training</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./large-language-model-vision.html">
+ <span class="dropdown-text">large language model vision</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./routed-latent-memory.html">
+ <span class="dropdown-text">Routed-Latent-Memory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Research-Engineer.html">
+ <span class="dropdown-text">Research Engineer</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#step1" id="toc-step1" class="nav-link active" data-scroll-target="#step1">🧠 Step 1 – Architecture &amp; Hypothesis Ideation</a></li>
+  <li><a href="#step2" id="toc-step2" class="nav-link" data-scroll-target="#step2">🧪 Step 2 – Small-Scale Prototyping</a></li>
+  <li><a href="#step3" id="toc-step3" class="nav-link" data-scroll-target="#step3">📈 Step 3 – Scaling Architecture for Frontier Models</a></li>
+  <li><a href="#step4" id="toc-step4" class="nav-link" data-scroll-target="#step4">🏗 Step 4 – Full Pretraining</a></li>
+  <li><a href="#step7" id="toc-step7" class="nav-link" data-scroll-target="#step7">🚀 Step 7 – Evaluate Emergent General Intelligence</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<p>📘</p>
+<p>The Role of a Research Engineer in Frontier AI Development</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/RE.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>RE</figcaption>
+</figure>
+</div>
+<p>(Intro Section – feel free to paste and modify as we go)</p>
+<p>Modern frontier AI labs such as OpenAI, xAI, DeepMind, and Anthropic are built around a core engine: the Research Engineer (RE). While the public often imagines “AI researchers” as purely academic whitepaper authors, the reality is that the systems powering GPT-5, Gemini, Claude, and Grok are designed, trained, scaled, stress-tested, and evolved primarily by Research Engineers.</p>
+<p>A Research Engineer is not merely “an implementer of models” — they are:</p>
+<p>✅ A capabilities-driven experimentalist</p>
+<p>✅ A model architect and cognitive systems builder</p>
+<p>✅ A scientific engineer who iterates toward intelligence breakthroughs</p>
+<p>✅ A bridge between theory, scaled training, and emergent capability</p>
+<p>✅ A Research Engineer’s core mission:</p>
+<p>Design, train, and optimize the raw intelligence of the model before it is aligned, filtered, or productized.</p>
+<p>✅ Their scope includes two major domains:</p>
+<p>🔹 1)</p>
+<p>Pretraining (Core Intelligence Creation)</p>
+<p>Research Engineers handle all work that leads to a powerful base model:</p>
+<p>✔ Architecture innovation</p>
+<p>✔ Prototype scaling + ablations</p>
+<p>✔ Building the final large-scale architecture</p>
+<p>✔ Running and monitoring massive pretraining runs</p>
+<p>✔ Early emergent capability analysis</p>
+<p>✔ Scaling law evaluation</p>
+<p>✔ Adjusting training dynamics to maximize general intelligence</p>
+<p>This phase answers: “How do we build the smartest possible base model?”</p>
+<p>🔹 2)</p>
+<p>Capability Optimization (Post-pretraining, pre-alignment work)</p>
+<p>After the base model finishes general pretraining, REs further sharpen its raw intelligence (without adding moral rules or safety bias) by:</p>
+<p>✔ Domain-specific fine-tuning (math, code, physics, reasoning depth)</p>
+<p>✔ Extending chain-of-thought, tool-use, or multi-step reasoning</p>
+<p>✔ Integrating advanced test-time compute frameworks (search, debate, reflection)</p>
+<p>✔ Optimizing for abstraction, consistency, planning, causality, simulation fidelity</p>
+<p>✔ Stress-testing cognitive depth and coherence</p>
+<p>✔ Introducing long-term memory or meta-learning mechanisms</p>
+<p>This phase answers: “How do we turn a smart base model into a deeply capable thinker before alignment constraints reduce its behavior space?”</p>
+<p>❌ What REs usually</p>
+<p>do not</p>
+<p>do:</p>
+<p>✘ Moral alignment or ethical steering</p>
+<p>✘ RLHF safety shaping</p>
+<p>✘ Refusal tuning / red teaming</p>
+<p>✘ Preference optimization</p>
+<p>✘ Bias / toxicity suppression</p>
+<p>✘ Productization (chatbot packaging, UI, persona injection)</p>
+<p>✘ Compliance guardrails and policy filtering</p>
+<p>These are typically handled later by alignment engineers, post-training teams, and product ML engineers, depending on the lab.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>Research Engineers are responsible for pretraining and post-pretraining intelligence optimization, before safety alignment layers are applied.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>REs own the core stages where intelligence actually emerges — from architectural design to large-scale pretraining and capability fine-tuning. They test new reasoning modules, scaling laws, cognitive mechanisms, dynamic memory systems, routing strategies, optimization methods, world-model augmentations, and anything that pushes the boundary of cognition.</p>
+<p>They are not safety aligners.</p>
+<p>They are not infra maintainers.</p>
+<p>They are not narrow product optimizers.</p>
+<p>They are engineers whose entire mission is: make the model smarter.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<section id="step1" class="level2">
+<h2 class="anchored" data-anchor-id="step1">🧠 Step 1 – Architecture &amp; Hypothesis Ideation</h2>
+<ol type="1">
+<li>Architectural Ideation &amp; Cognitive Hypothesis Development</li>
+</ol>
+<p>This phase is where REs work like “cognitive system inventors.” They explore new ways to improve intelligence emergence beyond raw scaling. This can involve:</p>
+<p>Proposing new attention structures (multi-scale, MHA variants, state-space models, RoPE variants,reasoning blocks, archectural memeory ). Testing deeper vs wider tradeoffs. Designing new memory-augmented modules (RAG, differentiable long-term storage). Investigating routing strategies (Mixture-of-Experts refinements, hierarchical routing). Hypothesizing models that better encode causality, abstraction, or reasoning. Exploring recurrent vs purely feed-forward designs. Predicting scaling laws based on initial theoretical arguments. Multi-modal fusion architectures. Optimizer innovations and changes in learning dynamics. Cognitive framework changes (e.g., meta-reasoning, world-model augmentation).</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="step2" class="level2">
+<h2 class="anchored" data-anchor-id="step2">🧪 Step 2 – Small-Scale Prototyping</h2>
+<p>Step 2: Small-Scale Prototyping &amp; Ablation Testing</p>
+<p>(This is the stage where architectural ideas are validated scientifically before committing to massive-scale training.)</p>
+<p>Once a cognitive hypothesis or architecture variation is proposed, Research Engineers move into controlled experimentation using small-to-medium scale models (typically 1B–10B parameters). The goal is to determine whether the idea shows measurable cognitive or scaling benefits before scaling to a trillion-parameter frontier system.</p>
+<p>🎯 Objectives of this phase:</p>
+<p>Validate whether the new architectural change improves reasoning, learning efficiency, abstraction, robustness, or emergent capability. Compare performance against a known strong baseline (usually a stock transformer or last-gen architecture). Identify how improvements scale (via early scaling law analysis). Detect any training instabilities, optimization difficulties, or mode collapse risks. Understand how sensitive the change is to learning rate, batch size, and depth scaling.</p>
+<p>🧪 What REs actually do here:</p>
+<p>Build multiple prototype variants with incremental modifications. Run scaling sweeps over depth, width, head count, MoE expert density, etc. Conduct ablation studies (remove components one-by-one to isolate their impact). Track: Training loss curves Generalization across domains (reasoning tasks, math, code, logic, abstraction) In-context learning strength Early signs of systematic generalization or compositional reasoning Stability under longer sequence lengths</p>
+<p>Develop empirical scaling laws to estimate whether the architecture improves with more compute/data.</p>
+<p>questions asked during this stage:</p>
+<p>does the new component improve general reasoning or just overfit tasks?</p>
+<p>why it matters:</p>
+<p>Useful vs misleading improvements</p>
+<p>⸻</p>
+<p>Does it scale better than a normal transformer at equivalent compute?</p>
+<p>why it matters</p>
+<p>Determines viability for trillion-scale training</p>
+<p>⸻</p>
+<p>Does it introduce optimization instability?</p>
+<p>why it matters</p>
+<p>If yes, needs fixes or is discarded ⸻</p>
+<p>Are compute/flop costs justified by intelligence gains?</p>
+<p>why it matters</p>
+<p>Frontier compute is too expensive to waste</p>
+<p>⸻</p>
+<p>Does it enable new kinds of emergent capability?</p>
+<p>why it matters</p>
+<p>E.g., deeper chain-of-thought, planning, analogical reasoni</p>
+<p>⸻</p>
+</section>
+<section id="step3" class="level2">
+<h2 class="anchored" data-anchor-id="step3">📈 Step 3 – Scaling Architecture for Frontier Models</h2>
+<p>✅ Step 3: Scaling Up to Full Frontier Architectures (100B–1T+ Parameters)</p>
+<p>Once a prototype architecture has demonstrated strong scaling behavior, cognitive gains, and training stability at the 1B–10B parameter level, Research Engineers prepare it for frontier-scale deployment (typically 100B–1T+ parameters).</p>
+<p>This is a critical transition — scaling multiplies cost, engineering risk, and time. Any instability or inefficiency now becomes extremely expensive. Thus, Step 3 is about carefully transforming a promising prototype into a massively scalable system.</p>
+<p>🔧 What Research Engineers focus on in this stage:</p>
+<p>1️⃣ Finalizing architecture depth vs width vs routing density</p>
+<p>Set total layer count and hidden dimension sizes. Decide on Mixture-of-Experts density (number of experts, top-k selection, load balancing). Consider hierarchical depth for reasoning (e.g., deeper layers for abstraction).</p>
+<p>2️⃣ Optimizer and learning rate policy design</p>
+<p>Choose optimizer (AdamW, Adafactor, Lion, Shampoo, variational optimizers). Set learning rate warmup, cosine decay, or adaptive policies. Adapt momentum schedules for stable trillion-parameter scaling.</p>
+<p>3️⃣ Parallelism strategy decisions (with infra collaboration)</p>
+<p>Tensor parallelism Sequence parallelism Pipeline parallelism Expert parallelism (for MoE models) Fused operations and FlashAttention integration 🔹 Here, REs work closely with systems engineers to ensure full GPU/TPU efficiency.</p>
+<p>4️⃣ Data mixture and tokenization design</p>
+<p>Finalize training corpus blend (text, code, math, multimodal, synthetic data). Adjust token weighting. Incorporate upsampling strategies (e.g., more code/math if aiming for deep reasoning). Decide if dynamic data curriculum will be used for emergent abstraction.</p>
+<p>5️⃣ Memory, compute cost, and stability projection</p>
+<p>Estimate FLOPs and training time. Validate checkpointing strategies. Confirm numerical stability (especially for longer sequence modeling). Predict scaling law trajectories to ensure competitiveness.</p>
+<p>📊 What success looks like at this stage:</p>
+<p>✅ Architecture is now scalable and robust under multi-month training</p>
+<p>✅ Compute usage is efficient (FLOPs aren’t wasted on dead ends)</p>
+<p>✅ Systems/infra teams confirm distributed training feasibility</p>
+<p>✅ Training plans and monitoring tools are established</p>
+<p>✅ REs are ready to push the model into full-scale pretraining</p>
+<p>🏁 Outcome:</p>
+<p>Once the architecture is fully locked for scale, the model transitions into Step 4 — full-scale pretraining using massive compute clusters. At this point, the RE remains deeply involved as the “owner of intelligence trajectory,” not just a passive observer.</p>
+<p>⸻</p>
+</section>
+<section id="step4" class="level2">
+<h2 class="anchored" data-anchor-id="step4">🏗 Step 4 – Full Pretraining</h2>
+<p>✅ Step 4: Full Pretraining Execution (Massive General Corpus Training)</p>
+<p>Once the architecture has been validated and scaled for trillion-parameter deployment, the Research Engineer enters one of the longest and most critical phases: full pretraining.</p>
+<p>This is when the model is trained on trillions of tokens (text, code, multimodal data, etc.) to develop broad general intelligence from raw predictive learning. This stage is extraordinarily expensive — often consuming tens of millions of dollars in compute — which is why Steps 1–3 exist to eliminate weak architectures beforehand.</p>
+<p>1-50 Trillion tokens</p>
+<p>📍 Core objectives of this stage:</p>
+<p>Train the model to deeply internalize world knowledge. Enable emergent reasoning, abstraction, and in-context generalization. Achieve strong performance on unseen cognitive tasks. Monitor long-term scaling behavior, identifying inflection points of intelligence emergence.</p>
+<p>🧠 What Research Engineers actively do during this stage:</p>
+<p>📈 1) Monitor loss curves and scaling dynamics</p>
+<p>Track cross-entropy loss behavior. Detect diminishing returns or learning collapse. Compare performance to predicted scaling-law trajectories.</p>
+<p>🧪 2) Benchmark emergent capabilities mid-training</p>
+<p>Run periodic capability probes (math, reasoning, abstraction, logic, analogy). Observe when emergent reasoning appears. Track in-context learning and compositional generalization.</p>
+<p>🛠️ 3) Diagnose issues in training behavior</p>
+<p>Fix training instability (NaN explosions, divergence). Adjust learning rates, gradient clipping, batch sizes. Collaborate with infra to resolve distributed training failures.</p>
+<p>🧭 4) Adjust data mixture dynamically if needed</p>
+<p>Increase code/math weighting if reasoning is weak. Add synthetic reasoning tasks or structured logic sequences. Introduce data curricula for abstraction scaling.</p>
+<p>🧱 5) Validate that internal representations support higher cognition</p>
+<p>Analyze attention patterns, representation structure. Observe long-range dependency modeling. Detect failures in memory retention or causal reasoning.</p>
+<p>questions at this phase</p>
+<p>Is reasoning depth increasing over time?</p>
+<p>why it matters</p>
+<p>Indicates whether architecture enables cognition or is just memorizing.</p>
+<p>Are we following expected scaling laws?</p>
+<p>why it matters</p>
+<p>Confirms that compute is being translated into intelligence.</p>
+<p>Are failure modes emerging?</p>
+<p>Early warning for hallucination, overfitting, collapse.</p>
+<p>Is compute being wasted?</p>
+<p>Training runs may be paused to adjust architecture or dataset.</p>
+<p>⸻ ## 🎯 Step 5 – Capability Fine-Tuning {#step5} ✅ Step 5: Capability-Oriented Fine-Tuning (Deepening Cognitive Strengths)</p>
+<p>Once pretraining is complete, the model is now a general-purpose intelligence base. However, it may still be “shallow” in certain areas of reasoning and knowledge. It may solve simple problems but struggle with:</p>
+<p>✅ Multi-step logic</p>
+<p>✅ Deep math</p>
+<p>✅ Code synthesis and debugging</p>
+<p>✅ Scientific modeling</p>
+<p>✅ Causal reasoning</p>
+<p>✅ Abstract analogy</p>
+<p>✅ Strategic planning</p>
+<p>✅ Long-horizon consistency</p>
+<p>To deepen intelligence before alignment constraints are applied, REs perform capability-focused fine-tuning, also known as post-pretraining capability optimization.</p>
+<p>🎯 Core goal:</p>
+<p>Strengthen the model’s true reasoning power and cognitive depth — not align it morally or produce a polished chatbot persona.</p>
+<p>This phase is still part of building a powerful raw model, not a safe consumer product.</p>
+<p>🔧 What REs do in this phase:</p>
+<p>📚 1) Curate or generate specialized high-quality datasets</p>
+<p>Math reasoning datasets (GSM8K++, MATH, deep symbolic reasoning sets). Code synthesis, formal verification tasks. Scientific hypothesis generation and literature reasoning. Complex multimodal datasets requiring causal inference. Long-horizon synthetic logic environments. Agent-based simulation reasoning (strategic depth).</p>
+<p>🧠 2) Apply training approaches like:</p>
+<p>SFT (Supervised Fine-Tuning) for deep domain reasoning. Self-improvement loops using bootstrapping &amp; distillation. Speculative reflection where the model critiques its own reasoning. Teacher–student training, where higher versions supervise lower ones. Chain-of-thought reinforcement (but capability-focused, not moral-focused).</p>
+<p>📈 3) Evaluate post-fine-tuning reasoning depth</p>
+<p>Does chain-of-thought improve? Can it maintain multi-step consistency? Does it generalize beyond seen examples? Can it plan? Does it show higher abstraction capability? Does its internal hidden representation become more semantically structured?</p>
+<p>🔍 Why this must happen</p>
+<p>before alignment and policy tuning</p>
+<p>:</p>
+<p>Once alignment layers are added (e.g., strict refusals, moral rules, policy constraints), the model often loses some expressive internal reasoning and becomes more cautious. Therefore, REs optimize raw intelligence before alignment teams restrain or bias outputs.</p>
+<p>🏁 Outcome of Step 5:</p>
+<p>✅ The model is now significantly more capable than the base pretrained version.</p>
+<p>✅ It shows deeper reasoning, stronger abstraction, and broader high-level problem-solving ability.</p>
+<p>✅ It is ready for final cognitive augmentation (Step 6) before entering alignment.</p>
+<p>⸻</p>
+<p>Supervised Fine-Tuning (SFT)</p>
+<p>What it is: Fine-tune on high-quality, expert-level exemplars that show exactly how to solve tasks (step-by-step or programmatically).</p>
+<p>Use it when</p>
+<p>You have good demonstrations (gold solutions, proofs, clean code, stepwise reasoning). You need the model to learn procedures and formats reliably. You want fast, stable gains without complex RL loops.</p>
+<p>Data</p>
+<p>Curated expert traces, verified outputs. For math/reasoning: fully worked solutions, not just final answers. For code: problem → spec → tests → iterative patches.</p>
+<p>Strengths</p>
+<p>Stable, reproducible, easy to monitor. Calibrates style and structure of reasoning.</p>
+<p>Pitfalls</p>
+<p>Overfits to surface patterns; may imitate style without underlying depth. Can “hallucinate steps” if data quality is spotty.</p>
+<p>Instrumentation / metrics</p>
+<p>Exact match and step-accuracy, pass@k for code, chain depth distribution, self-consistency rates.</p>
+<p>Self-Improvement Loops (Bootstrapping &amp; Distillation)</p>
+<p>What it is: Use the model (and/or a stronger teacher) to generate harder problems, critiques, and improved solutions; fine-tune on the improved solutions. Distillation compresses a stronger model’s behavior into your target model.</p>
+<p>Use it when</p>
+<p>You lack large gold datasets but can generate synthetic curricula. You want continual improvement beyond a static dataset. You’re pushing into regimes where the model must discover strategies.</p>
+<p>Canonical loop</p>
+<p>Generate tasks → 2) Attempt solutions → 3) Critique/repair → 4) Verify with tools/tests → 5) Keep only verified improvements → 6) Fine-tune on the deltas.</p>
+<p>Strengths</p>
+<p>Scales data without human labeling. Drives curriculum toward the model’s frontier of difficulty.</p>
+<p>Pitfalls</p>
+<p>Feedback loops can entrench mistakes if verification is weak. Needs strong filters (tests, solvers, unit checks).</p>
+<p>Instrumentation / metrics</p>
+<p>Improvement rate per loop, verification pass rate, novelty of tasks, regression tests.</p>
+<p>Speculative Reflection (Model Critiques Its Own Reasoning)</p>
+<p>What it is: At train time (and often at test time), the model generates a solution plus a critical reflection that identifies gaps, alternatives, and fixes; you train on the corrected version and/or the reflection itself.</p>
+<p>Use it when</p>
+<p>You want deeper chains and fewer shallow shortcuts. The model tends to produce plausible but brittle answers. You need robustness under perturbations.</p>
+<p>How</p>
+<p>Prompt for answer → prompt for critique → prompt for revision → train on {problem, reflection, revised answer}. Optionally keep the reflection tokens in SFT so the model learns how to think about its thinking.</p>
+<p>Strengths</p>
+<p>Teaches error-finding and repair behavior. Improves factuality and internal consistency.</p>
+<p>Pitfalls</p>
+<p>Reflections can balloon context and cost. If reflections aren’t grounded by checks, you can learn vacuous “performative” critiques.</p>
+<p>Instrumentation / metrics</p>
+<p>“Critique helpfulness” scoring, revision win-rate, delta-quality from v0→v1.</p>
+<p>Teacher–Student Training (Distillation / Supervision from a Stronger Model)</p>
+<p>What it is: A stronger teacher (could be your prior frontier model or a rented API) produces solutions, rationales, or trajectories; you fine-tune a smaller/cheaper student to match or approach that capability.</p>
+<p>Use it when</p>
+<p>You need to compress expensive capabilities into a deployable model. You want to inherit behavior you can’t reproduce from scratch. You need rapid capability transfer across domains.</p>
+<p>Variants</p>
+<p>Vanilla distillation (match outputs). Rationale distillation (match chain-of-thought or tool traces). Preference distillation (student prefers teacher’s best among candidates).</p>
+<p>Strengths</p>
+<p>Fast capability lift. Great for bootstrapping new domains.</p>
+<p>Pitfalls</p>
+<p>Student inherits teacher’s biases. If the teacher is wrong, you lock in errors.</p>
+<p>Instrumentation / metrics</p>
+<p>Student/teacher gap, sample-efficiency curves, robustness deltas under distribution shift.</p>
+<p>Chain-of-Thought (CoT) Reinforcement (Capability-focused, not Safety RLHF)</p>
+<p>What it is: Use preference optimization or RL to make the model prefer reasoning traces that are verifiably better (more accurate, shorter/cleaner, more generalizable), not “more polite.”</p>
+<p>Use it when</p>
+<p>You can define a measurable reward: pass tests, prove theorem, satisfy checker, minimize edits. You want the model to pick better reasoning paths, not just longer ones.</p>
+<p>How</p>
+<p>Generate multiple candidate chains per prompt. Score with verifiers (tests, solvers, formal checkers, weak ensemble). Apply DPO/ORPO (pairwise) or task-reward RL to bias toward high-scoring chains.</p>
+<p>Strengths</p>
+<p>Directly optimizes for quality of thought. Encourages compact, correct reasoning over rambling.</p>
+<p>Pitfalls</p>
+<p>Noisy rewards lead to reward hacking. Needs strong, cheap verifiers to scale.</p>
+<p>Instrumentation / metrics</p>
+<p>Win-rate in pairwise comparisons, verifier pass-rate, chain length vs accuracy Pareto.</p>
+<p>Which Ones Dominate? How to Choose</p>
+<p>If you have high-quality gold data: start with SFT, then add speculative reflection to deepen reasoning.</p>
+<p>If you have limited gold but good verifiers (tests/solvers): lean on self-improvement loops + CoT reinforcement. This is how coding/math agents really jump.</p>
+<p>If you have access to a stronger model: teacher–student for a fast lift, then self-improvement to push beyond the teacher in narrow areas.</p>
+<p>If cost is tight: SFT (cheap) → reflection (moderate) → minimal preference optimization on a small, carefully chosen set.</p>
+<p>Think of it as a stack you assemble per domain, not a checklist you must fully complete.</p>
+<p>A Practical Sequencing Template (you can paste this on your page)</p>
+<p>Phase A — Baseline lift</p>
+<p>Curate gold demos (or teacher outputs) and run SFT. Evaluate; identify failure modes and shallow spots.</p>
+<p>Phase B — Depth &amp; robustness</p>
+<ol start="3" type="1">
+<li><p>Add speculative reflection to teach critique-and-repair.</p></li>
+<li><p>Introduce self-improvement loops with verification to expand data.</p></li>
+</ol>
+<p>Phase C — Path quality optimization</p>
+<ol start="5" type="1">
+<li>Apply preference optimization / CoT reinforcement (DPO/ORPO or RL with verifiers) to bias toward higher-quality chains.</li>
+</ol>
+<p>Phase D — Consolidation</p>
+<ol start="6" type="1">
+<li><p>Distill the improved behavior back into a single efficient student.</p></li>
+<li><p>Re-evaluate under adversarial and long-horizon tests.</p></li>
+</ol>
+<p>In-Depth: How Each Feels in an Actual Run</p>
+<p>SFT run:</p>
+<p>You build a clean dataset. You fine-tune for 1–3 epochs with careful LR schedules. Loss drops quickly; outputs look “more expert” but still make subtle mistakes.</p>
+<p>Self-improvement loop:</p>
+<p>You bootstrap thousands of tasks nightly. Verifiers prune junk; only verified deltas feed back. Each loop yields small, compounding gains; failure modes evolve.</p>
+<p>Speculative reflection:</p>
+<p>Outputs become less brittle; the model anticipates failure modes. You’ll see fewer “confident wrongs,” more “here’s why this step matters.”</p>
+<p>Teacher–student:</p>
+<p>Instant lift to teacher-like behavior. Then you notice teacher limits; you switch to self-play to surpass.</p>
+<p>CoT reinforcement:</p>
+<p>Pairwise win-rates rise; chains get shorter/cleaner for the same accuracy. On tough sets, you see fewer dead-end branches and better tool calls.</p>
+<p>What to Log and Watch (for every method)</p>
+<p>Task accuracy and win-rate over strong baselines. Robustness under paraphrase and perturbation. Chain quality: length vs correctness, self-consistency variance. Tool-use precision/recall (calls made, success rate, latency impact). Generalization to unseen styles/datasets. Regression tests (never ship without these).</p>
+<p>Putting it bluntly</p>
+<p>SFT teaches form and basic competence. Self-improvement grows a curriculum at the frontier. Speculative reflection teaches the model to think about its thinking. Teacher–student gives you a jump-start you can later outgrow. CoT reinforcement tunes for quality of thought, not just quantity.</p>
+<p>⸻ ## 🧭 Step 6 – Test-Time Cognitive Extensions {#step6}</p>
+<p>✅ Step 6: Test-Time Compute, Reasoning Frameworks &amp; Cognitive Extensions</p>
+<p>At this stage, the base model is highly capable, especially after capability-oriented fine-tuning. However, even extremely large models hit thinking depth ceilings when limited to a single forward pass.</p>
+<p>To push models into deeper reasoning, planning, hypothesis exploration, and self-correction, Research Engineers introduce test-time expansion strategies—techniques that allow the model to think more iteratively, search more widely, or correct itself dynamically during inference.</p>
+<p>This stage does not modify the model’s weights; it enhances how the model uses its intelligence at inference time.</p>
+<p>🎯 Purpose of Step 6:</p>
+<p>Extend reasoning depth and decision quality dynamically at test-time, beyond what a single forward pass can achieve.</p>
+<p>This is critical for complex tasks such as:</p>
+<p>✅ Multi-step reasoning</p>
+<p>✅ Long-horizon strategy execution</p>
+<p>✅ Code debugging loops</p>
+<p>✅ Scientific hypothesis refinement</p>
+<p>✅ Multi-agent planning</p>
+<p>✅ Chain-of-thought self-correction</p>
+<p>✅ “Try → evaluate → retry” loops</p>
+<p>🔧 Core methods used in this phase:</p>
+<p>✅ 1) Tree-of-Thought (ToT) or Graph-of-Thought Reasoning</p>
+<p>Model explores multiple possible reasoning paths rather than committing to one. Uses beam search or branching structures. Paths are scored using heuristics or verifier tools. Best reasoning branch is selected as final output.</p>
+<p>Goal: Simulate branching thought, similar to humans exploring alternatives.</p>
+<p>✅ 2) Reflection and Self-Correction Loops</p>
+<p>Model produces an answer. Then reflects on it: “Where might I be wrong?” It produces a revised answer or refinement. Can iterate several times.</p>
+<p>This may build on Step 5’s reflective fine-tuning, now used at inference.</p>
+<p>✅ 3) Debate or Self-Play Modes</p>
+<p>Two or more instances of the model argue opposing reasoning chains. A judge model (or verifier heuristic) evaluates which argument holds stronger reasoning. Final answer emerges from competition.</p>
+<p>Inspired by DeepMind’s “Socratic debate” ideas.</p>
+<p>✅ 4) Tool-Augmented Inference &amp; API Integration</p>
+<p>Model calls external tools (calculators, theorem solvers, search engines, coding sandboxes). REs design robust prompting patterns and “tool-use scaffolds.” Uses feedback from tool calls to refine solutions.</p>
+<p>This turns the model into an active problem solver, not just a static predictor.</p>
+<p>✅ 5) Dynamic Memory Retrieval During Inference (e.g., RAG / Long-term Memory Modules)</p>
+<p>Retrieval-Augmented Generation (RAG): pulls relevant documents before reasoning. Advanced setups: memory tokens evolve during long sessions. Helps sustain longer narratives, projects, or scientific tasks.</p>
+<p>Moves the model from “frozen knowledge” → “open-ended reasoner.”</p>
+<p>🧪 What REs optimize at this stage:</p>
+<p>✅ How many branches are ideal for ToT</p>
+<p>✅ When to reflect — always, or only after a confidence threshold?</p>
+<p>✅ Which verifier or scoring model should select reasoning paths</p>
+<p>✅ When to introduce tool usage vs rely on internal reasoning</p>
+<p>✅ How many correction loops yield gains before diminishing returns</p>
+<p>✅ How latency vs accuracy trade-offs behave</p>
+<p>📊 What success looks like:</p>
+<p>Fewer hallucinations under reasoning stress tests Higher pass rates on deep benchmarks (AIME, MATH, Codeforces) Fewer errors in chain-of-thought, greater internal consistency More compact, logically coherent reasoning paths Ability to plan long tasks rather than solve one-shot Measurable gains over raw model performance</p>
+<p>🏁 Outcome of Step 6:</p>
+<p>✅ The model is now not only knowledgeable and deeply trained but also empowered with advanced cognitive machinery at inference time.</p>
+<p>✅ It can dynamically explore, critique, and refine its own thoughts during use.</p>
+<p>✅ It is capable of solving harder reasoning problems than its static version.</p>
+<p>Next, we reach the final RE stage before formal handoff: ⸻</p>
+</section>
+<section id="step7" class="level2">
+<h2 class="anchored" data-anchor-id="step7">🚀 Step 7 – Evaluate Emergent General Intelligence</h2>
+<p>✅ Step 7: Evaluating Emergent Intelligence</p>
+<p>(Cognitive Stress Testing, Scaling Law Verification &amp; Frontier Benchmarking)</p>
+<p>By this phase, the model has gone through:</p>
+<p>✅ Pretraining</p>
+<p>✅ Capability fine-tuning</p>
+<p>✅ Cognitive extensions at test time</p>
+<p>Now Research Engineers must rigorously test whether the intelligence they attempted to create has actually emerged. This step isn’t about benchmarking for marketing — it’s about validating the architecture’s cognitive maturity and future potential.</p>
+<p>This stage determines whether this model:</p>
+<p>Is ready for downstream alignment &amp; productization Requires additional capability work Or should inform the next-gen architecture (cycling back to Step 1)</p>
+<p>🎯 Purpose of this stage:</p>
+<p>Verify whether the model demonstrates the anticipated reasoning depth, generalization capability, abstraction power, world-model coherence, and scaling potential to justify moving forward.</p>
+<p>🔍 What REs evaluate here (with custom cognitive probes):</p>
+<p>📈 1) Scaling Law Conformance</p>
+<p>Does the model follow predicted scaling trends? Are losses and reasoning performance improving predictably? If not, did we hit an architectural scaling wall?</p>
+<p>🧠 2) Abstract Reasoning &amp; Generalization</p>
+<p>Performance on out-of-distribution logical and analogical tests. Generalization to concepts not explicitly seen during training. Depth of abstraction, systematic generalization (compositionality).</p>
+<p>🧬 3) Emergent Capability Probing</p>
+<p>Chain-of-thought coherence across long tasks. Multi-hop reasoning: can it connect distant concepts? Hypothesis generation &amp; scientific reasoning.</p>
+<p>📚 4) Domain-Specific Cognitive Strengths</p>
+<p>Math (AIME, MATH, DeepMath). Coding (Codeforces, HumanEval++, Live coding agent performance). Strategy games / multi-agent reasoning. Scientific and logical planning tasks.</p>
+<p>🧭 5) Long-Horizon Coherence</p>
+<p>Can it maintain consistent reasoning over extended sequences? Can it remain logically stable without drifting off?</p>
+<p>🪞 6) Self-Consistency Under Reflection</p>
+<p>If prompted to evaluate its own answers, does it detect weak logic? Can it choose the best of multiple candidate chains?</p>
+<p>📊 7) Resistance to Clever Traps</p>
+<p>Can it avoid failure in adversarial examples? Does it hallucinate when faced with incomplete or contradictory input?</p>
+<p>Technique</p>
+<p>Purpose</p>
+<p>Multi-angle prompting</p>
+<p>purpose</p>
+<p>Check consistency of reasoning</p>
+<p>Self-consistency sampling</p>
+<p>Confidence via chain voting</p>
+<p>Ensemble model comparison</p>
+<p>Compare to previous intelligence levels</p>
+<p>Internal attention pattern audits</p>
+<p>Observe latent structure quality</p>
+<p>Synthetic reasoning benchmarks</p>
+<p>Look for early AGI-like adaptability</p>
+<p>Predictive uncertainty scoring</p>
+<p>Detection of shallow, overconfident reason</p>
+<p>🏁 Outcome:</p>
+<p>✅ If the model consistently demonstrates deep reasoning and strong generalization, it advances to the post-training stage (alignment, safety, preference shaping, refusal tuning, policy gating).</p>
+<p>🔁 If intelligence plateaus or scaling is limited:</p>
+<p>The cycle loops back to Step 1, informing a new architecture iteration.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
