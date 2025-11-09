@@ -220,6 +220,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./Research-Engineer.html">
  <span class="dropdown-text">Research Engineer</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./detecting-superintelligence.html">
+ <span class="dropdown-text">detecting-superintelligence</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -244,7 +248,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#context-window-expansion" id="toc-context-window-expansion" class="nav-link" data-scroll-target="#context-window-expansion">Context Window Expansion</a></li>
   <li><a href="#external-cognition-systems" id="toc-external-cognition-systems" class="nav-link" data-scroll-target="#external-cognition-systems">🧩 External Cognition Systems (Retrieval + Tool Grounding)</a></li>
   <li><a href="#modular-reasoning-hallucination-control" id="toc-modular-reasoning-hallucination-control" class="nav-link" data-scroll-target="#modular-reasoning-hallucination-control">Modular Reasoning &amp; Hallucination Control</a></li>
-  <li><a href="#weighted-knowledge-source-modeling" id="toc-weighted-knowledge-source-modeling" class="nav-link" data-scroll-target="#weighted-knowledge-source-modeling">Weighted Knowledge Source Modeling</a></li>
   <li><a href="#superior-attention-mechanisms" id="toc-superior-attention-mechanisms" class="nav-link" data-scroll-target="#superior-attention-mechanisms">Superior Attention Mechanisms</a></li>
   <li><a href="#advanced-simulation-pretraining" id="toc-advanced-simulation-pretraining" class="nav-link" data-scroll-target="#advanced-simulation-pretraining">Advanced Simulation-Based Pretraining</a></li>
   <li><a href="#adaptive-learning" id="toc-adaptive-learning" class="nav-link" data-scroll-target="#adaptive-learning">Adaptive Learning / On-the-Fly Fine-Tuning</a></li>
@@ -312,7 +315,6 @@ ul.task-list li input[type="checkbox"] {
 <li><p><a href="#memory-persistence">Memory &amp; Persistence</a></p></li>
 <li><p><a href="#context-window-expansion">Context Window Expansion</a></p></li>
 <li><p><a href="#external-cognition-systems">🧩 External Cognition Systems (Retrieval + Tool Grounding)</a></p></li>
-<li><p><a href="#weighted-knowledge-source-modeling">Weighted Knowledge Source Modeling</a></p></li>
 <li><p><a href="#superior-attention-mechanisms">Superior Attention Mechanisms</a></p></li>
 <li><p><a href="#advanced-simulation-pretraining">Advanced Simulation-Based Pretraining</a></p></li>
 <li><p><a href="#adaptive-learning">Adaptive Learning / On-the-Fly Fine-Tuning</a></p></li>
@@ -386,13 +388,54 @@ ul.task-list li input[type="checkbox"] {
 <p>• Strong planning/autonomy but still constrained by design.</p>
 <p>• Scaling-based improvements, but not unbounded self-reinvention yet.</p>
 <p>📌 ADRA is where most frontier labs will try to get within 8–12 years.</p>
-<p>Sent from my iPad</p>
 <p>Capability boundaries (quick checklist)</p>
 <p>ADRA can:</p>
 <p>Execute weeks-long projects with milestones, version control, and test harnesses. Orchestrate multi-tool pipelines (code, search, CAD, data viz, sim). Maintain working memory and project memory across sessions. Explain, verify, and revise its own plans.</p>
 <p>Milestones to distinguish the tiers</p>
-<p>ADRA milestones</p>
-<p>10k–100k-step tasks with &lt;5% failure without human rescue. Robust “resume after crash” and “detect unknown unknowns.” Memory precision: retrieve any prior task artifact &lt;1s, &gt;99% accuracy. Cross-repo, multi-language software projects end-to-end with passing CI.</p>
+<p>✅</p>
+<p>ADRA Benchmark Taxonomy</p>
+<p>ADRA is not “just a smarter LLM.”</p>
+<p>It is a 1D-autonomous reasoning agent, so it must be evaluated across</p>
+<p>🧠</p>
+<p>Interpretation by Cognitive Ability:</p>
+<ol type="1">
+<li>MMLU ~95%</li>
+</ol>
+<p>→ Broad general knowledge equals “intellectual literacy.”</p>
+<p>ADRA can understand the world at the level of a well-educated specialist.</p>
+<ol start="2" type="1">
+<li>SWE-Bench ~85%</li>
+</ol>
+<p>→ Autonomous engineering begins.</p>
+<p>ADRA stops being a helper → becomes a maintainer and builder.</p>
+<p>This is your “autonomy threshold.”</p>
+<ol start="3" type="1">
+<li>PersonQA / TruthfulQA ~85% reliability</li>
+</ol>
+<p>→ Stable semantic grounding.</p>
+<p>The model no longer “lies to fill gaps.”</p>
+<p>It refuses to bullshit.</p>
+<ol start="4" type="1">
+<li>MATH ~95%</li>
+</ol>
+<p>→ Stable symbolic reasoning under abstraction.</p>
+<p>Necessary for:</p>
+<p>cryptography compilers optimization simulation physics &amp; bio inference</p>
+<ol start="5" type="1">
+<li>RLM Memory Stress Tests</li>
+</ol>
+<p>→ True continuity of reasoning.</p>
+<p>This ensures ADRA can:</p>
+<p>work on the same project for days maintain design intent not lose state or drift</p>
+<p>This is the heart of your architecture.</p>
+<ol start="6" type="1">
+<li>AgentBench / PlanBench</li>
+</ol>
+<p>→ Goal → Plan → Execution.</p>
+<p>This is where ADRA stops responding to prompts</p>
+<p>and starts directing workflows.</p>
+<p>ADRA is defined not by scale, but by capability thresholds across key reasoning benchmarks.</p>
+<p>MMLU ≥95% ensures broad expert-level knowledge. MATH ≥95% ensures reliable abstract reasoning. PersonQA ≥85% ensures factual stability and reduced hallucination. RLM Memory Persistence ensures long-horizon continuity. PlanBench/AgentBench competence ensures autonomous task planning. SWE-Bench Verified ≥85% marks the transition from assistive coding to fully autonomous system design and maintenance.</p>
 <p>AGI milestones ( 7-D bar)</p>
 <p>Derive novel, correct scientific results with minimal data without external simulators. Transfer breakthroughs across modalities (e.g., math → protein design → control). Native, lossless lifelong memory and self-curriculum formation. Autonomously propose experiments, design apparatus, interpret results, and iterate.</p>
 </section>
@@ -638,50 +681,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Separate planning from generation (scratchpads, inner monologue).</p>
 <p>Self-reflection + verification (critique → verify → answer).</p>
 <p>Internal world models (JEPA-like) to stabilize long-range reasoning.</p>
-</section>
-<section id="weighted-knowledge-source-modeling" class="level2">
-<h2 class="anchored" data-anchor-id="weighted-knowledge-source-modeling">Weighted Knowledge Source Modeling</h2>
-<ol start="7" type="1">
-<li>Weighted Knowledge Source Modeling</li>
-</ol>
-<p>Status: Proposed</p>
-<ol type="a">
-<li><p>Source-ranked embedding space: embed data with metadata (type, authority, recency, bias).</p></li>
-<li><p>Internal retrieval + trust weighting: weigh facts by reliability, consistency, historical accuracy.</p></li>
-<li><p>Trusted Memory Module (TMM): curated primary/peer-reviewed/expert sources; default to TMM for complex factual queries, broaden only if ambiguous.</p></li>
-</ol>
-<p>Outcome: Answers are traceable, source-aware, and prioritized by evidence quality.</p>
-<p>A DNI LLM includes explicit architectural and training-time mechanisms to differentiate signal from noise.</p>
-<p>⸻ ⸻</p>
-<p>✅ 1. Source-Ranked Embedding Space</p>
-<p>• All training data is mapped with metadata-aware embeddings, which include:</p>
-<p>• Source type (book, blog, academic journal, .gov, etc.)</p>
-<p>• Source authority score (based on citations, peer review, recency, etc.)</p>
-<p>• Bias vector (left/right bias, corporate/personal, etc.)</p>
-<p>• This enables the model to learn not just language patterns, but information provenance and credibility.</p>
-<p>⸻ ⸻</p>
-<p>✅ 2. Internal Retrieval + Trust Weighting</p>
-<p>• During inference, the model retrieves internal representations of facts and weighs them based on:</p>
-<p>• Source reliability</p>
-<p>• Internal consistency</p>
-<p>• Historical accuracy (e.g., via TruthfulQA or human feedback loops)</p>
 <p>⸻</p>
-<p>⸻</p>
-<p>⸻</p>
-<p>✅ 3. Trusted Memory Module (TMM)</p>
-<p>• DNI LLMs maintain a separate, curated “trusted memory” trained on:</p>
-<p>• Primary documents</p>
-<p>• Peer-reviewed materials</p>
-<p>• Expert-authored works (e.g., Oxford University Press, biographies from renowned historians)</p>
-<p>• When asked complex factual questions (e.g., “What changed after the Glorious Revolution?”), the model pulls first from TMM — and only accesses broader knowledge if ambiguity exists.</p>
-<p>⸻</p>
-<p>💡 Result</p>
-<p>• No more hallucinated information or factually plausible but inaccurate responses.</p>
-<p>• Instead, answers are:</p>
-<p>• Factually grounded</p>
-<p>• Traceable</p>
-<p>• Sourced from a ranked evidence base</p>
-<p>• Able to explain why one source was chosen over another</p>
 <p>⸻</p>
 <p>⸻</p>
 <p>⸻</p>
@@ -924,6 +924,13 @@ ul.task-list li input[type="checkbox"] {
 <p>Bridges the gap between <strong>pattern recognition</strong> and <strong>true deliberative cognition</strong>. Enables structured reasoning pipelines that resemble scientific thought — planning, hypothesizing, testing, revising — all within a single forward pass. When combined with <strong>Meta Blocks</strong> and <strong>massive context windows (10–20 M tokens)</strong>, it forms the backbone of multi-session autonomy and verifiable reasoning integrity.</p>
 <p>Concept</p>
 <p>A dedicated reasoning stack inside the transformer that organises thinking into nested levels—from quick pattern checks up to long-horizon strategic plans—before emitting final tokens.</p>
+<p>💡 Result</p>
+<p>• No more hallucinated information or factually plausible but inaccurate responses.</p>
+<p>• Instead, answers are:</p>
+<p>• Factually grounded</p>
+<p>• Traceable</p>
+<p>• Sourced from a ranked evidence base</p>
+<p>• Able to explain why one source was chosen over another</p>
 <p>⸻</p>
 <p>⸻</p>
 <p>⸻</p>

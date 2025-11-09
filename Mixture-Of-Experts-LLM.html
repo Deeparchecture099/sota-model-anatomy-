@@ -249,6 +249,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./Research-Engineer.html">
  <span class="dropdown-text">Research Engineer</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./detecting-superintelligence.html">
+ <span class="dropdown-text">detecting-superintelligence</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -297,6 +301,8 @@ window.Quarto = {
   <li><a href="#alibi-attention-with-linear-biases" id="toc-alibi-attention-with-linear-biases" class="nav-link" data-scroll-target="#alibi-attention-with-linear-biases">ALiBi (Attention with Linear Biases)</a></li>
   <li><a href="#grouped-query-attention" id="toc-grouped-query-attention" class="nav-link" data-scroll-target="#grouped-query-attention">Grouped Query Attention (GQA)</a></li>
   <li><a href="#layer-normalization-strategies" id="toc-layer-normalization-strategies" class="nav-link" data-scroll-target="#layer-normalization-strategies">Layer Normalization Strategies (Pre-LN &amp; Final-LN)</a></li>
+  <li><a href="#pre-norm-residual-design" id="toc-pre-norm-residual-design" class="nav-link" data-scroll-target="#pre-norm-residual-design">Pre-Norm Residual Design</a></li>
+  <li><a href="#whats-really-stored-in-the-weights-whats-really-stored-in-the-weights" id="toc-whats-really-stored-in-the-weights-whats-really-stored-in-the-weights" class="nav-link" data-scroll-target="#whats-really-stored-in-the-weights-whats-really-stored-in-the-weights">What’s Really Stored in the Weights {#What’s-Really-Stored-in-the-Weights}</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -353,6 +359,9 @@ window.Quarto = {
 <li><a href="#alibi-attention-with-linear-biases">ALiBi (Attention with Linear Biases)</a></li>
 <li><a href="#grouped-query-attention">Grouped Query Attention (GQA)</a></li>
 <li><a href="#layer-normalization-strategies">Layer Normalization Strategies (Pre-LN &amp; Final-LN)</a></li>
+<li><a href="#pre-norm-residual-design">Pre-Norm Residual Design</a></li>
+<li>[What’s Really Stored in the Weights] {#What’s-Really-Stored-in-the-Weights}</li>
+<li><a href="#cross-entropy-objective">Cross-Entropy Objective</a></li>
 <li><a href="#key-takeaways">Key Takeaways</a></li>
 <li><a href="#key-takeaways">Key Takeaways</a></li>
 <li><a href="#glossary">Glossary</a></li>
@@ -814,6 +823,9 @@ MoE replaces dense MLPs with a <em>bank of experts</em> but activates only <stro
 <p>Final LayerNorm (or Final RMSNorm) is applied once at the model’s output to globally normalize representations and stabilize logits.</p>
 <p>Together, they form the normalization backbone of all modern SOTA LLMs.</p>
 <p>⸻</p>
+</section>
+<section id="pre-norm-residual-design" class="level2">
+<h2 class="anchored" data-anchor-id="pre-norm-residual-design">Pre-Norm Residual Design</h2>
 <p>🔹</p>
 <p>Role of Residual Connections in LLMs</p>
 <p>Residuals are the structural glue that holds every part of a transformer together.</p>
@@ -850,7 +862,75 @@ MoE replaces dense MLPs with a <em>bank of experts</em> but activates only <stro
 <p>In every transformer block, the input representation is first normalized by Pre-RMSNorm, then passed through FlashAttention + GQA to extract cross-token patterns. The attention output is added back through the first residual path, preserving the original signal while enriching it with relational context. A second Pre-RMSNorm precedes the Router + MoE-MLP, which sends each token to its top-k experts (typically 2–4) to refine feature representations. These expert outputs are recombined and added through the second residual path.</p>
 <p>Together, these dual residuals form the model’s “information highway,” letting gradients flow cleanly, features remain consistent, and each layer build on the stable foundation established by the previous ones—an essential design in all modern LLMs.</p>
 <p>⸻</p>
+<p>🧩 1. Cross-Entropy Loss —</p>
+<p>“What” the model learns</p>
+<p>🔹 Purpose</p>
+<p>This is the core training objective for all autoregressive language models.</p>
+<p>It measures how well the model predicts the next token in a sequence given the previous ones.</p>
+<p>If the model predicts p_(t_i | t_{&lt;i}) for each token t_i,</p>
+<p>the cross-entropy loss is:</p>
+<p> = - ^{N} p_(t_i | t_{&lt;i})</p>
+<p>N = number of tokens per batch. p_= predicted probability distribution from the LM head. t_i = ground-truth next token.</p>
+<p>🔹 Intuition</p>
+<p>The loss penalizes the model for assigning low probability to the correct next token.</p>
+<p>Lower loss = more accurate predictions = stronger language modeling ability.</p>
+<p>🔹 Behavior</p>
+<p>Dominant in all dense models and still the primary driver in MoE models. Backpropagates through all active experts, fine-tuning their internal representations. Gradually forces the entire model to compress linguistic structure, reasoning, and style into weights.</p>
+<p>🧩 2. Routing Entropy / Load-Balancing Loss —</p>
+<p>“How” the model learns</p>
+<p>🔹 Motivation</p>
+<p>In a Mixture-of-Experts (MoE) setup, the router decides which experts process each token.</p>
+<p>If left unregularized, the router tends to send all tokens to a few experts that perform best early in training.</p>
+<p>That creates expert collapse — some experts get overloaded while others never learn useful features.</p>
+<p>To prevent that, an auxiliary routing entropy loss (or “load-balancing loss”) is added.</p>
+<p>🔹 Common Formulation (as used in DeepSeek-V2, Switch Transformer, etc.)</p>
+<p>Let g_i(x) be the router’s softmax gate probability for expert i.</p>
+<p>Let p_i = _x[g_i(x)] be the mean probability of routing to expert i over a batch.</p>
+<p>Two auxiliary terms are combined:</p>
+<p>_{aux} = _1 , (p_i ,||, U) + _2 , H(g_i(x))</p>
+<p>where:</p>
+<p>KL term: encourages the average routing distribution p_i to be close to uniform (every expert used roughly equally). Entropy term: encourages per-token routing probabilities g_i(x) to remain high-entropy (router stays uncertain enough to explore). _1, _2 are small balancing coefficients (e.g., 0.01–0.05).</p>
+<p>🔹 Intuition</p>
+<p>Cross-entropy teaches the experts to predict the next token well. Routing entropy teaches the router to distribute tokens efficiently.</p>
+<p>Without the routing entropy term, MoE models converge unevenly — most experts idle, reducing effective capacity and hurting generalization.</p>
 <p>⸻</p>
+</section>
+<section id="whats-really-stored-in-the-weights-whats-really-stored-in-the-weights" class="level2">
+<h2 class="anchored" data-anchor-id="whats-really-stored-in-the-weights-whats-really-stored-in-the-weights">What’s Really Stored in the Weights {#What’s-Really-Stored-in-the-Weights}</h2>
+<p>🧩 What’s Really Stored in the Weights</p>
+<p>The model’s weights don’t contain English sentences, Python files, or LaTeX equations as strings of characters.</p>
+<p>They contain billions of numeric parameters that encode statistical associations between tokens — relationships like:</p>
+<p>“When these sequences appear, that one often follows.” “This pattern of embedding space corresponds to this semantic cluster.” “This token distribution minimizes loss when predicting text of this structure.”</p>
+<p>So rather than storing the text itself, it stores a high-dimensional probability field — a map of how likely each token is to follow the others based on everything it saw in training.</p>
+<p>Models already</p>
+<p>do not</p>
+<p>think in words.</p>
+<p>They think in:</p>
+<p>Dense latent vectors Distributed representation spaces Non-symbolic associative networks</p>
+<p>🧠 Why It</p>
+<p>Looks</p>
+<p>Like Memory</p>
+<p>Sometimes, when a phrase or passage occurs thousands or millions of times (like Bible verses, famous quotes, or public code snippets), the statistical pattern is so strong that it effectively collapses to a near-verbatim reproduction.</p>
+<p>It’s like a deep groove in the loss landscape — the model doesn’t remember it, it’s just so statistically probable that it “falls” into the same phrase again.</p>
+<p>That’s why:</p>
+<p>GPT can reproduce The Lord’s Prayer or E = mc² flawlessly. But if you alter the wording slightly (“Our data, who art in cloud…”), it adapts instantly — showing it never stored literal text, only relationships.</p>
+<p>⚙️ Why This Matters for Copyright</p>
+<p>Because it’s not a lookup table, it’s a generator of probable continuations.</p>
+<p>Even when outputs look copied, they’re being reconstructed fresh from the model’s internal distribution — mathematically, not by retrieval.</p>
+<p>That’s the core defense OpenAI and others use:</p>
+<p>“Our models don’t contain or reproduce works; they generate novel samples from learned probability distributions.”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/LLM-embeddings.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>LLM Embeddings</figcaption>
+</figure>
+</div>
+<p>When GPT-type models train, they don’t store sentences or paragraphs.</p>
+<p>They:</p>
+<p>Tokenize all text into numbers, Learn statistical relationships between those tokens, Compress those into weight matrices (~1–2 TB of floating-point numbers).</p>
+<p>No literal phrases or passages remain. The weights represent probabilities, not text.</p>
+<p>So what’s “in” the model is pattern information, not expressive content.</p>
+<p>→ Legally this looks more like reading every book in a library and learning English style, not photocopying the library.</p>
 <p>⸻</p>
 <p>Glossary {#glossary}</p>
 <p>Expert (E): one MLP block; MoE layer has many experts. Top-k routing: activate k experts per token. Capacity factor (α): max tokens/expert relative to uniform share. Overflow/drop: tokens exceeding capacity (Switch drops). Aux balance loss: regularizer to equalize expert usage. Expert parallel: distribute experts across ranks; route tokens all-to-all. A tile: is just a small rectangular chunk of data — a subset of the full Q, K, V matrices — that fits in fast GPU on-chip memory (SRAM) instead of the big slow global memory (HBM). 1. Context Window (Input + Output)</p>
