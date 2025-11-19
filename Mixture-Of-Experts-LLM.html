@@ -123,8 +123,8 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about-me.qmd"> 
-<span class="menu-text">About Me</span></a>
+    <a class="nav-link" href="./about-me.html"> 
+<span class="menu-text">about-me</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-state-of-the-art-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -252,6 +252,14 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./detecting-superintelligence.html">
  <span class="dropdown-text">detecting-superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Transfomer-notes-llm.html">
+ <span class="dropdown-text">Transfomer-notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Frink-thoery-of-scaling">
+ <span class="dropdown-text">Frink-thoery-of-scaling</span></a>
   </li>  
     </ul>
   </li>
@@ -897,6 +905,8 @@ MoE replaces dense MLPs with a <em>bank of experts</em> but activates only <stro
 </section>
 <section id="whats-really-stored-in-the-weights-whats-really-stored-in-the-weights" class="level2">
 <h2 class="anchored" data-anchor-id="whats-really-stored-in-the-weights-whats-really-stored-in-the-weights">What’s Really Stored in the Weights {#What’s-Really-Stored-in-the-Weights}</h2>
+<p>The model doesn’t store numbers, words, code, or DNA.</p>
+<p>It stores patterns of how these behave, as coordinates and transformation rules in latent space.</p>
 <p>🧩 What’s Really Stored in the Weights</p>
 <p>The model’s weights don’t contain English sentences, Python files, or LaTeX equations as strings of characters.</p>
 <p>They contain billions of numeric parameters that encode statistical associations between tokens — relationships like:</p>
@@ -914,11 +924,33 @@ MoE replaces dense MLPs with a <em>bank of experts</em> but activates only <stro
 <p>It’s like a deep groove in the loss landscape — the model doesn’t remember it, it’s just so statistically probable that it “falls” into the same phrase again.</p>
 <p>That’s why:</p>
 <p>GPT can reproduce The Lord’s Prayer or E = mc² flawlessly. But if you alter the wording slightly (“Our data, who art in cloud…”), it adapts instantly — showing it never stored literal text, only relationships.</p>
+<p>Each MoE Expert is not a “knowledge module.”</p>
+<p>It is more like:</p>
+<p>A directional field in a certain region of latent space.</p>
+<p>Meaning:</p>
+<p>Expert A is good at transforming code-like vectors Expert B is good at transforming emotional-language vectors Expert C is good at transforming logical entailment vectors etc.</p>
+<p>Not because they store code, emotions, or logic.</p>
+<p>But because:</p>
+<p>During training, vectors from those regions passed through them more often. So their weights adjusted to match that region’s transformation needs.</p>
 <p>⚙️ Why This Matters for Copyright</p>
 <p>Because it’s not a lookup table, it’s a generator of probable continuations.</p>
 <p>Even when outputs look copied, they’re being reconstructed fresh from the model’s internal distribution — mathematically, not by retrieval.</p>
 <p>That’s the core defense OpenAI and others use:</p>
 <p>“Our models don’t contain or reproduce works; they generate novel samples from learned probability distributions.”</p>
+<p>🔥 The key insight you were missing — now explicit:</p>
+<p>Transformations = moving token vectors through conceptual space to reflect deeper meaning, relationships, and reasoning context.</p>
+<p>The model doesn’t remember text.</p>
+<p>It evolves representations through repeated geometric transformations.</p>
+<p>🎯 So what do these</p>
+<p>transformations</p>
+<p>actually</p>
+<p>do</p>
+<p>to meaning?</p>
+<p>They:</p>
+<p>Pull related concepts closer Push incompatible meanings apart Rotate vectors into different semantic directions Compress multi-step reasoning traces into latent activation paths Form manifolds (continuous conceptual surfaces)</p>
+<p>This is why the model doesn’t “store facts” — it stores:</p>
+<p>Directions that correspond to semantic, logical, cultural, mathematical, or syntactic relationships.</p>
+<p>A direction in latent space is a concept or inference rule.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/LLM-embeddings.webp" class="img-fluid figure-img" width="750"></p>

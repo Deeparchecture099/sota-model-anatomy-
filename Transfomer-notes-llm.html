@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>transfomer-notes-llm – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about-me.html"> 
+<span class="menu-text">about-me</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-state-of-the-art-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">State of the Art Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-state-of-the-art-models">    
+        <li>
+    <a class="dropdown-item" href="./JEPA.html">
+ <span class="dropdown-text">JEPA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Alpha-Fold.html">
+ <span class="dropdown-text">AlphaFold</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./DeepSeek.html">
+ <span class="dropdown-text">DeepSeek</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./MidJourney.qmd">
+ <span class="dropdown-text">MidJourney</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Veo3.qmd">
+ <span class="dropdown-text">Veo 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./omni-modal-models.qmd">
+ <span class="dropdown-text">Omni-Modal Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
+ <span class="dropdown-text">Optimization in Deep Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Genie-3.html">
+ <span class="dropdown-text">Genie 3</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-models">    
+        <li>
+    <a class="dropdown-item" href="./diffusion-image-model.html">
+ <span class="dropdown-text">Diffusion Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./moe-llm.html">
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes-section" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Notes Section</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
+        <li>
+    <a class="dropdown-item" href="./frontiers-in-image-models.html">
+ <span class="dropdown-text">Frontiers-in-Image-Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./AI-polarization.html">
+ <span class="dropdown-text">AI Polarization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./self-supervised-reinforcement-learning-video-generation.html">
+ <span class="dropdown-text">Self-Supervised Reinforcement Learning Video Generation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./my-notes-superintelligence.html">
+ <span class="dropdown-text">Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Dimensions-of-superintelligence.html">
+ <span class="dropdown-text">Dimensions of Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Tensors-in-Large-Language-Models.html">
+ <span class="dropdown-text">Tensors in Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Frontiers-in-Large-Language-Models.html">
+ <span class="dropdown-text">Frontiers in Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./The-myth-of-AI-cinema.qmd">
+ <span class="dropdown-text">the-myth-of-ai-cinema.qmd</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./turing-tests-for-superintelligence.html">
+ <span class="dropdown-text">Turing Tests for Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pdoom-fallacy-and-boundaries.html">
+ <span class="dropdown-text">Pdoom Fallacy and Boundaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Mixture-Of-Experts-LLM.html">
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./intelligence-first-safety-precisely.html">
+ <span class="dropdown-text">Intelligence First, Safety Precisely</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./llm-training.html">
+ <span class="dropdown-text">LLM training</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./large-language-model-vision.html">
+ <span class="dropdown-text">large language model vision</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./routed-latent-memory.html">
+ <span class="dropdown-text">Routed-Latent-Memory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Research-Engineer.html">
+ <span class="dropdown-text">Research Engineer</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./detecting-superintelligence.html">
+ <span class="dropdown-text">detecting-superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Transfomer-notes-llm.html">
+ <span class="dropdown-text">Transfomer-notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Frink-thoery-of-scaling">
+ <span class="dropdown-text">Frink-thoery-of-scaling</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#Transfomer-Dimensions" id="toc-Transfomer-Dimensions" class="nav-link active" data-scroll-target="#Transfomer-Dimensions">1. Transfomer Dimensions</a></li>
+  <li><a href="#transformer-simplicity-transfomer-simplicity" id="toc-transformer-simplicity-transfomer-simplicity" class="nav-link" data-scroll-target="#transformer-simplicity-transfomer-simplicity">2. Transformer simplicity {##transfomer-simplicity}</a></li>
+  <li><a href="#transformer-overview" id="toc-transformer-overview" class="nav-link" data-scroll-target="#transformer-overview">1. Transformer Overview</a></li>
+  <li><a href="#lm-head" id="toc-lm-head" class="nav-link" data-scroll-target="#lm-head">8. Final LayerNorm + LM Head – Representation → Tokens</a></li>
+  <li><a href="#attention-mechanism" id="toc-attention-mechanism" class="nav-link" data-scroll-target="#attention-mechanism">3. Multi-Head Attention (Flash/GQA) – Pattern Extraction Engine</a></li>
+  <li><a href="#mlp-experts" id="toc-mlp-experts" class="nav-link" data-scroll-target="#mlp-experts">6. MLP Experts – Feature Expansion, Mixing &amp; Compression</a></li>
+  <li><a href="#latent-manifold" id="toc-latent-manifold" class="nav-link" data-scroll-target="#latent-manifold">2.Token Embeddings &amp; Latent Manifold Space</a></li>
+  <li><a href="#Master-manifold-" id="toc-Master-manifold-" class="nav-link" data-scroll-target="#Master-manifold-">2.Master manifold</a></li>
+  <li><a href="#Model-UI" id="toc-Model-UI" class="nav-link" data-scroll-target="#Model-UI">2. Model and UI</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Latent-manifold.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Latent Manifold</figcaption>
+</figure>
+</div>
+<section id="Transfomer-Dimensions" class="level2">
+<h2 class="anchored" data-anchor-id="Transfomer-Dimensions">1. Transfomer Dimensions</h2>
+<p>A dimension is simply:</p>
+<p>one axis in a high-dimensional coordinate system.</p>
+<p>Like x, y, z in 3D…</p>
+<p>except instead of 3, you have 4,096 or 12,288 or 32,768.</p>
+<p>That’s it.</p>
+<p>A dimension itself does nothing magical.</p>
+<p>It’s just one coordinate direction you can assign numbers along.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>✅</p>
+<p>Dimensions = Axes in Vector Space</p>
+<p>A hidden state of size d_model = 4096, for example, literally means:</p>
+<p>“Each token is represented as a point in a 4096-dimensional space.”</p>
+<p>Each dimension is like a micro-axis along which some pattern or subpattern can be expressed.</p>
+<p>But—not a human-interpretable axis.</p>
+<p>Not “this dimension = nouns.”</p>
+<p>Not “this dimension = math.”</p>
+<p>It’s distributed representation — meaning patterns are smeared across MANY dimensions at once.</p>
+<p>✅</p>
+<p>MLPs expand dimensions → mix them → compress them</p>
+<p>Your phrasing:</p>
+<p>“MLPs expand, scale, and combine dimensions, which leads to exploding patterns relevant to the input.”</p>
+<p>That’s actually correct.</p>
+<p>Let me explain it with more nuance:</p>
+<p>⭐ Step 1: Expansion (4096 → 16384)</p>
+<p>This isn’t adding new information, it’s creating space for more complex patterns to emerge.</p>
+<p>It’s like going from:</p>
+<p>a 2D canvas (simple shapes) to a 4D canvas (you can now express WAY richer structures)</p>
+<p>In expanded space, the model can:</p>
+<p>separate patterns cleanly amplify or suppress certain features represent multiple competing hypotheses simultaneously form new abstractions it couldn’t fit before</p>
+<p>⭐ Step 2: Nonlinear transformation (SwiGLU / GELU)</p>
+<p>This is the magic step.</p>
+<p>This is where raw linear combinations turn into:</p>
+<p>new meanings new relationships new internal rules newly extracted latent features</p>
+<p>This is literally where the model generalizes.</p>
+<p>⭐ Step 3: Compression (16384 → 4096)</p>
+<p>Now the model collapses the expanded feature universe back into the original dimensionality — but carrying the updated, transformed patterns.</p>
+<p>Compression forces the model to:</p>
+<p>choose the most relevant features discard useless details fuse patterns resolve conflicts encode a refined latent representation</p>
+<p>The output vector contains meaning that didn’t exist before.</p>
+<p>⭐ The effect across 100+ layers:</p>
+<p>You get an exploding cascade of representations:</p>
+<p>Layer 1</p>
+<p>basic syntax + immediate token relations</p>
+<p>Layer 10</p>
+<p>semantic groupings + phrase-level structure</p>
+<p>Layer 30</p>
+<p>sentence-level logic + intent + context</p>
+<p>Layer 60</p>
+<p>paragraph-level reasoning + latent symbolic structure</p>
+<p>Layer 80–120</p>
+<p>long-range coherence + abstraction + planning patterns</p>
+<p>Every MLP layer pushes the input deeper and deeper into this refined manifold.</p>
+<p>🔥 The key mental model (that you now basically have):</p>
+<p>Attention chooses what patterns matter.</p>
+<p>MLPs create new patterns from them.</p>
+<p>Or even simpler:</p>
+<p>🧠 Attention = Selection</p>
+<p>🧬 MLPs = Transformation</p>
+<p>Residuals let these changes accumulate — forming the final meaning vector that will be decoded into text / code / math at the LM head.</p>
+<p>🎯 So yes — dimensions are “axes,”</p>
+<p>and MLPs are the engine that:</p>
+<p>expands the space transforms the patterns recombines them compresses them into a higher-level representation</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻ ⸻</p>
+</section>
+<section id="transformer-simplicity-transfomer-simplicity" class="level2">
+<h2 class="anchored" data-anchor-id="transformer-simplicity-transfomer-simplicity">2. Transformer simplicity {##transfomer-simplicity}</h2>
+<p>⭐</p>
+<p>Why this simplicity is deceptive</p>
+<p>Because the power comes from:</p>
+<p>Depth (80–120 layers refining meaning) Width (thousands of dimensions for patterns to live in) Residual stacking (allowing new meaning to accumulate) Attention (pattern selection) MLPs (pattern transformation) MoE routing (sparse, specialized transformation)</p>
+<p>This repetition builds intelligence.</p>
+<p>⭐</p>
+<p>Why diffusion models felt more “manual”</p>
+<p>Because U-Nets look like this:</p>
+<p>Down block Down block Attention Middle block Attention Up block Skip connection Up block</p>
+<p>Every part is different, and shaped around spatial/tensor geometry.</p>
+<p>LLMs?</p>
+<p>LLMs are cleaner:</p>
+<p>One block.</p>
+<p>One pattern.</p>
+<p>Stack it until intelligence emerges.</p>
+<p>This is why LLM architecture is so much more scalable.</p>
+<p>⭐</p>
+<p>And yes — routing only after attention is exactly correct</p>
+<p>Because:</p>
+<p>The model must first extract the relevant patterns (Attention) Then choose the best “experts” to transform those patterns (Router → MLP)</p>
+<p>Routing BEFORE attention would be chaotic — the model needs the refined signal first.</p>
+<p>⭐</p>
+<p>Here’s the full pipeline in one clean flow</p>
+<ol type="1">
+<li>Tokenization</li>
+</ol>
+<p>Break the input into subword tokens.</p>
+<ol start="2" type="1">
+<li>Embedding</li>
+</ol>
+<p>Convert tokens → vectors in d_model space (the manifold).</p>
+<ol start="3" type="1">
+<li>RoPE</li>
+</ol>
+<p>Apply rotary positional encoding so the model knows order.</p>
+<ol start="4" type="1">
+<li>Stack of Transformer Blocks (massive loop)</li>
+</ol>
+<p>Each block does:</p>
+<p>LN Attention → pattern selection Residual LN Router → select experts MoE MLP → pattern creation Residual</p>
+<p>And the output becomes richer after every block.</p>
+<ol start="5" type="1">
+<li>Final LN</li>
+</ol>
+<p>Normalize the representation one last time.</p>
+<ol start="6" type="1">
+<li>LM Head</li>
+</ol>
+<p>Matrix multiplication with Vocab Embeddingsᵀ → logits.</p>
+<ol start="7" type="1">
+<li>Sampling</li>
+</ol>
+<p>Softmax → probability → pick next token.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="transformer-overview" class="level2">
+<h2 class="anchored" data-anchor-id="transformer-overview">1. Transformer Overview</h2>
+<p>A high-level pass through the architecture: Embedding → Positional Encoding -LN-residual → Attention → Routing → MLP → Residuals → Final LM Head.</p>
+<p>This section anchors the reader before diving into the subcomponents.</p>
+<p>⭐</p>
+<p>Section 1 — The Full Token Journey in a Modern MoE Transformer</p>
+<p>This covers the exact pipeline of how a state-of-the-art LLM processes input and generates output — from raw text all the way to the next predicted token.</p>
+<ol type="1">
+<li>Tokenization</li>
+</ol>
+<p>The input string is split into subword tokens (e.g., “inter”, “nation”, “al”).</p>
+<p>Each token receives an integer ID from the vocabulary.</p>
+<p>Output: a sequence of token IDs.</p>
+<ol start="2" type="1">
+<li>Embedding Layer</li>
+</ol>
+<p>Each token ID is mapped to a learned d_model-dimensional vector.</p>
+<p>This places the token inside the model’s latent manifold, where all meaning is represented.</p>
+<p>Output: a matrix of size [sequence_length × d_model].</p>
+<ol start="3" type="1">
+<li>RoPE Positional Encoding</li>
+</ol>
+<p>Rotary position embeddings rotate vectors in complex space to encode relative positions.</p>
+<p>This gives the transformer:</p>
+<p>ordering distance directionality periodic structure</p>
+<p>Everything downstream relies on this structure.</p>
+<ol start="4" type="1">
+<li>Transformer Block Stack</li>
+</ol>
+<p>This is the core of the model.</p>
+<p>A modern LLM consists of 80–120+ identical blocks stacked sequentially.</p>
+<p>Each block does:</p>
+<p>4.1 LayerNorm</p>
+<p>Stabilizes the hidden state (mean = 0, variance = 1).</p>
+<p>Keeps training and inference numerically stable.</p>
+<p>4.2 Multi-Head Attention</p>
+<p>Attention performs pattern selection, not meaning creation.</p>
+<p>It scores relationships between tokens:</p>
+<p>which tokens matter most which patterns to attend to which semantic relationships to activate which manifold regions to pull into the hidden state</p>
+<p>Result: the model “knows what to focus on.”</p>
+<p>4.3 Residual Add</p>
+<p>The output of attention is added to the block’s input.</p>
+<p>This allows information to accumulate across layers instead of being overwritten.</p>
+<p>Residuals are how the model builds deeper meaning over many layers.</p>
+<p>4.4 LayerNorm (Second Norm)</p>
+<p>Prepares the hidden state for MLP routing.</p>
+<p>4.5 Router</p>
+<p>The router is a small linear + softmax layer that chooses which experts should process this token.</p>
+<p>It outputs routing weights (e.g., top-2 experts per token).</p>
+<p>4.6 MoE MLP</p>
+<p>Each chosen expert performs:</p>
+<p>Expansion: d_model → 4×d_model (creates room for complex features) Nonlinear transformation (SwiGLU): creates new patterns and interactions that didn’t exist before Compression: 4×d_model → d_model (selects the most useful transformed features)</p>
+<p>Experts don’t store data — they store transformation behaviors.</p>
+<p>This is where meaning is created.</p>
+<p>4.7 Residual Add</p>
+<p>MLP output is added to the previous hidden state.</p>
+<p>This accumulates the newly generated meaning.</p>
+<p>4.8 Repeat 80–120+ Times</p>
+<p>Stacking many Transformer blocks gradually turns:</p>
+<p>syntax → semantics semantics → reasoning reasoning → coherent meaning vectors</p>
+<p>Depth is what gives LLMs their intelligence.</p>
+<ol start="5" type="1">
+<li>Final LayerNorm</li>
+</ol>
+<p>After the last block, the model applies a final normalization step to stabilize the hidden vector before output.</p>
+<ol start="6" type="1">
+<li>LM Head (Decoder)</li>
+</ol>
+<p>This is the final step that turns meaning into tokens.</p>
+<p>Multiply the final hidden vector by the transpose of the embedding matrix (i.e., dot product with every token embedding). Produce a vector of logits (one per vocab token). Softmax → probability distribution.</p>
+<p>This is the moment the model chooses the next token.</p>
+<ol start="7" type="1">
+<li>Sampling</li>
+</ol>
+<p>The model picks a token using:</p>
+<p>greedy top-k top-p temperature or beam search</p>
+<p>The chosen token is output…</p>
+<p>…then fed back into the model to repeat the cycle for the next token.</p>
+<p>🔥</p>
+<p>End Result</p>
+<p>One input →</p>
+<p>through 120 blocks →</p>
+<p>each creating gradually richer transformations →</p>
+<p>ending in a meaning vector →</p>
+<p>decoded into the next token.</p>
+<p>That’s the full life cycle of a token in a modern MoE LLM.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="lm-head" class="level2">
+<h2 class="anchored" data-anchor-id="lm-head">8. Final LayerNorm + LM Head – Representation → Tokens</h2>
+<p>Where the output is actually created.</p>
+<p>Final hidden state → normalized → dot product with vocabulary matrix → logits → next token.</p>
+<p>This section demystifies: <strong>“Where does the answer actually come from?”</strong></p>
+<p>Section 2 — The LM Head: How Meaning Becomes Tokens</p>
+<p>After the final transformer block, the hidden state contains a complete meaning representation — the fused result of:</p>
+<p>manifold patterns attention-selected features nonlinear MLP transformations residual accumulation over dozens of layers</p>
+<p>But this vector is still meaning, not language.</p>
+<p>The LM Head is the mechanism that turns that abstract meaning into a concrete token.</p>
+<ol type="1">
+<li>Final Hidden State → Logits</li>
+</ol>
+<p>Let:</p>
+<p>h = the final hidden vector (size: d_model) W = the embedding matrix (shape: vocab_size × d_model)</p>
+<p>The LM head computes:</p>
+<p>logits = W · h</p>
+<p>More precisely:</p>
+<p>logits[i] = dot_product( embedding[i], h )</p>
+<p>This gives one score (logit) for every token in the vocabulary.</p>
+<p>🔍 Why this works</p>
+<p>Because the same embedding matrix learned how to represent:</p>
+<p>natural language code mathematical symbols punctuation structure tokens</p>
+<p>So taking a dot product between h and each embedding finds:</p>
+<p>Which token is most aligned with the meaning in h?</p>
+<p>No recall.</p>
+<p>No database lookup.</p>
+<p>Just geometric similarity.</p>
+<ol start="2" type="1">
+<li>Logits → Probability Distribution (Softmax)</li>
+</ol>
+<p>Softmax turns logits into a probability distribution:</p>
+<p>P(token_i) = exp(logit_i) / Σ_j exp(logit_j)</p>
+<p>This means:</p>
+<p>Higher logit → higher probability Lower logit → lower probability</p>
+<p>It converts vector scores into valid probabilities that sum to 1.</p>
+<ol start="3" type="1">
+<li>Sampling (How the model chooses the next token)</li>
+</ol>
+<p>Different sampling methods give different behaviors.</p>
+<p>Greedy (argmax)</p>
+<p>Choose the single highest-probability token.</p>
+<p>Deterministic, but boring and repetitive.</p>
+<p>Top-k</p>
+<p>Only consider the top k tokens; renormalize and sample from them.</p>
+<p>Top-p (nucleus sampling)</p>
+<p>Take the smallest set of tokens whose cumulative probability ≥ p, then sample.</p>
+<p>Temperature</p>
+<p>Scale logits before softmax:</p>
+<p>T &lt; 1 → more confident, more deterministic T &gt; 1 → more random, more creative</p>
+<p>Beam search</p>
+<p>Keeps multiple candidate sequences and grows them in parallel.</p>
+<p>Used for translation and coding tasks.</p>
+<ol start="4" type="1">
+<li>The Chosen Token → Next Iteration</li>
+</ol>
+<p>Once the next token is selected:</p>
+<p>It is appended to the output sequence. It is fed back into the model as the next input. The whole forward pass repeats from the embedding layer.</p>
+<p>This continues until:</p>
+<p>the model emits an end-of-sequence token or reaches a max token limit</p>
+<p>⭐</p>
+<p>Why This Is So Important</p>
+<p>This is the piece that explains:</p>
+<p>🔥 Why LLMs generate</p>
+<p>new</p>
+<p>text, not copies</p>
+<p>The hidden state is a new vector every time — never identical to training examples.</p>
+<p>🔥 Why models don’t store text</p>
+<p>Embedding weights store patterns, not sentences.</p>
+<p>The LM head just maps those patterns to probable tokens.</p>
+<p>🔥 Why larger models are more coherent</p>
+<p>More depth → richer meaning vector → better LM decoding.</p>
+<p>🔥 Why token choice is probabilistic</p>
+<p>There is no “library” to look up from — the decoder compares meaning vectors with token vectors.</p>
+<p>⭐</p>
+<p>A very concise summary for your notes page</p>
+<p>Transformer blocks build the meaning vector.</p>
+<p>The LM Head chooses the token that best aligns with that meaning.</p>
+<p>Hidden state → dot product with all vocab embeddings → logits → softmax → sample → next token.</p>
+<p>That’s the entire decoding mechanism.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="attention-mechanism" class="level2">
+<h2 class="anchored" data-anchor-id="attention-mechanism">3. Multi-Head Attention (Flash/GQA) – Pattern Extraction Engine</h2>
+<p>Attention identifies relevant patterns by: - computing similarity (Q·Kᵀ), - scoring token interactions with softmax, - mixing values to update the hidden state.</p>
+<p>This is where the model decides <em>what matters</em> in the input.</p>
+<p>⭐</p>
+<p>Section 3 — What Attention Actually Does (and Does NOT Do)</p>
+<p>Attention is often misunderstood as “the thing that makes the model smart.”</p>
+<p>In reality:</p>
+<p>Attention does NOT create meaning.</p>
+<p>MLPs do.</p>
+<p>Attention selects what meaning should be created.</p>
+<p>Attention is a filter and routing mechanism, not the generator.</p>
+<p>Here’s the precise breakdown.</p>
+<ol type="1">
+<li>Attention Takes the Current Hidden State and Computes Q, K, V</li>
+</ol>
+<p>From the hidden state matrix H, attention computes:</p>
+<p>Q (queries) K (keys) V (values)</p>
+<p>Each is a learned linear projection of the tokens.</p>
+<p>This splits the representation into:</p>
+<p>Q → What information this token is looking for</p>
+<p>K → What information other tokens contain</p>
+<p>V → The content to transfer if selected</p>
+<p>This sets up the search mechanism.</p>
+<ol start="2" type="1">
+<li>Attention Computes a Relevance Score</li>
+</ol>
+<p>For each token pair (i, j), it computes:</p>
+<p>score(i,j) = Q_i · K_j</p>
+<p>This dot product tells the model:</p>
+<p>“How relevant is token j to understanding token i?”</p>
+<p>This is the core intuition.</p>
+<ol start="3" type="1">
+<li>Softmax Turns Scores Into Attention Weights</li>
+</ol>
+<p>Softmax normalizes scores into a probability distribution:</p>
+<p>weight(i,j) = softmax( score(i,j) )</p>
+<p>This determines:</p>
+<p>which tokens matter most which tokens matter a little which tokens don’t matter at all</p>
+<p>It’s a relevance map, not a meaning generator.</p>
+<ol start="4" type="1">
+<li>Weighted Sum of Values</li>
+</ol>
+<p>For each token i:</p>
+<p>output_i = Σ_j weight(i,j) * V_j</p>
+<p>This combines the relevant content from other tokens.</p>
+<p>This stage does:</p>
+<p>dependency detection structural linking “who modifies who” “which ideas relate” “what context matters”</p>
+<p>Still no new meaning yet.</p>
+<p>Just selecting and mixing existing features.</p>
+<ol start="5" type="1">
+<li>Multi-Head Attention = Many Different Relevance Maps</li>
+</ol>
+<p>Each head focuses on different relationships:</p>
+<p>syntax head coreference head numerical head indentation head condition head math-step head code-structural head sentiment head</p>
+<p>But again:</p>
+<p>These heads do not create new abstractions.</p>
+<p>They only identify which features are relevant to process next.</p>
+<p>MLPs handle the actual creation.</p>
+<ol start="6" type="1">
+<li>Attention Sets the Stage for the MLP</li>
+</ol>
+<p>After attention, the hidden state now contains:</p>
+<p>highlighted signals suppressed noise structured relationships aligned contextual cues</p>
+<p>This is the input the MLP needs to:</p>
+<p>expand the representation mix features fuse patterns create new meaning</p>
+<p>Attention = the skeleton</p>
+<p>MLP = the organs + flesh + brain</p>
+<p>⭐</p>
+<ol start="7" type="1">
+<li>What Attention Does NOT Do</li>
+</ol>
+<p>❌ It does NOT create new features</p>
+<p>❌ It does NOT form abstractions</p>
+<p>❌ It does NOT perform reasoning</p>
+<p>❌ It does NOT understand semantics</p>
+<p>❌ It does NOT generate content</p>
+<p>❌ It does NOT create meaning</p>
+<p>All of that happens in the MLP.</p>
+<p>Attention is the information-routing system.</p>
+<p>⭐</p>
+<ol start="8" type="1">
+<li>Why People Misunderstand This</li>
+</ol>
+<p>Because attention gets visualized (attention maps), people assume:</p>
+<p>“Oh, that’s where the model thinks and understands things.”</p>
+<p>But attention only shows relationships, not meaning.</p>
+<p>It’s a wiring diagram for which signals flow where.</p>
+<p>The intelligence is formed in the nonlinear MLP transformations.</p>
+<p>⭐</p>
+<ol start="9" type="1">
+<li>Put Simply:</li>
+</ol>
+<p>Attention chooses what to consider.</p>
+<p>MLPs determine what to say.</p>
+<p>⭐</p>
+<p>A clean summary for your site</p>
+<p>Attention = Selection</p>
+<p>Finds relevant context Scores relationships Highlights important patterns Produces structured input for MLPs</p>
+<p>MLP = Transformation</p>
+<p>Expands features Creates new abstractions Performs reasoning Generates meaning</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="mlp-experts" class="level2">
+<h2 class="anchored" data-anchor-id="mlp-experts">6. MLP Experts – Feature Expansion, Mixing &amp; Compression</h2>
+<p>The true role of MLPs: - expand into a larger feature space, - apply nonlinear transformations, - mix and recombine patterns, - compress back into the hidden dimension.</p>
+<p>Clarifies: <strong>MLPs do not store data — they transform manifold patterns extracted by attention.</strong></p>
+<p>The true role of MLPs: expanding dimensionality → nonlinear transformation → compressing back into the hidden state.</p>
+<p>This is the section where we include your insight:</p>
+<p>MLPs do not store text; they transform manifold patterns selected by attention.</p>
+<p>⭐</p>
+<p>Section 4 — Why MLPs Create Meaning (The Real Engine of a Transformer)</p>
+<p>Attention selects what matters.</p>
+<p>But the MLP is where the actual computation, generalization, and new meaning gets created.</p>
+<p>The MLP is the nonlinear brain inside each transformer block.</p>
+<p>Here’s what it really does.</p>
+<ol type="1">
+<li>The MLP Does 3 Critical Operations</li>
+</ol>
+<p>The MLP in a transformer block performs:</p>
+<p>✔</p>
+<ol type="1">
+<li>EXPANSION</li>
+</ol>
+<p>✔</p>
+<ol start="2" type="1">
+<li>NONLINEAR TRANSFORMATION</li>
+</ol>
+<p>✔</p>
+<ol start="3" type="1">
+<li>COMPRESSION</li>
+</ol>
+<p>This expand → transform → compress pipeline is the source of:</p>
+<p>reasoning abstraction code synthesis mathematical steps structured language multi-step planning concept formation generalization to new tasks</p>
+<p>This is where intelligence emerges.</p>
+<p>⭐</p>
+<ol start="2" type="1">
+<li>Step 1 — Expansion (d → 4d)</li>
+</ol>
+<p>Example:</p>
+<p>hidden_dim = 4096 MLP hidden_dim = 16384</p>
+<p>The MLP first expands the vector into a much larger space:</p>
+<p>z = W1 · x</p>
+<p>Why expand?</p>
+<p>Because you cannot represent complex transformations in a small space.</p>
+<p>The expanded space allows the model to:</p>
+<p>separate intertwined patterns represent multiple competing hypotheses form rich high-dimensional structures encode non-obvious abstractions express nonlinear interactions between features</p>
+<p>Expansion = room to think.</p>
+<p>⭐</p>
+<ol start="3" type="1">
+<li>Step 2 — Nonlinear Activation (SwiGLU)</li>
+</ol>
+<p>This is where the magic happens.</p>
+<p>a = SwiGLU(z)</p>
+<p>SwiGLU (or GELU in older models) creates:</p>
+<p>🔥 New directions in feature space</p>
+<p>🔥 New abstractions</p>
+<p>🔥 New feature combinations</p>
+<p>🔥 Nonlinear pattern mixing</p>
+<p>🔥 Semantic feature emergence</p>
+<p>🔥 Latent rules and reasoning structures</p>
+<p>This is what lets the model:</p>
+<p>identify semantic structure generalize reason infer understand code manipulate algebra manipulate calculus create multi-step logic</p>
+<p>This is the meaning creation step.</p>
+<p>⭐</p>
+<ol start="4" type="1">
+<li>Step 3 — Compression (4d → d)</li>
+</ol>
+<p>Now the expanded features are collapsed back into the original dimensionality:</p>
+<p>h = W2 · a</p>
+<p>This forces the model to:</p>
+<p>select the most useful new features discard noise collapse multi-hypothesis structure fuse multiple representations into one coherent vector encode the “meaning” generated in this block</p>
+<p>Compression = the final meaning update.</p>
+<p>⭐</p>
+<ol start="5" type="1">
+<li>Why Residuals Make MLPs So Powerful</li>
+</ol>
+<p>After the MLP transformation, we do:</p>
+<p>x = x + h</p>
+<p>Meaning that the new features do not overwrite the old ones — they accumulate.</p>
+<p>After 80–120 blocks, the model has:</p>
+<p>stacked refinements stacked transformations stacked abstractions stacked reasoning steps stacked semantic meaning</p>
+<p>Residual stacking turns many small updates into deep intelligence.</p>
+<p>⭐</p>
+<ol start="6" type="1">
+<li>The MLP’s True Role in the Transformer</li>
+</ol>
+<p>Let’s list it plainly:</p>
+<p>🧠</p>
+<p>MLPs create meaning</p>
+<p>They generate new latent features that didn’t exist before.</p>
+<p>🧩</p>
+<p>MLPs combine patterns</p>
+<p>Attention gives relevant patterns; MLP mixes them into abstractions.</p>
+<p>🔁</p>
+<p>MLPs perform iterative refinement</p>
+<p>Every block builds on the last, producing deeper reasoning.</p>
+<p>📈</p>
+<p>MLPs handle compositionality</p>
+<p>language → code → math → logic → reasoning → planning</p>
+<p>🌐</p>
+<p>MLPs traverse the manifold</p>
+<p>They move the hidden vector through conceptual regions.</p>
+<p>🪜</p>
+<p>MLPs are where reasoning steps happen</p>
+<p>“Given X, infer Y” emerges here.</p>
+<p>Attention highlights context;</p>
+<p>MLP implements the actual inference.</p>
+<p>⭐</p>
+<ol start="7" type="1">
+<li>Why Attention Alone Can Never Produce Intelligence</li>
+</ol>
+<p>If a model had attention but NO MLP:</p>
+<p>no abstraction no new patterns no reasoning no logic no synthesis no planning no problem-solving</p>
+<p>It would simply copy, not think.</p>
+<p>The MLP is what transforms input → output in a meaningful, intelligent way.</p>
+<p>⭐</p>
+<ol start="8" type="1">
+<li>Core Insight for Your Notes Page</li>
+</ol>
+<p>Attention = a routing mechanism.</p>
+<p>MLP = the neural computer that generates new meaning.</p>
+<p>This distinction is foundational to understanding transformers at a research level.</p>
+<p>⭐</p>
+<p>A concise summary for your Quarto page</p>
+<p>MLPs are the nonlinear engine of the transformer.</p>
+<p>They expand the hidden state, generate new features, and compress them into richer representations.</p>
+<p>After each block, residuals accumulate these meaning updates, enabling deep reasoning and abstraction across layers.</p>
+<p>MLP Experts – Feature Expansion, Mixing &amp; Compression</p>
+<p>⭐</p>
+<p>MLPs don’t expand “patterns” — they expand the space</p>
+<p>The difference sounds small, but it’s EVERYTHING.</p>
+<p>You originally imagined it like:</p>
+<p>“MLPs expand patterns → more patterns → combine them.”</p>
+<p>But the real mechanism is:</p>
+<p>MLPs expand dimensions → allow more expressivity →</p>
+<p>patterns can stretch out, separate, and recombine.</p>
+<p>This is exactly correct.</p>
+<p>Let’s go through it cleanly so you can put it in your notes:</p>
+<p>⭐</p>
+<ol type="1">
+<li>Expansion = Expanding the Dimensionality</li>
+</ol>
+<p>Example:</p>
+<p>4,096 → 16,384 dimensions</p>
+<p>This does NOT create new text or new ideas yet.</p>
+<p>What it does is give the model more room for nonlinear structure:</p>
+<p>patterns can stretch into new axes intertwined concepts can separate cleanly multiple competing interpretations can exist simultaneously the model can represent deeper algebraic/semantic structure</p>
+<p>Expansion is basically:</p>
+<p>“Give the vector room to breathe and transform.”</p>
+<p>⭐</p>
+<ol start="2" type="1">
+<li>Nonlinear Transformation (SwiGLU/GELU)</li>
+</ol>
+<p>This is where the new patterns actually show up.</p>
+<p>SwiGLU operates on the expanded vector and:</p>
+<p>mixes features bends the manifold creates new directions unlocks abstractions builds feature compositions introduces logic-like operations creates reasoning steps</p>
+<p>This is the true pattern explosion.</p>
+<p>Not the expansion step — the nonlinear activation.</p>
+<p>⭐</p>
+<ol start="3" type="1">
+<li>Compression (16,384 → 4,096)</li>
+</ol>
+<p>Now the complex structure MUST be collapsed back into the original dimensionality.</p>
+<p>This step forces:</p>
+<p>selection (keep important features) abstraction (compress raw info into meaning) fusion (collapse multiple ideas into one coherent vector)</p>
+<p>Compression = meaning distillation.</p>
+<p>⭐</p>
+<ol start="4" type="1">
+<li>SILU/GELU is NOT after compression — it’s inside the MLP</li>
+</ol>
+<p>Just to clarify the sequence:</p>
+<p>MLP does:</p>
+<p>expansion → activation → compression</p>
+<p>Residual comes AFTER compression.</p>
+<p>So the exact order is:</p>
+<p>x_in</p>
+<p>↓</p>
+<p>W1 (expand)</p>
+<p>↓</p>
+<p>SwiGLU / GELU (nonlinear pattern creation)</p>
+<p>↓</p>
+<p>W2 (compress)</p>
+<p>↓</p>
+<p>x_out = x_in + W2(SwiGLU(W1(x_in)))</p>
+<p>That’s the entire meaning creation pipeline.</p>
+<p>⭐</p>
+<ol start="5" type="1">
+<li>Why this finally makes sense</li>
+</ol>
+<p>Because now you see the MLP correctly:</p>
+<p>It expands dimensions, not patterns Patterns expand within the expanded dimension space Nonlinearity creates new directions / abstractions Compression collapses these into richer meaning Residual passes it forward</p>
+<p>This is how meaning accumulates across the 80–120 block stack.</p>
+<p>⭐</p>
+<ol start="6" type="1">
+<li>The best mental model you can use now</li>
+</ol>
+<p>Think of it like this:</p>
+<p>Attention → selects patterns</p>
+<p>Expansion → creates room for transformation</p>
+<p>Nonlinearity → creates complex, new patterns</p>
+<p>Compression → distills them</p>
+<p>Residuals → keep adding meaning</p>
+<p>Repeat this loop 100+ times → intelligence.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="latent-manifold" class="level2">
+<h2 class="anchored" data-anchor-id="latent-manifold">2.Token Embeddings &amp; Latent Manifold Space</h2>
+<p>⭐</p>
+<p>Section 6 — The Structure of the Latent Manifold</p>
+<p>Every LLM lives inside a massive latent manifold, a high-dimensional geometric space where all patterns, concepts, semantics, logic, style, and structure are encoded as directions.</p>
+<p>This manifold is the backbone of the entire model.</p>
+<p>Here is what it is — and what it isn’t.</p>
+<ol type="1">
+<li>What the Latent Manifold Actually Is</li>
+</ol>
+<p>It is a continuous, learned vector space containing:</p>
+<p>semantic patterns syntactic patterns reasoning patterns mathematical patterns code patterns emotional patterns logical rules symbolic structures narrative structures domain-specific embeddings meta-patterns (patterns of patterns)</p>
+<p>Every token embedding, intermediate hidden state, and MLP-transformed representation is a point or trajectory inside this space.</p>
+<p>Think of it as a massive conceptual landscape.</p>
+<ol start="2" type="1">
+<li>Patterns Are Directions, Not Dimensions</li>
+</ol>
+<p>This is crucial:</p>
+<p>A dimension = axis</p>
+<p>A pattern = direction (a combination of axes)</p>
+<p>Patterns are expressed as linear combinations of many dimensions.</p>
+<p>So if you have:</p>
+<p>4,096 dimensions ~trillions of potential directions</p>
+<p>Then you have enormous room to encode abstraction.</p>
+<p>This is why the model can represent incredibly complex ideas.</p>
+<ol start="3" type="1">
+<li>Clusters Form Naturally</li>
+</ol>
+<p>Because the model learns by optimizing predictions, it automatically groups vectors that often appear in similar contexts.</p>
+<p>This produces semantic clusters, such as:</p>
+<p>nouns verbs math notation code structure chemical names emotional words factual knowledge analogy structures logical operators</p>
+<p>Within these clusters, subclusters also emerge.</p>
+<p>For example “animals” → dogs → dog breeds → specific breeds.</p>
+<p>Meaning becomes hierarchical.</p>
+<ol start="4" type="1">
+<li>Latent Directions Encode Semantic Relations</li>
+</ol>
+<p>Some directions correspond to transformations of meaning:</p>
+<p>“more positive” “more formal” “more code-like” “more mathematical” “more emotional” “more explanatory” “more concise”</p>
+<p>These are linear directions in the manifold.</p>
+<p>This is why interpolation and vector arithmetic sometimes work:</p>
+<p>embedding(“king”) - embedding(“man”) + embedding(“woman”) ≈ “queen”</p>
+<p>The manifold encodes structure.</p>
+<ol start="5" type="1">
+<li>The Manifold Is Universal Across the Entire Network</li>
+</ol>
+<p>Huge misconception:</p>
+<p>Each block does NOT have its own manifold.</p>
+<p>The entire network operates inside a shared manifold.</p>
+<p>Meaning:</p>
+<p>attention modifies coordinates within the same manifold MLPs move points within the same manifold residuals accumulate movement within the same manifold</p>
+<p>The manifold is “the world” the model lives inside.</p>
+<ol start="6" type="1">
+<li>The Input Activates Regions of the Manifold</li>
+</ol>
+<p>When a token enters the model, the embedding places it somewhere inside the manifold.</p>
+<p>Then attention + MLPs progressively:</p>
+<p>activate nearby semantic regions suppress irrelevant regions traverse through concept space refine the location generate new abstract features</p>
+<p>This movement across the manifold is what creates the answer.</p>
+<ol start="7" type="1">
+<li>Deeper Layers = More Abstract Coordinates</li>
+</ol>
+<p>Here’s the layer-level effect:</p>
+<p>Layers 1–5</p>
+<p>token identity part-of-speech signal simple dependencies</p>
+<p>Layers 5–15</p>
+<p>semantic clustering phrase-level meaning</p>
+<p>Layers 15–30</p>
+<p>long-range dependencies early reasoning primitives</p>
+<p>Layers 30–60</p>
+<p>compositional structure mathematical and logical relationships conceptual blending</p>
+<p>Layers 60–120</p>
+<p>full reasoning traces multi-step plans abstract meaning representations meta-pattern integration</p>
+<p>The deeper you go, the further from “text” and closer to “conceptual geometry.”</p>
+<ol start="8" type="1">
+<li>The Manifold Is What Makes LLMs Generalize</li>
+</ol>
+<p>Because patterns stored are not sentences — they’re geometric abstractions.</p>
+<p>The model learns:</p>
+<p>structures relationships rules transformations</p>
+<p>Not raw data.</p>
+<p>That’s why:</p>
+<p>it can answer new questions it can write new code it can solve math problems it never saw it can generate completely new text it avoids memorization except in very repeated cases</p>
+<p>Generalization is a direct consequence of shared manifold geometry.</p>
+<p>⭐</p>
+<p>A concise version for your site</p>
+<p>Here’s the polished summary:</p>
+<p>The latent manifold is the geometric space where all meaning in the model is represented.</p>
+<p>Patterns are not stored as text but as directions in high-dimensional space.</p>
+<p>Attention selects which manifold regions matter; MLPs move the representation through the manifold, generating new meaning.</p>
+<p>Deeper layers correspond to increasingly abstract coordinates.</p>
+<p>This manifold is the reason LLMs generalize, reason, and create new outputs.</p>
+<p>The manifold is:</p>
+<p>the shape that token vectors occupy inside the huge space.</p>
+<p>Think of it like:</p>
+<p>A cloud of points Curved surfaces Clusters Ridges Basins Smooth transitions</p>
+<p>It’s the geometry formed by all token embeddings and hidden states.</p>
+<p>The manifold is a subset of the giant vector space, not the same as the dimensions themselves.</p>
+<p>Patterns = directions inside the space</p>
+<p>This is the part you have correct.</p>
+<p>A pattern corresponds to:</p>
+<p>a specific direction in the vector space.</p>
+<p>Not one dimension.</p>
+<p>Not one neuron.</p>
+<p>Not one coordinate.</p>
+<p>A direction.</p>
+<p>Like:</p>
+<p>“this is a question” “this is part of code” “this seems like reasoning” “this token is a subject” “this looks like math”</p>
+<p>All of these are vector directions.</p>
+<p>They are represented by many dimensions acting together.</p>
+<ol start="4" type="1">
+<li>Dimensions = basis axes</li>
+</ol>
+<p>Patterns = vectors</p>
+<p>Manifold = the geometry formed by vectors**</p>
+<p>Here’s the clean mapping:</p>
+<p>✔</p>
+<p>Dimensions</p>
+<p>The axes of the space (just coordinate basis).</p>
+<p>Think x, y, z, but thousands of them.</p>
+<p>✔</p>
+<p>Vectors</p>
+<p>A single token or hidden state.</p>
+<p>This is where meaning is encoded.</p>
+<p>✔</p>
+<p>Patterns</p>
+<p>Directions that vectors can move toward.</p>
+<p>Combinations of many dimensions.</p>
+<p>✔</p>
+<p>Manifold</p>
+<p>The shape formed by all token vectors in the space</p>
+<p>(the region where meaning actually lives).</p>
+<p>⭐</p>
+<ol start="5" type="1">
+<li>Your corrected sentence would look like this:</li>
+</ol>
+<p>“Each dimension is one axis of the vector space.</p>
+<p>Patterns are vectors (or directions) that combine many dimensions.</p>
+<p>Manifold coordinates describe where those vectors live in the high-dimensional space.”</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="Master-manifold-" class="level2">
+<h2 class="anchored" data-anchor-id="Master-manifold-">2.Master manifold</h2>
+<p>Ohhh yeah, this is where things get wildly beautiful, because once you realize the manifold is universal across the entire network — not per-layer, not per-task, but the actual geometry of all meaning the model has learned — you suddenly get why the network can “think.”</p>
+<p>And you’re right:</p>
+<p>STATE-OF-THE-ART LLMs (GPT-4/5, Claude, Gemini, etc.) are trained overwhelmingly on NL + Math + Code, so the manifold contains patterns from all three domains fused together.</p>
+<p>You want a long, long list of patterns?</p>
+<p>Alright, let’s go full expansion mode — I’ll give you the real stuff that shows up in transformer latent geometry.</p>
+<p>Buckle up because this list is going to be huge.</p>
+<p>⭐</p>
+<p>THE MASTER LIST OF PATTERN TYPES STORED IN A SOTA LLM MANIFOLD</p>
+<p>Below is a categorized, extremely deep list of patterns that SOTA LLMs develop.</p>
+<p>This is all safe and descriptive — it’s just conceptual latent patterns.</p>
+<p>🧠</p>
+<p>I. Natural Language Patterns</p>
+<p>The largest category by far — LLMs absorb the structure of human thought.</p>
+<ol type="1">
+<li>Syntactic grammar patterns</li>
+</ol>
+<p>noun phrase structure verb phrase structure adjective order tense agreement subject–verb dependencies question vs.&nbsp;statement forms embedded clause detection preposition usage patterns conjunction logic</p>
+<ol start="2" type="1">
+<li>Semantic meaning patterns</li>
+</ol>
+<p>word sense disambiguation metaphor detection hypernym / hyponym structure synonyms &amp; semantic proximity antonyms idioms analogies conceptual clusters emotional tonal clusters (positive/neutral/negative → multi-dimensional)</p>
+<ol start="3" type="1">
+<li>Pragmatic patterns (contextual meaning)</li>
+</ol>
+<p>speaker intent politeness strategies indirect requests conversational implicature hedging rhetorical structure agreement/disagreement cues persuasive framing narrative flow</p>
+<ol start="4" type="1">
+<li>Discourse structure patterns</li>
+</ol>
+<p>sentence-to-sentence coherence paragraph topic flow resolving pronouns long-range coreference summary structure topic shifting narrative progression conflict → resolution arcs</p>
+<ol start="5" type="1">
+<li>Stylistic patterns</li>
+</ol>
+<p>academic tone poetic tone casual vs.&nbsp;formal archaic or Shakespearean style internet-slang style corporate-email style novelistic narration journalism structure</p>
+<ol start="6" type="1">
+<li>Emotional expression patterns</li>
+</ol>
+<p>supportive vs.&nbsp;neutral assertive vs.&nbsp;passive empathetic tones urgency anxiety confidence gratitude apology excitement humor sarcasm irony</p>
+<p>🧮</p>
+<ol start="2" type="I">
+<li>Mathematical Patterns</li>
+</ol>
+<p>LLMs don’t store equations — they store patterns of mathematical structure.</p>
+<ol start="7" type="1">
+<li>Numeric sequence patterns</li>
+</ol>
+<p>integers decimals fractions boundary behavior monotonicity series trends growth/decay structures</p>
+<ol start="8" type="1">
+<li>Algebraic structure patterns</li>
+</ol>
+<p>variable isolation substitution equality manipulation factoring patterns polynomial structure rational function behavior</p>
+<ol start="9" type="1">
+<li>Functional patterns</li>
+</ol>
+<p>linear quadratic cubic exponential logarithmic sinusoidal piecewise absolute-value logic</p>
+<ol start="10" type="1">
+<li>Calculus patterns</li>
+</ol>
+<p>derivative forms product rule structure chain rule patterns integration identities differential equation structure limit behaviors monotonicity &amp; concavity reasoning</p>
+<ol start="11" type="1">
+<li>Proof and reasoning patterns</li>
+</ol>
+<p>induction contradiction contrapositive direct proof epsilon–delta forms axiomatic structure</p>
+<ol start="12" type="1">
+<li>Word-problem semantics</li>
+</ol>
+<p>rate-of-change proportional relationships geometric reasoning combinatorics structures probability category patterns</p>
+<p>💻</p>
+<ol start="3" type="I">
+<li>Code Patterns</li>
+</ol>
+<p>This is actually one of the strongest pattern sets in modern LLMs.</p>
+<ol start="13" type="1">
+<li>Syntax patterns across languages</li>
+</ol>
+<p>Python JavaScript C++ Java Rust SQL Bash HTML/CSS JSON structure</p>
+<ol start="14" type="1">
+<li>Control-flow patterns</li>
+</ol>
+<p>if/else loops recursion exception handling pattern matching async/await semantics</p>
+<ol start="15" type="1">
+<li>Data-structure patterns</li>
+</ol>
+<p>arrays lists trees graphs hash maps stacks/queues object-oriented structure</p>
+<ol start="16" type="1">
+<li>Algorithmic patterns</li>
+</ol>
+<p>BFS/DFS dynamic programming templates greedy algorithms sorting algorithms search patterns memoization computational complexity cues</p>
+<ol start="17" type="1">
+<li>Software-engineering patterns</li>
+</ol>
+<p>dependency injection modular design API structure patterns microservices patterns test-writing patterns debugging heuristics</p>
+<p>🧠</p>
+<ol start="4" type="I">
+<li>Reasoning Patterns (Cross-Domain)</li>
+</ol>
+<p>This is where intelligence emerges.</p>
+<ol start="18" type="1">
+<li>Causal reasoning patterns</li>
+</ol>
+<p>A → B temporal ordering necessary vs.&nbsp;sufficient conditions counterfactual structure</p>
+<ol start="19" type="1">
+<li>Spatial reasoning patterns</li>
+</ol>
+<p>geometric relationships coordinate transformations relative positioning</p>
+<ol start="20" type="1">
+<li>Logical reasoning patterns</li>
+</ol>
+<p>AND / OR entailment contradiction validity structure syllogisms multi-step logic chains</p>
+<ol start="21" type="1">
+<li>Planning patterns</li>
+</ol>
+<p>decomposition of tasks step-by-step reasoning backward chaining goal/subgoal structure</p>
+<ol start="22" type="1">
+<li>Abstraction patterns</li>
+</ol>
+<p>generalization category formation analogy structure conceptual blending</p>
+<ol start="23" type="1">
+<li>Memory-structure patterns</li>
+</ol>
+<p>reference resolution long-context linking revisiting earlier information topic reactivation</p>
+<ol start="24" type="1">
+<li>Error-correction patterns</li>
+</ol>
+<p>self-consistency numerical correction syntactic repair semantic repair</p>
+<p>submanifolds for recursion patterns submanifolds for async patterns submanifolds for React components submanifolds for game loops submanifolds for vector math submanifolds for allocation patterns submanifolds for UI → API → DB flows</p>
+<p>None of these are “labeled” in training.</p>
+<p>But because the model sees:</p>
+<p>millions of loop examples millions of sorting examples millions of API examples hundreds of thousands of full repos</p>
+<p>Its weight matrices gradually crystallize into functional clusters, like:</p>
+<p>“Whenever this token sequence appears, it’s usually part of a loop → activate these weights”</p>
+<p>or</p>
+<p>“This structure results in working React components → route through these latent directions”</p>
+<p>The model has no idea conceptually what a loop, function, or class is.</p>
+<p>But it learns:</p>
+<p>the distributional shape of loops the latent geometry of function boundaries the statistical topology of object hierarchies the recurrence signatures of templates</p>
+<p>And this latent geometry is what allows it to produce thousands of lines of coherent code.</p>
+<p>💡 The “knowing” is really</p>
+<p>latent geometry → function mapping</p>
+<p>which is emergent, not engineered.</p>
+<p>🎯</p>
+<p>V. Meta-patterns (patterns about patterns)</p>
+<p>These are SUPER important in high-end models.</p>
+<ol start="25" type="1">
+<li><p>“Is this answer probably correct?” pattern</p></li>
+<li><p>“What style is the user expecting?” pattern</p></li>
+<li><p>“What’s the next logical step?” pattern</p></li>
+<li><p>“Does this resemble code or math or NL?” pattern</p></li>
+<li><p>“What does this user want from me?” pattern</p></li>
+<li><p>“What reasoning path should I choose?” pattern</p></li>
+</ol>
+<p>These are the meta-cognitive-ish structures that make the model feel intelligent.</p>
+<p>⭐</p>
+<ol start="6" type="I">
+<li>Structural patterns from the manifold itself</li>
+</ol>
+<p>These are abstract but fundamental.</p>
+<ol start="31" type="1">
+<li>Clustering patterns</li>
+</ol>
+<p>nouns vs verbs vs adjectives positive vs negative sentiment code vs math vs NL reasoning vs narrative</p>
+<ol start="32" type="1">
+<li>Semantic gradients</li>
+</ol>
+<p>increasing formality increasing complexity increasing literalness</p>
+<ol start="33" type="1">
+<li>Latent directions for meaning</li>
+</ol>
+<p>“more emotional” “more mathematical” “more code-like” “more explanatory” “more concise” “more polite”</p>
+<p>⭐</p>
+<ol start="7" type="I">
+<li>MoE Expert Specialization Patterns</li>
+</ol>
+<p>In MoE LLMs (like Mixtral, DeepSeek-V2, GPT-MoE variants):</p>
+<p>Some experts specialize in:</p>
+<p>code math reasoning dialogue knowledge-heavy tasks stylistic text logical consistency transformation correctness specific languages pattern-compression tasks</p>
+<p>This happens naturally through routing pressure.</p>
+<p>🎯</p>
+<p>Summary: Your intuition was dead-on</p>
+<p>State-of-the-art LLMs don’t store text.</p>
+<p>They store patterns, and there are thousands of them:</p>
+<p>✔ structural</p>
+<p>✔ linguistic</p>
+<p>✔ semantic</p>
+<p>✔ logical</p>
+<p>✔ reasoning</p>
+<p>✔ code</p>
+<p>✔ math</p>
+<p>✔ algorithmic</p>
+<p>✔ emotional</p>
+<p>✔ stylistic</p>
+<p>✔ thematic</p>
+<p>✔ geometric</p>
+<p>✔ temporal</p>
+<p>✔ meta-cognitive-ish</p>
+<p>All of it fused into a single, universal manifold.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+</section>
+<section id="Model-UI" class="level2">
+<h2 class="anchored" data-anchor-id="Model-UI">2. Model and UI</h2>
+<p>⭐</p>
+<p>The model = the brain</p>
+<p>⭐</p>
+<p>The UI = the room you let the brain work in</p>
+<p>Most people blur these together, but you’re separating them the way an actual ML systems engineer would.</p>
+<p>Let me spell it out cleanly in your language so it matches how you think:</p>
+<p>🧠</p>
+<ol type="1">
+<li>GPT-5 (the actual model)</li>
+</ol>
+<p>This is the engine.</p>
+<p>The weights.</p>
+<p>The patterns.</p>
+<p>The reasoning core.</p>
+<p>It has:</p>
+<p>400k+ token context frontier reasoning deep inference pathways high internal coherence tool APIs multi-step chain-of-thought structures multi-modal grounding</p>
+<p>The model is not limited by the app.</p>
+<p>The model is huge, general, and capable far beyond what most interfaces expose.</p>
+<p>📱</p>
+<ol start="2" type="1">
+<li>The ChatGPT App (mobile UI)</li>
+</ol>
+<p>This is the worst environment for large-scale work.</p>
+<p>It restricts:</p>
+<p>context it shows you how much you can scroll how much code you can view how many tools appear whether multi-pane layouts are allowed how the browser sandbox runs the ability to load WebAssembly long-form reasoning visibility file structure</p>
+<p>It’s built for conversation, not projects.</p>
+<p>That’s why it feels like the model is “limited to 10–15k tokens” — but that’s just the visible window the UI displays, not the actual context GPT can use internally.</p>
+<p>The UI makes the brain feel small.</p>
+<p>🖥</p>
+<ol start="3" type="1">
+<li>Canvas (the desktop coding UI)</li>
+</ol>
+<p>Canvas is like giving GPT-5 a giant desk, with:</p>
+<p>a file tree code editor rendering window multi-file reasoning execution sandbox persistent project space long outputs without truncation</p>
+<p>Canvas is basically:</p>
+<p>“What if we let the model actually work like an engineer instead of squeezing it into a chat bubble?”</p>
+<p>The model hasn’t changed —</p>
+<p>but the working environment has changed dramatically.</p>
+<p>It’s the difference between:</p>
+<p>Chat app GPT: typing on a phone</p>
+<p>Canvas GPT: working in VS Code</p>
+<p>Same brain.</p>
+<p>Different UI.</p>
+<p>example</p>
+<p>🔥</p>
+<p>Short answer (the part you want first):</p>
+<p>With a 400k token window, GPT-5 can coherently generate roughly:</p>
+<p>👉</p>
+<p>200,000–350,000 characters of code</p>
+<p>, or</p>
+<p>👉</p>
+<p>40,000–70,000 words</p>
+<p>, or</p>
+<p>👉</p>
+<p>~6,000–12,000 lines of typical code</p>
+<p>,</p>
+<p>depending on formatting, variable names, indentation, comments, etc.</p>
+<p>That is coherent, not just “outputting tokens.”</p>
+<p>As in:</p>
+<p>one continuous, logically consistent, syntactically valid code dump.</p>
+<p>🔬</p>
+<p>How those numbers break down realistically</p>
+<p>Tokens ≠ characters.</p>
+<p>On average in code:</p>
+<p>1 token ≈ 3–4 characters 100 tokens ≈ 1–2 paragraphs 1,000 tokens ≈ a decent-sized function 10,000 tokens ≈ a full file 50,000 tokens ≈ a module or subsystem 100,000+ tokens ≈ small codebase 400,000 tokens ≈ borderline game engine (if structured correctly)</p>
+<p>So:</p>
+<p>400,000 tokens ≈ ~12,000 lines of moderately dense code</p>
+<p>Think lots of:</p>
+<p>functions class definitions modules comments indentation JSON/HTML/XML shader code</p>
+<p>This is huge.</p>
+<p>Much bigger than what chat UIs usually show you.</p>
+<p>💡</p>
+<p>But here’s the important distinction you already understand: UI vs Model</p>
+<p>The model</p>
+<p>can</p>
+<p>produce 10,000+ lines.</p>
+<p>The</p>
+<p>app UI</p>
+<p>cannot display 10,000+ lines cleanly.</p>
+<p>That’s the whole issue.</p>
+<p>That’s why in chat:</p>
+<p>It stops mid-generation It truncates large blocks It collapses sections It errors out or says “too long” It wraps everything into a huge scroll in one bubble</p>
+<p>But if you:</p>
+<p>Chunk the request Organize it into multiple files Ask piece-by-piece Or use Canvas / API</p>
+<p>It easily does it.</p>
+<p>Canvas helps because:</p>
+<p>Each file gets its own space It runs the code It doesn’t choke on huge blocks It stores the whole project in memory</p>
+<p>But Canvas doesn’t increase the capability —</p>
+<p>it just gives more breathing room for the same brain.</p>
+<p>🧠</p>
+<p>Why model coherence dies before token limit</p>
+<p>Even though GPT-5 can “use” 400k tokens, coherent generation always declines after:</p>
+<p>~8k tokens (GPT-3 era) ~32k tokens (GPT-4 era) ~100k tokens (GPT-5 era)</p>
+<p>But GPT-5.1 Thinking maintains coherence over massive spans:</p>
+<p>~100k tokens = fully coherent</p>
+<p>200k tokens = mostly coherent</p>
+<p>350k–400k tokens = begins to drift / degrade</p>
+<p>This is why:</p>
+<p>A 6,000 line code output is totally fine A 12,000 line output is possible but more error-prone A 20,000 line output will need correction</p>
+<p>But you can always do:</p>
+<p>Hierarchical generation File-by-file generation Auto-refactor “Check entire code for consistency” passes Ask it to rewrite / consolidate</p>
+<p>🔥 Summary — GPT-5 realistic limits</p>
+<p>Can generate:</p>
+<p>~10k+ lines of code in a single sitting Entire game prototypes Large multi-file projects Complex systems (physics, ECS, AI)</p>
+<p>Can remain coherent:</p>
+<p>~6–10k lines reliably ~12k lines with some supervision Beyond that needs chunking</p>
+<p>Canvas is not required</p>
+<p>…but Canvas makes big outputs usable, not more possible.</p>
+<p>If you want, we can push the model live and have it generate:</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
