@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Transfomer-notes-llm.html</loc>
-    <lastmod>2025-11-19T02:22:22.609Z</lastmod>
+    <lastmod>2025-12-01T03:43:20.408Z</lastmod>
   </url>
   <url>
     <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Tensors-in-Large-Language-Models.html</loc>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/routed-latent-memory.html</loc>
-    <lastmod>2025-11-21T03:51:04.625Z</lastmod>
+    <lastmod>2025-11-24T03:11:38.041Z</lastmod>
   </url>
   <url>
     <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/pdoom-fallacy-and-boundaries.html</loc>
@@ -25,88 +25,92 @@
     <lastmod>2025-07-21T04:46:28.912Z</lastmod>
   </url>
   <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/moe-llm.html</loc>
-    <lastmod>2025-08-14T00:27:31.156Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/midjourney.html</loc>
-    <lastmod>2025-07-24T02:47:35.852Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/large-language-model-vision.html</loc>
-    <lastmod>2025-10-16T05:12:26.140Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/intelligence-first-safety-precisely.html</loc>
-    <lastmod>2025-10-15T04:16:28.365Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/images/Alpha-Fold.html</loc>
-    <lastmod>2025-07-21T01:31:03.636Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/frontiers-in-image-models.html</loc>
-    <lastmod>2025-09-17T23:55:27.429Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Dimensions-of-superintelligence.html</loc>
-    <lastmod>2025-11-05T14:55:31.842Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/detecting-superintelligence.html</loc>
-    <lastmod>2025-11-22T00:23:07.917Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Alpha-Fold.html</loc>
-    <lastmod>2025-07-21T02:59:56.565Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/ADRA.html</loc>
-    <lastmod>2025-11-21T05:01:57.483Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/about-me.html</loc>
-    <lastmod>2025-11-19T22:04:55.843Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/AI-polarization.html</loc>
-    <lastmod>2025-08-10T23:35:12.934Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/DeepSeek.html</loc>
-    <lastmod>2025-08-17T16:45:44.529Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/diffusion-image-model.html</loc>
-    <lastmod>2025-08-14T00:19:39.288Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Frink-thoery-of-scaling.html</loc>
-    <lastmod>2025-11-18T19:51:32.434Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Genie-3.html</loc>
-    <lastmod>2025-08-31T19:08:40.033Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/index.html</loc>
-    <lastmod>2025-07-29T21:19:02.269Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/JEPA.html</loc>
-    <lastmod>2025-08-26T03:49:23.346Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/llm-training.html</loc>
-    <lastmod>2025-10-26T04:10:27.597Z</lastmod>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/my-notes-superintelligence.html</loc>
+    <lastmod>2025-11-21T23:42:37.799Z</lastmod>
   </url>
   <url>
     <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Mixture-Of-Experts-LLM.html</loc>
     <lastmod>2025-11-10T14:47:08.028Z</lastmod>
   </url>
   <url>
-    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/my-notes-superintelligence.html</loc>
-    <lastmod>2025-11-21T23:42:37.799Z</lastmod>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/llm-training.html</loc>
+    <lastmod>2025-10-26T04:10:27.597Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/JEPA.html</loc>
+    <lastmod>2025-08-26T03:49:23.346Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/index.html</loc>
+    <lastmod>2025-07-29T21:19:02.269Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Genie-3.html</loc>
+    <lastmod>2025-08-31T19:08:40.033Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Frink-thoery-of-scaling.html</loc>
+    <lastmod>2025-11-18T19:51:32.434Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/diffusion-image-model.html</loc>
+    <lastmod>2025-08-14T00:19:39.288Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/DeepSeek.html</loc>
+    <lastmod>2025-08-17T16:45:44.529Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/AI-polarization.html</loc>
+    <lastmod>2025-08-10T23:35:12.934Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/about-me.html</loc>
+    <lastmod>2025-11-30T04:52:32.655Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/ADRA.html</loc>
+    <lastmod>2025-11-21T05:01:57.483Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Alpha-Fold.html</loc>
+    <lastmod>2025-07-21T02:59:56.565Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/detecting-superintelligence.html</loc>
+    <lastmod>2025-12-01T00:29:54.994Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Dimensions-of-superintelligence.html</loc>
+    <lastmod>2025-11-30T21:10:40.946Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/frontiers-in-image-models.html</loc>
+    <lastmod>2025-09-17T23:55:27.429Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/images/Alpha-Fold.html</loc>
+    <lastmod>2025-07-21T01:31:03.636Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/intelligence-first-safety-precisely.html</loc>
+    <lastmod>2025-10-15T04:16:28.365Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/large-language-model-vision.html</loc>
+    <lastmod>2025-11-29T23:31:09.912Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/midjourney.html</loc>
+    <lastmod>2025-07-24T02:47:35.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/moe-llm.html</loc>
+    <lastmod>2025-08-14T00:27:31.156Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/neurosymbolic-Transfomer.html</loc>
+    <lastmod>2025-12-01T00:03:49.370Z</lastmod>
   </url>
   <url>
     <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Optimization-in-Deep-Learning.html</loc>
@@ -114,7 +118,7 @@
   </url>
   <url>
     <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/Research-Engineer.html</loc>
-    <lastmod>2025-11-21T04:06:34.258Z</lastmod>
+    <lastmod>2025-11-29T22:09:10.189Z</lastmod>
   </url>
   <url>
     <loc>https://Deeparchecture099.github.io/sota-model-anatomy-/self-supervised-reinforcement-learning-video-generation.html</loc>

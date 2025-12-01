@@ -232,6 +232,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./ADRA.html">
  <span class="dropdown-text">ADRA</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./neurosymbolic-Transfomer.html">
+ <span class="dropdown-text">neurosymbolic-Transfomer</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -274,6 +278,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#step-8-output-projection" id="toc-step-8-output-projection" class="nav-link" data-scroll-target="#step-8-output-projection">🔹 Step 8 — Output Projection</a></li>
   <li><a href="#shape-summary" id="toc-shape-summary" class="nav-link" data-scroll-target="#shape-summary">⚙️ Shape Summary</a></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">🧩 Takeaway</a></li>
+  </ul></li>
+  <li><a href="#visuals-visuals" id="toc-visuals-visuals" class="nav-link" data-scroll-target="#visuals-visuals">visuals {##Visuals}</a>
+  <ul class="collapse">
+  <li><a href="#Visual-one" id="toc-Visual-one" class="nav-link" data-scroll-target="#Visual-one">visual-one</a></li>
+  <li><a href="#visual-two-visual-two" id="toc-visual-two-visual-two" class="nav-link" data-scroll-target="#visual-two-visual-two">visual-two {##Visual-two}</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -563,6 +572,198 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Every image becomes <strong>a language of embeddings</strong>, and the transformer learns to <strong>speak that language</strong>.</p></li>
 <li><p>Once fused, text and vision are no longer separate — both live as tokens in the same high-dimensional reasoning space.</p></li>
 </ul>
+</section>
+</section>
+<section id="visuals-visuals" class="level2">
+<h2 class="anchored" data-anchor-id="visuals-visuals">visuals {##Visuals}</h2>
+<section id="Visual-one" class="level3">
+<h3 class="anchored" data-anchor-id="Visual-one">visual-one</h3>
+<p>✅</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Vision-LLM.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Vision LLM</figcaption>
+</figure>
+</div>
+<p>VISUAL 1 — Full-Multimodal Pipeline Diagram</p>
+<p>This is the canonical diagram every serious multimodal doc needs.</p>
+<pre><code>     ┌─────────────────────────┐
+
+     │       Image (RGB)       │
+
+     └─────────────┬───────────┘
+
+                   │
+
+           Patchify (16×16)
+
+                   │
+
+     ┌─────────────▼──────────────┐
+
+     │   Vision Transformer (ViT) │
+
+     │  Spatial → Feature Embeds  │
+
+     └─────────────┬──────────────┘
+
+                   │ V ∈ ℝⁿˣᵈᵥ
+
+           Linear Projection
+
+                   │ P(V) ∈ ℝⁿˣᵈₜ
+
+     ┌─────────────▼─────────────┐
+
+     │  Fused Token Sequence      │
+
+     │ [P(v₁)…P(vₙ) t₁…tₘ]        │
+
+     └─────────────┬─────────────┘
+
+                   │
+
+          Language Transformer
+
+                   │
+
+     ┌─────────────▼─────────────┐
+
+     │      Reasoning + Text     │
+
+     └─────────────┬─────────────┘
+
+                   │
+
+             Output Logits
+
+                   │
+
+          “A brown cat wearing glasses.”</code></pre>
+<p>Where to place it:</p>
+<p>Directly after Section 2: System Architecture.</p>
+</section>
+<section id="visual-two-visual-two" class="level3">
+<h3 class="anchored" data-anchor-id="visual-two-visual-two">visual-two {##Visual-two}</h3>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>✅</p>
+<p>VISUAL 2 — Tensor Shape Evolution Table</p>
+<p>A crisp table lets the reader see the pipeline in one shot.</p>
+<p>Stage Shape Meaning</p>
+<p>────────────────────────────────────────────────────────────────────</p>
+<p>Raw image (512, 512, 3) Pixels</p>
+<p>Patchify (1024, 768) 16×16 RGB patches</p>
+<p>ViT output (1024, 1024) Visual embeddings</p>
+<p>Project to text dim (1024, 4096) Aligned tokens</p>
+<p>Text tokens (M, 4096) Normal LLM embeddings</p>
+<p>Fused sequence (1024+M, 4096) Joint context</p>
+<p>Attention matrices (L, L) Full multimodal attention</p>
+<p>LLM hidden state (L, 4096) Mixed-mode reasoning</p>
+<p>Output logits (V) Vocabulary prediction</p>
+<p>Drop this under Section 9.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>✅</p>
+<p>VISUAL 3 — Cross-Attention Map</p>
+<p>This visual explains exactly how the model “looks” at the image while generating text.</p>
+<pre><code> Text Token Query "cat"
+
+              │
+
+              ▼
+
+┌─────────────────────────────────┐
+
+│        Attention Matrix         │
+
+│ Q(text) · K(visual)ᵀ           │
+
+└─────────────────────────────────┘
+
+   ▲       ▲       ▲       ▲
+
+   │       │       │       │</code></pre>
+<p>[p₁] [p₂] [p₃] … [pₙ]</p>
+<p>Patch embeddings from ViT</p>
+<p>Strong activations → ears, fur, tail</p>
+<p>Weak activations → background, couch</p>
+<p>This makes your page look like a real multimodal interpretability document.</p>
+<p>Place this right after “How the label emerges.”</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>✅</p>
+<p>VISUAL 4 — “LLM Reasoning Stack”</p>
+<p>This shows the conceptual climb from geometry → semantics.</p>
+<p>┌──────────────────────────────┐</p>
+<p>│ Natural Language │</p>
+<p>│ (“A brown cat wearing…”) │</p>
+<p>└──────────────▲───────────────┘</p>
+<pre><code>              │</code></pre>
+<p>┌──────────────┼───────────────┐</p>
+<p>│ Semantic Concepts │</p>
+<p>│ cat, glasses, object roles │</p>
+<p>└──────────────▲───────────────┘</p>
+<pre><code>              │</code></pre>
+<p>┌──────────────┼───────────────┐</p>
+<p>│ Multimodal Attention │</p>
+<p>│ links visual + text tokens │</p>
+<p>└──────────────▲───────────────┘</p>
+<pre><code>              │</code></pre>
+<p>┌──────────────┼───────────────┐</p>
+<p>│ ViT Geometry + Patterns │</p>
+<p>│ fur, edges, colors, posture │</p>
+<p>└──────────────┼───────────────┘</p>
+<pre><code>              │</code></pre>
+<p>┌──────────────┴───────────────┐</p>
+<p>│ Raw Pixels (RGB) │</p>
+<p>└──────────────────────────────┘</p>
+<p>This makes your article visually explain the cognitive ladder inside multimodal models.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>✅</p>
+<p>VISUAL 5 — “What the ViT Actually Sees vs What the LLM Thinks”</p>
+<p>Very powerful for readers:</p>
+<p>Vision Encoder (ViT) Output</p>
+<p>┌────────────────────────────────────────┐</p>
+<p>│ Patch embeddings: │</p>
+<p>│ • edge orientations │</p>
+<p>│ • fur texture gradients │</p>
+<p>│ • local color histograms │</p>
+<p>│ • blob and contour activations │</p>
+<p>└────────────────────────────────────────┘</p>
+<pre><code>         ✘ No concepts  
+
+         ✘ No objects  
+
+         ✘ No language  
+
+         ✘ No “cat”</code></pre>
+<p>▼ Passed into LLM as vectors ▼</p>
+<p>Language Model Interpretation</p>
+<p>┌────────────────────────────────────────┐</p>
+<p>│ “round ears + whisker pattern + │</p>
+<p>│ bilateral symmetry → cat” │</p>
+<p>│ │</p>
+<p>│ “fur + eyes + object = glasses” │</p>
+<p>└────────────────────────────────────────┘</p>
+<pre><code>         ✔ Concepts  
+
+         ✔ Objects  
+
+         ✔ Relationships  
+
+         ✔ Explanations  </code></pre>
+<p>This pair nails the entire philosophy of multimodal alignment.</p>
 
 
 </section>
