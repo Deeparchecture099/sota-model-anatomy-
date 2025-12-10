@@ -946,7 +946,6 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>Your -layer symbolic spine — the heart of DHCR.</p>
 <p>Each micro-layer enforces a different logical or causal constraint.</p>
-<p>🔟</p>
 <p>The Micro-Layers all specalize in the symbolic reasoning dimensionss sub dimensions, enabling the extreme reasoning per head</p>
 <p>each SCS module head across each trasnfomer block will spec</p>
 <p>each SCS module head across each trasformer block will specalize in different reasoning dimensions such as:</p>
@@ -1015,7 +1014,7 @@ ul.task-list li input[type="checkbox"] {
 <p>but instead of tokens → it injects reasoning constraints.</p>
 <p>This is the “correction vector” that guides the hidden state.</p>
 <p>MHDHCR: Multi-Headed Deep Hierarchical Causal Reasoning</p>
-<p>In a large transformer with 80–100 layers, we attach one DHCR neurosymbolic head per block. Each DHCR module becomes a specialist in a distinct symbolic reasoning dimension (e.g., temporal causality, type/schema constraints, global coherence, state invariants). Inside each DHCR, the Causal Logic Extractor (CLE) and Symbolic Constraint Stack (SCS) form a 5–10 layer meta-reasoning hierarchy that reasons about the model’s own reasoning — checking consistency, enforcing constraints, and refining causal structure before writing a correction back into the residual stream. Across depth, this yields 80–100 deeply specialized symbolic reasoning channels, turning the network into a multi-headed deep hierarchical causal reasoning system rather than a purely pattern-matching model.</p>
+<p>In a large transformer with 80–100 layers, we attach one DHCR neurosymbolic head per block. Each DHCR module becomes a specialist in a distinct symbolic reasoning dimension (e.g., temporal causality, type/schema constraints, global coherence, state invariants). Inside each DHCR, the Causal Logic Extractor (CLE) and Symbolic Constraint Stack (SCS) form layer meta-reasoning hierarchy (however many meta heads your compute can hanlde)that reasons about the model’s own reasoning — checking consistency, enforcing constraints, and refining causal structure before writing a correction back into the residual stream. Across depth, this yields 80–100 deeply specialized symbolic reasoning channels, turning the network into a multi-headed deep hierarchical causal reasoning system rather than a purely pattern-matching model.</p>
 </section>
 <section id="Verification-Gate" class="level3">
 <h3 class="anchored" data-anchor-id="Verification-Gate">Verification Gate</h3>
@@ -1029,19 +1028,19 @@ ul.task-list li input[type="checkbox"] {
 <section id="Full-Flow-Diagram" class="level3">
 <h3 class="anchored" data-anchor-id="Full-Flow-Diagram">Full Flow Diagram</h3>
 <p>⭐ Full Flow Diagram (Clean Version)</p>
+<p>each has howwever many meta reasoning heads your compute can handle</p>
 <p>Residual Stream</p>
 <pre><code>    │
 
     ▼</code></pre>
 <p>┌──────────────────────────────┐</p>
-<p>│ 1. Causal-Pattern Extractor │</p>
-<p>└──────────────────────────────┘</p>
+<p>│ 1. Causal-Pattern Extractor │ └──────────────────────────────┘</p>
 <pre><code>    │
 
     ▼</code></pre>
 <p>┌──────────────────────────────┐</p>
 <p>│ 2. Symbolic Constraint Stack │</p>
-<p>│ (10 micro-layers) │</p>
+<p>│ │</p>
 <p>└──────────────────────────────┘</p>
 <pre><code>    │
 
