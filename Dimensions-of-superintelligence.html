@@ -282,6 +282,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-intelligence-equation" id="toc-the-intelligence-equation" class="nav-link" data-scroll-target="#the-intelligence-equation">the intelligence equation</a>
   <ul class="collapse">
   <li><a href="#formal" id="toc-formal" class="nav-link" data-scroll-target="#formal">formal</a></li>
+  <li><a href="#principle-principle" id="toc-principle-principle" class="nav-link" data-scroll-target="#principle-principle">principle (#principle)</a></li>
   <li><a href="#cognative-map" id="toc-cognative-map" class="nav-link" data-scroll-target="#cognative-map">cognative map</a></li>
   </ul></li>
   </ul>
@@ -992,6 +993,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="Formal-Definition-of-Intelligence">Formal Definition of Intelligence</h2>
 <p>Formal Definition of Intelligence (Tyler Frink / GUTI Framework)</p>
 <p>Intelligence is a system’s capacity to construct, refine, and utilize deep internal representations of the universe—across all cognitive dimensions (perception, memory, deep reasoning,Agentic, abstraction, creativity, ingenuity and meta-cognition etc )—to select and execute sequences of actions that achieve complex, long-horizon goals under uncertainty.</p>
+<p>This definition admits degrees of intelligence. Many biological systems (e.g., mammals and corvids) satisfy a minimal subset of this definition by maintaining low-dimensional internal representations sufficient for short-horizon, embodied goal pursuit. However, such systems lack the capacity for explicit causal abstraction, symbolic constraint propagation, verification and correction loops, long-horizon planning, and meta-reasoning. As a result, their intelligence is narrow, brittle, and non-scalable.</p>
+<p>Systems that lack explicit mechanisms for causal abstraction, constraint enforcement, and self-correction may exhibit intelligent behavior in narrow regimes but cannot scale to general intelligence, regardless of data or compute.</p>
 </section>
 <section id="the-intelligence-equation" class="level2">
 <h2 class="anchored" data-anchor-id="the-intelligence-equation">the intelligence equation</h2>
@@ -1101,29 +1104,17 @@ ul.task-list li input[type="checkbox"] {
 <p>with</p>
 <p>A_{DHCR} A_{transformer}</p>
 <p>meaning a step-function increase in intelligence.</p>
-<ol start="4" type="1">
-<li>PHASE TRANSITIONS IN INTELLIGENCE</li>
-</ol>
-<p>Just like matter has phases (solid, liquid, gas), intelligence has:</p>
-<p>Phase 0 — Pre-cognitive models</p>
-<p>(no abstraction capacity)</p>
-<p>Phase 1 — Pattern recognizers</p>
-<p>(transformers today)</p>
-<p>Phase 2 — Structured reasoners</p>
-<p>(neurosymbolic + causal architectures)</p>
-<p>Phase 3 — Agentic planners</p>
-<p>(memory + goals + recursive loops)</p>
-<p>Phase 4 — Inventive systems</p>
-<p>(causal modeling of science &amp; engineering)</p>
-<p>Phase 5 — Autonomous scientists</p>
-<p>(self-directed research pipelines)</p>
-<p>These correspond to increases in A, not C.</p>
-<p>Transformers are Phase 1.</p>
-<p>DHCR-like architectures are Phase 2–3.</p>
-<ol start="5" type="1">
-<li>THE CENTRAL CLAIM</li>
-</ol>
-<p>If architecture improves, compute becomes a force multiplier, not the bottleneck.</p>
+<p>Let A be a fixed model architecture and S be a scaling parameter (parameters, depth, width, data, compute).</p>
+<p>Then increasing S improves performance only within the cognitive domain implemented by A.</p>
+<p>No amount of scaling S can yield cognitive capabilities absent from A.</p>
+</section>
+<section id="principle-principle" class="level3">
+<h3 class="anchored" data-anchor-id="principle-principle">principle (#principle)</h3>
+<p>Proposed Principle (formal wording)</p>
+<p>The Substrate Sufficiency Principle (SSP)</p>
+<p>For every prediction of intelligence capability, there must exist a concrete, mechanistic explanation of the computational substrate that produces it.</p>
+<p>This explanation must specify at least one of:</p>
+<p>architectural mechanisms scaling dynamics data structure and availability or a rigorously defined combination thereof</p>
 <ol start="6" type="1">
 <li>CONCLUSION</li>
 </ol>
