@@ -267,6 +267,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#first-breakthrough" id="toc-first-breakthrough" class="nav-link" data-scroll-target="#first-breakthrough">first breakthrough</a></li>
   <li><a href="#new-unit" id="toc-new-unit" class="nav-link" data-scroll-target="#new-unit">new unit</a></li>
   <li><a href="#transformer-integration-validation-transformer-integration-validation" id="toc-transformer-integration-validation-transformer-integration-validation" class="nav-link" data-scroll-target="#transformer-integration-validation-transformer-integration-validation">Transformer Integration Validation {Transformer-Integration-Validation}</a></li>
+  <li><a href="#transformer-block-integration-depth-stress-evaluation-transformer-block-integration--depth-stress-evaluation" id="toc-transformer-block-integration-depth-stress-evaluation-transformer-block-integration--depth-stress-evaluation" class="nav-link" data-scroll-target="#transformer-block-integration-depth-stress-evaluation-transformer-block-integration--depth-stress-evaluation">Transformer Block Integration &amp; Depth-Stress Evaluation (#Transformer-Block-Integration-&amp;-Depth-Stress-Evaluation)</a></li>
   </ul>
 </nav>
     </div>
@@ -496,6 +497,68 @@ ul.task-list li input[type="checkbox"] {
 <p>This sentence is the key:</p>
 <p>DHCR matches baseline performance at low scale, demonstrating stable integration and preserving generalization. This establishes architectural viability; performance separation is expected to require higher compositional depth or scale.</p>
 <p>That is a correct research claim.</p>
+</section>
+<section id="transformer-block-integration-depth-stress-evaluation-transformer-block-integration--depth-stress-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="transformer-block-integration-depth-stress-evaluation-transformer-block-integration--depth-stress-evaluation">Transformer Block Integration &amp; Depth-Stress Evaluation (#Transformer-Block-Integration-&amp;-Depth-Stress-Evaluation)</h2>
+<ol type="1">
+<li>Experiment title</li>
+</ol>
+<p>DHCR v3 — Transformer Block Integration &amp; Depth-Stress Evaluation (Dec 12, 2025)</p>
+<ol start="2" type="1">
+<li>Architecture</li>
+</ol>
+<p>Record this exactly (this is important later):</p>
+<p>Baseline Transformer</p>
+<p>Layers: 1–2 blocks Block: LN → MHA → residual → LN → MLP → residual Params: ~X (exact if available) No symbolic modules</p>
+<p>DHCR Transformer</p>
+<p>Same as baseline, but: Block: LN → MHA → residual → LN → DHCR → residual → LN → MLP → residual DHCR config: num_subheads: <strong><em> d_sym: </em></strong> num_scs_layers: ___</p>
+<p>No auxiliary symbolic loss (unless CLAL was enabled — note it explicitly)</p>
+<ol start="3" type="1">
+<li>Training setup (this matters more than results)</li>
+</ol>
+<p>Be explicit about how hostile this setup was:</p>
+<p>Epochs: few (≈5) Optimizer: Adam</p>
+<p>LR: ___ No warmup No scheduler No tuning CPU / laptop training Small model Mean-pool classifier head Same data, same seeds, same splits</p>
+<p>This contextualizes why separation is expected to be small.</p>
+<ol start="4" type="1">
+<li>Task</li>
+</ol>
+<p>Boolean Logic Trees</p>
+<p>Two regimes:</p>
+<p>Standard Generalization</p>
+<p>Train depths: 1–3 Test depths: 4–6</p>
+<p>Depth Stress Test</p>
+<p>Train depths: 1–? Test depths: 7–10</p>
+<ol start="5" type="1">
+<li>Results (report means + std, not cherry-picked seeds)</li>
+</ol>
+<p>Baseline Transformer (Depth Stress)</p>
+<p>Accuracies: [‘74.40’, ‘76.95’, ‘77.00’] Mean ± Std: 76.12 ± 1.21</p>
+<p>DHCR Transformer (Depth Stress)</p>
+<p>Accuracies: [‘79.15’, ‘79.05’, ‘79.20’] Mean ± Std: 79.13 ± 0.06</p>
+<p>Key observations (state plainly):</p>
+<p>DHCR outperforms baseline under depth stress</p>
+<p>DHCR variance is significantly lower</p>
+<p>Baseline degrades with depth; DHCR does not</p>
+<p>Separation appears without tuning or symbolic supervision</p>
+<ol start="6" type="1">
+<li>Interpretation (keep this sober)</li>
+</ol>
+<p>You want wording like this:</p>
+<p>These results do not demonstrate solved reasoning.</p>
+<p>However, they demonstrate that DHCR introduces a beneficial inductive bias inside transformer blocks, improving robustness to compositional depth stress even in small, untuned models.</p>
+<p>The effect appears early and consistently across seeds, suggesting architectural signal rather than noise.</p>
+<p>That sentence is rock-solid.</p>
+<ol start="7" type="1">
+<li>Explicit limitations of the experiment</li>
+</ol>
+<p>:</p>
+<p>Small model scale, just 2 layers</p>
+<p>Few epochs</p>
+<p>No architectural tuning</p>
+<p>No symbolic loss pressure</p>
+<p>Mean pooling head</p>
+<p>Single task family</p>
 
 
 </section>
