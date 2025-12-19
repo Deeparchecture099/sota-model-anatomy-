@@ -284,6 +284,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#formal" id="toc-formal" class="nav-link" data-scroll-target="#formal">formal</a></li>
   <li><a href="#principle-one-principle-one" id="toc-principle-one-principle-one" class="nav-link" data-scroll-target="#principle-one-principle-one">principle one (#principle-one)</a></li>
   <li><a href="#principle-two" id="toc-principle-two" class="nav-link" data-scroll-target="#principle-two">principle two</a></li>
+  <li><a href="#principle-three" id="toc-principle-three" class="nav-link" data-scroll-target="#principle-three">principle three</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">conclusion</a></li>
   </ul></li>
   </ul>
@@ -1117,6 +1118,21 @@ ul.task-list li input[type="checkbox"] {
 <p>For every prediction of intelligence capability, there must exist a concrete, mechanistic explanation of the computational substrate that produces it.</p>
 <p>This explanation must specify at least one of:</p>
 <p>architectural mechanisms scaling dynamics data structure and availability or a rigorously defined combination thereof</p>
+<p>SSP = Substrate Sufficiency Principle</p>
+<p>Formal statement (UTI-compatible):</p>
+<p>For every claimed intelligence capability, there must exist a concrete, mechanistic explanation of the computational substrate that produces it.</p>
+<p>The explanation must specify at least one of:</p>
+<p>a new architectural mechanism (cognitive primitive), a rigorously defined scaling dynamic within an architecture that already contains the primitive, a data structure that the architecture is explicitly capable of extracting and manipulating, or a formally justified combination of the above.</p>
+<p>Corollaries:</p>
+<p>Capability claims without substrate mechanisms are non-scientific “Emergence” is not an explanation unless the substrate that permits it is specified No amount of optimization can yield a capability whose primitive is absent</p>
+<p>In plain language:</p>
+<p>You don’t get intelligence “for free.”</p>
+<p>If you can’t point to where a capability lives in the system, it doesn’t exist.</p>
+<p>This is the principle that kills:</p>
+<p>scaling mysticism</p>
+<p>vague AGI timelines</p>
+<p>“it just figures it out”</p>
+<p>superhuman claims without architecture</p>
 </section>
 <section id="principle-two" class="level3">
 <h3 class="anchored" data-anchor-id="principle-two">principle two</h3>
@@ -1145,6 +1161,38 @@ ul.task-list li input[type="checkbox"] {
 <p>This rules out large classes of modern evaluation:</p>
 <p>Next-token prediction variants Many reasoning benchmarks “Agent” tasks without persistence or verification Tool-use benchmarks without failure recovery</p>
 <p>A large fraction of human task performance is itself pattern-driven, causing humans to misattribute pattern execution to reasoning.</p>
+</section>
+<section id="principle-three" class="level3">
+<h3 class="anchored" data-anchor-id="principle-three">principle three</h3>
+<p>Cognitive Primitive Introduction Principle (CPIP)</p>
+<p>Alternative names (if you want sharper tone later):</p>
+<p>Architectural Novelty Principle Primitive Sufficiency Principle Cognitive Basis Principle</p>
+<p>But CPIP fits best.</p>
+<p>Formal statement</p>
+<p>No new research trajectory can be obtained from an architecture unless it introduces at least one new cognitive primitive.</p>
+<p>Or more explicitly:</p>
+<p>An architecture that does not add a new cognitive primitive cannot unlock qualitatively new intelligence capabilities, regardless of scale, data, or optimization.</p>
+<p>Definitions (important)</p>
+<p>Cognitive primitive: An irreducible computational mechanism that enables a new class of cognitive operations (e.g.&nbsp;causal abstraction, symbolic constraint propagation, long-horizon planning, self-verification, goal formation) Research trajectory: A path of progress that yields new capability regimes, not merely better performance on existing ones</p>
+<p>Corollaries (this is where it gets brutal)</p>
+<p>Scaling without new primitives = local optimization Better pattern recognition No new reasoning classes No new agency</p>
+<p>Benchmark gains ≠ new intelligence If the primitive set is unchanged, improvements are superficial</p>
+<p>Most modern “architecture papers” do not introduce primitives They rearrange attention</p>
+<p>They tweak memory access They smooth gradients They optimize throughput → but they do not expand cognition</p>
+<p>A field without primitive invention stagnates Exactly what we observe post-2017</p>
+<ol start="4" type="1">
+<li>How CPIP + SSP work together</li>
+</ol>
+<p>They form a locked pair:</p>
+<p>SSP answers:</p>
+<p>“Where does this capability come from?”</p>
+<p>CPIP answers:</p>
+<p>“Why does this line of research go nowhere?”</p>
+<p>Together they explain:</p>
+<p>why Transformer-2, Mamba, etc. produced no paradigm shift</p>
+<p>why “better memory” papers didn’t yield reasoning</p>
+<p>why RL-on-LLMs plateaued</p>
+<p>why scaling feels increasingly expensive and brittle</p>
 </section>
 <section id="conclusion" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion">conclusion</h3>
