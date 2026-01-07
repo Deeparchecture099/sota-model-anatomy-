@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>inside-sora’s-architecture – My AI Site</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">My AI Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about-me.html"> 
+<span class="menu-text">about-me</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-state-of-the-art-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">State of the Art Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-state-of-the-art-models">    
+        <li>
+    <a class="dropdown-item" href="./JEPA.html">
+ <span class="dropdown-text">JEPA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Alpha-Fold.html">
+ <span class="dropdown-text">AlphaFold</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./DeepSeek.html">
+ <span class="dropdown-text">DeepSeek</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./MidJourney.qmd">
+ <span class="dropdown-text">MidJourney</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Veo3.qmd">
+ <span class="dropdown-text">Veo 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./omni-modal-models.qmd">
+ <span class="dropdown-text">Omni-Modal Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Optimization-in-Deep-Learning.html">
+ <span class="dropdown-text">Optimization in Deep Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Genie-3.html">
+ <span class="dropdown-text">Genie 3</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-models" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Models</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-models">    
+        <li>
+    <a class="dropdown-item" href="./diffusion-image-model.html">
+ <span class="dropdown-text">Diffusion Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./moe-llm.html">
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes-section" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Notes Section</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section">    
+        <li>
+    <a class="dropdown-item" href="./frontiers-in-image-models.html">
+ <span class="dropdown-text">Frontiers-in-Image-Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./AI-polarization.html">
+ <span class="dropdown-text">AI Polarization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./self-supervised-reinforcement-learning-video-generation.html">
+ <span class="dropdown-text">Self-Supervised Reinforcement Learning Video Generation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./my-notes-superintelligence.html">
+ <span class="dropdown-text">Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Dimensions-of-superintelligence.html">
+ <span class="dropdown-text">Dimensions of Superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Tensors-in-Large-Language-Models.html">
+ <span class="dropdown-text">Tensors in Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./The-myth-of-AI-cinema.qmd">
+ <span class="dropdown-text">the-myth-of-ai-cinema.qmd</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pdoom-fallacy-and-boundaries.html">
+ <span class="dropdown-text">Pdoom Fallacy and Boundaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Mixture-Of-Experts-LLM.html">
+ <span class="dropdown-text">Mixture of Experts LLM</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./intelligence-first-safety-precisely.html">
+ <span class="dropdown-text">Intelligence First, Safety Precisely</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./llm-training.html">
+ <span class="dropdown-text">LLM training</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./large-language-model-vision.html">
+ <span class="dropdown-text">large language model vision</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./routed-latent-memory.html">
+ <span class="dropdown-text">Routed-Latent-Memory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Archecture-Scientist.html">
+ <span class="dropdown-text">Archecture-Scientist</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./detecting-superintelligence.qmd">
+ <span class="dropdown-text">detecting-superintelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Transfomer-notes-llm.html">
+ <span class="dropdown-text">Transfomer-notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Frink-thoery-of-scaling">
+ <span class="dropdown-text">Frink-thoery-of-scaling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ADRA.html">
+ <span class="dropdown-text">ADRA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./neurosymbolic-Transfomer.html">
+ <span class="dropdown-text">neurosymbolic-Transfomer</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-notes-section-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">My Notes Section</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-my-notes-section-1">    
+        <li>
+    <a class="dropdown-item" href="./DHCR-experiments.html">
+ <span class="dropdown-text">DHCR-experiments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Recursive-Research-Intelligence.html">
+ <span class="dropdown-text">Recursive-Research-Intelligence</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Inside-Sora’s-Architecture.html">
+ <span class="dropdown-text">Inside-Soras-Architecture</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#What-the-Latent-Manifold-Actually-Is" id="toc-What-the-Latent-Manifold-Actually-Is" class="nav-link active" data-scroll-target="#What-the-Latent-Manifold-Actually-Is">What the Latent Manifold Actually Is</a></li>
+  <li><a href="#fudnamentals" id="toc-fudnamentals" class="nav-link" data-scroll-target="#fudnamentals">fundamentals</a></li>
+  <li><a href="#debunking-misconception" id="toc-debunking-misconception" class="nav-link" data-scroll-target="#debunking-misconception">debunking misconception</a></li>
+  <li><a href="#What-patterns" id="toc-What-patterns" class="nav-link" data-scroll-target="#What-patterns">what patterns</a></li>
+  <li><a href="#Tensors" id="toc-Tensors" class="nav-link" data-scroll-target="#Tensors">Tensors</a></li>
+  <li><a href="#Core-Architectural-Modules" id="toc-Core-Architectural-Modules" class="nav-link" data-scroll-target="#Core-Architectural-Modules">Core Architectural Modules</a></li>
+  <li><a href="#downsampling" id="toc-downsampling" class="nav-link" data-scroll-target="#downsampling">downsampling</a>
+  <ul class="collapse">
+  <li><a href="#deep-objective" id="toc-deep-objective" class="nav-link" data-scroll-target="#deep-objective">deep objective</a></li>
+  <li><a href="#archecture-of-downsampling" id="toc-archecture-of-downsampling" class="nav-link" data-scroll-target="#archecture-of-downsampling">archecture of downsampling</a></li>
+  </ul></li>
+  <li><a href="#bottleneck" id="toc-bottleneck" class="nav-link" data-scroll-target="#bottleneck">bottleneck</a>
+  <ul class="collapse">
+  <li><a href="#archecture-in-bottleneck" id="toc-archecture-in-bottleneck" class="nav-link" data-scroll-target="#archecture-in-bottleneck">archecture in bottleneck</a></li>
+  </ul></li>
+  <li><a href="#The-Upsampling-Stage" id="toc-The-Upsampling-Stage" class="nav-link" data-scroll-target="#The-Upsampling-Stage">The Upsampling Stage</a>
+  <ul class="collapse">
+  <li><a href="#Upsampling-Path" id="toc-Upsampling-Path" class="nav-link" data-scroll-target="#Upsampling-Path">Upsampling Path</a></li>
+  </ul></li>
+  <li><a href="#CLIP" id="toc-CLIP" class="nav-link" data-scroll-target="#CLIP">CLIP</a></li>
+  <li><a href="#denosing-pipeline" id="toc-denosing-pipeline" class="nav-link" data-scroll-target="#denosing-pipeline">denoising pipeline</a></li>
+  <li><a href="#weaknesses" id="toc-weaknesses" class="nav-link" data-scroll-target="#weaknesses">weaknesses</a>
+  <ul class="collapse">
+  <li><a href="#causality" id="toc-causality" class="nav-link" data-scroll-target="#causality">casuality</a></li>
+  <li><a href="#short-video-short-video" id="toc-short-video-short-video" class="nav-link" data-scroll-target="#short-video-short-video">short video {#short video}</a></li>
+  <li><a href="#memory" id="toc-memory" class="nav-link" data-scroll-target="#memory">memory</a></li>
+  </ul></li>
+  <li><a href="#loss-fucntions" id="toc-loss-fucntions" class="nav-link" data-scroll-target="#loss-fucntions">loss functions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="What-the-Latent-Manifold-Actually-Is" class="level2">
+<h2 class="anchored" data-anchor-id="What-the-Latent-Manifold-Actually-Is">What the Latent Manifold Actually Is</h2>
+<p>What the Latent Manifold Actually Is (Foundational)</p>
+<p>At the core of every Deep learning model lies a structure that is rarely explained clearly: the latent manifold. This manifold is not a storage space, a memory bank, or an internal database. It is an extremely high-dimensional geometric substrate that emerges during training as the model learns to organize patterns in its data. Each training step slightly reshapes this space, bending and stretching it so that similar patterns lie near one another while incompatible patterns are pushed apart. Over time, this process produces a continuous, structured geometry in which the statistical regularities of the training data are embedded.</p>
+<p>Crucially, this manifold is dynamic rather than static. It behaves less like a lookup table and more like a fluid dynamical system, where trajectories through the space correspond to coherent transformations of data. In video models, these trajectories encode how scenes, objects, and motions tend to evolve over time. The model does not retrieve examples from this space; it moves through it, guided by learned gradients that reflect the structure of the data distribution. Meaning, motion, and coherence are therefore not stored explicitly, but arise from how this space is shaped and navigated.</p>
+<p>Every concept a model appears to “know” — objects, motion, continuity, lighting, interaction — exists only as geometry in this latent manifold. Individual neurons do not represent concepts, and no parameter corresponds to a specific example. Instead, concepts are realized as regions, directions, and curvatures in this space, distributed across billions of parameters. Generation is the act of tracing a path through this learned geometry, producing outputs that are novel yet constrained by the manifold’s structure. Understanding this latent substrate is essential, because every architectural component in models like Sora — downsampling paths, bottlenecks, attention layers, and diffusion dynamics — exists solely to shape, transform, and traverse this space.</p>
+</section>
+<section id="fudnamentals" class="level2">
+<h2 class="anchored" data-anchor-id="fudnamentals">fundamentals</h2>
+<p>Modern video diffusion models are not monolithic networks that “generate videos end-to-end.” They are structured systems composed of three functionally distinct sub-components, each responsible for a different stage of representation and transformation: a downsampling path, a latent bottleneck, and an upsampling path. These components do not correspond to semantic stages like “understanding” or “generation,” but instead define how information is compressed, transformed, and reconstructed within the model. The downsampling path progressively converts high-dimensional inputs (such as pixel grids or latent frames) into compact latent representations; the bottleneck operates on this compressed state to model global structure and long-range dependencies; and the upsampling path reconstructs coherent outputs from the refined latent state. This encoder–bottleneck–decoder layout is a computational scaffold, not a reasoning pipeline — and understanding this distinction is essential for understanding how systems like Sora actually work.</p>
+<p>Video is not simply a sequence of images — it is a fused spatiotemporal modality that combines:</p>
+<p>⸻</p>
+<p>Vision (space) — per-frame spatial detail (objects, texture,colors,lighting). Time (motion) — frame-to-frame dynamics, causality, and temporal dependencies. Audio (sound) — speech, music, ambient noise, and prosody tightly synchronized with visuals.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/video-modality.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Video Modality</figcaption>
+</figure>
+</div>
+</section>
+<section id="debunking-misconception" class="level2">
+<h2 class="anchored" data-anchor-id="debunking-misconception">debunking misconception</h2>
+<p>Debunking a Core Misconception</p>
+<p>Before breaking down the internal modules of video diffusion models, it is critical to dispel one of the most persistent misconceptions in AI: neural networks do not store data, examples, or media. During training, deep learning models do not copy, cache, or memorize raw inputs. Instead, they encode, embed, entangle, and extrapolate statistical patterns across billions of parameters, distributing structure across the entire network. There are no stored videos inside a video model, no stored images inside an image model, and no stored sentences inside a language model — only learned patterns of how data tends to vary, correlate, and evolve. This is precisely why generated outputs are not copies of training examples, but novel recombinations constrained by learned structure. Individual neurons or parameters never represent specific examples; meaning exists only as distributed geometry across the latent space. Neural networks are therefore not lookup tables, not databases, and not retrieval systems — they are pattern-learning dynamical systems whose outputs emerge from transformation, not recall.</p>
+</section>
+<section id="What-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="What-patterns">what patterns</h2>
+<p>What “Patterns” Mean in Video Models (Concrete Examples)</p>
+<p>When a video diffusion model is trained, it does not learn videos.</p>
+<p>It learns regularities in how the world tends to change over time.</p>
+<p>Those regularities form the latent manifold the model operates on.</p>
+<p>Below are examples of pattern classes that are distributed across billions of parameters.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol type="1">
+<li></li>
+</ol>
+<p>Low-Level Spatiotemporal Patterns</p>
+<p>These are the most basic statistical regularities:</p>
+<p>Edges persist across adjacent frames Textures deform smoothly, not randomly Motion tends to be continuous, not discontinuous Noise has different statistics than structure Lighting changes are usually gradual, not instantaneous</p>
+<p>These patterns define visual coherence.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<p>Object Persistence Patterns</p>
+<p>The model learns that:</p>
+<p>Objects do not randomly disappear Occluded objects tend to reappear Objects maintain identity across frames Shape changes follow physical constraints Size changes correlate with depth and motion</p>
+<p>This is not memory, but learned persistence statistics.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<p>Motion Dynamics Patterns</p>
+<p>Across massive datasets, the model learns distributions such as:</p>
+<p>How humans walk, turn, gesture, and fall How vehicles accelerate, brake, and turn How animals move differently from humans How fluids ripple versus how solids deform How inertia constrains movement</p>
+<p>These are motion priors, not simulations.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<p>Camera and Viewpoint Patterns</p>
+<p>Video datasets strongly encode:</p>
+<p>How cameras pan, tilt, and zoom Common framing conventions Motion blur characteristics Depth-of-field behavior Perspective distortions</p>
+<p>This is why generated videos often “feel filmed.”</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="5" type="1">
+<li></li>
+</ol>
+<p>Temporal Cause–Effect Regularities</p>
+<p>The model internalizes correlations like:</p>
+<p>Actions precede reactions Collisions precede rebounds Forceful motion precedes deformation Release precedes falling Acceleration precedes displacement</p>
+<p>Importantly:</p>
+<p>These are statistical correlations, not causal reasoning.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="6" type="1">
+<li></li>
+</ol>
+<p>Human Behavior Patterns</p>
+<p>From large-scale data, models learn:</p>
+<p>Typical human posture transitions Facial expression dynamics Gaze and attention cues Social spacing norms Gesture–speech timing alignment</p>
+<p>This is why human motion looks plausible even without understanding intent.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="7" type="1">
+<li></li>
+</ol>
+<p>Environmental Dynamics</p>
+<p>The latent space encodes patterns such as:</p>
+<p>Fire flickers upward Smoke diffuses and curls Water flows downhill Wind affects light objects more than heavy ones Shadows move consistently with light sources</p>
+<p>Again: learned regularities, not physics engines.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="8" type="1">
+<li></li>
+</ol>
+<p>Compositional Scene Structure</p>
+<p>The model learns spatial arrangements:</p>
+<p>Roads under vehicles Sky above ground Furniture aligned with floors Faces above torsos Objects supported by surfaces</p>
+<p>Violations of these patterns are penalized during training.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="9" type="1">
+<li></li>
+</ol>
+<p>Cross-Modal Alignment Patterns (When Applicable)</p>
+<p>In multimodal video models:</p>
+<p>Lip motion aligns with speech rhythm Sound intensity correlates with motion intensity Visual events cluster around audio transients</p>
+<p>These patterns bind modalities into a shared latent structure.</p>
+<p>The Key Point (Explicitly)</p>
+<p>None of these patterns exist as:</p>
+<p>Stored videos Stored frames Stored clips Stored examples</p>
+<p>They exist as distributed constraints on the latent space.</p>
+<p>A generated video is:</p>
+<p>A trajectory through this learned manifold, not a replay of data.</p>
+<p>This is why outputs can be:</p>
+<p>Novel Highly varied Unseen in training Yet still coherent</p>
+</section>
+<section id="Tensors" class="level2">
+<h2 class="anchored" data-anchor-id="Tensors">Tensors</h2>
+<p>In state-of-the-art video generation systems, fusion does not mean that raw audio waveforms are directly concatenated with video pixels. Instead, audio is first encoded into a temporal latent representation, while video is encoded into a spatiotemporal latent volume. These representations are then jointly conditioned and fused at the latent level—typically through mechanisms such as cross-attention, feature alignment along the time axis, or shared latent processing blocks. This allows the denoising process to model correlations between motion and sound (e.g., lip movement and speech, impacts and audio cues) as part of a unified generative trajectory. The result is synchronized audiovisual generation without requiring separate pipelines or post-hoc alignment.</p>
+<p>📐 Tensors: The Substrate of All Pattern Learning</p>
+<p>At the deepest level, neural networks do not reason in words, objects, or scenes. They operate exclusively on tensors—high-dimensional numerical arrays that define what patterns can exist, interact, and be learned at all.</p>
+<p>Every architectural decision ultimately reduces to a question of tensor structure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Video-Tensor-Representation.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Video Tensor Representation</figcaption>
+</figure>
+</div>
+<p>What a Tensor Really Represents</p>
+<p>A tensor is not just “data.”</p>
+<p>It is a geometric substrate that constrains learning.</p>
+<p>Each dimension of a tensor defines an axis along which patterns can be extracted and correlated. If a pattern cannot be expressed along the available axes, the model cannot learn it, no matter how many parameters it has.</p>
+<p>In generative models, tensors determine:</p>
+<p>What correlations are possible What interactions are local vs global What structure can persist through layers What information survives denoising</p>
+<p>Why Video Is the Most Demanding Case</p>
+<p>Video generation requires tensors that preserve multiple interacting dimensions simultaneously:</p>
+<p>(B, C, T, H, W)</p>
+<p>Where:</p>
+<p>B = batch C = channels (learned pattern maps) T = time H, W = spatial dimensions</p>
+<p>This tensor does not store pixels.</p>
+<p>It stores patterns evolving through time and space.</p>
+<p>Because time is an explicit axis, the model can learn:</p>
+<p>Motion continuity Temporal causality-like correlations Object persistence Rhythm and pacing</p>
+<p>Image models lack this axis.</p>
+<p>Video models cannot.</p>
+<p>Channels as Pattern-Carrying Dimensions</p>
+<p>The channel dimension (C) is where most representational power lives.</p>
+<p>Each channel is a learned detector for a specific class of pattern:</p>
+<p>Early layers: edges, textures, short-term motion Middle layers: object parts, motion flows Deep layers: scene-level dynamics, long-range temporal structure</p>
+<p>As depth increases, channel count grows:</p>
+<p>32 → 64 → 128 → 256 → …</p>
+<p>This expansion allows the model to embed many interacting patterns simultaneously without collapsing them into a single representation.</p>
+<p>Multimodal Tensor Alignment (Video + Audio)</p>
+<p>In modern video models, audio is not treated as an afterthought.</p>
+<p>Audio is encoded into a temporal tensor:</p>
+<p>(B, T, D)</p>
+<p>This tensor is aligned along the same time axis (T) as the visual latent. Fusion occurs by conditioning or joint processing, allowing correlations such as:</p>
+<p>Lip movement ↔︎ speech Impact ↔︎ sound Rhythm ↔︎ motion cadence</p>
+<p>Crucially, this alignment happens in tensor space, not at the level of decoded outputs.</p>
+<p>Why Tensors Determine What a Model Can Learn</p>
+<p>Neurons do not “discover” patterns arbitrarily.</p>
+<p>They respond to tensor geometry.</p>
+<p>If:</p>
+<p>Time is not a dimension → temporal coherence cannot emerge Channels are too few → patterns must be discarded Spatial structure is flattened → locality is destroyed</p>
+<p>This is why architectural choices around tensor shape matter more than raw parameter count.</p>
+<p>The tensor defines the hypothesis space.</p>
+<p>The network merely explores it.</p>
+<p>Diffusion Models as Tensor Refiners</p>
+<p>Diffusion models do not build representations from scratch at each step.</p>
+<p>They:</p>
+<p>Start with a tensor full of noise Iteratively nudge it through the latent manifold Preserve structure across dimensions Refine correlations rather than overwrite them</p>
+<p>This is why diffusion models rely heavily on:</p>
+<p>Convolutions (respect tensor geometry) Residual connections (preserve information) Attention (selective global interaction) Minimal MLP usage (avoid structure destruction)</p>
+<p>Key Takeaway</p>
+<p>Tensors are not an implementation detail.</p>
+<p>They are the medium of intelligence in deep learning.</p>
+<p>In video generation, where space, time, and modality must remain coherent, tensor structure is the primary reason modern models can produce stable, synchronized, long-range outputs at all.</p>
+<p>Everything else—attention, conditioning, diffusion—is downstream of this choice.</p>
+</section>
+<section id="Core-Architectural-Modules" class="level2">
+<h2 class="anchored" data-anchor-id="Core-Architectural-Modules">Core Architectural Modules</h2>
+<p>Core Architectural Modules in Veo and sora -Class Video Diffusion Models</p>
+<p>🔹 1. Spatiotemporal Convolutional Layers (3D or Factorized)</p>
+<p>Veo-class video diffusion models rely on spatiotemporal convolutional layers to extract structure across space and time. These layers operate on latent feature volumes rather than raw pixels, enabling efficient pattern extraction at multiple scales.</p>
+<p>Convolutional filters slide across height, width, and temporal depth, allowing the model to learn:</p>
+<p>Spatial structure: edges, textures, shapes, object boundaries Temporal continuity: motion trajectories, transitions, persistence Cross-frame correlations: how visual patterns evolve over time</p>
+<p>As depth increases, representations become more abstract and semantically structured, moving from local visual features toward higher-level motion and scene organization.</p>
+<p>In multimodal video models, visual latents may be jointly conditioned with audio-related structure through shared or coupled latent representations, allowing the network to learn correlations between motion and sound without treating them as independent pipelines.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻ ⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹 Channels as Pattern Maps</p>
+<p>Each convolutional layer produces multiple channels, which act as learned pattern maps:</p>
+<p>Early layers encode low-level structure (edges, color gradients, short-range motion) Intermediate layers encode object-level and motion-level structure Deep layers encode long-range temporal coherence, scene layout, and interaction patterns</p>
+<p>Channel capacity typically increases with depth (e.g., 32 → 64 → 128 → 256 → …), allowing progressively richer representations. Temporal awareness emerges naturally because convolutions operate across time as part of the latent volume.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹 2. SiLU (Swish) Nonlinear Activations</p>
+<p>Diffusion models use SiLU (Sigmoid Linear Unit) as their primary nonlinearity:</p>
+<p>(x) = x (x)</p>
+<p>Unlike ReLU, SiLU does not hard-zero negative activations. Instead, it smoothly attenuates them, preserving gradient flow and enabling continuous transformations of latent features.</p>
+<p>This property is critical in diffusion models, where the network must remain stable across many noise levels and repeatedly refine latent representations. SiLU supports:</p>
+<p>Smooth signal propagation Stronger gradient flow Reduced dead activations Rich, continuous feature evolution</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹 3. Group Normalization (Not BatchNorm)</p>
+<p>Modern diffusion models universally use Group Normalization rather than Batch Normalization.</p>
+<p>GroupNorm normalizes activations within each individual sample, across groups of channels, rather than across the batch. This makes it far more stable when:</p>
+<p>Batch sizes are small (common in diffusion training) Inputs are heavily noisy Temporal dimensions vary</p>
+<p>GroupNorm stabilizes training by keeping latent activations well-conditioned throughout the denoising process and is standard in architectures such as Stable Diffusion, Imagen, and video diffusion UNets.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹 4. Attention in Diffusion U-Nets</p>
+<p>Attention is used selectively, not universally, due to its quadratic computational cost.</p>
+<p>Self-Attention</p>
+<p>Self-attention allows latent tokens to interact globally, enabling the model to capture long-range dependencies across space and time.</p>
+<p>Operates on compressed latent representations Typically placed in the bottleneck Enables coordination across distant regions and frames</p>
+<p>This is where global coherence emerges—not because attention “reasons,” but because it enables global pattern interaction among already-compressed features.</p>
+<p>Cross-Attention</p>
+<p>Cross-attention injects conditioning information (e.g., text embeddings) into the latent representation.</p>
+<p>Attention flows from latent video features → conditioning embeddings Enables alignment between regions of the video and semantic concepts in the prompt Used in text-to-video systems like Veo-class models</p>
+<p>Cross-attention does not introduce understanding; it biases latent evolution toward prompt-aligned regions of the learned manifold.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹 5. Upsampling and Skip Connections</p>
+<p>During upsampling, the latent representation is progressively expanded back toward higher resolution.</p>
+<p>Learned upsampling layers restore spatial and temporal detail Skip connections concatenate features from corresponding downsampling layers This preserves fine-grained structure that would otherwise be lost</p>
+<p>Skip connections allow the decoder to combine:</p>
+<p>Early spatial precision (shape, color, texture) Intermediate motion traces High-level global structure established in the bottleneck</p>
+<p>They are essential for maintaining sharpness, continuity, and coherence across frames.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹 6. Final Projection to Video Space</p>
+<p>The final stage applies a projection head—typically a convolution—to map the refined latent representation back into observable video space.</p>
+<p>This stage does not decode meaning or perform reasoning. It simply projects structured latent geometry into pixel values (and, if present, synchronized audio representations).</p>
+<p>During inference, this projection occurs at each step of the reverse diffusion process, with successive steps progressively reducing noise and increasing coherence.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹7.</p>
+<p>Temporal Conditioning / Embeddings</p>
+<p>Used in: Downsampling + Bottleneck</p>
+<p>In video diffusion models, timestep embeddings (and often temporal embeddings) are injected at multiple depths. These embeddings condition:</p>
+<p>Noise level Temporal position Frame relationships</p>
+<p>They do not belong exclusively to the bottleneck; they influence representation formation at all scales.</p>
+<p>Canonical Diffusion U-Net Module Set (Image and Video)</p>
+<p>Across state-of-the-art diffusion systems, the same core components recur:</p>
+<p>Convolutions (2D or 3D) Strided downsampling Residual blocks Group Normalization SiLU activations Self- and cross-attention (primarily in bottleneck layers) Skip connections Noise scheduling Latent-space sampling</p>
+</section>
+<section id="downsampling" class="level2">
+<h2 class="anchored" data-anchor-id="downsampling">downsampling</h2>
+<p>Downsampling: Compressing Structure Into the Latent Manifold</p>
+<p>Downsampling exists for a single fundamental reason: high-resolution video is too large and too redundant to model directly. Raw video frames contain millions of correlated values per frame, most of which encode local detail rather than global structure. If a model attempted to operate on this space directly, it would be computationally infeasible and statistically inefficient. The role of the downsampling path is therefore to progressively compress spatial and temporal information into a lower-dimensional latent representation while preserving the structure necessary for coherent generation.</p>
+<p>This compression is achieved through stacked convolutional blocks that reduce resolution while increasing representational capacity. Convolutions with learned filters extract local patterns such as edges, textures, and short-range motion; strides and pooling reduce spatial dimensions; and padding preserves alignment and boundary information. As resolution decreases, each latent unit comes to represent a larger receptive field in the original video, allowing the model to move from local detail toward increasingly global structure. Importantly, downsampling does not discard information arbitrarily — it reshapes it, folding correlated features into a more compact geometry within the latent manifold.</p>
+<p>Each downsampling stage typically consists of multiple residual blocks, ensuring that information can flow through the network without degradation. Residual connections stabilize training and allow fine-grained detail to persist even as representations are compressed. Nonlinearities such as SiLU introduce smooth, non-saturating transformations that help preserve gradient flow, while normalization layers regulate activation scales to keep the latent space well-conditioned. Together, these components allow the model to contract high-dimensional video data into a dense latent substrate that is both expressive and tractable.</p>
+<p>By the end of the downsampling path, the model is no longer operating on pixels or frames, but on structured latent features that encode object identity, motion tendencies, spatial relationships, and temporal continuity. This compressed representation is what makes global reasoning possible at all: without downsampling, the model would be overwhelmed by surface detail and unable to model long-range dependencies. The downsampling path does not perform “understanding” — it performs geometric compression, shaping the latent manifold into a form where higher-level structure can be modeled efficiently.</p>
+<section id="deep-objective" class="level3">
+<h3 class="anchored" data-anchor-id="deep-objective">deep objective</h3>
+<p>Downsampling (Reframed Around the Real Objective)</p>
+<p>The purpose of the downsampling path is not merely to reduce resolution or save computation. Its deeper role is to break the video stream apart into a form where every learnable pattern can be encoded, embedded, and extrapolated across the network’s parameters. Raw video frames are too entangled, too redundant, and too high-dimensional for effective representational learning. By progressively decomposing frames into structured latent features, the model creates the conditions necessary for deep pattern extraction.</p>
+<p>At every downsampling stage, the model is not “throwing information away,” but redistributing it. Spatial detail, motion cues, object boundaries, textures, and temporal correlations are reorganized into increasingly abstract representations. This process allows patterns that are local in pixel space to become global in latent space, enabling the model to internalize regularities that would otherwise remain buried in raw data. Video must be broken down in this way because patterns cannot be learned directly from unstructured streams; they must first be separated, compressed, and geometrically organized.</p>
+<p>Fundamentally, all deep learning models operate under the same principle: capability emerges from how deeply patterns are extracted and recomposed. The richer, more dynamic, and more entangled these pattern representations become within the weights, the more powerful the model’s latent manifold becomes. Downsampling is therefore not an implementation detail — it is a prerequisite for building the complex internal geometry that makes coherent video generation possible.</p>
+</section>
+<section id="archecture-of-downsampling" class="level3">
+<h3 class="anchored" data-anchor-id="archecture-of-downsampling">archecture of downsampling</h3>
+<p>Canonical Module Inventory by Stage (Diffusion UNet)</p>
+<ol start="0" type="1">
+<li>Global / Cross-Cutting Modules (Used Everywhere)</li>
+</ol>
+<p>These are not stage-specific and should be treated as conditioning infrastructure:</p>
+<p>✅ Timestep / Noise Embeddings</p>
+<p>Sinusoidal or learned embeddings Injected into every residual block Purpose: condition the entire network on diffusion step</p>
+<p>Correct in your code.</p>
+<p>✅ Conditioning Embeddings (e.g.&nbsp;CLIP)</p>
+<p>Projected to model channel width</p>
+<p>Injected via cross-attention</p>
+<p>Sometimes added as bias in residual blocks (older designs)</p>
+<p>Correct in your code.</p>
+<ol type="1">
+<li>Downsampling Path (Encoder)</li>
+</ol>
+<p>Purpose: aggressive pattern extraction + geometric compression</p>
+<p>Constraint: attention mostly too expensive early</p>
+<p>Modules that are there</p>
+<p>✅ Convolutions</p>
+<p>Kernel sizes: usually 3×3</p>
+<p>Stride &gt; 1 used for resolution reduction</p>
+<p>Padding to preserve alignment</p>
+<p>Correct.</p>
+<p>✅ Residual Blocks</p>
+<p>Conv → Norm → SiLU → Conv</p>
+<p>Skip connections (identity or 1×1 conv)</p>
+<p>Time embedding injected inside block</p>
+<p>Correct.</p>
+<p>✅ Normalization</p>
+<p>GroupNorm (most common in diffusion) LayerNorm less common in conv-heavy models</p>
+<p>Correct.</p>
+<p>✅ Nonlinearity</p>
+<p>SiLU / Swish Smooth gradients, stable diffusion training</p>
+<p>Correct.</p>
+<p>⚠️ Attention (Limited / Late Only)</p>
+<p>Usually absent in early downsampling May appear in last downsampling stage at SOTA scale Only when resolution is already low</p>
+<p>Your use_attn mask matches this correctly.</p>
+<p>Modules that SHOULD NOT be here</p>
+<p>❌ Global self-attention at high resolution</p>
+<p>❌ Any form of causal reasoning</p>
+<p>❌ Token-level transformer blocks</p>
+<p>If you see those, the architecture is inefficient or experimental.</p>
+</section>
+</section>
+<section id="bottleneck" class="level2">
+<h2 class="anchored" data-anchor-id="bottleneck">bottleneck</h2>
+<p>The Bottleneck: Where Global Pattern Interaction Becomes Possible</p>
+<p>Once the video stream has been sufficiently decomposed and compressed by the downsampling path, the model reaches the latent bottleneck. This stage exists for one reason only: it is the first point in the architecture where global pattern interaction becomes computationally viable. Prior to compression, the sheer dimensionality of video data makes any form of global interaction intractable. After compression, the model operates on a dense latent representation where each unit already aggregates information over large spatial and temporal regions.</p>
+<p>This is why attention mechanisms are primarily concentrated in the bottleneck. Self-attention scales quadratically with the number of tokens, making it prohibitively expensive at high resolutions. Applying attention directly to pixel-level or early convolutional representations would require orders of magnitude more computation than is feasible, even at the largest scale. By contrast, the bottleneck contains far fewer latent tokens, each representing a rich summary of underlying structure. Attention applied here allows the model to integrate information across the entire scene — objects, motion, context, and temporal dependencies — at a manageable cost.</p>
+<p>It is in this bottleneck that models like Sora exhibit their most impressive behavior. Long-range temporal coherence, object persistence across occlusion, consistent camera motion, and coordinated scene dynamics all emerge from global interaction between compressed patterns. The model is no longer reasoning about pixels or frames, but about abstract latent features that encode how the world tends to evolve. This interaction gives rise to behavior that resembles a world model, even though no explicit world state or physics engine exists inside the system.</p>
+<p>However, this same architectural choice also defines the system’s limitations. The bottleneck enables global correlation, not explicit causation. Attention allows latent features to influence one another, but it does not create structured variables, persistent state, or causal mechanisms. The model learns what usually follows what, not what must follow from underlying rules. As a result, Sora can generate videos that are highly coherent over long durations, yet still violate physical laws, fail under counterfactual changes, or drift when pushed beyond the statistical envelope of its training data. These are not implementation flaws — they are direct consequences of a system optimized for pattern extraction rather than causal modeling.</p>
+<section id="archecture-in-bottleneck" class="level3">
+<h3 class="anchored" data-anchor-id="archecture-in-bottleneck">archecture in bottleneck</h3>
+<p>Bottleneck (Latent Core)</p>
+<p>Purpose: global pattern interaction</p>
+<p>This is the architectural “event horizon”</p>
+<p>Modules that MUST be here</p>
+<p>✅ Residual Blocks (Pre + Post Attention)</p>
+<p>Preserve stability Allow attention to be a perturbation, not replacement</p>
+<p>Correct.</p>
+<p>✅ Self-Attention</p>
+<p>Operates over flattened latent tokens Allows every compressed feature to interact</p>
+<p>Correct.</p>
+<p>✅ Cross-Attention (Conditioning)</p>
+<p>CLIP / text embeddings attend into latent tokens Conditioning happens here most effectively</p>
+<p>Correct.</p>
+<p>✅ Convolutions (Stride = 1)</p>
+<p>Feature mixing, not compression Preserve spatial topology</p>
+<p>Correct.</p>
+<p>✅ Normalization + SiLU</p>
+<p>Same role as everywhere else</p>
+<p>Correct.</p>
+<p>Important clarification (you already understand this)</p>
+<p>The bottleneck is not special because it has new modules</p>
+<p>It is special because the representation is maximally compressed</p>
+<p>That’s why attention suddenly “works”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Stage-Architecture.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Stage Architecture</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="The-Upsampling-Stage" class="level2">
+<h2 class="anchored" data-anchor-id="The-Upsampling-Stage">The Upsampling Stage</h2>
+<p>The Upsampling Stage: Reconstructing Structure From Compressed Patterns</p>
+<p>The purpose of the upsampling stage in diffusion U-Nets is not to add new information or reasoning. Its role is purely geometric: to increase spatial (and temporal) resolution while preserving the structure that has already been extracted, compressed, and globally coordinated earlier in the network.</p>
+<p>During downsampling, convolutional kernels and strides progressively shrink spatial dimensions in order to extract patterns efficiently. By the time the latent reaches the bottleneck, it encodes high-level structure—scene layout, motion tendencies, global relationships—but at very low resolution. Upsampling exists to project that structure back into higher-resolution tensor space.</p>
+<p>Increasing Spatial Dimensions</p>
+<p>Upsampling layers (e.g., transposed convolutions or learned interpolation + convolution) incrementally restore height and width—and, in video models, temporal resolution when applicable.</p>
+<p>At each stage:</p>
+<p>Spatial dimensions increase Channel depth may decrease The latent representation becomes more detailed but not more “informed”</p>
+<p>No new semantics are introduced. The model is simply expanding the latent geometry under constraints already established.</p>
+<p>Skip Connections: Pattern Reintroduction, Not Memory</p>
+<p>A critical component of the upsampling stage is the use of skip connections from corresponding downsampling layers.</p>
+<p>These connections:</p>
+<p>Concatenate feature maps from earlier stages Reintroduce fine-grained spatial and motion detail Prevent the loss of local structure during compression</p>
+<p>Importantly, skip connections do not reintroduce raw inputs or stored examples. They reintroduce earlier-extracted patterns—edges, textures, motion traces—that were already encoded in the latent space before aggressive downsampling.</p>
+<p>This allows the decoder-side residual blocks to combine:</p>
+<p>Global structure (from the bottleneck) Local precision (from early layers)</p>
+<p>Residual Refinement During Reconstruction</p>
+<p>As in the downsampling path, the upsampling stage relies heavily on residual blocks. These blocks refine representations incrementally rather than overwriting them.</p>
+<p>Residual refinement ensures:</p>
+<p>Stable gradient flow Preservation of coherence established earlier Controlled integration of skip-connected patterns</p>
+<p>The network does not “decide” what details to add. It selectively integrates existing pattern information to produce a coherent high-resolution output.</p>
+<p>What the Upsampling Stage Does</p>
+<p>Not</p>
+<p>Do</p>
+<p>It is important to be explicit about what upsampling does not provide:</p>
+<p>No reasoning No memory No causal enforcement No global correction mechanism</p>
+<p>Any incoherence present at the bottleneck will persist—or even be amplified—during upsampling. The upsampling path cannot fix logical or temporal inconsistencies; it can only faithfully expand what already exists in the latent representation.</p>
+<p>Key Takeaway</p>
+<p>The upsampling stage reconstructs detail, not understanding.</p>
+<p>It increases spatial resolution, reintegrates earlier pattern information via skip connections, and refines structure through residual blocks—but it does not introduce new constraints or intelligence. Coherence is determined upstream; upsampling merely makes it visible.</p>
+<section id="Upsampling-Path" class="level3">
+<h3 class="anchored" data-anchor-id="Upsampling-Path">Upsampling Path</h3>
+<p>Upsampling Path (Decoder)</p>
+<p>Purpose: structured expansion under global constraints</p>
+<p>No new learning, only reconstruction</p>
+<p>Modules that SHOULD be here</p>
+<p>✅ Transposed Convolutions / Upsampling + Conv</p>
+<p>Restore spatial resolution Often paired with residual blocks</p>
+<p>Correct.</p>
+<p>✅ Skip Connections</p>
+<p>Carry fine-grained structure forward Prevent information loss</p>
+<p>Correct.</p>
+<p>✅ Residual Blocks</p>
+<p>Same structure as encoder Conditioning still injected</p>
+<p>Correct.</p>
+<p>⚠️ Attention (Optional, Late Only)</p>
+<p>Sometimes used in late upsampling Helps preserve global coherence Not required at all resolutions</p>
+<p>Your design matches SOTA practice.</p>
+<p>Modules that SHOULD NOT be here</p>
+<p>❌ New global reasoning</p>
+<p>❌ Memory mechanisms</p>
+<p>❌ Causal state updates</p>
+<p>Upsampling does not add intelligence.</p>
+<ol start="4" type="1">
+<li>Output Head</li>
+</ol>
+<p>✅ Normalization</p>
+<p>✅ SiLU</p>
+<p>✅ Final Conv → image/video space</p>
+<p>This is a linear readout, nothing more.</p>
+<p>Correct.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/stage architecture.webp" class="img-fluid figure-img" width="750"></p>
+<figcaption>Stage Architecture</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="CLIP" class="level2">
+<h2 class="anchored" data-anchor-id="CLIP">CLIP</h2>
+<p>How CLIP-Style Conditioning Guides Sampling in Video Diffusion Models</p>
+<p>In state-of-the-art text-to-video diffusion models such as Sora-class systems, text prompts do not merely initialize generation. Instead, they continuously condition the entire reverse diffusion trajectory, shaping how noise is transformed into structured video over time.</p>
+<p>This is made possible by multimodal embedding and fusion architectures inspired by CLIP-style contrastive training, adapted to operate over spatiotemporal video representations.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol type="1">
+<li>Text–Video Embedding Alignment</li>
+</ol>
+<p>CLIP-style models are trained to embed language and visual content into a shared semantic space, where proximity corresponds to statistical alignment in the training data.</p>
+<p>When extended to video generation:</p>
+<p>Text tokens are produced by a text encoder (e.g.&nbsp;CLIP, T5-derived, or transformer-based encoders) Visual tokens are extracted from video frames via spatiotemporal encoders (e.g.&nbsp;ViT-like or convolutional backbones) The model learns correspondences between textual descriptions and visual patterns evolving over time</p>
+<p>Rather than performing a one-time matching step, these embeddings are used to condition the latent representation that the diffusion model operates on.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="2" type="1">
+<li>Conditioning the Reverse Diffusion Process</li>
+</ol>
+<p>Once generation begins, the model starts from Gaussian noise in latent space and applies a learned denoising function across many timesteps.</p>
+<p>During this process:</p>
+<p>Text embeddings act as a conditioning signal Conditioning is injected via mechanisms such as cross-attention, biasing latent updates Each denoising step is nudged toward regions of latent space that statistically correspond to the prompt</p>
+<p>This means the prompt influences every refinement step, not just the initial layout. The generated video is therefore shaped continuously, not corrected afterward.</p>
+<p>This process is conceptually similar to classifier-free guidance (CFG), but richer in practice because CLIP-style embeddings encode high-dimensional multimodal relationships, not simple class labels.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li>Cross-Attention as the Primary Conditioning Mechanism</li>
+</ol>
+<p>In modern text-to-video diffusion models, cross-attention is the primary mechanism through which text conditions video generation.</p>
+<p>Attention flows from latent video features → text embeddings Each spatiotemporal region of the latent can selectively attend to semantic components of the prompt This enables fine-grained alignment between language and visual structure</p>
+<p>For example:</p>
+<p>“dragon” aligns with regions encoding wings, scales, tail motion “sunset” biases lighting, color gradients, and scene tone Action verbs bias motion patterns across frames</p>
+<p>Cross-attention is typically concentrated in bottleneck or low-resolution latent stages, where global interaction is computationally feasible.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="4" type="1">
+<li>Why CLIP-Style Fusion Enables Coherent Video Generation</li>
+</ol>
+<p>Because language and visual patterns are embedded into a shared semantic space, the diffusion model can:</p>
+<p>Sample latent trajectories consistent with the prompt across space and time Maintain temporal coherence (objects persist, motion flows smoothly) Preserve spatial consistency (scenes remain stable) Align audiovisual events when audio conditioning is present</p>
+<p>Importantly, this does not involve storing examples or copying training data. The model learns statistical structure, not individual instances.</p>
+<p>Architectural Note (Important)</p>
+<p>Sora-class video diffusion models operate on spatiotemporal latent volumes, preserving spatial and temporal structure throughout the network. Unlike earlier approaches that flattened features for dense layers, modern systems maintain structured latent geometry at every stage of denoising.</p>
+<p>This allows motion, spatial layout, and (when present) audio-related conditioning to remain synchronized across frames—an essential property for long-range video coherence.</p>
+<p>Key Takeaway</p>
+<p>simplle quote that desribes it all in one “CLIP-style conditioning biases the trajectory of the latent state through the latent manifold, guiding denoising toward regions whose coordinates statistically correspond to the prompt.”</p>
+<p>CLIP-style conditioning does not “tell the model what to draw.”</p>
+<p>It reshapes the geometry of the latent manifold so that the reverse diffusion process naturally evolves toward regions corresponding to the prompt—step by step, across time.</p>
+</section>
+<section id="denosing-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="denosing-pipeline">denoising pipeline</h2>
+<p>🎬 The Denoising Pipeline: From Prompt to Video in Veo 3</p>
+<p>At its core, Veo 3 is a latent video diffusion model, meaning it generates videos by iteratively transforming noise into structure within a compressed latent space. Rather than operating directly on pixels, the model learns to denoise a high-dimensional latent representation across space, time, and modality, gradually shaping it into a coherent audiovisual sequence aligned with a text prompt.</p>
+<p>The generation process begins from noise and proceeds through many refinement steps, each one incrementally restructuring the latent state according to learned statistical patterns.</p>
+<p>🔹 Step 1: Prompt Embedding (Text → Semantic Conditioning)</p>
+<p>A user provides a prompt such as:</p>
+<p>“A lion walking through a golden savanna at sunset, with ambient nature sounds.”</p>
+<p>This prompt is passed through a powerful text encoder, likely a CLIP-like model fine-tuned on video–text pairs, which maps the input text into a dense semantic embedding. This embedding does not represent symbolic meaning or linguistic understanding. Instead, it encodes how the prompt statistically correlates with visual motion, scene composition, temporal dynamics, and audio structure in the training data.</p>
+<p>This semantic embedding does not directly control every layer of the model. Instead, it is injected into the denoising network via cross-attention at selected depths, most prominently in the latent bottleneck where global interaction is computationally feasible.</p>
+<p>Why this matters:</p>
+<p>The model does not “understand” language. It conditions generation by aligning latent trajectories with regions of latent space that statistically correspond to the prompt.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹 Step 2: Noise Initialization (Latent Space Start)</p>
+<p>Generation begins from pure Gaussian noise sampled in a structured latent space with dimensions corresponding to:</p>
+<p>[channels, frames, height, width]</p>
+<p>This latent does not represent RGB pixels. It is a compact, high-dimensional substrate shaped during training to encode spatiotemporal structure efficiently. At this stage, there is no image, no motion, and no sound—only noise constrained by the geometry of the learned latent manifold.</p>
+<p>In Veo-style systems, visual and audio structure appear to be jointly modeled, either within a shared latent space or through tightly coupled latents that are denoised together. This enables the model to learn correlations between motion and sound over time, without requiring independent generation pipelines.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹 Step 3: Conditioned Denoising (Iterative U-Net Refinement)</p>
+<p>The core of Veo 3’s generation process is an iterative denoising loop driven by a large 3D U-Net–style architecture. Across dozens or hundreds of diffusion steps, this network progressively removes noise from the latent representation, reshaping it into a structured trajectory consistent with the prompt.</p>
+<p>Each denoising step applies the same network with different noise conditioning, gradually refining the latent state.</p>
+<p>U-Net Internals (Per Denoising Step)</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol type="1">
+<li>Downsampling Path — Pattern Extraction and Compression</li>
+</ol>
+<p>Uses 3D convolutions with learned downsampling (e.g.&nbsp;strided convolutions). Resolution is reduced while channel capacity increases. Residual blocks composed of: Convolution Group Normalization SiLU activation Skip connections</p>
+<p>Purpose: aggressively decompose raw spatiotemporal structure into extractable patterns.</p>
+<p>At this stage, the model captures local and mid-range regularities such as motion continuity, object boundaries, scene layout, and short-range temporal correlations. Global interaction is intentionally deferred due to computational cost.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="2" type="1">
+<li>Bottleneck — Global Pattern Interaction</li>
+</ol>
+<p>The bottleneck operates at the lowest spatial and temporal resolution, where the latent representation is maximally compressed. This is where global interaction becomes feasible.</p>
+<p>The bottleneck consists of:</p>
+<p>Residual convolutional blocks (stride = 1) GroupNorm + SiLU activations Self-attention, allowing all latent tokens to interact Cross-attention, injecting text conditioning into the latent state</p>
+<p>At this point, each latent unit already summarizes large regions of space and time. Attention here enables correlations across the entire scene, motion arc, and temporal span, giving rise to long-range coherence.</p>
+<p>Importantly, this interaction is statistical, not causal. The model learns what patterns tend to co-occur and evolve together, not explicit rules or world state.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li>Upsampling Path — Structured Reconstruction</li>
+</ol>
+<p>Uses learned upsampling (e.g.&nbsp;transposed convolutions) paired with residual blocks. Skip connections reintroduce high-frequency detail from earlier layers. Optional attention may appear in later upsampling stages at large scale.</p>
+<p>No new structure is learned here. The upsampling path projects global decisions made in the bottleneck back to high resolution, reconstructing detailed frames while preserving coherence.</p>
+<p>Key Insight</p>
+<p>Each denoising step does not “add meaning.”</p>
+<p>It reduces entropy, nudging the latent state toward regions of the manifold that align with learned audiovisual patterns conditioned on the prompt.</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>⸻</p>
+<p>🔹 Step 4: Output Projection (Latent → Video)</p>
+<p>After the final denoising step, the refined latent representation is passed through a final projection head that maps latent features back into pixel space. This produces the final RGB video frames.</p>
+<p>If audio is present, it is either reconstructed from corresponding latent channels or generated through a tightly coupled audio decoder, maintaining synchronization with visual dynamics.</p>
+<p>There is no semantic decoding at this stage—only a geometric projection from latent structure to observable output.</p>
+<p>🧱 The Core Architectural Rhythm of Diffusion Models</p>
+<p>Across the downsampling path, bottleneck, and upsampling path, diffusion models rely on a highly repetitive architectural motif that accounts for the vast majority of computation:</p>
+<p>Conv → GroupNorm → SiLU → Conv → Residual → (Optional Attention)</p>
+<p>Convolutions extract hierarchical spatiotemporal patterns. Group Normalization stabilizes activations across varying batch sizes. SiLU introduces smooth nonlinearity, supporting stable gradient flow. Residual connections enable deep refinement without information loss. Self- and cross-attention are strategically inserted—typically near the bottleneck—to enable global pattern interaction.</p>
+<p>This stack repeats dozens of times throughout the network. Understanding this rhythm is key to understanding how diffusion models progressively refine latent representations rather than performing staged “encoding” and “decoding.”</p>
+<p>✅ Pipeline Summary</p>
+<p>Text Prompt</p>
+<p>↓</p>
+<p>CLIP-style Text Encoder</p>
+<p>↓</p>
+<p>Semantic Conditioning Embedding</p>
+<p>↓</p>
+<p>Gaussian Latent Noise</p>
+<p>↓</p>
+<p>Iterative Denoising via 3D U-Net</p>
+<p>(Downsampling → Bottleneck → Upsampling + Skips)</p>
+<p>↓</p>
+<p>Refined Latent</p>
+<p>↓</p>
+<p>Final Projection Head</p>
+<p>↓</p>
+<p>Coherent Video (with synchronized audio)</p>
+</section>
+<section id="weaknesses" class="level2">
+<h2 class="anchored" data-anchor-id="weaknesses">weaknesses</h2>
+<p>Why People Want AI to Generate Films, Shows, and YouTube — and Why It Can’t (Yet)</p>
+<p>There is a growing expectation that advanced video models will soon be able to generate full-length films, episodic television, or sustained YouTube-style content. This desire is understandable. Video is the dominant medium of modern culture, and short clips produced by frontier models already look cinematic at a glance.</p>
+<p>However, this expectation collides directly with the architectural limits of current video generation systems.</p>
+<p>The Mismatch Between Desire and Architecture</p>
+<p>Cinema, television, and long-form video are not defined by visual quality alone. They require:</p>
+<p>Persistent characters and identities Causal chains of events Narrative memory across scenes Consistency of setting, tone, and motivation Long-range temporal planning and payoff</p>
+<p>These properties are not optional. They are what make something a story rather than a sequence of images.</p>
+<p>Diffusion-based video models, by contrast, are optimized to generate short, locally coherent moments. They excel at producing visually rich clips, smooth motion, and plausible short-term dynamics—but they do not maintain a persistent world state or reason about consequences over time.</p>
+<p>Why Scaling Visual Quality Is Not Enough</p>
+<p>It is tempting to believe that higher resolution, longer clips, or more data will eventually close the gap. But the failure mode here is not cosmetic.</p>
+<p>Without:</p>
+<p>causal reasoning memory across generations explicit enforcement of invariants extreme representational compression enabling long horizons</p>
+<p>a model cannot sustain narrative structure.</p>
+<p>Visual realism can be scaled. Narrative coherence cannot—not without architectural mechanisms that enforce continuity, causality, and state.</p>
+<p>This is why current systems can generate:</p>
+<p>striking trailers short cinematic moments visually impressive demos</p>
+<p>…but struggle to produce:</p>
+<p>coherent multi-scene stories consistent characters across time long-form dialogue episode-level or film-level structure</p>
+<p>Why Short Clips Work—and Long-Form Content Breaks</p>
+<p>Over short durations, statistical patterns are sufficient. The model only needs to be locally plausible. Errors rarely surface before the clip ends.</p>
+<p>As duration increases:</p>
+<p>small inconsistencies compound latent drift accumulates lack of causal enforcement becomes visible identity and motion coherence degrade</p>
+<p>This is not a training failure. It is the expected behavior of a system that samples patterns without maintaining a persistent world.</p>
+<p>The Core Limitation</p>
+<p>Current video diffusion models generate moments, not narratives.</p>
+<p>They do not simulate worlds evolving over time. They generate statistically plausible audiovisual states without enforcing that those states must remain consistent with a past or constrain a future.</p>
+<p>Until models incorporate strong causal structure, persistent memory, and representations compact enough to support long horizons, top-tier cinema, episodic storytelling, and sustained creator-style content will remain out of reach—even at the frontier.</p>
+<section id="causality" class="level3">
+<h3 class="anchored" data-anchor-id="causality">casuality</h3>
+<p>Why Coherence Decays with Time in Video Diffusion Models</p>
+<p>Despite impressive short-term realism, diffusion-based video models exhibit a consistent failure mode: coherence degrades as video length increases. Objects drift, identities blur, motion becomes erratic, and long-range consistency breaks down. This behavior is not accidental—it is a direct consequence of how diffusion models generate data.</p>
+<p>The core issue is not data quality or parameter count. It is that diffusion models do not reason about the world they generate, they lack causla reasoning</p>
+<p>Diffusion Models Optimize Local Consistency, Not Global Truth</p>
+<p>At each denoising step, a diffusion model learns to predict a slightly less noisy version of a latent tensor. The training objective penalizes local reconstruction error—how well the model predicts the next denoised state given the current one.</p>
+<p>Crucially, there is:</p>
+<p>No explicit notion of persistent objects</p>
+<p>No internal state tracking</p>
+<p>No causal variables</p>
+<p>No penalties for long-term inconsistency</p>
+<p>Each step is locally correct in expectation, but there is no global constraint enforcing that the sequence remains coherent over time.</p>
+<p>No World State, No Memory, No Counterfactuals, because theres no causal reasoning</p>
+<p>Diffusion models do not maintain a world model with latent variables such as:</p>
+<p>object identity physical state causal history future constraints</p>
+<p>As a result:</p>
+<p>An object may subtly change shape or position across frames Physical laws may be locally plausible but globally violated Events do not need to remain consistent with earlier frames diialogue is unrealitsic or false</p>
+<p>There is no mechanism that asks:</p>
+<p>“If this was true before, must it still be true now?”</p>
+<p>Without such constraints, coherence becomes a statistical coincidence, not a requirement.</p>
+<p>Patterns Are Sampled, Not Enforced</p>
+<p>Diffusion models generate video by sampling trajectories through a latent manifold shaped by training data. These trajectories are biased toward common patterns, but they are not checked for consistency.</p>
+<p>The model learns:</p>
+<p>what motion often looks like what transitions usually follow what correlations tend to hold</p>
+<p>But it does not learn:</p>
+<p>what must remain invariant what cannot happen what would contradict earlier frames</p>
+<p>As time extends, small stochastic deviations accumulate. Without a corrective signal, these deviations compound into visible incoherence.</p>
+<p>Why Short Clips Work Better Than Long Ones</p>
+<p>Over short time horizons:</p>
+<p>Statistical patterns are strong Noise accumulation is limited Inconsistencies are unlikely to surface</p>
+<p>Over longer horizons:</p>
+<p>Errors compound Latent drift increases The absence of global constraints becomes obvious</p>
+<p>This is why even frontier models excel at short, visually rich clips, but struggle with long-form, simulation-level video.</p>
+<p>The Fundamental Limitation</p>
+<p>Diffusion models are geometric refiners, not reasoning systems.</p>
+<p>They shape a latent tensor toward high-probability regions of a learned manifold—but they do not enforce:</p>
+<p>causal consistency object permanence counterfactual validity long-term constraints dialogue realism</p>
+<p>Until video generation systems incorporate explicit mechanisms for state tracking, causal reasoning, or global constraint enforcement, coherence decay with time is not a bug—it is an expected outcome.</p>
+<p>Key Takeaway</p>
+<p>Diffusion models generate plausible moments, not persistent worlds.</p>
+</section>
+<section id="short-video-short-video" class="level3">
+<h3 class="anchored" data-anchor-id="short-video-short-video">short video {#short video}</h3>
+<p>🔸 Video’s Richness Comes at a Cost</p>
+<p>Video is the most information-dense modality in machine learning. It combines space, time, motion, and often sound into a single spatiotemporal signal, making it the most natural training ground for learning the structure of the physical world. But that same richness also makes video the hardest modality to model and generate.</p>
+<p>The dimensionality of video inputs—especially at high resolution, long duration, and with audio—explodes rapidly. Each additional second of video multiplies the computational burden across spatial, temporal, and channel dimensions. As a result, even frontier generative models operate under tight constraints.</p>
+<p>Despite major advances, state-of-the-art systems like Sora-class and Veo-class models typically generate video in short segments. As duration increases, quality degrades: motion becomes less stable, objects lose consistency, and long-range coherence breaks down. This is not a failure of training data or model size alone—it is a consequence of compute and memory limits interacting with extremely large spatiotemporal tensors.</p>
+<p>Training on video is fundamentally harder than training on images. The model must simultaneously learn:</p>
+<p>Temporal continuity and motion dynamics Approximate physical consistency Long-range spatial coherence Cross-modal alignment (when audio is present)</p>
+<p>All of this must be represented within a vast latent space and refined iteratively during diffusion.</p>
+<p>The Bottleneck</p>
+<p>Scaling video generation to long, coherent sequences requires all of the following at once:</p>
+<p>Enormous compute budgets Highly optimized spatiotemporal latent architectures Careful memory and sampling strategies Massive, diverse video–audio datasets</p>
+<p>Even with these ingredients, today’s architectures struggle to scale efficiently across space, time, and modality simultaneously. As sequence length grows, the cost of preserving global coherence rises faster than current models can handle.</p>
+<p>Video is where AI comes closest to learning the structure of reality—but it is also where current systems most clearly hit their computational limits.</p>
+<p>Until architectures can represent and propagate structure across long temporal horizons without exponential cost, true long-form, simulation-level video generation will remain just beyond reach—even at the frontier.</p>
+</section>
+<section id="memory" class="level3">
+<h3 class="anchored" data-anchor-id="memory">memory</h3>
+<p>No Memory, No Persistence: Why Scenes Cannot Continue</p>
+<p>A second fundamental limitation of diffusion-based video models is the absence of memory. Once a video clip has been generated, the model does not retain an internal representation of what occurred. There is no persistent world state, no stored history, and no mechanism for maintaining continuity beyond the current generation window.</p>
+<p>This is why models like Sora-class systems typically cannot be asked to continue a scene after an initial short clip. The model does not remember what it generated—it simply samples a new trajectory through latent space conditioned on a prompt. Any apparent continuity across clips must be reintroduced indirectly through text, not preserved internally.</p>
+<p>Diffusion Models Are Stateless by Design</p>
+<p>Each diffusion generation is an independent process:</p>
+<p>Noise is sampled anew Denoising proceeds without access to prior latent states No internal memory is carried forward between runs</p>
+<p>The model never asks:</p>
+<p>“What happened before?”</p>
+<p>It only asks:</p>
+<p>“Given this noise and this conditioning, what should the denoised latent look like?”</p>
+<p>As a result, previously generated objects, actions, or events have no privileged status unless they are explicitly re-described.</p>
+<p>No Causal History, No Continuation</p>
+<p>Because diffusion models lack:</p>
+<p>persistent latent state causal variables event memory temporal identity tracking across generations</p>
+<p>they cannot enforce continuity across clips.</p>
+<p>A character who walked off-screen in one clip does not “exist” in the next. A scene does not evolve. A narrative does not progress. Each generation is a fresh statistical sample, not a continuation of an internal simulation.</p>
+<p>This is not a shortcoming of training—it is a consequence of a stateless architecture optimized for single-trajectory refinement, not ongoing world evolution.</p>
+<p>Why This Cannot Be Fixed With Prompting Alone</p>
+<p>Text prompts can re-specify context, but they do not restore memory. They act as soft constraints, not state rehydration.</p>
+<p>Even if a prompt describes a prior scene perfectly:</p>
+<p>the model does not verify consistency it does not check against earlier outputs it does not enforce invariants</p>
+<p>At best, it produces a statistically similar continuation—not a true one.</p>
+<p>Key Takeaway</p>
+<p>Diffusion models generate scenes, not histories.</p>
+<p>They can produce short, coherent audiovisual moments, but without memory or causal state, they cannot sustain narrative, identity, or world continuity across time. This is why long-form video continuation remains out of reach—not because of data scarcity, but because the architecture itself does not preserve the past.</p>
+</section>
+</section>
+<section id="loss-fucntions" class="level2">
+<h2 class="anchored" data-anchor-id="loss-fucntions">loss functions</h2>
+<p>What Video Diffusion Models Are Actually Trained to Optimize</p>
+<p>To understand why video diffusion models struggle with long-term coherence, memory, and causality, it is essential to look at the loss function itself. Architecture explains how the model operates; the loss function explains what the model is incentivized to learn.</p>
+<p>In diffusion models, that incentive is extremely specific—and extremely limited.</p>
+<p>The Core Diffusion Objective</p>
+<p>Video diffusion models are trained to predict noise.</p>
+<p>At training time:</p>
+<p>A clean video latent is sampled Noise is added at a random timestep The model is trained to predict either: the added noise, or the original clean latent</p>
+<p>In practice, this is almost always implemented as a mean squared error (MSE) loss between the model’s prediction and the target.</p>
+<p>Crucially:</p>
+<p>This loss is applied independently at each timestep It evaluates local correctness, not global consistency It has no awareness of past or future generations</p>
+<p>The model is rewarded for producing a latent that looks statistically correct at that moment.</p>
+<p>What This Loss Function Encourages</p>
+<p>The diffusion loss strongly incentivizes:</p>
+<p>Accurate local denoising Smooth refinement of latent geometry Alignment with high-probability regions of the training distribution Short-horizon realism across space and time</p>
+<p>This is why diffusion models excel at:</p>
+<p>visual fidelity</p>
+<p>texture detail</p>
+<p>short-term motion plausibility</p>
+<p>brief cinematic coherence</p>
+<p>They are extremely good at producing locally plausible audiovisual states.</p>
+<p>This is because they are fine tuning nueron clusters that contain embedded represnations of those patterns</p>
+<p>What the Loss Function Does</p>
+<p>Not</p>
+<p>Incentivize</p>
+<p>Just as important is what the loss function never penalizes.</p>
+<p>There is no term in the diffusion objective that enforces and as result casual reasoning is absent.</p>
+<p>persistent object identity</p>
+<p>long-term temporal consistency</p>
+<p>causal relationships between events</p>
+<p>counterfactual validity</p>
+<p>memory of prior frames or clips</p>
+<p>narrative continuity</p>
+<p>• identity consistency across frames</p>
+<p>• causal continuity (actions produce effects)</p>
+<p>• collision / kinematics constraints</p>
+<p>• scene graph stability</p>
+<p>• camera motion consistency</p>
+<p>• physical constraints</p>
+<p>• temporal continuity</p>
+<p>• interaction causality</p>
+<p>• counterfactual physical outcomes</p>
+<p>The model is never asked:</p>
+<p>“Is this still the same object?”</p>
+<p>“Does this contradict what happened earlier?”</p>
+<p>“Should this action have consequences?”</p>
+<p>If a frame or short sequence is locally plausible, the loss is satisfied—even if it violates global coherence.</p>
+<p>Why Coherence Decays With Time</p>
+<p>Because the loss is:</p>
+<p>local expectation-based timestep-isolated</p>
+<p>small inconsistencies are never corrected globally. They accumulate.</p>
+<p>Over short durations, statistical regularities dominate and errors remain hidden. As video length increases, drift compounds and coherence breaks down—not due to failure, but due to correct optimization of the objective.</p>
+<p>The model is doing exactly what it was trained to do.</p>
+<p>Why Scaling Does Not Solve This</p>
+<p>Increasing:</p>
+<p>model size dataset size compute budget resolution clip length</p>
+<p>improves local realism, not global structure.</p>
+<p>Scaling sharpens the model’s estimate of what usually happens. It does not introduce:</p>
+<p>memory causal enforcement world state invariant constraints</p>
+<p>Without explicit loss terms or mechanisms that penalize incoherence, scaling simply produces higher-fidelity drift.</p>
+<p>The Fundamental Limitation</p>
+<p>Diffusion loss functions optimize for plausibility, not persistence.</p>
+<p>They shape the latent manifold so that samples look realistic in isolation, but they provide no incentive to maintain consistency across time, scenes, or generations.</p>
+<p>This is why diffusion models generate compelling moments—but cannot sustain worlds.</p>
+<p>Key Takeaway</p>
+<p>The limitations of video diffusion models are not mysterious, and they are not temporary. They follow directly from the training objective.</p>
+<p>Until models are trained with objectives that explicitly reward:</p>
+<p>causal consistency memory over time invariant preservation long-horizon coherence</p>
+<p>the behaviors described earlier—coherence decay, inability to continue scenes, lack of narrative structure—are not bugs.</p>
+<p>They are the expected result of correct optimization.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Deeparchecture099\.github\.io\/sota-model-anatomy-\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
