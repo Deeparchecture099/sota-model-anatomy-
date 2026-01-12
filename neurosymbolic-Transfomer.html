@@ -2841,42 +2841,40 @@ Residual</code></pre>
 <p>This is reasoning expansion, not verification.</p>
 <p>Likely needs:</p>
 <p>generative symbolic modules causal proposal networks exploration-biased losses</p>
-<p>E. Meta-Reasoning Over Reasoning</p>
-<p>MHDHCR reasons within a structure.</p>
-<p>Missing:</p>
-<p>diagnosing reasoning failure revising rule systems choosing which reasoning mode to apply</p>
-<p>This is reasoning about reasoning.</p>
-<p>Requires:</p>
-<p>self-monitoring reasoning-state representations failure attribution mechanisms</p>
-<p>F. Domain-Specific Causal Reasoning</p>
-<p>Structural causality generalizes, but domains differ.</p>
-<p>Examples:</p>
-<p>Video causality: temporal continuity, physics, identity persistence World modeling: spatial dynamics, interaction constraints Biology: redundancy, compensation, delayed effects</p>
-<p>Each domain requires:</p>
-<p>domain-specific symbolic primitives tailored losses specialized invariants</p>
-<p>MHDHCR provides the template, not the specialization.</p>
-<p>G. Causal Search &amp; Expansion (Your “Causal MLP” Idea)</p>
-<p>This is a separate sub-dimension and a strong idea.</p>
-<p>What you described is:</p>
-<p>Expanding causal possibility space before collapse.</p>
-<p>Distinct from:</p>
-<p>pattern expansion (MLPs) chain-of-thought sampling</p>
-<p>This would:</p>
-<p>enumerate plausible causal paths explore alternatives in parallel compress explored space into a validated structure</p>
-<p>This is:</p>
-<p>Reasoning-space expansion, not pattern-space expansion.</p>
-<p>It belongs after MHDHCR, not before.</p>
-<ol start="4" type="1">
-<li>Positioning MHDHCR Correctly</li>
+<p>##key categroies {#key-categroies}</p>
+<p>For mechanistic + video (cinematic/world-model) reasoning: it’s almost never “just new losses.”</p>
+<p>You’ll need new representation modules + new losses. Sometimes you can reuse pieces of MHDHCR as the symbolic constraint layer, but you still need a causal substrate for video.</p>
+<p>Why “loss-only” won’t be enough</p>
+<p>Losses can pressure a model toward structure, but they can’t conjure the right internal state variables if the base representation is wrong. Video causality needs explicit handles for things like:</p>
+<p>objects/entities with identity persistence relations (contact, support, containment, occlusion) continuous dynamics (velocity, acceleration, collisions) camera model + scene graph stability action → effect → delayed consequence</p>
+<p>If those aren’t representable cleanly, the loss just backprops into a mushy latent and you get “pretty but wrong” behavior.</p>
+<p>What you’ll need for video/world-model causality</p>
+<ol type="1">
+<li>New submodules (required)</li>
 </ol>
-<p>MHDHCR is:</p>
-<p>❌ not “general reasoning” ❌ not “AGI” ❌ not “world modeling”</p>
-<p>It is:</p>
-<p>✅ the first correct substrate for structural symbolic causality ✅ the missing backbone that transformers lack ✅ a prerequisite for higher reasoning dimensions</p>
-<p>It turns transformers from:</p>
-<p>pattern machines that imitate reasoning</p>
-<p>into</p>
-<p>systems that can invalidate, constrain, and verify.</p>
+<p>At minimum you need modules that create and maintain mechanistic state:</p>
+<p>A. Entity/Scene abstraction module</p>
+<p>turns pixels into object-centric or slot-based state enforces identity consistency (“same person/car across frames”)</p>
+<p>B. Dynamics / transition module</p>
+<p>predicts how state evolves (including interactions) handles kinematics + collisions + contact + constraints</p>
+<p>C. Constraint / consistency module</p>
+<p>this is where MHDHCR-style structure can port over validates chains like: action → interaction → effect, prevents violations</p>
+<p>So: new modules + MHDHCR-like constraint layer.</p>
+<ol start="2" type="1">
+<li>New losses (also required)</li>
+</ol>
+<p>Losses must force the right invariants:</p>
+<p>Temporal identity loss (track entity embeddings across frames) Dynamics consistency loss (state_t + action → state_{t+1}) Physics/interaction constraint losses (no interpenetration, contact persistence, momentum-ish priors) Scene graph stability loss (relations don’t randomly flip) Counterfactual rollouts (if action differs, effect differs plausibly)</p>
+<p>For “mechanistic reasoning” in general (non-video)</p>
+<p>Same answer: modules + losses, but the modules differ by domain.</p>
+<p>If mechanistic = systems/engineering: you want explicit latent variables for components, flows, constraints (graph/state-space), plus losses enforcing conservation/constraints. If mechanistic = biology: you want causal latent factors (pathways, interventions, long feedback loops) plus losses enforcing interventional consistency and long-horizon prediction.</p>
+<p>MHDHCR can still be the symbolic verifier, but the domain needs its own state representation to verify anything meaningful.</p>
+<p>Practical rule of thumb</p>
+<p>If the target reasoning lives in symbol space (math/code/text): you can get far with new losses + MHDHCR. If it lives in continuous causal space (video/robotics/biology): you need new state modules + new losses, and MHDHCR becomes the constraint/judgment layer on top.</p>
+<p>So your answer is:</p>
+<p>For video/world-model/mechanistic reasoning: new submodules + new losses.</p>
+<p>MHDHCR can be reused as the structural constraint engine, but it can’t substitute for the mechanistic state substrate.</p>
+<p>If you want, I can map this into a clean UTI paragraph as: “Reasoning Substrate vs Constraint Layer” (it’ll make the architecture taxonomy snap into place).</p>
 <ol start="5" type="1">
 <li>Clean Roadmap (Reasoning-Only)</li>
 </ol>
