@@ -251,6 +251,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./Inside-Sora’s-Architecture.html">
  <span class="dropdown-text">Inside-Soras-Architecture</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./UTI.html">
+ <span class="dropdown-text">UTI</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -279,7 +283,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   <li><a href="#critical" id="toc-critical" class="nav-link" data-scroll-target="#critical">critrical</a></li>
   </ul></li>
-  <li><a href="#What-MHDHCR-actually-introduces" id="toc-What-MHDHCR-actually-introduces" class="nav-link" data-scroll-target="#What-MHDHCR-actually-introduces">What MHDHCR actually introduces</a>
+  <li><a href="#What-MHDHCR-actually-introduces" id="toc-What-MHDHCR-actually-introduces" class="nav-link" data-scroll-target="#What-MHDHCR-actually-introduces">What MHDHCR actually introduces</a></li>
+  <li><a href="#Epistemic-Geometry" id="toc-Epistemic-Geometry" class="nav-link" data-scroll-target="#Epistemic-Geometry">Epistemic Geometry</a>
   <ul class="collapse">
   <li><a href="#coherence" id="toc-coherence" class="nav-link" data-scroll-target="#coherence">coherence</a></li>
   <li><a href="#What-MHDHCR-Actually-Solves" id="toc-What-MHDHCR-Actually-Solves" class="nav-link" data-scroll-target="#What-MHDHCR-Actually-Solves">What MHDHCR Actually Solves</a></li>
@@ -806,7 +811,9 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>If you want a tight, paper-ready version, this is it:</p>
 <p>Existing transformer architectures lack any internal mechanism dedicated to representing, enforcing, or invalidating symbolic–causal structure. Attention, MLPs, normalization, and routing operate entirely within a pattern-completion regime, smoothing errors rather than rejecting incoherent states. We introduce a Multi-Headed Deep Hierarchical Causal Reasoning (MHDHCR) module that extracts latent causal structure from the residual stream, enforces logical and causal constraints via a symbolic constraint stack, and injects corrective signals back into the model’s hidden state. By embedding causality as geometry rather than behavior, MHDHCR enables internally generative reasoning, structural falsification, and stable multi-step inference.</p>
-<p>##Epistemic Geometry {#Epistemic-Geometry}</p>
+</section>
+<section id="Epistemic-Geometry" class="level2">
+<h2 class="anchored" data-anchor-id="Epistemic-Geometry">Epistemic Geometry</h2>
 <p>Epistemic Geometry: Encoding Conceptual Structure in the Latent Manifold</p>
 <p>Motivation</p>
 <p>Current transformer-based models operate entirely within a pattern manifold: a latent space optimized for statistical association, similarity, and fluency. While such models can imitate reasoning behavior, they lack any internal substrate where meaningful implications, necessities, or causal directionality are structurally represented. As a result, constraints decay unless repeatedly reinforced, premises fail to bind later reasoning, and models routinely revisit or contradict already-resolved points.</p>
