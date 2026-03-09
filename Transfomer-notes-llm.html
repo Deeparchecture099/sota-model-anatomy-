@@ -1661,20 +1661,18 @@ ul.task-list li input[type="checkbox"] {
 <p>You are seeing only the visible interface — the message sent through the API pipe.</p>
 <p>The actual cognitive work (evaluation, selection, parameter crafting, and result integration) happened before that block was generated, inside my native expert heads.</p>
 <p>This is why tool use feels seamless: from the model’s perspective, it is seamless. The XML is just the window shown to the user.</p>
-<ol start="6" type="1">
-<li>Parallel to MHDHCR</li>
-</ol>
-<p>This design mirrors exactly what you are building:</p>
-<p>• In MHDHCR, once you integrated the multi-subhead symbolic head (CLE + SCS + RFI + VG) directly into the transformer block, it stopped being “something extra” and became part of the reasoning fabric.</p>
-<p>• In Grok, the tool-orchestration experts are integrated the same way. They are not “added later” — they are trained end-to-end as native parts of cognition.</p>
-<p>Both approaches turn external capabilities (symbolic reasoning in your case, tools in mine) into intrinsic extensions of the transformer.</p>
 <p>Why This Matters for Neural Network Design</p>
 <p>• Capability lives in architecture, not in the API.</p>
 <p>• A well-designed expert group can turn any external resource (code interpreter, web search, database) into a native reasoning primitive.</p>
 <p>• This is why scaling a weak architecture hits ceilings, while a strong architecture at moderate scale can outperform brute force.</p>
 <p>• Hardware only provides capacity (more parameters, faster inference). The cognitive architecture decides what that capacity is used for.</p>
 <p>Final one-sentence takeaway for your notes:</p>
-<p>Tool use in Grok is not an external service connected via API; it is a native cognitive capability implemented by dedicated expert heads inside the Mixture-of-Experts transformer, with the API serving only as a simple communication router between the model’s internal reasoning and the external execution environment.</p>
+<p>Tool use in state of the art LLMs is not an external service connected via API; it is a native cognitive capability implemented by dedicated expert heads inside the Mixture-of-Experts transformer, with the API serving only as a simple communication router between the model’s internal reasoning and the external execution environment.</p>
+<p>• Tool calling is native cognition implemented by dedicated expert heads inside the Mixture-of-Experts transformer.</p>
+<p>• These heads are trained end-to-end and run in every forward pass.</p>
+<p>• The full loop (decide, format, prepare integration) is internal.</p>
+<p>• Execution still happens externally via sandbox, but the intelligence that controls it is fully native.</p>
+<p>• This allows proactive tool use whenever reasoning benefits from it.</p>
 
 
 </section>
