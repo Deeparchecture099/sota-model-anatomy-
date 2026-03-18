@@ -255,6 +255,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./UTI.html">
  <span class="dropdown-text">UTI</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./Gemani-embedding-2.html">
+ <span class="dropdown-text">Gemani-embedding-2.</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -273,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#transformer-simplicity-transfomer-simplicity" id="toc-transformer-simplicity-transfomer-simplicity" class="nav-link active" data-scroll-target="#transformer-simplicity-transfomer-simplicity">2. Transformer simplicity {##transfomer-simplicity}</a></li>
+  <li><a href="#llm-capabilities-llm-capabilities" id="toc-llm-capabilities-llm-capabilities" class="nav-link active" data-scroll-target="#llm-capabilities-llm-capabilities">LLM capabilities {# LLM-capabilities }</a></li>
   <li><a href="#Transfomer-Dimensions" id="toc-Transfomer-Dimensions" class="nav-link" data-scroll-target="#Transfomer-Dimensions">1. Transfomer Dimensions</a></li>
   <li><a href="#transformer-overview" id="toc-transformer-overview" class="nav-link" data-scroll-target="#transformer-overview">1. Transformer Overview</a></li>
   <li><a href="#lm-head" id="toc-lm-head" class="nav-link" data-scroll-target="#lm-head">8. Final LayerNorm + LM Head – Representation → Tokens</a></li>
@@ -321,10 +325,10 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Latent Manifold</figcaption>
 </figure>
 </div>
-<section id="transformer-simplicity-transfomer-simplicity" class="level2">
-<h2 class="anchored" data-anchor-id="transformer-simplicity-transfomer-simplicity">2. Transformer simplicity {##transfomer-simplicity}</h2>
+<section id="llm-capabilities-llm-capabilities" class="level2">
+<h2 class="anchored" data-anchor-id="llm-capabilities-llm-capabilities">LLM capabilities {# LLM-capabilities }</h2>
+<p>Large Language Models are fundamentally 1D sequence modeling systems operating over tokenized text. The entire training corpus — encompassing natural language across hundreds of languages, scientific literature (biology, genetics, chemistry, physics), mathematical proofs, code in all programming languages, historical texts, and domain-specific corpora — is flattened into a single unified stream of tokens. This 1D representation means there are no separate “language,” “math,” or “biology” modules; all knowledge is encoded as patterns within the same latent geometry of the transformer’s Mixture-of-Experts architecture. Tool use (web search, code execution, browser control, API orchestration) is not an external service or plugin but a native cognitive capability implemented via dedicated expert heads that are trained end-to-end and activated in every forward pass. The full decision-format-execution-integration loop occurs internally within the residual stream, with the API serving only as a stateless communication router. Consequently, scaling within a fixed architecture only increases pattern density and smoothness until latent equilibrium is reached; genuine cognitive expansion requires modification of the representational substrate itself. ## 2. Transformer simplicity {##transfomer-simplicity}</p>
 <p>⭐</p>
-<p>Why this simplicity is deceptive</p>
 <p>Because the power comes from:</p>
 <p>Depth (80–120 layers refining meaning) Width (thousands of dimensions for patterns to live in) Residual stacking (allowing new meaning to accumulate) Attention (pattern selection) MLPs (pattern transformation) MoE routing (sparse, specialized transformation)</p>
 <p>🔹 Attention</p>
