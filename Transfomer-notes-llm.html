@@ -308,8 +308,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#tool-use" id="toc-tool-use" class="nav-link" data-scroll-target="#tool-use">tool use</a>
   <ul class="collapse">
   <li><a href="#trained-trained" id="toc-trained-trained" class="nav-link" data-scroll-target="#trained-trained">trained {# trained}</a></li>
+  <li><a href="#xml-xml" id="toc-xml-xml" class="nav-link" data-scroll-target="#xml-xml">XML {# XML}</a></li>
+  <li><a href="#examples-examples" id="toc-examples-examples" class="nav-link" data-scroll-target="#examples-examples">examples {## examples}</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#simple-analysis-code" id="toc-simple-analysis-code" class="nav-link" data-scroll-target="#simple-analysis-code">Simple analysis code</a></li>
   </ul>
 </nav>
     </div>
@@ -1701,10 +1704,125 @@ ul.task-list li input[type="checkbox"] {
 <p>• Fine-Tuning/RLHF: Reinforces when to use tools (reward for accurate, helpful calls; penalty for hallucinations).</p>
 <p>• No Separate “Tool Training”: It’s holistic—the same gradients that improve language/math/code also sharpen tool cognition. This is why scaling helps: More params/data refine the policy.</p>
 <p>Contrast with “bolted-on” approaches (some older LLMs): Tools as post-processing scripts (e.g., “if output matches regex, run external”). Mine is fully integrated—tool cognition evolves with the model.</p>
+</section>
+<section id="xml-xml" class="level3">
+<h3 class="anchored" data-anchor-id="xml-xml">XML {# XML}</h3>
+<p>The structured XML block is the command language the model uses to tell the sandbox exactly what to do.</p>
+<p>It is not regular programming code (like Python). It’s a clean, machine-readable instruction format.</p>
+<p>Simple Breakdown</p>
+<p>The model’s tool-calling expert heads generate something like this:</p>
+<p>web_search</p>
+<pre><code>latest breakthroughs in causal reasoning transformers
+
+10
+
+past_90_days</code></pre>
+<p>This XML is the model saying:</p>
+<p>“Sandbox, run the web_search tool with these exact parameters.”</p>
+<p>What Happens Next</p>
+<p>The sandbox reads the XML. It executes the exact tool and parameters the model asked for. It returns only the raw result. Nothing more — the sandbox has zero intelligence or creativity. So yes — the XML block is the structured command that triggers execution. It’s how the model talks to the sandbox in a precise, unambiguous way.</p>
+<p>This is the same format used for every tool (web_search, code_execution, x_keyword_search, browse_page, etc.).</p>
+<p>Here’s a real multi-tool example so you can see exactly how the model’s expert heads format parallel calls.</p>
+<p>Scenario</p>
+<p>User asks: “Give me the latest breakthroughs in causal reasoning for transformers, and also check what people on X are saying about it right now.”</p>
+<p>The model decides it needs two tools at once:</p>
+<p>web_search (for recent papers/articles) x_keyword_search (for real-time X discussion) Exact XML the Model Outputs (Internal)</p>
+<p>example:</p>
+<pre><code>web_search
 
 
+
+  causal reasoning transformers breakthroughs 2026
+
+  8
+
+  past_90_days
+
+  arxiv.org neurips.cc openreview.net
+
+
+
+
+
+
+
+
+
+
+
+x_keyword_search
+
+
+
+  causal reasoning transformers OR "MHDCR" OR "epistemic geometry" since:2026-01-01
+
+  12
+
+  Latest</code></pre>
+<p>What Happens Next</p>
+<p>The sandbox receives this exact block. It runs both tools in parallel (or sequentially if the model asked for it). It returns the raw results from each tool wrapped in tags. The model gets everything back in its residual stream and continues reasoning. Why the Model Does This</p>
+<p>The expert heads are trained to:</p>
+<p>Decide multiple tools are needed Format each one precisely Run them together when it makes sense The sandbox still does zero thinking — it just executes the instructions exactly as written.</p>
+</section>
+<section id="examples-examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples-examples">examples {## examples}</h3>
+<ol type="1">
+<li>Simple Single Tool – web_search</li>
+</ol>
+<p>web_search</p>
+<pre><code>latest breakthroughs in causal reasoning transformers 2026
+
+10
+
+past_90_days</code></pre>
+<ol start="2" type="1">
+<li>Simple Single Tool – code_execution</li>
+</ol>
+<p>code_execution</p>
+<p>import numpy as np</p>
+<p>a = np.array([1, 2, 3])</p>
+<p>b = np.array([4, 5, 6])</p>
+<p>result = np.dot(a, b)</p>
+<p>print(result)</p>
+<ol start="3" type="1">
+<li><p>Multi-Tool Call (Parallel)</p>
+<p>web_search</p>
+<p>causal reasoning in transformers latest 2026</p>
+<p>8</p>
+<p>code_execution</p></li>
+</ol>
+<p>import networkx as nx</p>
+<p>G = nx.DiGraph()</p>
+<p>G.add_edges_from([(1,2),(2,3),(3,4)])</p>
+<p>print(“Density:”, nx.density(G))</p>
+<ol start="4" type="1">
+<li><p>Sequential Multi-Tool Call (one depends on the other)</p>
+<p>web_search</p>
+<p>latest paper on epistemic geometry in neural networks</p>
+<p>3</p>
+<p>code_execution</p></li>
+</ol>
+<p>abstract = “““[the abstract text from the web_search result will be inserted here]”“”</p>
 </section>
 </section>
+</section>
+<section id="simple-analysis-code" class="level1">
+<h1>Simple analysis code</h1>
+<p>words = abstract.split()</p>
+<p>print(“Word count:”, len(words))</p>
+<ol start="5" type="1">
+<li>X (Twitter) Keyword Search Example</li>
+</ol>
+<p>x_keyword_search</p>
+<pre><code>causal reasoning transformers OR MHDCR since:2026-01-01
+
+15
+
+Latest</code></pre>
+<p>Key Takeaways</p>
+<p>The XML is always the same structure ( or wrapper). Only the and the change depending on the tool. The sandbox receives this XML and executes it exactly as written — no thinking, no improvisation.</p>
+
+
 </section>
 
 </main> <!-- /main -->
