@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>moe-llm – My AI Site</title>
+<title>impossibility-fallacy – My AI Site</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -276,8 +276,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-deep-irony-the-deep-irony" id="toc-the-deep-irony-the-deep-irony" class="nav-link active" data-scroll-target="#the-deep-irony-the-deep-irony">The Deep Irony {# The-Deep-Irony}</a>
+  <ul class="collapse">
+  <li><a href="#difference-difference" id="toc-difference-difference" class="nav-link" data-scroll-target="#difference-difference">difference {# difference}</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -285,8 +294,80 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<p>Why Turing’s 1936 Paper Does Not Prove AI or Superintelligence Is Impossible</p>
+<p>Part 1: The Claim and the Misrepresentation</p>
+<p>You’ve probably seen the video or post: “Alan Turing proved in 1936 that true AI and superintelligence are impossible.” The thumbnail is dramatic, the title clicks, and the argument sounds intellectual because it name-drops one of the greatest mathematicians in history.</p>
+<p>The claim usually goes something like this:</p>
+<p>“Because of Turing’s work on computability, no algorithm can ever solve certain problems, therefore artificial general intelligence or superintelligence can never exist.”</p>
+<p>This sounds convincing if you don’t know the details. But it falls apart the moment you understand what Turing actually proved — and what modern deep neural networks actually are.</p>
+<p>Turing’s 1936 paper (“On Computable Numbers, with an Application to the Entscheidungsproblem”) is a landmark in mathematics. It introduced the concept of the Turing machine and proved fundamental limits on what computation can do. However, the video creators and commentators who cite it almost always misuse it in one of two ways:</p>
+<ol type="1">
+<li><p>They treat Turing’s results as applying to any form of computation whatsoever, including learned statistical systems like deep neural networks.</p></li>
+<li><p>They collapse the distinction between hard-coded symbolic algorithms and massively parallel learned representations.</p></li>
+</ol>
+<p>Neither is accurate.</p>
+<p>The Three Theorems Usually Cited</p>
+<p>Most of these videos lean on three related results from computability theory (sometimes mixing in later work):</p>
+<ol type="1">
+<li><p>The Halting Problem (Turing, 1936) No single algorithm can determine, for every possible program and input, whether that program will eventually halt or run forever.</p></li>
+<li><p>Rice’s Theorem (1953) Any non-trivial semantic property of a program (e.g., “does this program compute a certain function?”) is undecidable. You cannot write a general algorithm that can analyze arbitrary programs and decide whether they have that property.</p></li>
+<li><p>No Free Lunch Theorem (Wolpert &amp; Macready, 1997) No single algorithm can outperform all others across every possible problem. If an algorithm is optimized for one class of problems, it will perform worse on others.</p></li>
+</ol>
+<p>These are all real, important mathematical results. But they apply to classical symbolic computation — discrete, deterministic, explicitly programmed algorithms where every step is hard-coded by a human.</p>
+<p>They do not directly apply to modern modern AI systems as they are built on a paradigm completely orthogonal to this :Deep Learning</p>
+<section id="the-deep-irony-the-deep-irony" class="level2">
+<h2 class="anchored" data-anchor-id="the-deep-irony-the-deep-irony">The Deep Irony {# The-Deep-Irony}</h2>
+<p>The Deep Irony</p>
+<p>Here’s what makes the claim especially ironic:</p>
+<p>The entire field of deep learning was born precisely because hard-coded symbolic algorithms hit exactly these kinds of limitations.</p>
+<p>Symbolic AI (GOFAI) tried to hand-craft rules for reasoning, planning, and understanding. It failed on real-world complexity, ambiguity, and generalization. Deep neural networks were developed as an alternative approach — one that could learn distributed representations from data instead of relying on brittle, explicitly programmed rules.</p>
+<p>In other words, modern deep learning exists because researchers recognized the limits of the very kind of hard-coded, step-by-step algorithms that Turing analyzed. The goal from the beginning was to move beyond those limitations through learning, not to be bound by them.</p>
+<p>Turing proved limits on what a single fixed algorithm can decide about other algorithms. He did not prove limits on what learned, high-dimensional statistical systems can achieve through optimization and representation learning.</p>
+<p>The Fundamental Difference</p>
+<p>In a classical Turing machine or traditional symbolic program, everything is explicitly defined:</p>
+<p>• The rules are written by hand.</p>
+<p>• The procedure is fixed and deterministic.</p>
+<p>• The algorithm is a single, rigid sequence of steps.</p>
+<p>Deep neural networks work completely differently:</p>
+<p>• There is no hard-coded algorithm that dictates behavior step-by-step.</p>
+<p>• You define only the architecture (number of layers, parameter count, attention mechanisms, etc.).</p>
+<p>• Weights are randomly initialized and then adjusted during training via gradient descent on massive amounts of data.</p>
+<p>• The “intelligence” (such as it is) emerges from distributed representations learned across billions or trillions of parameters in high-dimensional latent space.</p>
+<section id="difference-difference" class="level3">
+<h3 class="anchored" data-anchor-id="difference-difference">difference {# difference}</h3>
+<p>The Deep Irony</p>
+<p>Here’s what makes the claim especially ironic:</p>
+<p>The entire field of deep learning was born precisely because hard-coded symbolic algorithms hit exactly these kinds of limitations.</p>
+<p>Symbolic AI (GOFAI) tried to hand-craft rules for reasoning, planning, and understanding. It failed on real-world complexity, ambiguity, and generalization. Deep neural networks were developed as an alternative approach — one that could learn distributed representations from data instead of relying on brittle, explicitly programmed rules.</p>
+<p>In other words, modern deep learning exists because researchers recognized the limits of the very kind of hard-coded, step-by-step algorithms that Turing analyzed. The goal from the beginning was to move beyond those limitations through learning, not to be bound by them.</p>
+<p>Turing proved limits on what a single fixed algorithm can decide about other algorithms. He did not prove limits on what learned, high-dimensional statistical systems can achieve through optimization and representation learning.</p>
+<p>The Fundamental Difference</p>
+<p>In a classical Turing machine or traditional symbolic program, everything is explicitly defined:</p>
+<p>• The rules are written by hand.</p>
+<p>• The procedure is fixed and deterministic.</p>
+<p>• The algorithm is a single, rigid sequence of steps.</p>
+<p>Deep neural networks work completely differently:</p>
+<p>Deep leanring fundamentally is about simulating the human brain:digital brains that learn</p>
+<p>• There is no hard-coded algorithm that dictates behavior step-by-step.</p>
+<p>• You define only the architecture (number of layers, parameter count, attention mechanisms, etc.).</p>
+<p>• Weights are randomly initialized and then adjusted during training via gradient descent on massive amounts of data.</p>
+<p>• The “intelligence” (such as it is) emerges from distributed representations learned across billions or trillions of parameters in high-dimensional latent space.</p>
+<p>Architecture (the real source of capability) This is what actually determines how intelligently the model can learn,what its capable of learing from the data at all (latent representations), reason, and generalize.</p>
+<p>• breakthroughs like residuals, LayerNorm, Multi-Head Attention, MoE, RoPE, Diffusion etc. and future ones to come Good architecture lets a smaller model punch far above its parameter count. Bad architecture wastes even massive compute.</p>
+<ol start="2" type="1">
+<li>Compute / Hardware (the enabler / infrastructure) GPUs and TPUs are critical because they let you train and run very large models quickly and at reasonable cost.</li>
+</ol>
+<p>• More compute = you can train bigger models, run more experiments, or do longer training runs.</p>
+<p>• But it does not magically fix fundamental limitations in the architecture (e.g., lack of causal reasoning, brittle world modeling, or poor mechanistic understanding).</p>
+<p>• This is why we see latent equilibrium effects: beyond a certain scale (~1–2T parameters in current paradigms), adding more parameters or compute gives diminishing returns if the architecture stays the same.</p>
+<ol start="3" type="1">
+<li>Data (the fuel) Also important, but again secondary to architecture. High-quality data helps, but without the right architecture the model can’t extract deep mechanistic or causal insight from it. Data is fuel. It’s abundant (internet-scale text, code, video, plus synthetic data generation). The bottleneck is no longer “how much data,” but how intelligently the architecture can extract value from it — encoding, representing, generalizing, and building deep causal/mechanistic understanding.</li>
+</ol>
+<p>The real source of capability leaps has always been (and still is) architecture — the representational substrate and learning mechanisms that determine how the model encodes knowledge, reasons causally, simulates mechanisms, and generalizes.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
