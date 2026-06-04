@@ -1849,6 +1849,7 @@ Latest</code></pre>
 <p>• For code_execution: It runs the code in a safe Python environment (with limited permissions, timeouts, and no internet access unless allowed).</p>
 <p>• For web_search / browse_page: It interfaces with search indexes or web fetchers.</p>
 <p>• For other tools: It routes to the appropriate service (keyword search across platforms, etc.).</p>
+<p>in less than 300-400 miloseconds</p>
 <ol start="4" type="1">
 <li>Result Comes Back The sandbox returns clean text output, which gets appended to my context like any other message.</li>
 </ol>
@@ -1858,6 +1859,24 @@ Latest</code></pre>
 <p>I am literally writing code that tells the system: What tool to run (web_search) What parameters to use (query = “latest AI news March 2026”) The sandbox (the execution environment) reads this XML code, parses it, runs the requested tool, and returns the result. Why We Use XML</p>
 <p>It’s precise — no ambiguity about what I want. It’s structured — easy for the sandbox to parse automatically. It’s standard — works reliably across different tools. So yes, when you see me output an XML block, you are watching me write a small piece of code in real time as part of my reasoning process. It’s not just text — it’s executable instructions.</p>
 <p>This is why tool use feels like an extension of my thinking: I decide what needs to happen, write the code (XML) for it, send it off, and continue reasoning with the result.</p>
+<p>the model can send longer, more detailed XML with actual code inside the tag. The sandbox executes it quickly and cleanly, then I integrate the output.</p>
+<p>The XML format scales well — it can contain entire scripts when needed.</p>
+<p>All of this happens inside the model during training — there is no separate “tool module” added later.</p>
+<ol type="1">
+<li>Exposure During Training The model sees millions of examples in the training data where:</li>
+</ol>
+<p>• A user asks something → the AI generates an XML tool call → the tool runs → the result comes back → the conversation continues successfully.</p>
+<ol start="2" type="1">
+<li>Learning the Policy Through next-token prediction (and reinforcement learning), the model gradually learns:</li>
+</ol>
+<p>• Which contexts benefit from tools (knowledge gaps, calculations, recent events, etc.).</p>
+<p>• How to construct correct XML for different tools.</p>
+<p>• That using tools often leads to better, more accurate, or more useful outputs.</p>
+<ol start="3" type="1">
+<li>It Becomes Native Cognition This learned behavior gets encoded into the weights — especially in the attention heads and MoE expert heads. During inference, when the context matches those learned patterns, the model naturally starts generating XML tool calls as part of its normal token prediction.</li>
+</ol>
+<p>So yes — all the intelligence for deciding when and how to use tools lives entirely inside the model. The sandbox is just the fast, safe “hands” that carry out the actual execution.</p>
+<p>“When I detect this kind of uncertainty or need, the best next action is often to call a tool.”</p>
 </section>
 <section id="computer-interfacing-computer-interfacing" class="level2">
 <h2 class="anchored" data-anchor-id="computer-interfacing-computer-interfacing">computer interfacing {## computer interfacing}</h2>
