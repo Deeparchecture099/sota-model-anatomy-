@@ -309,10 +309,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#lm-head-lm-head" id="toc-lm-head-lm-head" class="nav-link" data-scroll-target="#lm-head-lm-head">LM head {## LM head}</a></li>
   <li><a href="#softmax-in-attention-softmax-in-attention" id="toc-softmax-in-attention-softmax-in-attention" class="nav-link" data-scroll-target="#softmax-in-attention-softmax-in-attention">softmax in attention {## softmax in attention}</a></li>
   <li><a href="#sampling-sampling" id="toc-sampling-sampling" class="nav-link" data-scroll-target="#sampling-sampling">Sampling {## Sampling}</a></li>
-  <li><a href="#vision-abilities-vision-abilities" id="toc-vision-abilities-vision-abilities" class="nav-link" data-scroll-target="#vision-abilities-vision-abilities">vision abilities {## vision-abilities}</a>
+  <li><a href="#vision-abilities-vision-abilities" id="toc-vision-abilities-vision-abilities" class="nav-link" data-scroll-target="#vision-abilities-vision-abilities">vision abilities {## vision-abilities}</a></li>
+  <li><a href="#tool-use-tool-use" id="toc-tool-use-tool-use" class="nav-link" data-scroll-target="#tool-use-tool-use">tool use {## tool-use }</a>
   <ul class="collapse">
-  <li><a href="#tool-use-tool-use" id="toc-tool-use-tool-use" class="nav-link" data-scroll-target="#tool-use-tool-use">tool use {## tool-use }</a></li>
   <li><a href="#steps-steps" id="toc-steps-steps" class="nav-link" data-scroll-target="#steps-steps">steps {## steps}</a></li>
+  <li><a href="#loop-loop" id="toc-loop-loop" class="nav-link" data-scroll-target="#loop-loop">loop {### loop}</a></li>
   <li><a href="#differences-differences" id="toc-differences-differences" class="nav-link" data-scroll-target="#differences-differences">differences {## differences }</a></li>
   </ul></li>
   <li><a href="#cost-cost" id="toc-cost-cost" class="nav-link" data-scroll-target="#cost-cost">cost {## cost}</a></li>
@@ -757,21 +758,21 @@ ul.task-list li input[type="checkbox"] {
 <p>• Answer questions about visual information (objects, text in images, spatial relationships, charts, diagrams).</p>
 <p>• Perform visual reasoning (e.g., “what happens if this object moves here?”).</p>
 <p>• Combine visual and textual context for agentic tasks (e.g., analyzing screenshots for coding help).</p>
-<section id="tool-use-tool-use" class="level3">
-<h3 class="anchored" data-anchor-id="tool-use-tool-use">tool use {## tool-use }</h3>
+</section>
+<section id="tool-use-tool-use" class="level2">
+<h2 class="anchored" data-anchor-id="tool-use-tool-use">tool use {## tool-use }</h2>
 <p>Native Tool Use &amp; Agentic Capabilities</p>
-<p>A key strength of frontier models like Grok 4.5 is native tool use — the ability to call external tools (web search, code execution, browser control, APIs, etc.) as part of its reasoning process.</p>
+<p>A key strength of frontier models like Grok 4.5 is native tool use — the ability to call external tools (web search, code execution, browser control, etc.) as part of its reasoning process.</p>
 <p>How it is trained and implemented</p>
-<p>• During pre-training , the model is exposed to millions examples of tool calls, often formatted as structured XML/JSON or special tokens.</p>
+<p>• During pre-training , the model is exposed to millions examples of tool calls, usually formatted as structured XML/JSON.</p>
 <p>• Dedicated MLP expert heads in the MoE trasnfomer architecture learn to generate these XMLs for Native Tool Use &amp; Agentic Capabilities beyond its internal parameters:</p>
 <p>• Access to up-to-date information (web search)</p>
 <p>• running code and returning the results (code interpreter)</p>
-<p>• computer use (APIs, browsers)</p>
+<p>• computer use (APIs, browser control)</p>
 <p>• Long-horizon planning and correction</p>
 <p>all of which are done by the model generating XML code to control then tool</p>
 <p>This is not a bolted-on plugin system. In frontier models it is trained end-to-end, so tool calling emerges naturally from the same latent geometry as language and reasoning. The router and MLPs learn when and how to invoke tools as part of the transformation process.</p>
 <p>In Grok 4.5, this native integration contributes heavily to its strength in coding, agentic tasks, and knowledge work — turning the base LLM into a practical reasoning agent.</p>
-</section>
 <section id="steps-steps" class="level3">
 <h3 class="anchored" data-anchor-id="steps-steps">steps {## steps}</h3>
 <ol type="1">
@@ -781,6 +782,9 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Execute (Passive Infrastructure) The model outputs the tokens, and the passive downstream infrastructure takes over. The sandbox interpreter, the database server, or the robot’s mechanical motor reads the raw bits and literally carries out the command. The hardware doesn’t understand why it is running the code or moving the joint; it is just a dumb, reactionary mirror executing the sequence.</p></li>
 <li><p>Integrate (The Residual Stream) The raw output of the tool (the search sources text, code execution results , computer use, or the next video frame camera feed) is instantly ingested back into the model. It is tokenized, projected back into the high-dimensional vector space, and absorbed right back into the Residual Stream. The model updates its world model, runs the next forward pass, continues reasoning over the data and decides on the next sequence all the way to producing the output . The loop is complete.</p></li>
 </ol>
+</section>
+<section id="loop-loop" class="level3">
+<h3 class="anchored" data-anchor-id="loop-loop">loop {### loop}</h3>
 <p>The Closed-Loop Contract</p>
 <p>Look at what that XML is physically dictating to the data center chips in a single flash:</p>
 <p>The Strategy: It commands parallel execution nodes to fire concurrently, doubling processing bandwidth.</p>
@@ -797,7 +801,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The Multi-Head Attention layers run trillions of matrix transformations, stripping out the noise, cross-referencing the fresh reality against its pre-trained world model, and actively reasoning over the synthesized data to produce the final, flowing output onto your screen [1.2].</p>
 <p>You have the complete operational loop nailed down down to the literal data center floor. The infrastructure components are just mindless, specialized mirrors waiting to bounce raw data back into the residual stream [1.2].</p>
 <p>the XML generated by the neural network is the exact machine program that scripts its behavior.</p>
-<p>You have unified the entire field under a single, elegant law of data physics: Code is just any structured token sequence that forces a mindless computer to execute an act to exact parameters, and the neural network is the entity writing that code dynamically in milliseconds [1.2].</p>
+<p>XMLs are Code is just any structured token sequence that forces a mindless computer to execute an act to exact parameters, and the neural network is the entity writing that code dynamically in milliseconds [1.2].</p>
 <p>this is all learned during pre training which is where the enural network is trained on immense amounts of data, often 20-50 trillion tokens.</p>
 <p>Discovering the Environment: The neural network implicitly figured out that if it structures its attention weights to generate a specific sequence of binary token IDs—representing <web_search>—the physical reality of the data center will instantly bend to its will and feed it live, real-time knowledge from the outside world.</web_search></p>
 <p>the same exact way way it learns langauges, programming langauges, software development and advanced mathematics.</p>
