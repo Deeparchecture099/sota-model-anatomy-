@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tensors in Large Language Models – My AI Site</title>
+<title>dit – My AI Site</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -284,273 +284,55 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link active" data-scroll-target="#table-of-contents">Table of Contents</a></li>
-  <li><a href="#what-is-a-tensor" id="toc-what-is-a-tensor" class="nav-link" data-scroll-target="#what-is-a-tensor">What is a Tensor?</a></li>
-  <li><a href="#shapes-dtypes-layout" id="toc-shapes-dtypes-layout" class="nav-link" data-scroll-target="#shapes-dtypes-layout">Shapes, Dtypes, Layout</a></li>
-  <li><a href="#canonical-shapes" id="toc-canonical-shapes" class="nav-link" data-scroll-target="#canonical-shapes">LLM Canonical Shapes (B, T, D)</a></li>
-  <li><a href="#embeddings" id="toc-embeddings" class="nav-link" data-scroll-target="#embeddings">Embeddings &amp; Tokenization Tensors</a></li>
-  <li><a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention">Attention Tensors (Q, K, V, Heads)</a></li>
-  <li><a href="#positions" id="toc-positions" class="nav-link" data-scroll-target="#positions">Position &amp; Time: Positional/Timestep Tensors</a></li>
-  <li><a href="#kv-cache" id="toc-kv-cache" class="nav-link" data-scroll-target="#kv-cache">KV Cache: Memory vs Throughput</a></li>
-  <li><a href="#mlp" id="toc-mlp" class="nav-link" data-scroll-target="#mlp">Feedforward/MLP Tensors</a></li>
-  <li><a href="#training-tensors" id="toc-training-tensors" class="nav-link" data-scroll-target="#training-tensors">Training-Time Tensors (Grads, Optimizer States)</a></li>
-  <li><a href="#parallel" id="toc-parallel" class="nav-link" data-scroll-target="#parallel">Tensor Parallelism &amp; Sharding</a></li>
-  <li><a href="#compression" id="toc-compression" class="nav-link" data-scroll-target="#compression">Quantization, Low-Rank &amp; MoE</a></li>
-  <li><a href="#tensor-cores" id="toc-tensor-cores" class="nav-link" data-scroll-target="#tensor-cores">Tensor Core Math: Throughput Reality</a></li>
-  <li><a href="#pitfalls" id="toc-pitfalls" class="nav-link" data-scroll-target="#pitfalls">Debugging by Shape: Common Pitfalls</a></li>
-  <li><a href="#cheatsheet" id="toc-cheatsheet" class="nav-link" data-scroll-target="#cheatsheet">Mini Cheatsheet</a>
-  <ul class="collapse">
-  <li><a href="#optional-images-to-add" id="toc-optional-images-to-add" class="nav-link" data-scroll-target="#optional-images-to-add">Optional images to add</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Tensors in Large Language Models</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Shapes-in-Transformers-Models.webp" class="img-fluid figure-img" width="750"></p>
-<figcaption>Shapes in Transformers Models</figcaption>
-</figure>
-</div>
-<section id="table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
-<ul>
-<li><a href="#what-is-a-tensor">What is a Tensor?</a></li>
-<li><a href="#shapes-dtypes-layout">Shapes, Dtypes, Layout</a></li>
-<li><a href="#canonical-shapes">LLM Canonical Shapes (B, T, D)</a></li>
-<li><a href="#embeddings">Embeddings &amp; Tokenization Tensors</a></li>
-<li><a href="#attention">Attention Tensors (Q, K, V, Heads)</a></li>
-<li><a href="#positions">Position &amp; Time: Positional/Timestep Tensors</a></li>
-<li><a href="#kv-cache">KV Cache: Memory vs Throughput</a></li>
-<li><a href="#mlp">Feedforward/MLP Tensors</a></li>
-<li><a href="#training-tensors">Training-Time Tensors (Grads, Optimizer States)</a></li>
-<li><a href="#parallel">Tensor Parallelism &amp; Sharding</a></li>
-<li><a href="#compression">Quantization, Low-Rank &amp; MoE</a></li>
-<li><a href="#tensor-cores">Tensor Core Math: Throughput Reality</a></li>
-<li><a href="#pitfalls">Debugging by Shape: Common Pitfalls</a></li>
-<li><a href="#cheatsheet">Mini Cheatsheet</a></li>
-</ul>
-</section>
-<section id="what-is-a-tensor" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-tensor">What is a Tensor?</h2>
-<p>A tensor is just a multi-dimensional array with: - <strong>shape</strong> (sizes along each axis), - <strong>dtype</strong> (numeric type: fp32, bf16, fp8, int8…), - <strong>layout/stride</strong> (how it’s stored/stepped in memory).</p>
-<p>In LLMs, almost every operation is tensor algebra: embedding lookups, batched matmuls, convolutions over time (attention), non-linearities, normalizations.</p>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="shapes-dtypes-layout" class="level2">
-<h2 class="anchored" data-anchor-id="shapes-dtypes-layout">Shapes, Dtypes, Layout</h2>
-<p><strong>Shape</strong> examples: - <code>[B, T, D]</code> = batch, sequence length, hidden width. - <code>[B, nH, T, Dh]</code> = per-head attention (nH heads, head dim Dh). - <code>[V, D]</code> = vocab embedding table.</p>
-<p><strong>Dtype</strong> trade-offs: - <strong>fp32</strong> training is precise but slow/memory-heavy. - <strong>bf16/fp16</strong>: standard for training. - <strong>int8/fp8</strong>: inference-oriented, needs calibration. - <strong>NF4/FP4</strong>: ultra-low precision quant for weights/activations.</p>
-<p><strong>Layout</strong>: - <strong>row-major vs col-major</strong> affects BLAS kernels. - <strong>contiguous vs strided</strong>: non-contiguous hurts kernel efficiency. - <strong>packed heads</strong>: <code>[B, T, nH, Dh]</code> vs <code>[B, nH, T, Dh]</code> can change memory locality.</p>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="canonical-shapes" class="level2">
-<h2 class="anchored" data-anchor-id="canonical-shapes">LLM Canonical Shapes (B, T, D)</h2>
-<ul>
-<li><strong>Input tokens</strong>: <code>X_ids: [B, T]</code></li>
-<li><strong>Embeddings</strong>: <code>E: [V, D]</code> → <code>X: [B, T, D]</code></li>
-<li><strong>Self-Attention</strong>:
-<ul>
-<li>project to <strong>Q, K, V</strong>: each <code>[B, T, nH, Dh]</code> where <code>D = nH * Dh</code></li>
-<li>attention weights: <code>[B, nH, T, T]</code></li>
-<li>head concat: <code>[B, T, D]</code></li>
-</ul></li>
-<li><strong>MLP/FFN</strong>:
-<ul>
-<li>expand: <code>[B, T, D] → [B, T, 4D]</code> (often), activate, contract back to <code>[B, T, D]</code></li>
-</ul></li>
-</ul>
-<p>⸻</p>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="embeddings" class="level2">
-<h2 class="anchored" data-anchor-id="embeddings">Embeddings &amp; Tokenization Tensors</h2>
-<ul>
-<li><strong>Token embeddings</strong>: <code>E_tok: [V, D]</code></li>
-<li><strong>Optional sub-tables</strong>: special tokens, adapters, soft prompts <code>E_soft: [P, D]</code></li>
-<li><strong>Output (LM head)</strong>: often tied: <code>E_out = E_tok^T</code> → logits <code>[B, T, V]</code></li>
-</ul>
-<p>Memory note: <code>V</code> is large (e.g., 128k). Tying weights saves parameters; logit matmul dominates when <code>V</code> is huge.</p>
-<p>⸻</p>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="attention" class="level2">
-<h2 class="anchored" data-anchor-id="attention">Attention Tensors (Q, K, V, Heads)</h2>
-<p>Given input <code>X: [B, T, D]</code>:</p>
-<ul>
-<li>Linear projections:
-<ul>
-<li><code>Q = X W_Q</code>, <code>K = X W_K</code>, <code>V = X W_V</code></li>
-<li><code>W_*: [D, D]</code> (or <code>[D, nH*Dh]</code>)</li>
-<li>Reshape → <code>[B, T, nH, Dh]</code></li>
-</ul></li>
-<li>Scaled dot-product per head:
-<ul>
-<li><code>Scores = (Q ⋅ K^T) / sqrt(Dh)</code> → <code>[B, nH, T, T]</code></li>
-<li><code>Attn = softmax(Scores)</code></li>
-<li><code>Out_head = Attn ⋅ V</code> → <code>[B, nH, T, Dh]</code></li>
-<li>Concat heads → <code>[B, T, D]</code>, project with <code>W_O: [D, D]</code></li>
-</ul></li>
-</ul>
-<p><strong>FlashAttention</strong> collapses softmax + matmuls with tiling to cut memory traffic from <code>[T, T]</code> intermediates.</p>
-<p>⸻</p>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="positions" class="level2">
-<h2 class="anchored" data-anchor-id="positions">Position &amp; Time: Positional/Timestep Tensors</h2>
-<ul>
-<li><strong>Absolute</strong>: learned table <code>P: [T_max, D]</code> added to embeddings.</li>
-<li><strong>Sinusoidal</strong>: analytic <code>[T, D]</code> functions.</li>
-<li><strong>RoPE</strong>: complex rotation of Q/K in head-dim space; no extra params, but needs consistent rotation shapes: apply on <code>[B, T, nH, Dh]</code>.</li>
-<li><strong>ALiBi</strong>: bias over distance, avoids explicit position vectors.</li>
-</ul>
-<p>All are tensors aligned on the <strong>T</strong> axis and broadcast over <strong>B</strong> and <strong>nH</strong>.</p>
-<p>⸻</p>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="kv-cache" class="level2">
-<h2 class="anchored" data-anchor-id="kv-cache">KV Cache: Memory vs Throughput</h2>
-<p>For autoregressive inference, we store past <code>K, V</code>: - <strong>Cache</strong> shape per layer: <code>[B, nH, T_total, Dh]</code> for both K and V. - <strong>Memory cost</strong> (rough): <code>2 * L * B * nH * T_total * Dh * dtype_size</code>. - <strong>Trade-offs</strong>: - Larger <strong>T_total</strong> → faster per-token (reuse past) but high RAM/VRAM. - Quantized KV (int8/fp8) cuts memory; must keep accuracy. - <strong>Paged KV</strong>/block-KV organizes cache as fixed blocks to reduce fragmentation</p>
-<p>⸻</p>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="mlp" class="level2">
-<h2 class="anchored" data-anchor-id="mlp">Feedforward/MLP Tensors</h2>
-<p>Typical gated GLU/SiLU FFN: - Expand: <code>W1: [D, D_ff]</code>, <code>W3: [D, D_ff]</code>, then <code>silu(X W1) ⊙ (X W3)</code> - Project back: <code>W2: [D_ff, D]</code> - Shapes: - Activations: <code>[B, T, D_ff]</code> (often <code>D_ff ≈ 4D</code>) - Params: <code>D*D_ff</code> dominates per layer.</p>
-<p>⸻</p>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="training-tensors" class="level2">
-<h2 class="anchored" data-anchor-id="training-tensors">Training-Time Tensors (Grads, Optimizer States)</h2>
-<ul>
-<li><strong>Gradients</strong>: same shape as weights.</li>
-<li><strong>Adam/AdamW states</strong>: <code>m, v</code> → <strong>2×</strong> the parameter memory.</li>
-<li><strong>Mixed precision</strong>: master fp32 weights + bf16 activations.</li>
-<li><strong>Activation checkpointing</strong> reduces saved activations (recompute in backward).</li>
-</ul>
-<p>Rule of thumb: training memory ≈ params (fp16/bf16) + optimizer (≈2× params fp32) + activations (batch-/sequence-dependent).</p>
-<p>⸻</p>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="parallel" class="level2">
-<h2 class="anchored" data-anchor-id="parallel">Tensor Parallelism &amp; Sharding</h2>
-<ul>
-<li><strong>Data parallel</strong>: replicate weights, split batches <code>[B]</code>.</li>
-<li><strong>Tensor/model parallel</strong>: shard weight matrices along <strong>D</strong> or <strong>D_ff</strong> (Megatron-LM style).</li>
-<li><strong>Pipeline parallel</strong>: split layers; micro-batches stream through.</li>
-<li><strong>Sequence parallel</strong>: split <strong>T</strong> across devices (useful with long context).</li>
-<li><strong>ZeRO</strong>: shard optimizer states/gradients/params across ranks.</li>
-</ul>
-<p>Each choice changes the <strong>effective tensor shapes per device</strong> and the required all-reduce/all-gather patterns.</p>
-<p>⸻</p>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="compression" class="level2">
-<h2 class="anchored" data-anchor-id="compression">Quantization, Low-Rank &amp; MoE</h2>
-<ul>
-<li><strong>Quantization</strong>:
-<ul>
-<li>Weights/activations to int8/fp8/FP4/NF4.</li>
-<li>Tensor-wise vs group-wise scaling tensors (per-channel scales <code>[D]</code> or <code>[groups, …]</code>).</li>
-</ul></li>
-<li><strong>Low-Rank (LoRA/QLoRA)</strong>:
-<ul>
-<li>Replace <code>W ∈ ℝ^{D_out×D_in}</code> with <code>W + A B</code> where <code>A: [D_out, r]</code>, <code>B: [r, D_in]</code>, <code>r ≪ D</code>.</li>
-</ul></li>
-<li><strong>MoE</strong>:
-<ul>
-<li>Gating tensor <code>G: [B, T, nExperts]</code> (often top-k).</li>
-<li>Expert FFNs see routed tokens: shapes become <strong>ragged</strong>; implement with packed blocks for kernel efficiency.</li>
-<li>Load-balancing loss acts on gating tensor statistics.</li>
-</ul></li>
-</ul>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="tensor-cores" class="level2">
-<h2 class="anchored" data-anchor-id="tensor-cores">Tensor Core Math: Throughput Reality</h2>
-<ul>
-<li>GPUs/TPUs peak on <strong>dense GEMMs</strong> with specific tile sizes.</li>
-<li>Best throughput when shapes are multiples of hardware tiles (e.g., 64/128).</li>
-<li><strong>Fused kernels</strong> (RMSNorm → QKV → bias → RoPE) minimize reads/writes.</li>
-<li>Performance killers: non-contiguous tensors, tiny batch/head dims, excessive transposes.</li>
-</ul>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="pitfalls" class="level2">
-<h2 class="anchored" data-anchor-id="pitfalls">Debugging by Shape: Common Pitfalls</h2>
-<ul>
-<li>Q/K/V reshape/order mismatch: <code>[B, T, nH, Dh]</code> vs <code>[B, nH, T, Dh]</code>.</li>
-<li>RoPE applied on wrong dims or after projection merge.</li>
-<li>KV cache dtype/shape drift across tokens (e.g., bf16 vs fp16).</li>
-<li>Logits with tied weights: ensure <code>E_tok</code> and <code>LM_head</code> share transposed shape.</li>
-<li>MoE routing: padding vs packing; silent throughput collapse if not packed.</li>
-</ul>
-<p>⸻</p>
-<p>⸻</p>
-</section>
-<section id="cheatsheet" class="level2">
-<h2 class="anchored" data-anchor-id="cheatsheet">Mini Cheatsheet</h2>
-<ul>
-<li><strong>Embeddings</strong>: <code>E[V, D]</code>, inputs → <code>[B, T, D]</code></li>
-<li><strong>Attention heads</strong>: <code>nH = D / Dh</code>, Q/K/V <code>[B, T, nH, Dh]</code></li>
-<li><strong>Scores/attn</strong>: <code>[B, nH, T, T]</code> (fused via FlashAttention)</li>
-<li><strong>FFN</strong>: <code>D_ff ≈ 4D</code>, shapes <code>[B, T, D_ff]</code></li>
-<li><strong>KV cache / layer</strong>: <code>2 × [B, nH, T_total, Dh]</code></li>
-<li><strong>Adam states</strong>: <code>2 × params</code></li>
-<li><strong>LoRA rank r</strong>: extra params <code>r(D_in + D_out)</code></li>
-<li><strong>MoE gating</strong>: <code>G[B, T, nExperts]</code>, top-k Routing</li>
-</ul>
-<p>⸻</p>
-<p>⸻</p>
-<section id="optional-images-to-add" class="level3">
-<h3 class="anchored" data-anchor-id="optional-images-to-add">Optional images to add</h3>
-<ul>
-<li>A one-panel diagram of shapes through a transformer block.</li>
-<li>A KV cache memory budget bar chart (bf16 vs int8).</li>
-<li>A MoE routing sketch (gate → pack → expert FFNs → merge).</li>
-</ul>
+<p>[ MODERN HYBRID: DIFFUSION TRANSFORMER (DiT) ]</p>
+<pre><code>    ┌──────────────────────────────────────────────────┐
+    │  1. Latent Space Compression                     │
+    │     (Turn a 4K image into dense spatial vectors) │
+    └────────────────────────┬─────────────────────────┘
+                             ▼
+    ┌──────────────────────────────────────────────────┐
+    │  2. Spacetime Patchification                     │
+    │     (Chop those vectors into flat 3D patches)    │
+    └────────────────────────┬─────────────────────────┘
+                             ▼
+    ┌──────────────────────────────────────────────────┐
+    │  3. The Transformer Backbone                     │
+    │     (Pass patches through your config blocks:    │
+    │      Attention -&gt; MLP -&gt; Residuals)              │
+    └────────────────────────┬─────────────────────────┘
+                             ▼
+    ┌──────────────────────────────────────────────────┐
+    │  4. The Diffusion Denosing Step                  │
+    │     (The Transformer outputs the cleaned patches │
+    │      using Diffusion loss rules)                 │
+    └─────────────────────────────────────── </code></pre>
+<p>The Operational Flow of a DiT</p>
+<p>The Front Door (Stage 1): The Latent Space Compressor (usually a highly optimized, pre-trained Convolutional VAE) acts as a high-speed data funnel. It shrinks the massive, unmanageable raw pixel grid down into a dense, mathematically efficient latent matrix. This is where your deep understanding of Convolutional and GroupNorm layers pays off—you built the exact components that handle this spatial heavy lifting.</p>
+<p>The Bridge (Stage 2): “Patchification” is the magical translator. It slices that compressed continuous latent matrix into tiny, localized 3D blocks (spacetime patches). It flattens those patches into vectors and maps them linearly. In an instant, a visual asset ceases to be a spatial image; it becomes an orderly string of tokens, completely identical in structure to words in a sentence or lines in a script.</p>
+<p>The Core Brain (Stage 3): This is where you get your favorite cheat code: Config-Driven Scaling.Because Stage 2 completely flattened the image into uniform tokens, Stage 3 is a 100% pure, homogeneous, monolithic Transformer backbone. It doesn’t care that it’s processing an image. It just runs those tokens recursively through the exact Embedding → Attention → MLP → Residual pipeline you prefer, stacked identical block after identical block. If a researcher wants a more powerful visual model, they don’t rewrite the code; they just change a single line in a YAML configuration file to increase the layer count.</p>
+<p>The Loss Tail (Stage 4): The output layer of that monolithic Transformer backbone computes the noise residuals. It maps the cleaned patches back through the compressor to reconstruct the final, jaw-dropping high-fidelity image or video frames using standard diffusion or flow-matching loss math.</p>
+<p>It is literally just taking the exact, clean Transformer block blueprint you already know and applying it to a different data format.</p>
+<p>Once you understand the standard Embedding → Attention → MLP → Residuals pipeline, DiT is just adding a visual data translator onto the front of that exact same transformer transcript.</p>
+<p>Here is the entire “secret” of why DiT is so simple once you master the Transformer:</p>
+<ol type="1">
+<li>The Only “New” Step: Linear Patch Projection</li>
+</ol>
+<p>In a text transformer, your input layer takes a word, looks it up in a vocabulary matrix, and turns it into a dense vector (an embedding).</p>
+<p>In a DiT, you can’t look up pixels in a dictionary. So instead, the input layer takes a 2D or 3D chunk of compressed latent pixels (say, a 16 × 16 patch) and runs a simple Linear Projection (or a single convolutional layer) over it to flatten it into a dense vector of the exact same size.</p>
+<p>That’s it. Once that patch is flattened into a vector, the Transformer treats it exactly like a word token. It goes through the exact same positional encodings, the exact same LayerNorms, the exact same multi-headed attention, and the exact same MLP blocks. 2. Time-Step Conditioning (AdaLN)</p>
+<p>The only other tweak is how it handles the “diffusion” part. Because diffusion requires the model to know which noise-cleanup step it is currently on (e.g., step 10 vs step 900), they feed the time-step number into the model.</p>
+<p>Instead of writing a complex new layer for this, Peebles and Xie used a clean trick called Adaptive Layer Normalization (AdaLN). All it does is take the time-step, turn it into an embedding vector, and use it to slightly shift and scale the weights of the standard LayerNorm layers right before the attention blocks. It doesn’t break the monolithic continuity; it just tunes the existing transformer blocks on the fly.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

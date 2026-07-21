@@ -267,6 +267,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./Grok-4.5.html">
  <span class="dropdown-text">Grok-4.5.</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./DIT.html">
+ <span class="dropdown-text">DIT</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -286,6 +290,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#pre-training-pre-training" id="toc-pre-training-pre-training" class="nav-link active" data-scroll-target="#pre-training-pre-training">pre training {## pre-training}</a></li>
+  <li><a href="#latent-space-latent-space" id="toc-latent-space-latent-space" class="nav-link" data-scroll-target="#latent-space-latent-space">latent space {## latent-space}</a></li>
+  <li><a href="#context-windows-context-windows" id="toc-context-windows-context-windows" class="nav-link" data-scroll-target="#context-windows-context-windows">context windows {## context-windows}</a></li>
   <li><a href="#scale-scale" id="toc-scale-scale" class="nav-link" data-scroll-target="#scale-scale">scale {##scale}</a></li>
   <li><a href="#tensors-tensors" id="toc-tensors-tensors" class="nav-link" data-scroll-target="#tensors-tensors">tensors {## tensors}</a></li>
   <li><a href="#scaling-law-of-latent-space-geometry-scaling-law-of-latent-space-geometry" id="toc-scaling-law-of-latent-space-geometry-scaling-law-of-latent-space-geometry" class="nav-link" data-scroll-target="#scaling-law-of-latent-space-geometry-scaling-law-of-latent-space-geometry">Scaling Law of Latent Space Geometry {## Scaling-Law-of-Latent-Space-Geometry}</a></li>
@@ -302,7 +308,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#activation-functions-activation-functions" id="toc-activation-functions-activation-functions" class="nav-link" data-scroll-target="#activation-functions-activation-functions">activation functions {## activation-functions}</a></li>
   <li><a href="#lm-head-lm-head" id="toc-lm-head-lm-head" class="nav-link" data-scroll-target="#lm-head-lm-head">LM head {## LM head}</a></li>
   <li><a href="#softmax-in-attention-softmax-in-attention" id="toc-softmax-in-attention-softmax-in-attention" class="nav-link" data-scroll-target="#softmax-in-attention-softmax-in-attention">softmax in attention {## softmax in attention}</a></li>
-  <li><a href="#sampling-sampling" id="toc-sampling-sampling" class="nav-link" data-scroll-target="#sampling-sampling">Sampling {## Sampling}</a>
+  <li><a href="#sampling-sampling" id="toc-sampling-sampling" class="nav-link" data-scroll-target="#sampling-sampling">Sampling {## Sampling}</a></li>
+  <li><a href="#vision-abilities-vision-abilities" id="toc-vision-abilities-vision-abilities" class="nav-link" data-scroll-target="#vision-abilities-vision-abilities">vision abilities {## vision-abilities}</a>
   <ul class="collapse">
   <li><a href="#tool-use-tool-use" id="toc-tool-use-tool-use" class="nav-link" data-scroll-target="#tool-use-tool-use">tool use {## tool-use }</a></li>
   <li><a href="#steps-steps" id="toc-steps-steps" class="nav-link" data-scroll-target="#steps-steps">steps {## steps}</a></li>
@@ -370,6 +377,52 @@ ul.task-list li input[type="checkbox"] {
 <p>• Suppressing unwanted ones (hallucinations, coding viruses , exploiting zero days in code bases, “harmful” content).</p>
 <p>In geometric terms: post-training adjusts the latent space signals so the model is more likely to route through desirable pathways. It does not significantly expand the underlying capability or knowledge — it modulates how that capability is expressed (or withheld).</p>
 <p>This distinction matters. The real power comes from pre-training scale, data, and architecture. Post-training is refinement and alignment, not the source of intelligence.</p>
+</section>
+<section id="latent-space-latent-space" class="level2">
+<h2 class="anchored" data-anchor-id="latent-space-latent-space">latent space {## latent-space}</h2>
+<p>Section — Token Embeddings &amp; Latent Manifold Space</p>
+<p>Every LLM operates inside a massive latent manifold — a high-dimensional geometric space where all patterns, concepts, semantics, logic, style, and structure are encoded as directions and trajectories.</p>
+<p>This manifold is the backbone of the entire model.</p>
+<p>What the Latent Manifold Actually Is</p>
+<p>It is a continuous, learned vector space containing semantic patterns, syntactic patterns, reasoning patterns, mathematical structures, code patterns, tool use, emotional tones, logical rules, narrative structures, and meta-patterns (patterns of patterns).</p>
+<p>Every token embedding, hidden state, and MLP-transformed representation is a point or trajectory inside this space.</p>
+<p>Dimensions vs Patterns</p>
+<p>• A dimension is simply one axis in the high-dimensional coordinate system (e.g., 4,096 or 32,768 axes).</p>
+<p>• A pattern is a direction — a specific linear combination of many dimensions.</p>
+<p>With thousands of dimensions, the number of possible directions (patterns) is enormous. This is why the model can represent incredibly nuanced and compositional ideas.</p>
+<p>Natural Clustering</p>
+<p>Because training optimizes for next-token prediction, vectors that appear in similar contexts naturally cluster together. This creates hierarchical semantic organization (e.g., “animals” → “dogs” → “specific breeds”).</p>
+<p>Latent Directions Encode Relations</p>
+<p>Certain directions correspond to meaningful transformations (“more formal,” “more mathematical,” “more positive,” etc.). This is why simple vector arithmetic sometimes works (king – man + woman ≈ queen).</p>
+<p>Shared Manifold Across the Network</p>
+<p>The entire model shares one manifold. Attention moves attention within it, MLPs transform points inside it, and residuals accumulate changes across layers. There are no separate “modules” — everything operates in the same geometric space.</p>
+<p>Layer Progression</p>
+<p>Deeper layers correspond to increasingly abstract coordinates:</p>
+<p>• Early layers: token-level features and local dependencies</p>
+<p>• Middle layers: semantic clustering and phrase-level meaning</p>
+<p>• Deep layers: long-range dependencies, compositional reasoning, and meta-patterns</p>
+<p>The deeper you go, the further from raw text and closer to pure conceptual geometry.</p>
+<p>Why This Enables Generalization</p>
+<p>The model does not memorize sentences. It learns geometric patterns, relationships, and transformations. This geometric abstraction is what allows generalization to new questions, new code, new problems, and creative output.</p>
+</section>
+<section id="context-windows-context-windows" class="level2">
+<h2 class="anchored" data-anchor-id="context-windows-context-windows">context windows {## context-windows}</h2>
+<p>Context Windows: The Model’s Working Memory</p>
+<p>The context window is the maximum number of tokens the model can process in a single forward pass. For Grok 4.5, this is 500,000 tokens.</p>
+<p>What It Actually Is</p>
+<p>It is the length of the sequence (token IDs + their embeddings + positional encodings) that can fit into the attention mechanism and residual stream at once.</p>
+<p>Everything inside this window is visible to the model simultaneously. Attention can connect any token to any other within it.</p>
+<p>Why Context Window Size Matters</p>
+<p>• Short context (4k–32k tokens): Good for simple chat, but struggles with long documents, codebases, or extended reasoning.</p>
+<p>• Long context (128k–500k+ tokens): Enables deep analysis of books, large code repositories, long conversations, multi-document synthesis, and sophisticated multi-step planning.</p>
+<p>Frontier LLMs have successfully expanded their context windows to millions of tokens, natively processing thousands of lines of code, multi-page mathematical equations, and extensive essays in a single forward pass</p>
+<p>How Long Context Works Mechanistically</p>
+<p>• RoPE positional encodings help the model maintain relative positioning even at very long distances.</p>
+<p>• Efficient attention implementations (and sparsity from MoE) make processing hundreds of thousands of tokens feasible.</p>
+<p>• The residual stream must carry coherent information across the entire length without degradation.</p>
+<p>Limitations</p>
+<p>Even with a large context window, the model does not have perfect recall or infinite memory. Very distant tokens can still be “forgotten” in practice due to attention dilution. True long-term memory and state management require external tools or architectures beyond the raw context window.</p>
+<p>In Grok 4.5, the 500K context is a major practical advantage for agentic and knowledge work, allowing the model to maintain coherence over much larger bodies of information than earlier versions.</p>
 </section>
 <section id="scale-scale" class="level2">
 <h2 class="anchored" data-anchor-id="scale-scale">scale {##scale}</h2>
@@ -689,6 +742,21 @@ ul.task-list li input[type="checkbox"] {
 <p>In Practice</p>
 <p>Most modern interfaces (including Grok) combine these — e.g., top-p + temperature. The strategy modulates an existing probability distribution; it cannot add capabilities the underlying weights don’t already have.</p>
 <p>This is why the training loss and data are foundational: they define the probability landscape. Sampling strategies are simply tools for navigating that landscape during generation.</p>
+</section>
+<section id="vision-abilities-vision-abilities" class="level2">
+<h2 class="anchored" data-anchor-id="vision-abilities-vision-abilities">vision abilities {## vision-abilities}</h2>
+<p>Vision Capabilities</p>
+<p>Grok 4.5 is multimodal: it can accept and analyze images alongside text.</p>
+<p>How Image Processing Works</p>
+<p>• Visual Encoder: A separate vision model (typically a Vision Transformer or similar) processes the raw image.</p>
+<p>• Patch Embedding: The image is divided into patches and turned into a sequence of embeddings (essentially a 1D sequence of visual tokens).</p>
+<p>• Dimensional Alignment: The visual embeddings are projected into the same latent space as text tokens. This allows the LLM’s transformer layers to attend to both text and image tokens in a unified way.</p>
+<p>• Integration: Image tokens are inserted into the context window alongside text tokens. The model can then reason jointly over both modalities.</p>
+<p>What the Model Can Do with Images</p>
+<p>• Describe content in detail.</p>
+<p>• Answer questions about visual information (objects, text in images, spatial relationships, charts, diagrams).</p>
+<p>• Perform visual reasoning (e.g., “what happens if this object moves here?”).</p>
+<p>• Combine visual and textual context for agentic tasks (e.g., analyzing screenshots for coding help).</p>
 <section id="tool-use-tool-use" class="level3">
 <h3 class="anchored" data-anchor-id="tool-use-tool-use">tool use {## tool-use }</h3>
 <p>Native Tool Use &amp; Agentic Capabilities</p>
