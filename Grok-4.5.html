@@ -795,7 +795,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Choose (Mixture of Experts - MoE) The token routing routers fire across the network, instantly activating the highly specific clusters of neurons—the exact Mixture of Experts—best suited for the job. This is where the model selects the precise tool payload, whether it’s an API call, a mathematical formula, or a spatial trajectory vector.</p></li>
 <li><p>Format (Multi-Layer Perceptrons - MLPs) The dense feed-forward networks (MLPs) do the heavy lifting of raw translation. They map the high-dimensional abstract concepts down into exact, structural execution tokens fully formatting all intent/commands. It forces the output into rigid, un-hackable syntax—generating the precise <search_query> XML strings for a browser, the exact code the model wnats to run in a code interpteter, or commands to computers its using . It must specify everything, down to the millisecond time constraints, because the recipient has zero native cognition to fill in gaps.</search_query></p></li>
 <li><p>Execute (Passive Infrastructure) The model outputs the tokens, and the passive downstream infrastructure takes over. The sandbox code interpreter, the web database server, or the computer browser takes the XML and literally carries out the command each in milliseconds. The tool doesn’t understand why it is running the code or moving the joint; it is just a blind, dumb, reactionary mirror executing the sequence.</p></li>
-<li><p>Integrate (The Residual Stream) The raw output of the tool (the search sources text, code execution results , computer use, or the next video frame camera feed) is instantly ingested back into the model. It is tokenized, projected back into the high-dimensional vector space, and absorbed right back into the Residual Stream. The model updates its world model, runs the next forward pass, continues reasoning over the data and decides on the next sequence all the way to producing the output . The loop is complete.</p></li>
+<li><p>Integrate (The Residual Stream) The raw output of the tool (the search sources text, code execution results , computer use, or the next video frame camera feed) is instantly ingested back into the model. It is tokenized, projected back into the high-dimensional vector space, and absorbed right back into the Residual Stream. The model updates its world model, runs the next forward pass, continues reasoning over the data and decides on the next sequence all the way to producing the output end to end . The loop is complete.</p></li>
 </ol>
 <p>Tool use is absolutely a native capability embedded inside the model’s weights during pre-training. [1] The physical act of running the software tool requires an external infrastructure, but the algorithmic decision to use it, formatting the request, and digesting the output are entirely native properties of the transformer. [2, 3] Decoupling the Tool Loop: Native Weights vs.&nbsp;External Runtimes</p>
 <p></p>
@@ -803,8 +803,26 @@ ul.task-list li input[type="checkbox"] {
 <p>Decide (MHA) Transformer 100% Native: Attention matrices identify a context information gap and select a tool vector rather than a text token.</p>
 <p>Choose (MoE) Transformer 100% Native: Gating routers fire to activate code generation and structural layout experts.</p>
 <p>Format (MLPs) Transformer 100% Native: Feed-forward layers map latent concepts down into exact syntax tokens (e.g., rigid JSON or XML strings).</p>
+<ol type="1">
+<li><p>THE MODEL COGNITION ──► generates the dynamic XML contract via MLPs.</p>
+<pre><code> │
+
+ ▼ (Millisecond Token Output)</code></pre></li>
+</ol>
 <p>Execute Python/OS Sandbox Non-Native (Passive, blind): The model outputs the tokens, and the passive downstream infrastructure takes over. The sandbox code interpreter, the web database server, or the computers browser reads the XML and executes the code , or video latents in all cases the results get returned , each in milliseconds, The hardware doesn’t understand why it is running the code or moving the joint; it is just a dumb, reactionary mirror executing the sequence.</p>
+<p>(Fiber-Optic Packet Transmission)</p>
+<ol start="3" type="1">
+<li><p>THE INDEX RACKS ──► Dumb, ultra-optimized server blades execute raw keyword/vector lookups.</p>
+<pre><code> │</code></pre></li>
+</ol>
 <p>Integrate Transformer 100% Native: Tool output tokens are projected directly into the high-dimensional vector space of the Residual Stream during the next forward pass, the modl integrates the result into its reasoning and decides the output</p>
+<ol start="5" type="1">
+<li><p>RESIDUAL STREAM ──► Raw text tokens inject directly back into the continuous vector space.</p>
+<pre><code> │
+
+ ▼ (Trillions of Matrix Multiplications)</code></pre></li>
+<li><p>REASONING OUTPUT ──► Attention heads analyze, filter the noise, and stream the final answer.</p></li>
+</ol>
 </section>
 <section id="loop-loop" class="level3">
 <h3 class="anchored" data-anchor-id="loop-loop">loop {### loop}</h3>
