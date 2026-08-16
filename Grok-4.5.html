@@ -361,16 +361,16 @@ ul.task-list li input[type="checkbox"] {
 <p>Given a sequence of tokens, the model must predict the next one. This is repeated billions of times across the entire dataset. The loss function (cross-entropy) measures how wrong the predicted probability distribution is, and gradients update every parameter in the network to reduce that loss.</p>
 <p>What Actually Happens During Pre-Training</p>
 <p>• The entire corpus ( hundreds of natural languages , all major coding langauges , scientific literature, mathematics, history, etc.) is flattened into one giant 1D stream of tokens.</p>
-<p>• The model learns statistical patterns, relationships, and structures purely by trying to predict what comes next.</p>
+<p>• The model learns statistical patterns, relationships, and pattern structures purely by trying to predict what comes next.</p>
 <p>• Through this process, the weights (connections) and latent geometry self-organize so that:</p>
 <p>• Similar concepts cluster in the high-dimensional latent space.</p>
 <p>• Grammatical, semantic, and logical patterns become encoded.</p>
-<p>• Basic reasoning shortcuts and world knowledge emerge as compressed representations.</p>
+<p>• Basic reasoning shortcuts and world knowledge emerge as rich compressed representations of patterns in the latent space.</p>
 <p>Key Characteristics of Frontier Pre-Training</p>
 <p>• Scale: Trillions of tokens, hundreds of thousands of GPUs, months of continuous training.</p>
 <p>• Data Mixture: Carefully curated blend emphasizing high-quality sources (science, code, math) alongside broad internet text.</p>
 <p>• No Explicit Supervision: The model is never told “this is a fact” or “this is how to reason.” It discovers everything through the prediction objective.</p>
-<p>• Emergent Abilities: Capabilities like basic arithmetic to understanding &amp; solving advanced levels of mathematics, reading , generation &amp; translation across various langauges , all forms of langauge, code generation &amp; full scale software development, tool use (web search, code execution &amp; comouter use), biologcial code generation, and in-context learning appear as byproducts of scale and data diversity.</p>
+<p>• Emergent Abilities: Capabilities like basic arithmetic to understanding &amp; solving advanced levels of mathematics, reading , generation &amp; translation across various langauges , all coding langauges, code generation &amp; full scale software development, advanced zero day exploitations , tool use (web search, code execution &amp; comouter use), biologcial code generation, and in-context learning appear as byproducts of scale and data diversity.</p>
 <p>Pre-Training vs Post-Training: A Common Misconception</p>
 <p>A frequent misunderstanding is that the model “learns a lot” during post-training. This is not accurate.</p>
 <p>Pre-training is where the the vast majority of intelligence is acquired. The model builds its core knowledge, patterns, reasoning shortcuts, and latent representations through massive next-token prediction on diverse data. This is where the heavy lifting of learning happens.</p>
