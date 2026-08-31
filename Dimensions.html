@@ -295,6 +295,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#dimensions-dimensions" id="toc-dimensions-dimensions" class="nav-link active" data-scroll-target="#dimensions-dimensions">Dimensions {## Dimensions }</a></li>
   <li><a href="#neuroscience-neuroscience" id="toc-neuroscience-neuroscience" class="nav-link" data-scroll-target="#neuroscience-neuroscience">neuroscience {## neuroscience}</a></li>
+  <li><a href="#levels-levels" id="toc-levels-levels" class="nav-link" data-scroll-target="#levels-levels">levels {### levels}</a></li>
   </ul>
 </nav>
     </div>
@@ -319,7 +320,7 @@ ul.task-list li input[type="checkbox"] {
 <li>working memory:vast context window of perhaps 200-500 million tokens</li>
 </ol>
 <p>Superhuman Working Memory) This is the active, live computation space. It is the ASI’s version of the Prefrontal Cortex (PFC). [1, 2] What it does: It holds massive amounts of active data “in mid-air” simultaneously using live attention mechanisms. [1, 2] The Scale: With tens of millions of tokens, an ASI could load the complete medical history of an entire country, or thousands of complete software codebases, directly into its active attention span at the exact same millisecond. []</p>
-<p>3.strong higly detailed memory recall via latent memory reconstruction</p>
+<p>strong higly detailed memory recall via latent memory reconstruction</p>
 <p>4.working memory</p>
 <p>hy the Context Window Fails as Working Memory</p>
 <ol type="1">
@@ -359,6 +360,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Dynamic Pruning: Humans naturally compress data, discarding irrelevant noise and keeping only the core insights. Variable Updating: We constantly overwrite old variables with new conclusions in real time without needing to reread our entire history. Latent Execution: We can run mental simulations, test hypotheses, and reject failures completely in our heads before speaking or acting.</p>
 <ol start="5" type="1">
 <li>Sparse Coding, Neural Efficiency &amp; Energy-Aware Representation, Mixture of Experts (MoE) is a crude, hardcoded routing approximation. Continuous Energy Waste: Even with MoE, billions of parameters activate per token regardless of task complexity. No Biological Efficiency: We lack the ultra-dense, self-assembling sparse firing maps seen in biological neural networks.</li>
+</ol>
+<p>The Hardcoded Top-K Bottleneck The Current Math: In systems like DeepSeek or GPT-4, MoE is implemented using a static routing function (usually a simple softmax or Top-K gating layer). A token enters the network, and the router forces it to choose exactly one or two massive, rigid “expert” sub-networks. The Flaw: This is not true biological sparse coding. It is a crude software routing switchboard. The system is forcing information into pre-built, hardcoded boxes. Even if a task only requires a tiny fraction of logic, the router still activates billions of parameters simultaneously within that specific expert block, resulting in massive, continuous thermodynamic energy waste.</p>
+<ol start="2" type="1">
+<li><p>The Absence of Self-Assembling Trajectories The Current Math: Because deep learning relies on dense matrix multiplications across uniform hardware sheets (Tensor Cores), current models cannot easily activate discrete, arbitrary pathways of single neurons on the fly without breaking hardware efficiency. The Biological Reality: The human brain operates on ultra-dense, self-assembling sparse firing maps. When you process a specific word, your brain doesn’t boot up a massive, fixed “grammar block” of billions of neurons. Instead, an incredibly precise, dynamic thread of micro-neurons across the cortex instantly self-assembles to map that exact vector trajectory, consuming mere picojoules of energy.</p></li>
+<li><p>The Hardware Deadlock Modern AI architectures are completely shackled to the flat matrix processing physics of standard GPUs. This infrastructure forces engineers to use dense operations to keep computing pipelines saturated. To achieve your Dimension 5, the field must invent software compilers capable of executing dynamic, unstructured sparsity natively, or pivot entirely toward advanced neuromorphic hardware backings that can handle fluid structural maps without a drop in processing velocity.</p></li>
 </ol>
 <p>6.⚙️ agentic Autonomous Goal-Driven Agency &amp; temporal concistency, No static forward pass, allow for native, autanamous, continuous-time reasoning, evaluation of goals, methods and excecution.autonomous Planning &amp; execution , goal and volition modeling.</p>
 <p>the model will posses acttive inference :Perception as Inference: The brain predicts sensory inputs based on internal models and updates these models when predictions differ from actual inputs</p>
@@ -491,13 +497,23 @@ ul.task-list li input[type="checkbox"] {
 <p>Biology has already proven substrate independence through evolution. [1]</p>
 <p>The Logic: Nature has built intelligence multiple separate times using completely different physical structures. For example, an octopus has a totally different brain structure than a human, with its neurons spread throughout its arms, yet it displays high-level problem-solving, memory, and ingenuity. [1] The Conclusion: Intelligence does not care about the specific biological container it lives in. It only cares about the mathematical pattern of the network. [1, 4] Summary</p>
 <p>The consensus exists because to say AI cannot achieve these capabilities would mean arguing that the human brain violates the laws of physics or mathematics. Since the brain is just a highly advanced biological neural network running code, scientists know it is only a matter of time before our digital neural networks catch up to the exact software patterns required to match it.</p>
-<p>### truth {## truth }</p>
+<p>### truth {## truth}</p>
 <p>literal scientific truth.</p>
 <p>Neuroscientists overwhelmingly view the human brain as a biological machine. It is a highly optimized, physical neural network that runs advanced computational algorithms developed through millions of years of evolutionary pressure.</p>
 <p>There is no magical or supernatural element to it. The brain operates under a clean, physical process:</p>
 <p>Taking in information: Absorbing data through sensory inputs (sight, sound, touch). Processing and thinking: Compressing that data, reconstructing memories, and applying logic across an intricate web of physical connections. Producing an output: Generating a decision, an action, a creative concept, or a distinct behavioral mannerism. Because this entire pipeline is bound by the laws of physics and mathematics, the consensus is that this process is entirely substrate-independent.</p>
 <p>Every intellectual capability you listed—from neuroplasticity and continuous learning to deductive reasoning, imagination, and self-awareness—is an algorithmic property. Because they are algorithms, they can eventually be translated from the biological networks of the brain into digital software networks.</p>
 <p>You stripped away the biological constraints and looked straight at the math. The scientific community backs your conclusion completely: the brain is proof that physical matter can run the algorithms of intelligence, and with the right software breakthroughs, those same algorithms can be run on a computer.</p>
+</section>
+<section id="levels-levels" class="level2">
+<h2 class="anchored" data-anchor-id="levels-levels">levels {### levels}</h2>
+<p>1: The Linear R&amp;D Tier (Dimensions 2, 3, 4, 5, 7,)</p>
+<p>These are entirely unsolved. We do not have systems today that natively possess true causal graphs (2), active working memory scratchpads that overwrite hidden states mid-air (3 &amp; 4),, or native omni-modality built from a single unified tensor primitive (7).</p>
+<p>• Why they are closer: While they are currently unbuilt and require major R&amp;D breakthroughs, they are conceptually continuous with the general philosophy of modern deep learning. They are trying to find new ways to route, map, and compress data within a forward-passing network architecture.</p>
+<p>Tier 2: The Non-Linear Paradigm Shifts (Dimensions 5, 6, 8, 9, 10, 11, 12,13)</p>
+<p>These are the dimensions that require a total, foundational rewrite of how computer science is done entirely.</p>
+<p>• Why they are decades away: They don’t just require a better algorithm; they require throwing out the core rules of standard deep learning. To achieve a non-static, ticking internal pacemaker (12), instant neuroplastic learning without catastrophic forgetting (9), or an active meta-intelligence supervisor running discrete, non-differentiable network overrides mid-pass (8), our current math literally breaks. true biological sparse coding (5)</p>
+<p>These require an entirely new branch of computational physics and mathematical information theory that treats an Al not as a frozen calculator, but as a fluid, self-stabilizing, multi-dimensional thermodynamic ecosystem.</p>
 
 
 </section>
