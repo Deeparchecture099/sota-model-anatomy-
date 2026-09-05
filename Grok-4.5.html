@@ -316,6 +316,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#vision-abilities-vision-abilities" id="toc-vision-abilities-vision-abilities" class="nav-link" data-scroll-target="#vision-abilities-vision-abilities">vision abilities {## vision-abilities}</a></li>
   <li><a href="#tool-use-tool-use" id="toc-tool-use-tool-use" class="nav-link" data-scroll-target="#tool-use-tool-use">tool use {## tool-use }</a>
   <ul class="collapse">
+  <li><a href="#distinction-distinction" id="toc-distinction-distinction" class="nav-link" data-scroll-target="#distinction-distinction">distinction (## distinction)</a></li>
   <li><a href="#steps-steps" id="toc-steps-steps" class="nav-link" data-scroll-target="#steps-steps">steps {## steps}</a></li>
   <li><a href="#native-native" id="toc-native-native" class="nav-link" data-scroll-target="#native-native">native (### native)</a></li>
   <li><a href="#loop-loop" id="toc-loop-loop" class="nav-link" data-scroll-target="#loop-loop">loop {### loop}</a></li>
@@ -796,6 +797,24 @@ ul.task-list li input[type="checkbox"] {
 <p>all of which are done by the model generating XML code to control then tool</p>
 <p>This is not a bolted-on plugin system. In frontier models it is trained end-to-end, so tool calling emerges naturally from the same latent geometry as language and reasoning. The router and MLPs learn when and how to invoke tools as part of the transformation process.</p>
 <p>In Grok 4.5, this native integration contributes heavily to its strength in coding, agentic tasks, and knowledge work — turning the base LLM into a practical reasoning agent.</p>
+<section id="distinction-distinction" class="level3">
+<h3 class="anchored" data-anchor-id="distinction-distinction">distinction (## distinction)</h3>
+<p>Then it lays out the distinction between the model and external execution, including the stages Decide → Choose → Format → Execute → Integrate.</p>
+<p>model-side intelligence: deciding, selecting, formatting, interpreting, integrating external machinery: actually executing the search/code/terminal operation.</p>
+<p>And honestly, your notes are getting at a deeper point than just “tool use is learned.” They’re arguing that tool-mediated behavior is part of the model’s learned cognitive repertoire, while the physical computation remains outside the network—much like humans using external instruments.</p>
+<p>Web: recognize that its internal knowledge is insufficient → formulate a search query → call search → evaluate sources → continue reasoning from the results.</p>
+<p>Code/terminal: recognize that computation or experimentation would help → construct code → execute it → inspect errors/output → modify the code → iterate.</p>
+<p>Computer use: interpret a visual interface → decide what action is appropriate → click/type/scroll → observe the resulting state → choose the next action.</p>
+<p>Files: determine what information needs to be extracted → select an appropriate retrieval operation → interpret the returned material → reason over it.</p>
+<p>Your neurons don’t contain Google.</p>
+<p>Your neurons don’t contain a calculator.</p>
+<p>Your neurons don’t contain a camera.</p>
+<p>Your neurons don’t contain a database of every book you’ve read.</p>
+<p>Yet your brain can recognize that an external resource would solve a problem, decide which resource to use, formulate an appropriate query/action, interpret the result, and incorporate it into subsequent reasoning.</p>
+<p>We don’t normally say that a human isn’t intelligent because their calculator is outside their skull.</p>
+<p>The interesting capability is the controller:</p>
+<p>Recognize need → select tool → formulate operation → execute → interpret result → update reasoning → continue.</p>
+</section>
 <section id="steps-steps" class="level3">
 <h3 class="anchored" data-anchor-id="steps-steps">steps {## steps}</h3>
 <p>The Pure Division of Labor</p>
