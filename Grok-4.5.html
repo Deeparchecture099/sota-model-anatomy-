@@ -374,7 +374,7 @@ ul.task-list li input[type="checkbox"] {
 <p>• Scale: Trillions of tokens, hundreds of thousands of GPUs, months of continuous training.</p>
 <p>• Data Mixture: Carefully curated blend emphasizing high-quality sources (science, code, math) alongside broad internet text.</p>
 <p>• No Explicit Supervision: The model is never told “this is a fact” or “this is how to reason.” It discovers everything through the prediction objective.</p>
-<p>• Emergent Abilities: Capabilities like basic arithmetic to understanding &amp; solving advanced levels of mathematics, reading , generation &amp; translation across various langauges , all coding langauges, code generation &amp; full scale software development, advanced zero day exploitations , tool use (web search, code execution &amp; comouter use), biologcial code generation, and in-context learning appear as byproducts of scale and data diversity.</p>
+<p>• Emergent Abilities: Capabilities like basic arithmetic to understanding &amp; solving advanced levels of mathematics, reading , generation &amp; translation across various langauges , all coding langauges, code generation &amp; full scale software development, advanced zero day exploitations , tool use (web search, code execution &amp; multi hour computer use), biologcial code generation, and in-context learning appear as byproducts of scale and data diversity.</p>
 <p>Pre-Training vs Post-Training: A Common Misconception</p>
 <p>A frequent misunderstanding is that the model “learns a lot” during post-training. This is not accurate.</p>
 <p>Pre-training is where the the vast majority of intelligence is acquired. The model builds its core knowledge, patterns, reasoning shortcuts, and latent representations through massive next-token prediction on diverse data. This is where the heavy lifting of learning happens.</p>
@@ -786,11 +786,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Native Tool Use &amp; Agentic Capabilities</p>
 <p>A key strength of frontier models like Grok 4.5 is native tool use — the ability to call external tools (web search, code execution, browser control, etc.) as part of its reasoning process.</p>
 <p>How it is trained and implemented</p>
-<p>• During pre-training , the model is exposed to millions examples of tool calls, usually formatted as structured XML/JSON.</p>
+<p>• During pre-training , the model is exposed to millions examples of tool calls, usually formatted as structured XML/JSON. XMLs allow total control over the infrastructure the model is issuing commands to from intention, commannds, filters, time restraints for carryingh out the action etc</p>
 <p>• Dedicated MLP expert heads in the MoE trasnfomer architecture learn to generate these XMLs for Native Tool Use &amp; Agentic Capabilities beyond its internal parameters:</p>
-<p>• Access to up-to-date information (web search)</p>
+<p>• Access to up-to-date information (web search) multi query, filtered, ime</p>
 <p>• running code and returning the results (code interpreter)</p>
-<p>• computer use (APIs, browser control)</p>
+<p>• computer use (multi action, APIs, browser control)</p>
 <p>• Long-horizon planning and correction</p>
 <p>• AI computer use which AI models learn, allows artificial intelligence agents to view a screen, click buttons, and type text directly through a graphical user interface just like a human. Enabling the model to complete tasks online.</p>
 <p>all of which are done by the model generating XML code to control then tool</p>
