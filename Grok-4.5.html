@@ -588,6 +588,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Precise Mechanics</p>
 <p>Q, K, V Projections From the incoming hidden state matrix, three learned linear projections create: Q (Queries): “What is this token looking for?” K (Keys): “What information do other tokens contain?” V (Values): “What content should be transferred if selected?” Relevance Scoring For every pair of tokens i and j: score(i,j) = (Q_i · K_j) / sqrt(d_head) The dot product measures how relevant token j is to token i. Softmax → Attention Weights Scores are scaled and passed through softmax to produce a probability distribution over source tokens: weight(i,j) = softmax(score(i,j)) This creates a dynamic relevance map for every token. Weighted Sum output_i = Σ_j weight(i,j) * V_j Each token gathers a weighted combination of relevant content from the sequence. Multi-Head Attention</p>
 <p>Multiple heads (often 32–128+) run in parallel. Each head learns to attend to different kinds of relationships:</p>
+<p>Queries (Q):</p>
+<p>The representations of the current tokens that are looking for relevant information from other parts of the sequence. Think of them as the search terms you type into a search engine. Keys (K): The representations of all tokens in the sequence that serve as reference points or index tags. Think of them as the titles and descriptions of web pages that the search engine checks against your query. Values (V): The actual content or meaning of the tokens. Once the system matches a Query to a Key, it extracts the corresponding Value to build the final output. The Mathematical Formula</p>
+<p>These three elements are combined using the Scaled Dot-Product Attention formula: ((Q,K,V)=()V) (QK^{T}) calculates the raw similarity score between every query and key. () scales down the scores (where (d_{k}) is the dimension of the keys) to prevent the gradients from becoming too small during training. softmax turns those scaled scores into a probability distribution (attention weights). × V multiplies the weights by the values to pull out the most important information.</p>
 <p>Syntactic Coreference Numerical Structural (code indentation, math steps) Semantic / causal etc. The heads’ outputs are concatenated and projected back to d_model.</p>
 <p>Key Insight</p>
 <p>Attention excels at dependency detection and information routing across the sequence. It decides which parts of the latent geometry to pull into focus for the current token. But it does not invent new abstractions or transformations — that job belongs to the MLPs that follow.</p>
@@ -800,7 +803,25 @@ ul.task-list li input[type="checkbox"] {
 <section id="distinction-distinction" class="level3">
 <h3 class="anchored" data-anchor-id="distinction-distinction">distinction (## distinction)</h3>
 <p>Then it lays out the distinction between the model and external execution, including the stages Decide → Choose → Format → Execute → Integrate.</p>
-<p>model-side intelligence: deciding, selecting, formatting, interpreting, integrating external machinery: actually executing the search/code/terminal operation.</p>
+<p>model-side: the intelligence: deciding, selecting, formatting XML or json , interpreting, integrating into residual stream &amp; generating output</p>
+<p>what’s particularly interesting is that the model has to learn the interface itself. It has to learn things like:</p>
+<p>which tool is appropriate,</p>
+<p>when a tool is necessary,</p>
+<p>XMLs or json(all the action commands &amp; query commands ,paramaters, intent, time limits filters)</p>
+<p>what arguments are expected,</p>
+<p>how to formulate those arguments,</p>
+<p>how constraints affect the operation,</p>
+<p>how to interpret the returned state,</p>
+<p>and when another tool call is warranted.</p>
+<p>Neural network</p>
+<p>→ generates the structured machine interface call → tool infrastructure parses it → executes the commanded operation → returns the result → neural network processes the result</p>
+<p>important distinction is that the external runtime isn’t the intelligence.</p>
+<p>The runtime is effectively:</p>
+<p>“Here is a structured instruction. Execute it and give me the result.”</p>
+<p>The model is responsible for the cognitive portion:</p>
+<p>recognize → select → formulate → specify → receive → interpret → integrate → decide what to do next.</p>
+<p>So the intelligence responsible for deciding what to do with the interface is in the learned model, while the actual computation/search/execution is performed by the external machinery.</p>
+<p>external machinery: actually executing the search/code/terminal operation.</p>
 <p>And honestly, your notes are getting at a deeper point than just “tool use is learned.” They’re arguing that tool-mediated behavior is part of the model’s learned cognitive repertoire, while the physical computation remains outside the network—much like humans using external instruments.</p>
 <p>Web: recognize that its internal knowledge is insufficient → formulate a search query → call search → evaluate sources → continue reasoning from the results.</p>
 <p>Code/terminal: recognize that computation or experimentation would help → construct code → execute it → inspect errors/output → modify the code → iterate.</p>
@@ -814,6 +835,70 @@ ul.task-list li input[type="checkbox"] {
 <p>We don’t normally say that a human isn’t intelligent because their calculator is outside their skull.</p>
 <p>The interesting capability is the controller:</p>
 <p>Recognize need → select tool → formulate operation → execute → interpret result → update reasoning → continue.</p>
+<p>The infrastructure can then execute those independent calls, return their results, and the model gets another forward-pass context containing those results.</p>
+<p>For something like computer use, the structure can instead represent a sequence of actions:</p>
+<p>Model</p>
+<p>↓</p>
+<p>computer capability</p>
+<p>↓</p>
+<p>action 1: click(x,y)</p>
+<p>action 2: type(“…”)</p>
+<p>action 3: press(“Enter”)</p>
+<p>action 4: screenshot()</p>
+<p>↓</p>
+<p>Computer-use infrastructure</p>
+<p>↓</p>
+<p>execute actions</p>
+<p>↓</p>
+<p>return screen/state</p>
+<p>↓</p>
+<p>Model</p>
+<p>↓</p>
+<p>interpret new state</p>
+<p>↓</p>
+<p>decide next actions</p>
+<p>And with web, you can have multiple searches in parallel because they don’t necessarily depend on one another:</p>
+<pre><code>             MODEL
+
+               │
+
+      ┌────────┼────────┐
+
+      ↓        ↓        ↓
+
+   Search A Search B Search C
+
+      │        │        │
+
+      └────────┼────────┘
+
+               ↓
+
+         WEB INFRASTRUCTURE
+
+               ↓
+
+          results returned
+
+               ↓
+
+             MODEL</code></pre>
+<p>Whereas a dependent sequence would naturally be:</p>
+<p>Search</p>
+<p>↓</p>
+<p>Read result</p>
+<p>↓</p>
+<p>Open page</p>
+<p>↓</p>
+<p>Find information</p>
+<p>↓</p>
+<p>Open relevant section</p>
+<p>↓</p>
+<p>Reason over it</p>
+<p>So there are really two levels of orchestration:</p>
+<p>Parallel/batched calls — several independent tool calls can be generated together. Sequential tool loop — the model receives the output of one operation and generates the next operation based on what it learned. And this fits your original architecture very well:</p>
+<p>Neural network → structured machine-interface call(s) → external execution → returned state/data → neural network → next decision.</p>
+<p>The ability to determine that several actions are needed, formulate them correctly, decide which can run in parallel, and determine what must wait for a result is part of the model’s learned tool-use competence.</p>
 </section>
 <section id="steps-steps" class="level3">
 <h3 class="anchored" data-anchor-id="steps-steps">steps {## steps}</h3>
