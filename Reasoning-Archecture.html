@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>neurosymbolic-transfomer – My AI Site</title>
+<title>reasoning-archecture – My AI Site</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -209,10 +209,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Routed-Latent-Memory</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Archecture-Scientist.html">
- <span class="dropdown-text">Archecture-Scientist</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./detecting-superintelligence.qmd">
  <span class="dropdown-text">detecting-superintelligence</span></a>
   </li>  
@@ -229,8 +225,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">ADRA</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./neurosymbolic-Transfomer.html">
- <span class="dropdown-text">neurosymbolic-Transfomer</span></a>
+    <a class="dropdown-item" href="./Reasoning-Archecture.html">
+ <span class="dropdown-text">Reasoning-Archecture</span></a>
   </li>  
     </ul>
   </li>
@@ -274,6 +270,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./Dimensions.html">
  <span class="dropdown-text">Dimensions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./AGI.html">
+ <span class="dropdown-text">AGI</span></a>
   </li>  
     </ul>
   </li>
@@ -320,6 +320,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#Tiny-toy-example" id="toc-Tiny-toy-example" class="nav-link" data-scroll-target="#Tiny-toy-example">Tiny-toy-example</a></li>
   <li><a href="#better" id="toc-better" class="nav-link" data-scroll-target="#better">better</a></li>
   </ul></li>
+  <li><a href="#loss-fucntions-loss-functions" id="toc-loss-fucntions-loss-functions" class="nav-link" data-scroll-target="#loss-fucntions-loss-functions">loss fucntions (## loss-functions)</a></li>
   </ul>
 </nav>
     </div>
@@ -1322,9 +1323,44 @@ ul.task-list li input[type="checkbox"] {
 <p>Doesn’t just look like it’s reasoning</p>
 <p>but has an internal reasoning graph that shapes what it’s allowed to say.</p>
 <p><img src="images/Neurosymbolic.webp" class="img-fluid quarto-figure quarto-figure-center" width="750" alt="Neurosymbolic"> ﻿</p>
-
-
 </section>
+</section>
+<section id="loss-fucntions-loss-functions" class="level2">
+<h2 class="anchored" data-anchor-id="loss-fucntions-loss-functions">loss fucntions (## loss-functions)</h2>
+<p>Recommended Losses</p>
+<ol type="1">
+<li>CEAL — Causal Extraction Alignment Loss (for CLE)</li>
+</ol>
+<p>• Rewards accurate discovery of causal candidates and proper mechanistic weighting.</p>
+<p>• Measures how well the extracted mechanisms align with ground-truth causal structure (or self-supervised proxies).</p>
+<ol start="2" type="1">
+<li>SCS-L — Symbolic Constraint Satisfaction Loss (for SCS)</li>
+</ol>
+<p>• Your existing rule-gate / validity loss.</p>
+<p>• Penalizes violations of logical, temporal, and structural invariants.</p>
+<ol start="3" type="1">
+<li>FVL — Feedback Validity Loss (for RFI)</li>
+</ol>
+<p>• Rewards effective, precise correction vectors.</p>
+<p>• Measures how well RFI repairs violations detected by SCS.</p>
+<ol start="4" type="1">
+<li>GPL — Geometry Preservation Loss (for VG)</li>
+</ol>
+<p>• Rewards manifold stability, differentiability, and smooth gradient flow.</p>
+<p>• Prevents symbolic structure from collapsing or distorting the latent geometry.</p>
+<ol start="5" type="1">
+<li>CIEL — Causal Impossibility Elimination Loss (new, as you suggested)</li>
+</ol>
+<p>• Actively penalizes impossible or contradictory causal states.</p>
+<p>• Provides negative pressure (falsification) to complement the positive reinforcement from the other losses.</p>
+<p>• CIEL (new): Penalizes impossible causal states (negative elimination)</p>
+<p>This combination gives you both positive reinforcement (good causal behavior) and negative elimination (removal of bad causal states) — exactly the Popperian falsification approach you mentioned.</p>
+<p>• CEAL for CLE (Causal Extraction Alignment)</p>
+<p>• SCS loss (your existing rule gate / validity loss, kept as-is)</p>
+<p>• FVL for RFI (Feedback Validity)</p>
+<p>• GPL for VG (Geometry Preservation)</p>
+
+
 </section>
 
 </main> <!-- /main -->
