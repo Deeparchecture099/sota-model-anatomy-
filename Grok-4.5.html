@@ -823,7 +823,7 @@ ul.task-list li input[type="checkbox"] {
 <p>So the intelligence responsible for deciding what to do with the interface is in the learned model, while the actual computation/search/execution is performed by the external machinery.</p>
 <p>external machinery: actually executing the search/code/terminal operation.</p>
 <p>And honestly, your notes are getting at a deeper point than just “tool use is learned.” They’re arguing that tool-mediated behavior is part of the model’s learned cognitive repertoire, while the physical computation remains outside the network—much like humans using external instruments.</p>
-<p>Web: recognize that its internal knowledge is insufficient → formulate a search query → call search → evaluate sources → continue reasoning from the results.</p>
+<p>Web: recognize that its internal knowledge is insufficient or would benifit from new information → formulate search queries → call search → evaluate sources → continue reasoning from the results &amp; generate output of its choice</p>
 <p>Code/terminal: recognize that computation or experimentation would help → construct code → execute it → inspect errors/output → modify the code → iterate.</p>
 <p>Computer use: interpret a visual interface → decide what action is appropriate → click/type/scroll → observe the resulting state → choose the next action.</p>
 <p>Files: determine what information needs to be extracted → select an appropriate retrieval operation → interpret the returned material → reason over it.</p>
@@ -899,6 +899,76 @@ ul.task-list li input[type="checkbox"] {
 <p>Parallel/batched calls — several independent tool calls can be generated together. Sequential tool loop — the model receives the output of one operation and generates the next operation based on what it learned. And this fits your original architecture very well:</p>
 <p>Neural network → structured machine-interface call(s) → external execution → returned state/data → neural network → next decision.</p>
 <p>The ability to determine that several actions are needed, formulate them correctly, decide which can run in parallel, and determine what must wait for a result is part of the model’s learned tool-use competence.</p>
+<p>BRAIN / MODEL</p>
+<pre><code>    ┌──────────────────────┐
+
+    │ Reasoning            │
+
+    │ Planning             │
+
+    │ Learning             │
+
+    │ Abstraction          │
+      
+    | strong general knowledge |
+
+    │ Decision-making      │
+
+    │ Tool selection       │
+
+    | XML &amp; json construction │
+
+    │integrate,analyze results &amp; decide output |
+     
+   │  Interpretation 
+
+      working memory       │
+      
+     advanced code generation 
+
+     language understanding
+    
+    recognizing when information is useful 
+
+    selecting or constructing a method for obtaining it
+
+    interpreting external observations &amp; results 
+
+    vision 
+    
+    adapting the plan based on those observations
+      
+      Learning
+
+  Mathematics understanding &amp; solving 
+    └──────────┬───────────┘
+
+               │
+
+         interface
+
+               │
+
+    ┌──────────┼───────────┐
+
+    ↓          ↓           ↓
+
+  Web       Computer     Database
+
+    │          │           │
+
+    └──────────┼───────────┘
+
+               ↓
+
+         information/
+
+         computation
+
+               ↓
+
+
+          BRAIN / MODEL</code></pre>
 </section>
 <section id="steps-steps" class="level3">
 <h3 class="anchored" data-anchor-id="steps-steps">steps {## steps}</h3>
