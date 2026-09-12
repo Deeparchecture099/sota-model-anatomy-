@@ -314,7 +314,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#softmax-in-attention-softmax-in-attention" id="toc-softmax-in-attention-softmax-in-attention" class="nav-link" data-scroll-target="#softmax-in-attention-softmax-in-attention">softmax in attention {## softmax in attention}</a></li>
   <li><a href="#sampling-sampling" id="toc-sampling-sampling" class="nav-link" data-scroll-target="#sampling-sampling">Sampling {## Sampling}</a></li>
   <li><a href="#vision-abilities-vision-abilities" id="toc-vision-abilities-vision-abilities" class="nav-link" data-scroll-target="#vision-abilities-vision-abilities">vision abilities {## vision-abilities}</a></li>
-  <li><a href="#tool-use-tool-use" id="toc-tool-use-tool-use" class="nav-link" data-scroll-target="#tool-use-tool-use">tool use {## tool-use }</a>
+  <li><a href="#tool-use-tool-use" id="toc-tool-use-tool-use" class="nav-link" data-scroll-target="#tool-use-tool-use">tool use {## tool-use }</a></li>
+  <li><a href="#chain-of-thought-chain-of-thought" id="toc-chain-of-thought-chain-of-thought" class="nav-link" data-scroll-target="#chain-of-thought-chain-of-thought">Chain of thought {## chain-of-thought}</a>
   <ul class="collapse">
   <li><a href="#distinction-distinction" id="toc-distinction-distinction" class="nav-link" data-scroll-target="#distinction-distinction">distinction (## distinction)</a></li>
   <li><a href="#steps-steps" id="toc-steps-steps" class="nav-link" data-scroll-target="#steps-steps">steps {## steps}</a></li>
@@ -800,6 +801,26 @@ ul.task-list li input[type="checkbox"] {
 <p>all of which are done by the model generating XML code to control then tool</p>
 <p>This is not a bolted-on plugin system. In frontier models it is trained end-to-end, so tool calling emerges naturally from the same latent geometry as language and reasoning. The router and MLPs learn when and how to invoke tools as part of the transformation process.</p>
 <p>In Grok 4.5, this native integration contributes heavily to its strength in coding, agentic tasks, and knowledge work — turning the base LLM into a practical reasoning agent.</p>
+</section>
+<section id="chain-of-thought-chain-of-thought" class="level2">
+<h2 class="anchored" data-anchor-id="chain-of-thought-chain-of-thought">Chain of thought {## chain-of-thought}</h2>
+<p>The Physical Layers are Rigidly Fixed</p>
+<p>In standard Transformer models (like the ones powering the major chatbots today), the architecture operates as a flat, unchanging computation graph. [1]</p>
+<p>If a model has 80 physical layers, every single token generated must travel sequentially from Layer 1 to Layer 80.</p>
+<p>It cannot pause at Layer 45 to think for a few seconds before moving to Layer 46.</p>
+<p>It cannot allocate extra processing time to a difficult math step while rushing through an easy grammar step. The compute budget per token is entirely uniform. [1, 2]</p>
+<ol start="2" type="1">
+<li>How the “Thinking Time” is Actually Formatted</li>
+</ol>
+<p>Instead of staying inside a single layer, the model spreads the execution over multiple consecutive tokens.</p>
+<p>Every time the model prints an intermediate “reasoning word” in its hidden or visible scratchpad (e.g., “Let’s first isolate variable X…”), it forces the data to make a completely fresh, 80-layer linear pass. [1]</p>
+<p>If a complex problem requires a chain of sequential logic that a static 80-layer transformer simply cannot compute in a single pass, printing 1,000 reasoning tokens effectively chains those 80 layers together 1,000 times over.</p>
+<p>This turns the machine into a temporary 80,000-layer serial computer. [1, 2]</p>
+<p>so it creates more tokens to for extended thinking process , 1000 * number of transformer layers, in 5he case of of 80 layers, 80* 1000. so the model thinking over more tokens rather than thinking at greater depth</p>
+<p>the model duplicates the input so many times the models matrix multiplications totality increases</p>
+<p>did not change how transformers think—they just expanded the context window with self-generated tokens ((80 = 80,000 )).</p>
+<p>or if 90. its 90,000</p>
+<p>the numbers of layers times 1000 dor number of steps .</p>
 <section id="distinction-distinction" class="level3">
 <h3 class="anchored" data-anchor-id="distinction-distinction">distinction (## distinction)</h3>
 <p>Then it lays out the distinction between the model and external execution, including the stages Decide → Choose → Format → Execute → Integrate.</p>
