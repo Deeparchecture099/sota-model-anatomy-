@@ -297,6 +297,21 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<p>1️⃣ What data did i use ?</p>
+<p>You currently have two main text sources in raw_data/:</p>
+<p>① Wikitext (from Hugging Face)</p>
+<p>Earlier you ran something like:</p>
+<p>wikitext: saved 297650 docs (30000038 tokens) → raw_data</p>
+<p>So you have:</p>
+<p>~297k documents ~30,000,038 tokens (≈ 30M) from the wikitext-103-raw-v1 dataset.</p>
+<p>Those are already token-counted by HF when they printed that.</p>
+<p>② Full English Wikipedia dump →</p>
+<p>wiki_plain.txt</p>
+<p>→</p>
+<p>wiki_shard_*.txt</p>
+<p>You then:</p>
+<p>Downloaded enwiki-latest-pages-articles.xml.bz2 (~22 GiB). Parsed it with WikiCorpus into plain text articles → raw_data/wiki_plain.txt (~7.78 GB). Split that into 15 shards:</p>
+<p>d_model: 640 n_layers: 10 n_heads: 10 n_kv_heads: 2 hidden_mult: 4.0 use_moe: true num_experts: 4 top_k: 2 max_len: 5500 rope_base: 25000 Sent from my iPad</p>
 
 
 

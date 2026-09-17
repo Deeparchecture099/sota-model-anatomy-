@@ -296,7 +296,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link active" data-scroll-target="#table-of-contents">Table of Contents</a></li>
   <li><a href="#architectural-advances" id="toc-architectural-advances" class="nav-link" data-scroll-target="#architectural-advances">Architectural Advances</a></li>
   <li><a href="#memory-persistence" id="toc-memory-persistence" class="nav-link" data-scroll-target="#memory-persistence">Memory &amp; Persistence</a></li>
-  <li><a href="#context-window-expansion" id="toc-context-window-expansion" class="nav-link" data-scroll-target="#context-window-expansion">Context Window Expansion</a></li>
   <li><a href="#external-cognition-systems" id="toc-external-cognition-systems" class="nav-link" data-scroll-target="#external-cognition-systems">🧩 External Cognition Systems (Retrieval + Tool Grounding)</a></li>
   <li><a href="#autonomy-task-decomposition" id="toc-autonomy-task-decomposition" class="nav-link" data-scroll-target="#autonomy-task-decomposition">Autonomy &amp; Task Decomposition Blocks</a>
   <ul class="collapse">
@@ -358,7 +357,6 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><a href="#architectural-advances">Architectural Advances</a></p></li>
 <li><p><a href="#memory-persistence">Memory &amp; Persistence</a></p></li>
-<li><p><a href="#context-window-expansion">Context Window Expansion</a></p></li>
 <li><p><a href="#external-cognition-systems">🧩 External Cognition Systems (Retrieval + Tool Grounding)</a></p></li>
 <li><p><a href="#superior-attention-mechanisms">Superior Attention Mechanisms</a></p></li>
 <li><p><a href="#autonomy-task-decomposition">Autonomy &amp; Task Decomposition Blocks</a></p></li>
@@ -482,6 +480,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Can build subsystems. Cannot coordinate them into a full product.</p>
 <p>🎯 ADRA</p>
 <p>Can build entire products. Because it has persistent memory + hierarchical planning + tool autonomy.</p>
+<p>larger context windows:perhaps 5M tokens</p>
 <p>📌 ADRA is where most frontier labs will try to get within 8–12 years.</p>
 <p>Capability boundaries (quick checklist)</p>
 <p>ADRA can:</p>
@@ -581,7 +580,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Selects and fuses relevant memories before reasoning. Filters millions of stored representations into a concise, context-aware subset. Acts like the model’s prefrontal cortex for goal-directed thought. Bridges episodic and semantic memory into active working knowledge. Before reasoning, the model dynamically retrieves and integrates relevant pieces from both memory layers. Functions like an “attention pre-processor” — filtering millions of possible memories into a coherent reasoning subset.</p>
 <p>🧩 Analogy: It’s the brain’s prefrontal cortex — integrating what’s relevant now from what’s known before.</p>
 <ol start="4" type="1">
-<li>Reasoning Core (🟥 MHLA + Decomposition Blocks)</li>
+<li>Reasoning Core (🟥 DHCR + Decomposition Blocks and goal execution )</li>
 </ol>
 <p>Executes reasoning and generation with access to memory-retrieved context. Writes new insights back into episodic memory, closing the learning loop. The transformer itself, powered by massive multi-head latent attention (MHLA) and decomposition blocks. Uses retrieved context from the memory layers as if it were part of its own context window — but at orders of magnitude larger scale. Generates new insights or designs and feeds them back into episodic memory, closing the self-improvement loop.</p>
 <p>🧩 Analogy: Conscious thought driven by perfectly indexed memory.</p>
@@ -630,42 +629,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Why this is a real step toward AGI-like agency</p>
 <p>Stability of goals (procedural + semantic stores) → consistent multi-day plans. Credit assignment across time (consolidation/attribution) → learn from outcomes, not just single turns. Efficient learning (salience + compression) → small data per user, high utility. Compositional retrieval (symbolic keys + vectors) → precise, low-latency recall instead of shotgun RAG.</p>
 <p>⸻</p>
-</section>
-<section id="context-window-expansion" class="level2">
-<h2 class="anchored" data-anchor-id="context-window-expansion">Context Window Expansion</h2>
-<ol start="3" type="1">
-<li>Context Expansion (5M-10M tokens)</li>
-</ol>
-<p>• Massive temporal context windows enabling:</p>
-<p>• Document-level reasoning</p>
-<p>• deeper story telling</p>
-<p>• Simulation continuity</p>
-<p>• Sparse attention / segment routing: Needed to make longer contexts efficient and interpretable</p>
-<p>2 and 3 will work together to make LLMs no longer statless in the way they are today.</p>
-<p>🧠 Perspective: 5–10 M Token Context Windows</p>
 <p>⸻</p>
 <p>⸻</p>
 <p>⸻</p>
-<p>🟦 📚 Natural Language</p>
-<p>Scale 5 M tokens: ~3–5 M words (~4–7 k book pages). 10 M tokens: ~7–10 M words (~10–15 k pages). 20 M tokens: ~14–20 M words (~20–30 k pages).</p>
-<p>Applications Global literature synthesis: entire legal codes, medical libraries, or centuries of newspapers in one reasoning pass. Real-time comparison of every translation of a major text (e.g., all versions of the Bible or Qur’an) for semantic analysis. Interactive writing of multi-volume novels where every prior plot point remains “alive” in context.</p>
-<p>Natural-Language / Books</p>
-<p>That’s the text of 70–100 full-length novels in one planning step. A 20-step chain could draft, cross-edit, and fact-check an entire multi-volume series while carrying forward plot, style, and citations.</p>
 <p>⸻</p>
 <p>⸻</p>
-<p>⸻</p>
-<p>🟩 Mathematics &amp; Formal Proofs</p>
-<p>Scale 5 M tokens: ~25–40 k theorem/lemma statements and proof steps. 10M tokens (~50k–80k theorem/proof steps) → enough to handle multi-chapter graduate-level textbooks or competition sets seamlessly. 20 M tokens: ~100–160 k steps.</p>
-<p>Applications: End-to-end proofs of multi-chapter research papers or entire graduate-level textbooks without context resets. Formal verification of large software or cryptographic protocols in a single reasoning session. Discovery of new mathematical structures through continuous lemma-building across tens of thousands of dependent steps.</p>
-<p>➗ Advanced Mathematics</p>
-<p>Each step could include hundreds of thousands of problems or proofs, complete with symbolic verification and LaTeX-ready formal proofs.</p>
-<p>⸻</p>
-<p>⸻</p>
-<p>⸻</p>
-<p>🟧 Code &amp; Software Systems</p>
-<p>Scale 5 M tokens: ≈1 M lines of code (assuming ~5 tokens/line). 10 M tokens: ≈2 M lines. 20 M tokens: ≈4 M lines.</p>
-<p>Applications Autonomous design and refactoring of entire enterprise-scale codebases: OS kernels, compilers, front-end and back-end services—all visible at once. Simultaneous audit of security, performance, and architectural patterns across many repositories. Multi-language, multi-platform development (e.g., full game engine + network infrastructure) in a single planning window.</p>
-<p>10M tokens (~1M executable lines) → SaaS platform, enterprise back-end, or AAA game mechanics. 20M tokens (~2M executable lines) → OS kernel, compilers, multi-service infrastructure, or full studio-scale game engine.</p>
 <p>⸻</p>
 <p>⸻</p>
 <p>⸻</p>

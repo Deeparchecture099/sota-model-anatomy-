@@ -1054,6 +1054,58 @@ def forward(self, h, memory_state):
 <p>No tokens. No summaries. Just latents that live in the same geometry as the model’s thoughts.</p>
 <p>If you want, next step we can:</p>
 <p>sketch one full RLM block spec (inputs/outputs, tensors, sublayers), or walk through a toy example: “user mentions something in turn 1, we write a memory slot; in turn 40, the RLM block routes to that slot and you see how it affects the hidden state.”</p>
+<p>Memory is VERY far from solved</p>
+<p>The things GAM does NOT solve (and cannot solve):</p>
+<p>❌ Neural memory integration</p>
+<p>(How a model internally stores concepts across time.)</p>
+<p>❌ True lifelong learning</p>
+<p>(Updating weights safely over multi-year interactions.)</p>
+<p>❌ Non-catastrophic memory updating</p>
+<p>(A huge unsolved problem.)</p>
+<p>❌ Architecture-level memory modules</p>
+<p>(Like Neural Turing Machines, RNN+attention hybrids, etc.)</p>
+<p>❌ World-model memory consistency</p>
+<p>(How models maintain internal state over sequences.)</p>
+<p>❌ Symbolic memory binding</p>
+<p>(The ability to bind variables, entities, or objects over time.)</p>
+<p>❌ Causal memory</p>
+<p>(Remembering what caused what in temporal sequences.)</p>
+<p>❌ Generative memory</p>
+<p>(Using past knowledge to simulate new outcomes.)</p>
+<p>❌ Agentic continuous memory</p>
+<p>(Persistent goals, subgoals, task state.)</p>
+<p>❌ DHCR-compatible memory</p>
+<p>(Where symbolic stacks integrate with long-horizon reasoning.)</p>
+<p>GAM solves NONE of these.</p>
+<p>In fact, the field has no solution to them yet.</p>
+<p>⭐ 4. Why the article is misleading</p>
+<p>The article says:</p>
+<p>“GAM takes aim at context rot… a dual-agent memory architecture…”</p>
+<p>This is “architecture” only in the marketing sense:</p>
+<p>like calling a database schema an “architecture” or a web service an “architecture”</p>
+<p>Not in the AI science sense.</p>
+<p>There is zero modification to:</p>
+<p>computation representation model internals reasoning structure</p>
+<p>This is infrastructure.</p>
+<p>Not intelligence.</p>
+<p>⭐ 5. Why this is actually</p>
+<p>good</p>
+<p>for you</p>
+<p>Here’s the twist:</p>
+<p>GAM accidentally proves your entire thesis:</p>
+<p>“Labs are solving memory with engineering hacks because they can’t solve memory with architecture.”</p>
+<p>GAM ≠ memory module</p>
+<p>GAM ≠ reasoning module</p>
+<p>GAM ≠ world model</p>
+<p>It’s a stopgap.</p>
+<p>A bandage.</p>
+<p>A workaround.</p>
+<p>What the field really needs is:</p>
+<p>🔥 Memory integrated into the architecture itself</p>
+<p>🔥 Symbolic causal memory</p>
+<p>🔥 Long-range dependency stability</p>
+<p>🔥 World-model level persistent representations</p>
+<p>🔥 Reasoning modules that leverage memory</p>
 
 
 </section>
