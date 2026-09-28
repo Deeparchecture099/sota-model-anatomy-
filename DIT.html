@@ -260,8 +260,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">impossibility-fallacy</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Grok-4.5.html">
- <span class="dropdown-text">Grok-4.5.</span></a>
+    <a class="dropdown-item" href="./LLM.html">
+ <span class="dropdown-text">LLM</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./DIT.html">
@@ -298,6 +298,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#sequence-sequence" id="toc-sequence-sequence" class="nav-link active" data-scroll-target="#sequence-sequence">sequence {## sequence}</a></li>
+  <li><a href="#stage-one-stage-one" id="toc-stage-one-stage-one" class="nav-link" data-scroll-target="#stage-one-stage-one">stage one {## stage-one}</a></li>
+  <li><a href="#stage-two-stage-two" id="toc-stage-two-stage-two" class="nav-link" data-scroll-target="#stage-two-stage-two">stage two {## stage-two}</a></li>
   <li><a href="#stage-three-stage-three" id="toc-stage-three-stage-three" class="nav-link" data-scroll-target="#stage-three-stage-three">stage three (## stage-three)</a></li>
   <li><a href="#flow-flow" id="toc-flow-flow" class="nav-link" data-scroll-target="#flow-flow">flow (## flow)</a></li>
   <li><a href="#pre-training-pre-training" id="toc-pre-training-pre-training" class="nav-link" data-scroll-target="#pre-training-pre-training">pre training {## pre-training}</a></li>
@@ -340,24 +342,70 @@ ul.task-list li input[type="checkbox"] {
     │     (The Transformer outputs the cleaned patches │
     │      using Diffusion loss rules)                 │
     └─────────────────────────────────────── </code></pre>
-<p>stage one {## stage-one}</p>
-<p>Stage 1: Spatial Compression (The VAE Encoder) The Variational Autoencoder (VAE) is a separate, pre-trained network. Its only job is to act as a high-speed data shrinker. If you feed a Transformer raw 4K pixels directly, the sequence length would be millions of tokens long, crashing the GPU instantly. The VAE fixes this by performing heavy spatial compression via downsampling blocks (Conv2d layers followed by GroupNorm and SiLU activations). The Input: A raw visual asset with a shape of [Batch, 3, Height, Width] (where 3 represents the RGB color channels). The Downsampling Factor: Most modern models (like Stable Diffusion or FLUX) use a factor of 8x or 16x. The Output: A dense latent matrix with a shape of [Batch, Latent_Channels, Height // 8, Width // 8]. For example, a 512 × 512 image gets crushed down to just 64 × 64 spatial dimensions. However, to keep from losing details, it inflates the channels from 3 (RGB) to something like 4, 16, or even 64 latent channels.</p>
-<p>stage two {## stage-two}</p>
-<p>Stage 2: Structural Transformation (The Patch Projection) Now you have a compressed 2D latent matrix, but a Transformer needs a 1D sequence (a string of words). Stage 2 is the de-spatializer. It cuts the matrix into an orderly grid of patches and flattens them. Mathematically, this happens in three rapid steps: 1. The Patch Cut You choose a patch size (typically 2 × 2 or 4 × 4 latent pixels). If our latent matrix is 64 × 64 and we use a patch size of 2, we create a grid of 32 × 32 patches. (=32=1,024) 2. The Flattening Each individual 2 × 2 patch has a depth equal to the Latent_Channels (let’s say 4). We flatten those raw numbers into a single vector: (=2=16) 3. The Linear Projection A vector of 16 values is too small for a massive Transformer backbone, which expects a hidden dimension (hidden_dim) of 768, 1024, or higher. We run that 16-value vector through a single Linear Layer to scale it up to the exact hidden_dim size of our Transformer. As we looked at in the code, a single 2D Convolution layer (nn.Conv2d) handles all three steps at once by setting its stride and kernel_size exactly to the patch size, instantly outputting your clean sequence of 1,024 tokens. The Final Touch: Positional Embeddings There is one catch. Once Stage 2 flattens those patches into a straight line, the spatial grid layout is destroyed. The Transformer has no idea if Token #5 was originally next to Token #6, or if it belonged at the top-left corner. To solve this, a fixed math matrix (typically a 2D Sinusoidal Position Embedding) is added directly to the tokens right after Stage 2. It injects a unique coordinate signature into each vector, telling the Transformer: “I am the token for the top-right corner,” or “I am the token for the center.” text [ 1,024 Spatial Tokens ] + [ 1,024 Coordinate Signatures ] │ ▼ Ready to enter the Monolithic Transformer!</p>
+</section>
+<section id="stage-one-stage-one" class="level2">
+<h2 class="anchored" data-anchor-id="stage-one-stage-one">stage one {## stage-one}</h2>
+<p>Stage 1: Spatial Compression (The VAE Encoder)</p>
+<p>The Variational Autoencoder (VAE) is a separate, pre-trained network. Its only job is to act as a high-speed data shrinker.</p>
+<p>If you feed a Transformer raw 4K pixels directly, the sequence length would be millions of tokens long, crashing the GPU instantly. The VAE fixes this by performing heavy spatial compression via downsampling blocks (Conv2d layers followed by GroupNorm and SiLU activations).</p>
+<p>The Input: A raw visual asset with a shape of [Batch, 3, Height, Width] (where 3 represents the RGB color channels).</p>
+<p>The Downsampling Factor: Most modern models (like Stable Diffusion or FLUX) use a factor of 8x or 16x.</p>
+<p>The Output: A dense latent matrix with a shape of [Batch, Latent_Channels, Height // 8, Width // 8].</p>
+<p>For example, a 512 × 512 image gets crushed down to just 64 × 64 spatial dimensions. However, to keep from losing details, it inflates the channels from 3 (RGB) to something like 4, 16, or even 64 latent channels.</p>
+</section>
+<section id="stage-two-stage-two" class="level2">
+<h2 class="anchored" data-anchor-id="stage-two-stage-two">stage two {## stage-two}</h2>
+<p>Stage 2: Structural Transformation (The Patch Projection)</p>
+<p>Now you have a compressed 2D latent matrix, but a Transformer needs a 1D sequence (a string of words). Stage 2 is the de-spatializer. It cuts the matrix into an orderly grid of patches and flattens them.</p>
+<p>Mathematically, this happens in three rapid steps:</p>
+<ol type="1">
+<li>The Patch Cut</li>
+</ol>
+<p>You choose a patch size (typically 2 × 2 or 4 × 4 latent pixels). If our latent matrix is 64 × 64 and we use a patch size of 2, we create a grid of 32 × 32 patches.</p>
+<p>(=32=1,024)</p>
+<ol start="2" type="1">
+<li>The Flattening</li>
+</ol>
+<p>Each individual 2 × 2 patch has a depth equal to the Latent_Channels (let’s say 4).</p>
+<p>We flatten those raw numbers into a single vector:</p>
+<p>(=2=16)</p>
+<ol start="3" type="1">
+<li>The Linear Projection</li>
+</ol>
+<p>A vector of 16 values is too small for a massive Transformer backbone, which expects a hidden dimension (hidden_dim) of 768, 1024, or higher. We run that 16-value vector through a single Linear Layer to scale it up to the exact hidden_dim size of our Transformer.</p>
+<p>As we looked at in the code, a single 2D Convolution layer (nn.Conv2d) handles all three steps at once by setting its stride and kernel_size exactly to the patch size, instantly outputting your clean sequence of 1,024 tokens.</p>
+<p>The Final Touch: Positional Embeddings</p>
+<p>There is one catch. Once Stage 2 flattens those patches into a straight line, the spatial grid layout is destroyed. The Transformer has no idea if Token #5 was originally next to Token #6, or if it belonged at the top-left corner.</p>
+<p>To solve this, a fixed math matrix (typically a 2D Sinusoidal Position Embedding) is added directly to the tokens right after Stage 2. It injects a unique coordinate signature into each vector, telling the Transformer: “I am the token for the top-right corner,” or “I am the token for the center.”</p>
+<p>text [ 1,024 Spatial Tokens ] + [ 1,024 Coordinate Signatures ] │ ▼ Ready to enter the Monolithic Transformer!</p>
 </section>
 <section id="stage-three-stage-three" class="level2">
 <h2 class="anchored" data-anchor-id="stage-three-stage-three">stage three (## stage-three)</h2>
-<p>Tokenization⟶RoPE Positional Encodings⟶LayerNorm⟶MHA Scores (Q⋅KT)⟶MoE Top-K Routers⟶SwiGLU Nonlinearities⟶LM Head Logits Tokenization⟶RoPEPositionalEncodings⟶LayerNorm⟶MHAScores(𝑄⋅𝐾𝑇)⟶MoETop-KRouters⟶SwiGLUNonlinearities⟶LMHeadLogits</p>
+<p>Tokenization⟶RoPE Positional Encodings⟶LayerNorm⟶MHA Scores (Q⋅KT)⟶MoE Top-K Routers⟶SwiGLU Nonlinearities⟶LM Head Logits</p>
+<p>Tokenization⟶RoPEPositionalEncodings⟶LayerNorm⟶MHAScores(𝑄⋅𝐾𝑇)⟶MoETop-KRouters⟶SwiGLUNonlinearities⟶LMHeadLogits</p>
 <p>stage four (## stage-four)</p>
 <p>stage four (## stage-four)</p>
-<p>Stage 4: The Loss Tail &amp; Backpropagation (The Scoring System) The final stage of the DiT pipeline is a pure continuous regression task. Unlike Large Language Models (LLMs) which use Cross-Entropy Loss to classify and pick a single discrete word out of a dictionary, a Diffusion Transformer uses Mean Squared Error (MSE) Loss to calculate the distance between fluid, continuous decimal values (the pixel noise). 1. The Mechanics of Stage 4 The Output Projection: The monolithic Transformer finishes processing and outputs tokens formatted as a flat sequence: [Batch, Sequence_Length, Hidden_Dim]. A final standard linear layer maps that abstract Hidden_Dim back down to the exact number of channels and pixels inside a raw patch. The Un-Flattening: This token sequence is un-flattened back into a 2D or 3D continuous matrix representing the model’s predicted noise for the entire image/video.</p>
-<ol start="2" type="1">
-<li>The MSE Loss Formula During training, the system intentionally injects a known amount of random Gaussian noise (ε) into a clean image latent. The Transformer tries to guess exactly what that noise looks like (ε̂). The MSE Loss accumulates the squared error across every single pixel, channel, and patch in the batch: (=_{i=1}<sup>{N}(<em>{i}-^{}</em>{i})</sup>{2})</li>
+<p>Stage 4: The Loss Tail &amp; Backpropagation (The Scoring System)</p>
+<p>The final stage of the DiT pipeline is a pure continuous regression task. Unlike Large Language Models (LLMs) which use Cross-Entropy Loss to classify and pick a single discrete word out of a dictionary, a Diffusion Transformer uses Mean Squared Error (MSE) Loss to calculate the distance between fluid, continuous decimal values (the pixel noise).</p>
+<ol type="1">
+<li>The Mechanics of Stage 4</li>
 </ol>
+<p>The Output Projection: The monolithic Transformer finishes processing and outputs tokens formatted as a flat sequence: [Batch, Sequence_Length, Hidden_Dim]. A final standard linear layer maps that abstract Hidden_Dim back down to the exact number of channels and pixels inside a raw patch.</p>
+<p>The Un-Flattening: This token sequence is un-flattened back into a 2D or 3D continuous matrix representing the model’s predicted noise for the entire image/video.</p>
+<ol start="2" type="1">
+<li>The MSE Loss Formula</li>
+</ol>
+<p>During training, the system intentionally injects a known amount of random Gaussian noise (ε) into a clean image latent. The Transformer tries to guess exactly what that noise looks like (ε̂).</p>
+<p>The MSE Loss accumulates the squared error across every single pixel, channel, and patch in the batch:</p>
+<p>(=_{i=1}<sup>{N}(<em>{i}-^{}</em>{i})</sup>{2})</p>
 <p>Accumulation: It subtracts the model’s guess from the actual noise, squares the result (so negative errors don’t cancel out positive ones), and averages them into a single scalar error score.</p>
 <ol start="3" type="1">
-<li>The Synaptic Update (Backpropagation) Once the total loss is accumulated, the backward pass begins: The Error Signal: PyTorch passes that single scalar error number backward through the network. Altering the Weights: The error signal travels backward through the Output Projection layer, down the monolithic pipeline of identical Transformer blocks, all the way to the Stage 2 patch projector. The Optimization: An optimizer (like AdamW) uses these calculated gradients to subtly alter the weights and attention matrices. This ensures that the next time the network encounters a similar visual pattern, its denoising prediction is mathematically closer to the ground truth.</li>
+<li>The Synaptic Update (Backpropagation)</li>
 </ol>
+<p>Once the total loss is accumulated, the backward pass begins:</p>
+<p>The Error Signal: PyTorch passes that single scalar error number backward through the network.</p>
+<p>Altering the Weights: The error signal travels backward through the Output Projection layer, down the monolithic pipeline of identical Transformer blocks, all the way to the Stage 2 patch projector.</p>
+<p>The Optimization: An optimizer (like AdamW) uses these calculated gradients to subtly alter the weights and attention matrices. This ensures that the next time the network encounters a similar visual pattern, its denoising prediction is mathematically closer to the ground truth.</p>
 </section>
 <section id="flow-flow" class="level2">
 <h2 class="anchored" data-anchor-id="flow-flow">flow (## flow)</h2>
@@ -374,7 +422,11 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>In a text transformer, your input layer takes a word, looks it up in a vocabulary matrix, and turns it into a dense vector (an embedding).</p>
 <p>In a DiT, you can’t look up pixels in a dictionary. So instead, the input layer takes a 2D or 3D chunk of compressed latent pixels (say, a 16 × 16 patch) and runs a simple Linear Projection (or a single convolutional layer) over it to flatten it into a dense vector of the exact same size.</p>
-<p>That’s it. Once that patch is flattened into a vector, the Transformer treats it exactly like a word token. It goes through the exact same positional encodings, the exact same LayerNorms, the exact same multi-headed attention, and the exact same MLP blocks. 2. Time-Step Conditioning (AdaLN)</p>
+<p>That’s it. Once that patch is flattened into a vector, the Transformer treats it exactly like a word token.</p>
+<p>It goes through the exact same positional encodings, the exact same LayerNorms, the exact same multi-headed attention, and the exact same MLP blocks.</p>
+<ol start="2" type="1">
+<li>Time-Step Conditioning (AdaLN)</li>
+</ol>
 <p>The only other tweak is how it handles the “diffusion” part. Because diffusion requires the model to know which noise-cleanup step it is currently on (e.g., step 10 vs step 900), they feed the time-step number into the model.</p>
 <p>Instead of writing a complex new layer for this, Peebles and Xie used a clean trick called Adaptive Layer Normalization (AdaLN). All it does is take the time-step, turn it into an embedding vector, and use it to slightly shift and scale the weights of the standard LayerNorm layers right before the attention blocks. It doesn’t break the monolithic continuity; it just tunes the existing transformer blocks on the fly.</p>
 </section>
