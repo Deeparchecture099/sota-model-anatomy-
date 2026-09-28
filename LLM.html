@@ -319,7 +319,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sampling-sampling" id="toc-sampling-sampling" class="nav-link" data-scroll-target="#sampling-sampling">Sampling {## Sampling}</a></li>
   <li><a href="#vision-abilities-vision-abilities" id="toc-vision-abilities-vision-abilities" class="nav-link" data-scroll-target="#vision-abilities-vision-abilities">vision abilities {## vision-abilities}</a></li>
   <li><a href="#chain-of-thought-chain-of-thought" id="toc-chain-of-thought-chain-of-thought" class="nav-link" data-scroll-target="#chain-of-thought-chain-of-thought">Chain of thought {## chain-of-thought}</a></li>
-  <li><a href="#tool-use-tool-use" id="toc-tool-use-tool-use" class="nav-link" data-scroll-target="#tool-use-tool-use">tool use {## tool-use }</a>
+  <li><a href="#native-tool-use-native-tool-use" id="toc-native-tool-use-native-tool-use" class="nav-link" data-scroll-target="#native-tool-use-native-tool-use">native tool use {## native-tool-use }</a>
   <ul class="collapse">
   <li><a href="#distinction-distinction" id="toc-distinction-distinction" class="nav-link" data-scroll-target="#distinction-distinction">distinction (## distinction)</a></li>
   <li><a href="#steps-steps" id="toc-steps-steps" class="nav-link" data-scroll-target="#steps-steps">steps {## steps}</a></li>
@@ -380,7 +380,7 @@ ul.task-list li input[type="checkbox"] {
 <p>• Scale: Trillions of tokens, hundreds of thousands of GPUs, months of continuous training.</p>
 <p>• Data Mixture: Carefully curated blend emphasizing high-quality sources (science, code, math) alongside broad internet text.</p>
 <p>• No Explicit Supervision: The model is never told “this is a fact” or “this is how to reason.” It discovers everything through the prediction objective.</p>
-<p>• Emergent Abilities: Capabilities like basic arithmetic to understanding &amp; solving advanced levels of mathematics(algebra, trig, geometry, calculus, discrte math etc ), reading , generation &amp; translation across various langauges(english,spanish,chinese,french,italian, greek,russian etc ) , all major coding langauges(Python, JavaScript, C++, and Rust) ), code generation &amp; full scale software development, advanced zero day exploitations , tool use (web search, code execution &amp; multi hour computer use), biological code generation(CTAG), and in-context learning appear as byproducts of scale and data diversity.</p>
+<p>• Emergent Abilities: Capabilities like basic arithmetic to understanding &amp; solving advanced levels of mathematics(algebra, trig, geometry, calculus, discrte math etc ), reading , generation &amp; translation across various langauges(english,spanish,chinese,french,italian, greek,russian etc ) , all major coding langauges(Python, JavaScript, C++, and Rust) ), code generation &amp; full scale software development, advanced zero day exploitations , native tool use (web search, code execution &amp; multi hour computer use), biological code generation(CTAG), and in-context learning appear as byproducts of scale and data diversity.</p>
 <p>Pre-Training vs Post-Training: A Common Misconception</p>
 <p>A frequent misunderstanding is that the model “learns a lot” during post-training. This is not accurate.</p>
 <p>Pre-training is where the the vast majority of intelligence is acquired. The model builds its core knowledge, patterns, reasoning shortcuts, and latent representations through massive next-token prediction on diverse data. This is where the heavy lifting of learning happens.</p>
@@ -826,8 +826,8 @@ ul.task-list li input[type="checkbox"] {
 <p>or if 90. its 90,000</p>
 <p>the numbers of layers times 1000 dor number of steps .</p>
 </section>
-<section id="tool-use-tool-use" class="level2">
-<h2 class="anchored" data-anchor-id="tool-use-tool-use">tool use {## tool-use }</h2>
+<section id="native-tool-use-native-tool-use" class="level2">
+<h2 class="anchored" data-anchor-id="native-tool-use-native-tool-use">native tool use {## native-tool-use }</h2>
 <p>Native Tool Use &amp; Agentic Capabilities</p>
 <p>A key strength of frontier models like Grok 4.5 is native tool use — the ability to call external tools (web search, code execution, browser control, etc.) as part of its reasoning process.</p>
 <p>How it is trained and implemented</p>
@@ -845,6 +845,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="distinction-distinction">distinction (## distinction)</h3>
 <p>Then it lays out the distinction between the model and external execution, including the stages Decide → Choose → Format → Execute → Integrate.</p>
 <p>model-side: the intelligence: deciding, selecting, formatting XML or json , interpreting, integrating into residual stream &amp; generating output</p>
+<p>tool use is entirely native to the model</p>
 <p>what’s particularly interesting is that the model has to learn the interface itself. It has to learn things like:</p>
 <p>which tool is appropriate,</p>
 <p>when a tool is necessary,</p>
@@ -954,6 +955,8 @@ ul.task-list li input[type="checkbox"] {
     | strong general knowledge |
 
     │ Decision-making      │
+     
+      native tool use 
 
     │ Tool selection       │
 
@@ -1016,7 +1019,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="steps-steps" class="level3">
 <h3 class="anchored" data-anchor-id="steps-steps">steps {## steps}</h3>
 <p>The Pure Division of Labor</p>
-<p>The Model (100% intelligence): Handles the entire mental process—noticing a gap in knowledge, inventing the search strategy, and structuring the raw bytes into a machine-readable XML command, reasoning over the results and deciding what to use it for and as , produce output</p>
+<p>The Model (100% intelligence): Handles the entire mental process—noticing a gap in knowledge, inventing the search strategy, and structuring the raw bytes into a machine-readable XML command, reasoning over the results and deciding what to use it for and as , generate the output of its choie</p>
 <p>The tools (obviously 0% intelligence, 100% blind execution): Receives those XMLs like a raw instructions and returns results</p>
 <ol type="1">
 <li><p>Decide (Multi-Head Attention - MHA) As the hidden states flow through the model, the Multi-Head Attention layers recognize a massive information gap or a goal requirement in the context window. It realizes it should acquire web data grounding , run code or an action step. The attention heads calculate the exact dependencies, setting up the trigger to reach out beyond the weights.</p></li>
