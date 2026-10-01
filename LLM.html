@@ -856,7 +856,7 @@ ul.task-list li input[type="checkbox"] {
 <p>how to interpret the returned state,</p>
 <p>and when another tool call is warranted.</p>
 <p>Neural network</p>
-<p>→ generates the structured machine interface call → tool infrastructure parses it → executes the commanded operation → returns the result → neural network analyzes the result and produces its decided output</p>
+<p>→ generates the structured machine interface call → tool infrastructure parses it → executes the commanded operation → returns the result → neural network analyzes the result and generates its decided output</p>
 <p>important distinction is that the external runtime isn’t the intelligence.</p>
 <p>The runtime is effectively:</p>
 <p>“Here is a structured instruction. Execute it and give me the result.”</p>
@@ -960,7 +960,7 @@ ul.task-list li input[type="checkbox"] {
 
     │ Tool selection       │
 
-    | XML &amp; json construction for native tool use │
+    | XML &amp; json generation │
 
     │integrate,analyze results  &amp; decide and generate  the entire output |
      
@@ -1056,6 +1056,92 @@ ul.task-list li input[type="checkbox"] {
 <p>Format (MLPs) Transformer 100% Native: Feed-forward layers map latent concepts down into exact syntax tokens (e.g., rigid JSON or XML strings).</p>
 <p>Execute Python/OS Sandbox Non-Native (Passive, blind): The model outputs the tokens, and the passive downstream infrastructure takes over. The sandbox code interpreter, the web database server, or the computers browser reads the XML and executes the code , or video latents in all cases the results get returned , each in milliseconds, The hardware doesn’t understand why it is running the code or moving the joint; it is just a dumb, reactionary mirror executing the sequence.</p>
 <p>Integrate Transformer 100% Native: Tool output tokens are projected directly into the high-dimensional vector space of the Residual Stream during the next forward pass, the modl integrates the result into its reasoning and decides the output</p>
+<p>The Seamless Internal Loop: How Tool Use Actually Works Inside the Model</p>
+<p>In modern frontier models, tool use is not an external system bolted on after the fact. It is a native capability learned during training and executed entirely as part of the model’s continuous forward pass. The model has been trained on large volumes of examples showing the full cycle: reasoning → deciding that external information is needed → generating a structured tool call → receiving the result → continuing reasoning. Because of this training, the entire process lives inside the neural network’s weights.</p>
+<p>The full loop consists of five tightly integrated stages.</p>
+<ol type="1">
+<li>Decide — Does the model need external grounding?</li>
+</ol>
+<p>The current hidden state (the model’s internal representation of everything that has been generated so far plus the context) first passes through Multi-Head Attention.</p>
+<p>• Attention computes similarity between the current query vectors and the key vectors of previous tokens.</p>
+<p>• It produces attention weights that select and emphasize the most relevant patterns in the context.</p>
+<p>• These weighted patterns are then added back into the residual stream.</p>
+<p>The enriched residual stream then enters the MLP (or Mixture-of-Experts) layers.</p>
+<p>It is primarily in these MLP/MoE layers that the model evaluates whether its current internal knowledge is sufficient. The nonlinear transformations performed by the MLPs allow the model to detect gaps, uncertainty, or the need for up-to-date or external information. When the transformed representation indicates that external grounding is required, the model begins steering its output distribution toward a tool call rather than normal text.</p>
+<p>Summary of roles at this stage:</p>
+<p>• Attention selects and weights the relevant patterns.</p>
+<p>• MLP/MoE layers transform those patterns into a decision signal (“I need external data”).</p>
+<ol start="2" type="1">
+<li>Choose — Which tool(s) should be used?</li>
+</ol>
+<p>Once the decision to use a tool has been made, the same MLP/MoE layers (still conditioned on the attention-weighted context) select the most appropriate tool or combination of tools.</p>
+<p>This selection is not a hard-coded rule. It is a learned behavior. The model has seen many examples of which tools are useful in which situations and has internalized that knowledge as patterns in its weights.</p>
+<p>Possible tools include:</p>
+<p>• Web search / keyword search</p>
+<p>• Code execution environments</p>
+<p>• Browser or computer control actions</p>
+<p>• File system operations</p>
+<p>• Database queries</p>
+<p>• Multiple tools in parallel or in sequence</p>
+<p>The choice can be complex. The model may decide to issue several related searches at once, or to run a short code snippet first to gather intermediate results before making a broader search.</p>
+<ol start="3" type="1">
+<li>Format — Constructing the precise tool call</li>
+</ol>
+<p>Still inside the same forward pass, the model generates a structured function call, almost always in XML or JSON format.</p>
+<p>This is a specialized form of next-token prediction. The model has been heavily trained to produce syntactically valid, well-formed tool calls. The MLP layers play a particularly important role here: they expand the representation into a higher-dimensional feature space where the precise syntax, parameters, and structure of the call can be constructed, then compress it back into the hidden dimension so the output head can emit the tokens.</p>
+<p>A single tool call can be quite rich. It may contain:</p>
+<p>• Multiple queries(web searh) or action commands(computer use) or latent video vector (world modeling)</p>
+<p>• Detailed parameters (search strings, file paths, timeouts, retry policies, temperature settings, etc.)</p>
+<p>• Parallel tool calls when useful</p>
+<p>• Conditional logic or follow-up instructions</p>
+<p>• Error-handling preferences</p>
+<p>Because the model generates the entire structured block as part of its normal token sequence, the formatting step is fully integrated with the rest of its reasoning.</p>
+<ol start="4" type="1">
+<li>Execute — Outside the model</li>
+</ol>
+<p>The formatted tool call is intercepted by the surrounding system (the API layer or sandbox).</p>
+<p>The system parses the structured call, executes the requested action(s) in a controlled environment, and returns the results as text (or structured data that is converted into text).</p>
+<p>This is the only stage that occurs outside the neural network. The model itself does not run the web search or the code interpreter; it only generates the request.</p>
+<ol start="5" type="1">
+<li>Integrate — Feeding the result back into the residual stream</li>
+</ol>
+<p>The tool result is injected into the context as new tokens.</p>
+<p>In the next forward pass:</p>
+<p>• The new tokens become part of the residual stream.</p>
+<p>• Attention re-weights the updated context (now including the tool results).</p>
+<p>• The MLP/MoE layers transform the new patterns.</p>
+<p>• The model analyzes the returned information, decides what it means, and continues generating the next tokens.</p>
+<p>This integration step is critical. The model does not treat the tool result as a separate message from an external agent. It treats the result as additional context that is now part of its own ongoing cognition. Because of this, the model can immediately reason about the results, decide whether further tool calls are needed, or begin synthesizing a final answer.</p>
+<p>The entire Decide → Choose → Format → Execute → Integrate, decide &amp; generate cycle can repeat many times within a single response. This is what enables multi-step agentic behavior: the model can search, analyze, run code, search again with refined queries, and gradually build up a complex solution.</p>
+<p>Why This Distinction Matters</p>
+<p>• The model is the brain: It decides, plans, analyzes reasons, and generates</p>
+<p>• The sandbox is the hands: It carries out physical actions (running code, fetching data,executinf computer orders) but does not think.</p>
+<p>This is why tool use feels seamless and proactive in good models — because the intelligence controlling it is fully internal. Step 5 is simply a normal forward pass on an updated context.</p>
+<p>Here’s the precise picture:</p>
+<ol type="1">
+<li><p>The tool result (search results, code output, computer action feedback, etc.) is converted into text tokens and appended to the context.</p></li>
+<li><p>These new tokens enter the residual stream just like any other tokens.</p></li>
+<li><p>The model then runs a completely ordinary forward pass:</p></li>
+</ol>
+<p>• Multi-Head Attention re-weights the entire context (including the new tool results)</p>
+<p>• MLP / MoE layers transform the updated patterns</p>
+<p>• The output head predicts the next tokens</p>
+<p>Because the tool result is now part of the context, the model can:</p>
+<p>• Analyze what the tool returned</p>
+<p>• Decide whether it needs more information (triggering another tool call)</p>
+<p>• Decide it has enough and begin generating the final answer</p>
+<p>• Or take some intermediate reasoning step</p>
+<p>Why This Architecture Matters for intelligence</p>
+<p>Because tool use is native to the model’s weights and is executed as part of a single continuous forward pass, a digital agent and eventually superintelligence can treat the external world (the internet, code environments, computer interfaces, laboratory equipment via APIs, etc.) as an extension of its own cognition. There is no hard boundary between “thinking” and “acting.”</p>
+<p>The model can:</p>
+<p>• Decide it needs information</p>
+<p>• Retrieve it</p>
+<p>• Incorporate it</p>
+<p>• Decide the next action</p>
+<p>• generate</p>
+<p>• Repeat</p>
+<p>—all at the speed of its internal computation, with perfect memory of previous results, and with the ability to parallelize many such loops across millions of instances.</p>
+<p>This is one of the core reasons a digital general intelligence is already superintelligent relative to biological systems: the substrate itself allows continuous, high-speed, perfectly recorded interaction with the external world as part of the same cognitive process.</p>
 </section>
 <section id="loop-loop" class="level3">
 <h3 class="anchored" data-anchor-id="loop-loop">loop {### loop}</h3>
