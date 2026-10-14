@@ -1097,7 +1097,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Still inside the same forward pass, the model generates a structured function call, almost always in XML or JSON format.</p>
 <p>This is a specialized form of next-token prediction. The model has been heavily trained to produce syntactically valid, well-formed tool calls. The MLP layers play a particularly important role here: they expand the representation into a higher-dimensional feature space where the precise syntax, parameters, and structure of the call can be constructed, then compress it back into the hidden dimension so the output head can emit the tokens.</p>
 <p>A single tool call can be quite rich. It may contain:</p>
-<p>• Multiple queries(web searh) or action commands(computer use) or humaniod robot control</p>
+<p>• Multiple queries(web search) or action commands(computer use) or controlling Humanoid robots</p>
 <p>• Detailed parameters (search strings, file paths, timeouts, retry policies, temperature settings, etc.)</p>
 <p>• Parallel tool calls when useful</p>
 <p>• Conditional logic or follow-up instructions</p>
