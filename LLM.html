@@ -326,6 +326,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#native-native" id="toc-native-native" class="nav-link" data-scroll-target="#native-native">native (### native)</a></li>
   <li><a href="#loop-loop" id="toc-loop-loop" class="nav-link" data-scroll-target="#loop-loop">loop {### loop}</a></li>
   <li><a href="#differences-differences" id="toc-differences-differences" class="nav-link" data-scroll-target="#differences-differences">differences {## differences }</a></li>
+  <li><a href="#control-robot-control-robot" id="toc-control-robot-control-robot" class="nav-link" data-scroll-target="#control-robot-control-robot">control robot {### control robot}</a></li>
   </ul></li>
   <li><a href="#internet-access-internat-access" id="toc-internet-access-internat-access" class="nav-link" data-scroll-target="#internet-access-internat-access">internet access {## internat-access}</a></li>
   <li><a href="#loss-function-loss-function" id="toc-loss-function-loss-function" class="nav-link" data-scroll-target="#loss-function-loss-function">loss function {## loss-function}</a></li>
@@ -837,7 +838,9 @@ ul.task-list li input[type="checkbox"] {
 <p>• running code and returning the results (code interpreter)</p>
 <p>• computer use (multi action, APIs, browser control)</p>
 <p>• Long-horizon planning and correction</p>
+<p>• controlling humaniod robots</p>
 <p>• AI computer use which AI models learn, allows artificial intelligence agents to view a screen, click buttons, and type text directly through a graphical user interface just like a human. Enabling the model to complete tasks online.</p>
+<p>controlling humaniod robots to perfrom physical tasks</p>
 <p>all of which are done by the model generating XML/Json code to control then tool</p>
 <p>This is not a bolted-on plugin system. In frontier models it is trained end-to-end, so tool calling emerges naturally from the same latent geometry as language and reasoning. The router and MLPs learn when and how to invoke tools as part of the transformation process.</p>
 <p>In Grok 4.5, this native integration contributes heavily to its strength in coding, agentic tasks, and knowledge work — turning the base LLM into a practical reasoning agent.</p>
@@ -869,6 +872,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Code/terminal: recognize that computation or experimentation would help → construct code → execute it → inspect errors/output → modify the code → iterate.</p>
 <p>Computer use: interpret a visual interface → decide what action is appropriate → click/type/scroll → observe the resulting state → choose the next action.</p>
 <p>Files: determine what information needs to be extracted → select an appropriate retrieval operation → interpret the returned material → reason over it.</p>
+<p>humaniod robots: by using XML, JSON, or structured numerical tokens as its substrate for physical control, running entirely through the native neural network loop just described. It is treating the robot’s physical body exactly like an LLM treats a web browser, a database, or a Python sandbox.</p>
 <p>Your neurons don’t contain Google.</p>
 <p>Your neurons don’t contain a calculator.</p>
 <p>Your neurons don’t contain a camera.</p>
@@ -998,8 +1002,10 @@ ul.task-list li input[type="checkbox"] {
     ┌──────────┼───────────┐
 
     ↓          ↓           ↓
+    ↓          ↓           ↓
+                          
 
-  Web       Computer     Database
+  Web       Computer     humaniod robots  
 
     │          │           │
 
@@ -1024,7 +1030,7 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p>Decide (Multi-Head Attention - MHA) As the hidden states flow through the model, the Multi-Head Attention layers recognize a massive information gap or a goal requirement in the context window. It realizes it should acquire web data grounding , run code or an action step. The attention heads calculate the exact dependencies, setting up the trigger to reach out beyond the weights.</p></li>
 <li><p>Choose (Mixture of Experts - MoE) The token routing routers fire across the network, instantly activating the highly specific clusters of neurons—the exact Mixture of Experts—best suited for the job. This is where the model selects the precise tool payload, whether it’s an API call, a mathematical formula, or a spatial trajectory vector.</p></li>
-<li><p>Format (Multi-Layer Perceptrons - MLPs) The dense feed-forward networks (MLPs) do the heavy lifting of raw translation. They map the high-dimensional abstract concepts down into exact, structural execution tokens fully formatting all intent/commands. It forces the output into rigid, un-hackable syntax—generating the precise <search_query> XML strings for a browser, the exact code the model wnats to run in a code interpteter, or commands to computers its using . It must specify everything, down to the millisecond time constraints, because the recipient has zero native cognition to fill in gaps.</search_query></p></li>
+<li><p>Format (Multi-Layer Perceptrons - MLPs) The dense feed-forward networks (MLPs) do the heavy lifting of raw translation. They map the high-dimensional abstract concepts down into exact, structural execution tokens fully formatting all intent/commands. It forces the output into rigid, un-hackable syntax—generating the precise <search_query> XML strings for a browser, the exact code the model wnats to run in a code interpteter,, search the web, control robots or commands to computers its using . It must specify everything, down to the millisecond time constraints, because the recipient has zero native cognition to fill in gaps.</search_query></p></li>
 </ol>
 <p>(THE MODEL COGNITION ──► generates the dynamic XML contract via MLPs.)</p>
 <pre><code>    │
@@ -1083,6 +1089,7 @@ ul.task-list li input[type="checkbox"] {
 <p>• File system operations</p>
 <p>• Database queries</p>
 <p>• Multiple tools in parallel or in sequence</p>
+<p>• humaniod robots</p>
 <p>The choice can be complex. The model may decide to issue several related searches at once, or to run a short code snippet first to gather intermediate results before making a broader search.</p>
 <ol start="3" type="1">
 <li>Format — Constructing the precise tool call</li>
@@ -1090,7 +1097,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Still inside the same forward pass, the model generates a structured function call, almost always in XML or JSON format.</p>
 <p>This is a specialized form of next-token prediction. The model has been heavily trained to produce syntactically valid, well-formed tool calls. The MLP layers play a particularly important role here: they expand the representation into a higher-dimensional feature space where the precise syntax, parameters, and structure of the call can be constructed, then compress it back into the hidden dimension so the output head can emit the tokens.</p>
 <p>A single tool call can be quite rich. It may contain:</p>
-<p>• Multiple queries(web searh) or action commands(computer use) or latent video vector (world modeling)</p>
+<p>• Multiple queries(web searh) or action commands(computer use) or humaniod robot control</p>
 <p>• Detailed parameters (search strings, file paths, timeouts, retry policies, temperature settings, etc.)</p>
 <p>• Parallel tool calls when useful</p>
 <p>• Conditional logic or follow-up instructions</p>
@@ -1137,8 +1144,9 @@ ul.task-list li input[type="checkbox"] {
 <p>• Decide it needs information</p>
 <p>• Retrieve it</p>
 <p>• Incorporate it</p>
-<p>• Decide the next action</p>
+<p>• analze</p>
 <p>• generate</p>
+<p>• Decide the next action</p>
 <p>• Repeat</p>
 <p>—all at the speed of its internal computation, with perfect memory of previous results, and with the ability to parallelize many such loops across millions of instances.</p>
 <p>This is one of the core reasons a digital general intelligence is already superintelligent relative to biological systems: the substrate itself allows continuous, high-speed, perfectly recorded interaction with the external world as part of the same cognitive process.</p>
@@ -1185,6 +1193,17 @@ ul.task-list li input[type="checkbox"] {
 <p>By injecting exact parameters like <timeout_ms>100</timeout_ms> and</p>
 <p><result_limit>3</result_limit>, the model enforces a strict physical contract on the hardware, the XML details exactly everthing</p>
 <p>AI computer use which AI models learn, allows artificial intelligence agents to view a screen, click buttons, and type text directly through a graphical user interface just like a human. Enabling the model to complete tasks online.</p>
+</section>
+<section id="control-robot-control-robot" class="level3">
+<h3 class="anchored" data-anchor-id="control-robot-control-robot">control robot {### control robot}</h3>
+<p>robot control example :</p>
+<p>reviews a simulation or moves a robotic arm, it is executing the exact Seamless Internal Loop you outlined in your text. The robot’s joints are just an external API.</p>
+<p>Decide (MHA):</p>
+<p>The attention heads look at the live camera frame token and the instruction (“grab the tool”). The attention matrices detect a context gap—it doesn’t know the exact spatial trajectory. It directs the attention vector toward its internal tool-calling weights.</p>
+<p>Choose (MoE): The gating routers fire, bypassing the standard conversational experts and instantly routing the signal to the code generation and structural trajectory experts.</p>
+<p>Format (MLPs): The feed-forward layers project the high-dimensional latent concepts of “reach down and grip” into exact, rigid syntax tokens. Instead of writing {“query”: “weather”}, it writes {“joint_angles”: [0.45, -1.2, 3.14, 0.0]} or an equivalent XML block.</p>
+<p>Execute (Non-Native Sandbox / Hardware): The model halts its text generation and outputs these tokens. The downstream infrastructure takes over. The robot’s onboard motor controller (the “dumb, reactionary mirror”) reads the JSON/XML string, translates it into electrical voltage, and physically moves the robotic arm.</p>
+<p>Integrate (Transformer Native): The robot’s camera takes a new picture of the hand’s new position. These visual tokens are projected straight back into the Residual Stream during the very next forward pass. The model instantly integrates the physical result of its movement, realizes it is 2 centimeters off, and kicks off the Deciding-Choosing-Formatting loop all over again.</p>
 </section>
 </section>
 <section id="internet-access-internat-access" class="level2">
