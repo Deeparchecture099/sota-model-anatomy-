@@ -1067,7 +1067,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Choose (MoE) Transformer 100% Native: Gating routers fire to activate code generation and structural layout experts.</p>
 <p>Format (MLPs) Transformer 100% Native: Feed-forward layers map latent concepts down into exact syntax tokens (e.g., rigid JSON or XML strings).</p>
 <p>Execute Python/OS Sandbox Non-Native (Passive, blind): The model outputs the tokens, and the passive downstream infrastructure takes over. The sandbox code interpreter, the web database server, or the computers browser reads the XML and executes the code , or video latents in all cases the results get returned , each in milliseconds, The hardware doesn’t understand why it is running the code or moving the joint; it is just a dumb, reactionary mirror executing the sequence.</p>
-<p>Integrate Transformer 100% Native: Tool output tokens are projected directly into the high-dimensional vector space of the Residual Stream during the next forward pass, the modl integrates the result into its reasoning and decides the output</p>
+<p>Integrate Transformer 100% Native: Tool output tokens are projected directly into the high-dimensional vector space of the Residual Stream during the next forward pass, the model integrates the result into its reasoning and decides the output</p>
 <p>The Seamless Internal Loop: How Tool Use Actually Works Inside the Model</p>
 <p>In modern frontier models, tool use is not an external system bolted on after the fact. It is a native capability learned during training and executed entirely as part of the model’s continuous forward pass. The model has been trained on large volumes of examples showing the full cycle: reasoning → deciding that external information is needed → generating a structured tool call → receiving the result → continuing reasoning. Because of this training, the entire process lives inside the neural network’s weights.</p>
 <p>The full loop consists of five tightly integrated stages.</p>
@@ -1104,7 +1104,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This is a specialized form of next-token prediction. The model has been heavily trained to produce syntactically valid, well-formed tool calls. The MLP layers play a particularly important role here: they expand the representation into a higher-dimensional feature space where the precise syntax, parameters, and structure of the call can be constructed, then compress it back into the hidden dimension so the output head can emit the tokens.</p>
 <p>A single tool call can be quite rich. It may contain:</p>
 <p>• Multiple queries(web search) or action commands(computer use) or controlling Humanoid robots</p>
-<p>• Detailed parameters (search strings, file paths, timeouts, retry policies, temperature settings, etc.)</p>
+<p>• Detailed parameters (search strings, file paths, timeouts, retry policies, temperature settings, precise action commands for computers and humaniod robots etc.)</p>
 <p>• Parallel tool calls when useful</p>
 <p>• Conditional logic or follow-up instructions</p>
 <p>• Error-handling preferences</p>
@@ -1125,14 +1125,14 @@ ul.task-list li input[type="checkbox"] {
 <p>• The MLP/MoE layers transform the new patterns.</p>
 <p>• The model analyzes the returned information, decides what it means, and continues generating the next tokens.</p>
 <p>This integration step is critical. The model does not treat the tool result as a separate message from an external agent. It treats the result as additional context that is now part of its own ongoing cognition. Because of this, the model can immediately reason about the results, decide whether further tool calls are needed, or begin synthesizing a final answer.</p>
-<p>The entire Decide → Choose → Format → Execute → Integrate, decide &amp; generate cycle can repeat many times within a single response. This is what enables multi-step agentic behavior: the model can search, analyze, run code, search again with refined queries, and gradually build up a complex solution.</p>
+<p>The entire Decide → Choose → Format → Execute → Integrate, decide &amp; generate cycle can repeat many times within a single response. This is what enables multi-step agentic behavior: the model can generate a web search , analyze, run code, generate a action command for multi hour computer use or robot control , search again with refined action queries, and gradually build up a complex solution.</p>
 <p>Why This Distinction Matters</p>
 <p>• The model is the brain: It decides, plans, analyzes reasons, and generates</p>
 <p>• The sandbox is the hands: It carries out physical actions (running code, fetching data,executinf computer orders) but does not think.</p>
 <p>This is why tool use feels seamless and proactive in good models — because the intelligence controlling it is fully internal. Step 5 is simply a normal forward pass on an updated context.</p>
 <p>Here’s the precise picture:</p>
 <ol type="1">
-<li><p>The tool result (search results, code output, computer action feedback, etc.) is converted into text tokens and appended to the context.</p></li>
+<li><p>The tool result (search results, code output, computer action feedback,humaniod robot sim states etc.) is converted into text tokens and appended to the context.</p></li>
 <li><p>These new tokens enter the residual stream just like any other tokens.</p></li>
 <li><p>The model then runs a completely ordinary forward pass:</p></li>
 </ol>
@@ -1142,7 +1142,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Because the tool result is now part of the context, the model can:</p>
 <p>• Analyze what the tool returned</p>
 <p>• Decide whether it needs more information (triggering another tool call)</p>
-<p>• Decide it has enough and begin generating the final answer</p>
+<p>• Decide it has enough and then generating the final answer whether it be web search, computer use, controlling robots.</p>
 <p>• Or take some intermediate reasoning step</p>
 <p>Why This Architecture Matters for intelligence</p>
 <p>Because tool use is native to the model’s weights and is executed as part of a single continuous forward pass, a digital agent and eventually superintelligence can treat the external world (the internet, code environments, computer interfaces, laboratory equipment via APIs, etc.) as an extension of its own cognition. There is no hard boundary between “thinking” and “acting.”</p>
@@ -1151,7 +1151,7 @@ ul.task-list li input[type="checkbox"] {
 <p>• Retrieve it</p>
 <p>• Incorporate it</p>
 <p>• analze</p>
-<p>• generate</p>
+<p>• decide and generate the entire output</p>
 <p>• Decide the next action</p>
 <p>• Repeat</p>
 <p>—all at the speed of its internal computation, with perfect memory of previous results, and with the ability to parallelize many such loops across millions of instances.</p>
