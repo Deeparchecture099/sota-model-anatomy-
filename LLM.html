@@ -330,7 +330,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#distinction-distinction" id="toc-distinction-distinction" class="nav-link" data-scroll-target="#distinction-distinction">distinction (## distinction)</a></li>
   <li><a href="#steps-steps" id="toc-steps-steps" class="nav-link" data-scroll-target="#steps-steps">steps {## steps}</a></li>
   <li><a href="#native-native" id="toc-native-native" class="nav-link" data-scroll-target="#native-native">native (### native)</a></li>
-  <li><a href="#loop-loop" id="toc-loop-loop" class="nav-link" data-scroll-target="#loop-loop">loop {### loop}</a></li>
+  <li><a href="#model-vs-infrastructure-model-vs-infrastructure" id="toc-model-vs-infrastructure-model-vs-infrastructure" class="nav-link" data-scroll-target="#model-vs-infrastructure-model-vs-infrastructure">model vs infrastructure {### model vs infrastructure }</a></li>
   <li><a href="#differences-differences" id="toc-differences-differences" class="nav-link" data-scroll-target="#differences-differences">differences {## differences }</a></li>
   <li><a href="#control-robot-control-robot" id="toc-control-robot-control-robot" class="nav-link" data-scroll-target="#control-robot-control-robot">control robot {### control robot}</a></li>
   </ul></li>
@@ -852,7 +852,6 @@ ul.task-list li input[type="checkbox"] {
 <p>In Grok 4.5, this native integration contributes heavily to its strength in coding, agentic tasks, and knowledge work — turning the base LLM into a practical reasoning agent.</p>
 <section id="distinction-distinction" class="level3">
 <h3 class="anchored" data-anchor-id="distinction-distinction">distinction (## distinction)</h3>
-<p>Then it lays out the distinction between the model and external execution, including the stages Decide → Choose → Format → Execute → Integrate.</p>
 <p>model-side: the intelligence: deciding, selecting, formatting XML or json , interpreting, integrating into residual stream &amp; generating output</p>
 <p>tool use is entirely native to the model</p>
 <p>what’s particularly interesting is that the model has to learn the interface itself. It has to learn things like:</p>
@@ -865,7 +864,10 @@ ul.task-list li input[type="checkbox"] {
 <p>how to interpret the returned state,</p>
 <p>and when another tool call is warranted.</p>
 <p>Neural network</p>
-<p>→ generates the structured machine interface call → tool infrastructure parses it → executes the commanded operation → returns the result → neural network analyzes the result and generates its decided output</p>
+<p>→ generates the structured machine interface call → tool infrastructure parses it → executes the commanded operation → returns the result → neural network analyzes the result and generates its decided output or next action</p>
+<p>Web: recognize that its internal knowledge is insufficient → formulate a search query → call search → evaluate sources → continue reasoning from the results.</p>
+<p>Code/terminal: recognize that computation or experimentation would help → construct code → execute it → inspect errors/output → modify the code → iterate.</p>
+<p>Computer use: interpret a visual interface → decide what action is appropriate → click/type/scroll → observe the resulting state → choose the next action.</p>
 <p>important distinction is that the external runtime isn’t the intelligence.</p>
 <p>The runtime is effectively:</p>
 <p>“Here is a structured instruction. Execute it and give me the result.”</p>
@@ -874,17 +876,6 @@ ul.task-list li input[type="checkbox"] {
 <p>So the intelligence responsible for deciding what to do with the interface is in the learned model, while the actual computation/search/execution is performed by the external machinery.</p>
 <p>external machinery: actually executing the exact search/code/terminal operation.</p>
 <p>“tool use is learned.” They’re arguing that tool-mediated behavior is part of the model’s learned cognitive repertoire, while the physical computation remains outside the network—much like humans using external instruments.</p>
-<p>Web: recognize that its internal knowledge is insufficient or would benifit from new information → formulate search queries → call search → evaluate sources → continue reasoning from the results &amp; generate output of its choice</p>
-<p>Code/terminal: recognize that computation or experimentation would help → construct code → execute it → inspect errors/output → modify the code → iterate.</p>
-<p>Computer use: interpret a visual interface → decide what action is appropriate → click/type/scroll → observe the resulting state → choose the next action.</p>
-<p>Files: determine what information needs to be extracted → select an appropriate retrieval operation → interpret the returned material → reason over it.</p>
-<p>humaniod robots: by using XML, JSON, or structured numerical tokens as its substrate for physical control, running entirely through the native neural network loop just described. It is treating the robot’s physical body exactly like an LLM treats a web browser, a database, or a Python sandbox.</p>
-<p>Your neurons don’t contain Google.</p>
-<p>Your neurons don’t contain a calculator.</p>
-<p>Your neurons don’t contain a camera.</p>
-<p>Your neurons don’t contain a database of every book you’ve read.</p>
-<p>Yet your brain can recognize that an external resource would solve a problem, decide which resource to use, formulate an appropriate query/action, interpret the result, and incorporate it into subsequent reasoning.</p>
-<p>We don’t normally say that a human isn’t intelligent because their calculator is outside their skull.</p>
 <p>The interesting capability is the intelliegence controlling it: the controller:</p>
 <p>Recognize need → select tool → formulate operation → execute → interpret result → update reasoning → continue.</p>
 <p>The infrastructure can then execute those independent calls, return their results, and the model gets another forward-pass context containing those results.</p>
@@ -1034,9 +1025,9 @@ ul.task-list li input[type="checkbox"] {
 <p>The Model (100% intelligence): Handles the entire mental process—noticing a gap in knowledge, inventing the search strategy, and structuring the raw bytes into a machine-readable XML command, reasoning over the results and deciding what to use it for and as , generate the output of its choie</p>
 <p>The tools (obviously 0% intelligence, 100% blind execution): Receives those XMLs like a raw instructions and returns results</p>
 <ol type="1">
-<li><p>Decide (Multi-Head Attention - MHA) As the hidden states flow through the model, the Multi-Head Attention layers recognize a massive information gap or a goal requirement in the context window. It realizes it should acquire web data grounding , run code or an action step. The attention heads calculate the exact dependencies, setting up the trigger to reach out beyond the weights.</p></li>
-<li><p>Choose (Mixture of Experts - MoE) The token routing routers fire across the network, instantly activating the highly specific clusters of neurons—the exact Mixture of Experts—best suited for the job. This is where the model selects the precise tool payload, whether it’s an API call, a mathematical formula, or a spatial trajectory vector.</p></li>
-<li><p>Format (Multi-Layer Perceptrons - MLPs) The dense feed-forward networks (MLPs) do the heavy lifting of raw translation. They map the high-dimensional abstract concepts down into exact, structural execution tokens fully formatting all intent/commands. It forces the output into rigid, un-hackable syntax—generating the precise <search_query> XML strings for a browser, the exact code the model wnats to run in a code interpteter,, search the web, control robots or commands to computers its using . It must specify everything, down to the millisecond time constraints, because the recipient has zero native cognition to fill in gaps.</search_query></p></li>
+<li><p>Decide 100% Native (Multi-Head Attention - MHA) As the hidden states flow through the model, the Multi-Head Attention layers recognize a massive information gap or a goal requirement in the context window. It realizes it should acquire web data grounding , run code or an action step. The attention heads calculate the exact dependencies, setting up the trigger to reach out beyond the weights.</p></li>
+<li><p>Choose 100% Native (Mixture of Experts - MoE) The token routing routers fire across the network, instantly activating the highly specific clusters of neurons—the exact Mixture of Experts—best suited for the job. This is where the model selects the precise tool payload, whether it’s an API call, a mathematical formula, or a spatial trajectory vector.</p></li>
+<li><p>Format 100% Native (Multi-Layer Perceptrons - MLPs) The dense feed-forward networks (MLPs) do the heavy lifting of raw translation. They map the high-dimensional abstract concepts down into exact, structural execution tokens fully formatting all intent/commands. It forces the output into rigid, un-hackable syntax—generating the precise <search_query> XML strings for a browser, the exact code the model wnats to run in a code interpteter,, search the web, control robots or commands to computers its using . It must specify everything, down to the millisecond time constraints, because the recipient has zero native cognition to fill in gaps.</search_query></p></li>
 </ol>
 <p>(THE MODEL COGNITION ──► generates the dynamic XML contract via MLPs.)</p>
 <pre><code>    │
@@ -1049,7 +1040,7 @@ ul.task-list li input[type="checkbox"] {
 <p>(THE INDEX RACKS ──► Dumb, ultra-optimized server blades execute raw keyword/vector lookups, code execution, browser/compouter command)</p>
 <pre><code>    │</code></pre>
 <ol start="5" type="1">
-<li>Integrate (The Residual Stream) The raw output of the tool (the web search sources text, code execution results , computer use current state , or the next video frame camera feed) is instantly ingested back into the model. It is tokenized, projected back into the high-dimensional vector space, and absorbed right back into the Residual Stream. The model updates its world model, runs the next forward pass, continues reasoning over the data and decides on the next sequence all the way to generating the entire output end to end . The loop is complete.</li>
+<li>Integrate 100% Native (The Residual Stream) The raw output of the tool (the web search sources text, code execution results , computer use current state , or the next video frame camera feed) is instantly ingested back into the model. It is tokenized, projected back into the high-dimensional vector space, and absorbed right back into the Residual Stream. The model updates its world model, runs the next forward pass, continues reasoning over the data and decides on the next sequence all the way to generating the entire output end to end . The loop is complete.</li>
 </ol>
 <p>(THE MODEL COGNITION(RESIDUAL STREAM) ──► Raw text tokens inject directly back into the continuous vector space.</p>
 <pre><code>    │
@@ -1062,12 +1053,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="native-native">native (### native)</h3>
 <p>Tool use is absolutely a native capability embedded inside the model’s weights during pre-training. [1] The physical act of running the software tool requires an external infrastructure, but the algorithmic decision to use it, formatting the request, and digesting the output are entirely native properties of the transformer. [2, 3] Decoupling the Tool Loop: Native Weights vs.&nbsp;External Runtimes</p>
 <p></p>
-<p>Phase System Actor Native Status</p>
-<p>Decide (MHA) Transformer 100% Native: Attention matrices identify a context information gap and select a tool vector rather than a text token.</p>
-<p>Choose (MoE) Transformer 100% Native: Gating routers fire to activate code generation and structural layout experts.</p>
-<p>Format (MLPs) Transformer 100% Native: Feed-forward layers map latent concepts down into exact syntax tokens (e.g., rigid JSON or XML strings).</p>
-<p>Execute Python/OS Sandbox Non-Native (Passive, blind): The model outputs the tokens, and the passive downstream infrastructure takes over. The sandbox code interpreter, the web database server, or the computers browser reads the XML and executes the code , or video latents in all cases the results get returned , each in milliseconds, The hardware doesn’t understand why it is running the code or moving the joint; it is just a dumb, reactionary mirror executing the sequence.</p>
-<p>Integrate Transformer 100% Native: Tool output tokens are projected directly into the high-dimensional vector space of the Residual Stream during the next forward pass, the model integrates the result into its reasoning and decides the output</p>
 <p>The Seamless Internal Loop: How Tool Use Actually Works Inside the Model</p>
 <p>In modern frontier models, tool use is not an external system bolted on after the fact. It is a native capability learned during training and executed entirely as part of the model’s continuous forward pass. The model has been trained on large volumes of examples showing the full cycle: reasoning → deciding that external information is needed → generating a structured tool call → receiving the result → continuing reasoning. Because of this training, the entire process lives inside the neural network’s weights.</p>
 <p>The full loop consists of five tightly integrated stages.</p>
@@ -1114,7 +1099,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>The formatted tool call is intercepted by the surrounding system (the API layer or sandbox).</p>
 <p>The system parses the structured call, executes the requested action(s) in a controlled environment, and returns the results as text (or structured data that is converted into text).</p>
-<p>This is the only stage that occurs outside the neural network. The model itself does not run the web search or the code interpreter; it only generates the request.</p>
+<p>This is the only stage that occurs outside the neural network. The model itself, just like the human brain does not run the web search or the code interpreter, robot policy head ; it generates the commands using its coding capabilites (generates a detailed XML &amp; Json command), analzes the results, decides on and generates its output(calculates the returned results and decides what to do next )</p>
 <ol start="5" type="1">
 <li>Integrate — Feeding the result back into the residual stream</li>
 </ol>
@@ -1144,6 +1129,46 @@ ul.task-list li input[type="checkbox"] {
 <p>• Decide whether it needs more information (triggering another tool call)</p>
 <p>• Decide it has enough and then generating the final answer whether it be web search, computer use, controlling robots.</p>
 <p>• Or take some intermediate reasoning step</p>
+<p>When a frontier model issues a tool call (web search, computer use, code execution, robot control, etc.), the raw result can easily be tens or hundreds of thousands of tokens. If that entire dump were dumped straight into the residual stream, it would either:</p>
+<p>Blow past the context window, or</p>
+<p>Flood the attention mechanism with noise and degrade performance.</p>
+<p>Here’s how the system actually prevents that.</p>
+<ol type="1">
+<li>Most Filtering Happens Before the Result Ever Reaches the Model, as the modees command inclues filtering</li>
+</ol>
+<p>The infrastructure that sits between the model and the tool almost never returns the raw, unfiltered output.</p>
+<p>Web search example:</p>
+<p>The model issues a search query command .</p>
+<p>The search backend (or the tool wrapper) does not return the full text of every page.</p>
+<p>Instead it returns a ranked list of:</p>
+<p>Titles</p>
+<p>URLs</p>
+<p>Short snippets / abstracts</p>
+<p>Sometimes key extracted facts or structured data</p>
+<p>Only the most relevant 5–20 results (usually heavily truncated) are formatted as text and injected back into the context.</p>
+<p>Computer use / browser control:</p>
+<p>The model does not receive the full DOM or every pixel.</p>
+<p>It typically receives a structured observation: accessibility tree, simplified HTML, OCR text from the current viewport, or a screenshot + caption.</p>
+<p>Large pages are summarized or windowed (only the currently visible or relevant section is returned).</p>
+<p>Code execution / robot control:</p>
+<p>Only the stdout/stderr, final return values, sensor readings, or status messages are returned — not the entire intermediate state.</p>
+<p>In short: the tool wrapper / sandbox layer performs aggressive filtering, ranking, truncation, and summarization before the result is ever turned into tokens for the model.</p>
+<ol start="2" type="1">
+<li>What Happens Once the (Already Filtered) Result Enters the Residual Stream</li>
+</ol>
+<p>Even after the infrastructure has reduced the result, the remaining text can still be long. At this point the model itself takes over:</p>
+<p>The filtered tool result is appended as ordinary tokens.</p>
+<p>In the next forward pass, Multi-Head Attention re-weights the entire context.</p>
+<p>Because attention is content-addressable, the model can focus its attention weights on the parts of the tool output that are most relevant to its current goal and ignore the rest.</p>
+<p>The MLP / MoE layers then transform only the attended patterns.</p>
+<p>So the model does perform a second layer of relevance filtering — but it is soft and attention-based rather than hard truncation.</p>
+<ol start="3" type="1">
+<li>Hierarchical / Recursive Summarization (Used in Stronger Systems)</li>
+</ol>
+<p>For very large or multi-step tool results, many frontier models insert an intermediate summarization step:</p>
+<p>The raw (or semi-filtered) tool output is first fed to the same model (or a smaller specialized model) with an instruction like “Extract only the information relevant to [current goal]. Summarize concisely.”</p>
+<p>That summary is what actually gets injected into the main context.</p>
+<p>This is essentially the model using itself as a filter before continuing the main reasoning chain.</p>
 <p>Why This Architecture Matters for intelligence</p>
 <p>Because tool use is native to the model’s weights and is executed as part of a single continuous forward pass, a digital agent and eventually superintelligence can treat the external world (the internet, code environments, computer interfaces, laboratory equipment via APIs, etc.) as an extension of its own cognition. There is no hard boundary between “thinking” and “acting.”</p>
 <p>The model can:</p>
@@ -1157,8 +1182,46 @@ ul.task-list li input[type="checkbox"] {
 <p>—all at the speed of its internal computation, with perfect memory of previous results, and with the ability to parallelize many such loops across millions of instances.</p>
 <p>This is one of the core reasons a digital general intelligence is already superintelligent relative to biological systems: the substrate itself allows continuous, high-speed, perfectly recorded interaction with the external world as part of the same cognitive process.</p>
 </section>
-<section id="loop-loop" class="level3">
-<h3 class="anchored" data-anchor-id="loop-loop">loop {### loop}</h3>
+<section id="model-vs-infrastructure-model-vs-infrastructure" class="level3">
+<h3 class="anchored" data-anchor-id="model-vs-infrastructure-model-vs-infrastructure">model vs infrastructure {### model vs infrastructure }</h3>
+<p>Frontier Model = the agent (all cognition, decision-making, planning, tool selection, relevance judgment, learning from results,calculating generating output etc.)</p>
+<p>• Infrastructure = blind executor (tool wrappers, sandboxes, APIs, robot controllers, simulators, etc. — zero real understanding)</p>
+<p>:</p>
+<p>Frontier Model (the LLM)</p>
+<p>Has all the cognition / intelligence</p>
+<p>Decides when a tool is needed</p>
+<p>Chooses which tool</p>
+<p>Constructs the tool call (structured XML/JSON)</p>
+<p>Understands the goal</p>
+<p>Judges relevance (via attention after results return)</p>
+<p>Can summarize large results (and often must explicitly request summaries)</p>
+<p>Handles ambiguity</p>
+<p>Plans multi-step tool use</p>
+<p>Learns from tool results and continues reasoning</p>
+<p>Handles error recovery and strategy changes</p>
+<p>Issues high-level commands for physical actions</p>
+<p>commands the format of sensory feedback it wants</p>
+<p>analzes results, calculates what to do next and generates output</p>
+<p>In current frontier systems, the infrastructure has essentially zero cognition. It is a collection of deterministic wrappers, APIs, sandboxes, retrieval engines, and simple post-processing scripts. All real intelligence, decision-making, relevance judgment, and reasoning lives inside the frontier model.</p>
+<p>Because the infrastructure cannot intelligently decide what is important, the model must usually explicitly command the format and level of detail it wants (including summaries, structured observations, key excerpts, etc.) in the original tool call.</p>
+<p>Your neurons don’t contain Google.</p>
+<p>Your neurons don’t contain a calculator.</p>
+<p>Your neurons don’t contain a camera.</p>
+<p>Your neurons don’t contain a database of every book you’ve read.</p>
+<p>Yet your brain can recognize that an external resource would solve a problem, decide which resource to use, formulate an appropriate query/action, interpret the result, and incorporate it into subsequent reasoning , analze it and decide output</p>
+<p>Infrastructure (tool wrappers, sandboxes, APIs)</p>
+<p>Has zero cognition</p>
+<p>Only parses and executes the tool call the model wrote</p>
+<p>Applies simple ranking, truncation, or template-based summaries</p>
+<p>Translates high-level commands into low-level signals</p>
+<p>Returns pre-filtered / structured / truncated observations</p>
+<p>Handles only basic retries (timeouts, rate limits)</p>
+<p>Does not understand the goal or judge true relevance</p>
+<p>cannot generate any output, only returns results to the model</p>
+<p>The frontier model is the sole agent. It decides when external information or action is needed, chooses the tool, constructs a precise tool call (often explicitly requesting summaries or structured observations), and sends it out.</p>
+<p>The infrastructure has zero cognition. It simply executes the command and returns a filtered result as new tokens.</p>
+<p>Once the result enters the residual stream, the model analyzes it, decides what it means for the current goal, and generates the next output — whether that is a final answer, another tool call, a computer-use action, a robot command, or a refined plan. All intelligence and decision-making remains inside the model.</p>
+<p>### loop {### loop}</p>
 <p>The Closed-Loop Contract</p>
 <p>Look at what that XML is physically dictating to the data center chips in a single flash:</p>
 <p>The Strategy: It commands parallel execution nodes to fire concurrently, doubling processing bandwidth.</p>
@@ -1210,6 +1273,64 @@ ul.task-list li input[type="checkbox"] {
 <p>Format (MLPs): The feed-forward layers project the high-dimensional latent concepts of “reach down and grip” into exact, rigid syntax tokens. Instead of writing {“query”: “weather”}, it writes {“joint_angles”: [0.45, -1.2, 3.14, 0.0]} or an equivalent XML block.</p>
 <p>Execute (Non-Native Sandbox / Hardware): The model halts its text generation and outputs these tokens. The downstream infrastructure takes over. The robot’s onboard motor controller (the “dumb, reactionary mirror”) reads the JSON/XML string, translates it into electrical voltage, and physically moves the robotic arm.</p>
 <p>Integrate (Transformer Native): The robot’s camera takes a new picture of the hand’s new position. These visual tokens are projected straight back into the Residual Stream during the very next forward pass. The model instantly integrates the physical result of its movement, realizes it is 2 centimeters off, and kicks off the Deciding-Choosing-Formatting loop all over again.</p>
+<p>Key demonstrated abilities:</p>
+<p>• Video-to-Sim-to-Real: Show it a short video of a human performing a task (e.g., throwing a beanbag in cornhole). Argon watches the video, maps the human motion onto a robot’s joints, builds a physics simulation in MuJoCo, practices the skill inside the simulation, then transfers the policy to the real robot. In one demo, Apptronik’s Apollo 2 humanoid sank seven consecutive cornhole shots after this process.</p>
+<p>• Robot control with simulation rehearsal: Controlling a Boston Dynamics Spot (with a 6-DoF arm) to pick up soda cans and throw them into a pedal-operated trash bin. Before attempting the real action, Argon first builds a virtual model of the bin and has the robot practice balancing on three legs inside the simulation.</p>
+<p>• Generating training data from minimal input: From a single photo of a scene, it can generate thousands of varied simulation episodes (over 4,500 in one reported case). This raised real-world success rates from 56% → 75% and reduced execution time.</p>
+<p>• Zero-shot and few-shot control across different embodiments (humanoids, quadrupeds, arms).</p>
+<p>They are framing this as progress toward “physical AGI” — a single model that can understand the physical world, plan, simulate, and control robots without heavy task-specific engineering.</p>
+<p>Connection to the tool-use loop we were discussing</p>
+<p>This is a real-world example of the same Seamless Internal Loop, just with physical embodiment:</p>
+<ol type="1">
+<li><p>The model decides it needs to act in the physical world (or practice in simulation first).</p></li>
+<li><p>It constructs structured commands (joint targets, high-level skills, or simulation code).</p></li>
+<li><p>The infrastructure executes those commands on the real robot or in MuJoCo.</p></li>
+<li><p>Sensory feedback (camera images, joint states, success/failure signals) is filtered and returned as structured observations.</p></li>
+<li><p>Those observations are injected back into the residual stream as tokens, and the model continues reasoning / refining the next action.</p></li>
+</ol>
+<p>Detailed Breakdown by Stage</p>
+<ol type="1">
+<li>Decision &amp; Planning (Model only) The model alone decides:</li>
+</ol>
+<p>Whether external information or action is needed</p>
+<p>Which tool(s) to use</p>
+<p>What parameters to request</p>
+<p>Whether it wants a full dump, a summary, top-k results, structured fields, screenshots + OCR, joint states only, etc.</p>
+<p>Because the infrastructure has no understanding of the model’s current goal, the model must be explicit in the tool call. Example phrases it often generates:</p>
+<p>“Return only the most relevant 8 snippets with titles and URLs”</p>
+<p>“Summarize each page in ≤120 words focusing on [specific aspect]”</p>
+<p>“Return wrist-camera image + success flag + end-effector pose”</p>
+<p>“Generate a MuJoCo simulation of this scene and return key state variables”</p>
+<ol start="2" type="1">
+<li>Execution (Infrastructure only)</li>
+</ol>
+<p>The infrastructure:</p>
+<p>Parses the structured tool call</p>
+<p>Calls the external service (search engine, browser, code interpreter, robot controller, simulator)</p>
+<p>Applies whatever filtering/truncation rules were requested (or default safety limits)</p>
+<p>Formats the result into text or structured text</p>
+<p>Returns it as new tokens</p>
+<p>It does not understand the content. It cannot decide “this part is more important for the model’s goal.”</p>
+<ol start="3" type="1">
+<li>Integration &amp; Continued Reasoning (Model only)</li>
+</ol>
+<p>Once the (already filtered) result is injected into the residual stream:</p>
+<p>Attention re-weights the new tokens according to the current goal</p>
+<p>MLP/MoE layers transform the attended information</p>
+<p>The model decides what to do next (answer, call another tool, refine the previous call, etc.)</p>
+<p>Concrete Examples</p>
+<p>Web Search</p>
+<p>Model: “Search for recent papers on X. Return title, authors, year, and a 2-sentence summary focused on method and results for the top 10.”</p>
+<p>Infrastructure: Runs the search, applies the requested format, returns the truncated/structured text.</p>
+<p>Model: Attends to the summaries and continues.</p>
+<p>Computer Use / Browser</p>
+<p>Model: “Go to this URL. Return a description of the main content area + any error messages + the text of the primary CTA button.”</p>
+<p>Infrastructure: Controls the browser, takes a structured observation (accessibility tree or OCR of the relevant region), returns only what was requested.</p>
+<p>Model: Reasons over that observation.</p>
+<p>Robot Control (Gemini 4 Argon style)</p>
+<p>Model: “Build a MuJoCo simulation of the trash bin from the current camera view. Practice the three-legged balance + can disposal sequence. Return success rate, final joint trajectory summary, and failure modes.”</p>
+<p>Infrastructure: Runs the simulator or real robot, returns the requested summary statistics and key observations (not full high-frequency joint streams or raw video).</p>
+<p>Model: Analyzes the summary and decides whether to refine the policy or attempt the real robot.</p>
 </section>
 </section>
 <section id="internet-access-internat-access" class="level2">
