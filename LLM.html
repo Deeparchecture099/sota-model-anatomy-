@@ -1088,7 +1088,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Still inside the same forward pass, the model generates a structured function call, almost always in XML or JSON format.</p>
 <p>This is a specialized form of next-token prediction. The model has been heavily trained to produce syntactically valid, well-formed tool calls. The MLP layers play a particularly important role here: they expand the representation into a higher-dimensional feature space where the precise syntax, parameters, and structure of the call can be constructed, then compress it back into the hidden dimension so the output head can emit the tokens.</p>
 <p>A single tool call can be quite rich. It may contain:</p>
-<p>• Multiple queries(web search) or action commands(computer use) or controlling Humanoid robots</p>
+<p>• Multiple queries(web search) or action commands(computer use) or controlling Humanoid robots or lab equipment</p>
 <p>• Detailed parameters (search strings, file paths, timeouts, retry policies, temperature settings, precise action commands for computers and humaniod robots etc.)</p>
 <p>• Parallel tool calls when useful</p>
 <p>• Conditional logic or follow-up instructions</p>
@@ -1197,6 +1197,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Can summarize large results (and often must explicitly request summaries)</p>
 <p>Handles ambiguity</p>
 <p>Plans multi-step tool use</p>
+<p>can use tools for multiple hours while completing tassks</p>
 <p>Learns from tool results and continues reasoning</p>
 <p>Handles error recovery and strategy changes</p>
 <p>Issues high-level commands for physical actions</p>
@@ -1204,11 +1205,6 @@ ul.task-list li input[type="checkbox"] {
 <p>analzes results, calculates what to do next and generates output</p>
 <p>In current frontier systems, the infrastructure has essentially zero cognition. It is a collection of deterministic wrappers, APIs, sandboxes, retrieval engines, and simple post-processing scripts. All real intelligence, decision-making, relevance judgment, and reasoning lives inside the frontier model.</p>
 <p>Because the infrastructure cannot intelligently decide what is important, the model must usually explicitly command the format and level of detail it wants (including summaries, structured observations, key excerpts, etc.) in the original tool call.</p>
-<p>Your neurons don’t contain Google.</p>
-<p>Your neurons don’t contain a calculator.</p>
-<p>Your neurons don’t contain a camera.</p>
-<p>Your neurons don’t contain a database of every book you’ve read.</p>
-<p>Yet your brain can recognize that an external resource would solve a problem, decide which resource to use, formulate an appropriate query/action, interpret the result, and incorporate it into subsequent reasoning , analze it and decide output</p>
 <p>Infrastructure (tool wrappers, sandboxes, APIs)</p>
 <p>Has zero cognition</p>
 <p>Only parses and executes the tool call the model wrote</p>
