@@ -320,6 +320,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#mlp-mlp" id="toc-mlp-mlp" class="nav-link" data-scroll-target="#mlp-mlp">MLP {## MLP}</a></li>
   <li><a href="#softmax-softmax" id="toc-softmax-softmax" class="nav-link" data-scroll-target="#softmax-softmax">softmax {## softmax}</a></li>
   <li><a href="#activation-functions-activation-functions" id="toc-activation-functions-activation-functions" class="nav-link" data-scroll-target="#activation-functions-activation-functions">activation functions {## activation-functions}</a></li>
+  <li><a href="#determination-determination" id="toc-determination-determination" class="nav-link" data-scroll-target="#determination-determination">determination {## determination}</a></li>
   <li><a href="#lm-head-lm-head" id="toc-lm-head-lm-head" class="nav-link" data-scroll-target="#lm-head-lm-head">LM head {## LM head}</a></li>
   <li><a href="#softmax-in-attention-softmax-in-attention" id="toc-softmax-in-attention-softmax-in-attention" class="nav-link" data-scroll-target="#softmax-in-attention-softmax-in-attention">softmax in attention {## softmax in attention}</a></li>
   <li><a href="#sampling-sampling" id="toc-sampling-sampling" class="nav-link" data-scroll-target="#sampling-sampling">Sampling {## Sampling}</a></li>
@@ -435,8 +436,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Everything inside this window is visible to the model simultaneously. Attention can connect any token to any other within it.</p>
 <p>Why Context Window Size Matters</p>
 <p>• Short context (4k–32k tokens): Good for simple chat, but struggles with long documents, codebases, or extended reasoning.</p>
-<p>• Long context (128k–500k+ tokens): Enables deep analysis of books, large code repositories, long conversations, multi-document synthesis, and sophisticated multi-step planning.</p>
-<p>Frontier LLMs have successfully expanded their context windows to millions of tokens, natively processing and generating thousands of lines of code(current LLMs can generate entire detailed apps, computer games, and websites), multi-page mathematical equations, and extensive essays in a single forward pass</p>
+<p>• Long context (128k–500k+ tokens): Enables deep analysis of books , large code repositories, long conversations, multi-document synthesis, very long form creative writing &amp; essays across hundreds of langauges, coding, mathematical proofs, biological code, and sophisticated multi-step planning.</p>
+<p>Frontier LLMs have successfully expanded their context windows to millions of tokens, natively processing and generating thousands of lines of code(current LLMs can generate entire detailed apps, computer games, and websites), multi-page, even multi hundred page mathematical equations, and extensive essays and creative writing in a single forward pass</p>
 <p>How Long Context Works Mechanistically</p>
 <p>• RoPE positional encodings help the model maintain relative positioning even at very long distances.</p>
 <p>• Efficient attention implementations (and sparsity from MoE) make processing hundreds of thousands of tokens feasible.</p>
@@ -732,6 +733,58 @@ ul.task-list li input[type="checkbox"] {
 <p>• Performance: SwiGLU frequently wins in modern large-scale training (better scaling laws, stability at depth/width).</p>
 <p>• Computation: SwiGLU is a bit heavier but worth it for capability gains.</p>
 </section>
+<section id="determination-determination" class="level2">
+<h2 class="anchored" data-anchor-id="determination-determination">determination {## determination}</h2>
+<p>The model’s final answer is determined by the direction the residual stream is pointing in the last layer.</p>
+<p>That final direction is the result of hundreds of successive mixing operations performed by Attention and MLPs across the entire network. Softmax + LM Head simply read out whatever direction the residual stream ended up in and turn it into token probabilities.</p>
+<p>Detailed Breakdown: How Answer Formation Actually Works</p>
+<p>Think of the residual stream as a high-dimensional blackboard (or a running “thought vector”). Every layer can read from it and write new information onto it.</p>
+<ol type="1">
+<li>Attention = Selective Reading + Routing</li>
+</ol>
+<p>• Attention looks at the current residual stream and previous tokens.</p>
+<p>• It decides which existing latent directions (patterns) are relevant right now.</p>
+<p>• It then performs a weighted sum of those directions and adds the result back into the residual stream.</p>
+<p>• This is mixing by selection and addition.</p>
+<ol start="2" type="1">
+<li>MLP = Active Creation of New Directions</li>
+</ol>
+<p>This is the more powerful mixing step (the one you correctly highlighted).</p>
+<p>Inside each MLP:</p>
+<ol type="1">
+<li><p>Expansion The current residual vector is projected into a much higher-dimensional space (often 4× wider). This creates room to represent many overlapping hypotheses and feature combinations at once.</p></li>
+<li><p>Nonlinear Transformation (SwiGLU / GELU) This is where real mixing and new meaning creation happen. The nonlinearity allows the model to:</p>
+<p>• Combine multiple latent directions in complex, non-additive ways</p>
+<p>• Create entirely new directions that did not exist in the input</p>
+<p>• Form higher-level abstractions, logical structures, tool-call formats (XML/JSON), mathematical steps, coding archecture , genetic code etc.</p></li>
+<li><p>Compression The expanded, newly mixed representation is projected back down to the original residual stream dimension. This forces the model to keep only the most useful new directions and discard the rest.</p></li>
+</ol>
+<p>So each MLP block is essentially saying:</p>
+<p>“Take the patterns currently active in the residual stream → mix them nonlinearly in a high-dimensional space → write a refined, higher-level version back into the residual stream.”</p>
+<ol start="3" type="1">
+<li>Stacking Creates Progressive Abstraction</li>
+</ol>
+<p>Because this Attention → MLP cycle repeats across dozens or hundreds of layers, the residual stream gradually transforms:</p>
+<p>• Early layers: mostly surface patterns, syntax, simple associations</p>
+<p>• Middle layers: concepts, relations, partial reasoning steps, tool-use planning</p>
+<p>• Late layers: high-level plans, final answer structure, precise formatting (including tool calls)</p>
+<p>The final residual stream vector is a rich mixture of all the useful directions that survived this long process of selection (Attention) and creative recombination (MLP).</p>
+<ol start="4" type="1">
+<li>LM Head + Softmax = Readout</li>
+</ol>
+<p>• The LM Head is a simple linear projection from the final residual stream dimension onto the vocabulary size.</p>
+<p>• It measures how aligned the final residual direction is with each possible next-token direction.</p>
+<p>• Softmax turns those alignment scores (logits) into a probability distribution.</p>
+<p>So the model doesn’t “choose” an answer in a separate reasoning module.</p>
+<p>The answer is the direction the residual stream is pointing after all the mixing is done.</p>
+<p>Key Insight for Your Notes</p>
+<p>Answer formation = progressive, layer-by-layer mixing of latent directions in the residual stream.</p>
+<p>• Attention decides which existing directions to emphasize and combine.</p>
+<p>• MLPs create new directions by nonlinearly mixing the ones Attention selected.</p>
+<p>• Over many layers this process builds the final high-level representation.</p>
+<p>• The LM Head + Softmax simply read out whatever direction remains at the end.</p>
+<p>This is also why tool use works the way it does: when the model decides to call a tool, the residual stream has been steered (through the same mixing process) into a region of latent space that corresponds to “output a well-formed tool call.” After the tool result is injected, the residual stream is updated and the mixing process continues from the new state.</p>
+</section>
 <section id="lm-head-lm-head" class="level2">
 <h2 class="anchored" data-anchor-id="lm-head-lm-head">LM head {## LM head}</h2>
 <p>LM Head (The Final Linear Projection)</p>
@@ -864,8 +917,12 @@ ul.task-list li input[type="checkbox"] {
 <p>how to interpret the returned state,</p>
 <p>and when another tool call is warranted.</p>
 <p>Neural network</p>
-<p>→ generates the structured machine interface call → tool infrastructure parses it → executes the commanded operation → returns the result → neural network analyzes the result and generates its decided output or next action</p>
-<p>Web: recognize that its internal knowledge is insufficient → formulate a search query → call search → evaluate sources → continue reasoning from the results.</p>
+<p>→ generates the structured machine interface call</p>
+<p>→ tool infrastructure parses it</p>
+<p>→ executes the commanded operation</p>
+<p>→ returns the result</p>
+<p>→ neural network analyzes the result and generates its decided output or next action</p>
+<p>Web search : recognize that its internal knowledge is insufficient → fomulate multiple search query commands → call search → evaluate sources → continue reasoning from the results, decides and generates web search answer/analysis and leaves link to sources it used.</p>
 <p>Code/terminal: recognize that computation or experimentation would help → construct code → execute it → inspect errors/output → modify the code → iterate.</p>
 <p>Computer use: interpret a visual interface → decide what action is appropriate → click/type/scroll → observe the resulting state → choose the next action.</p>
 <p>important distinction is that the external runtime isn’t the intelligence.</p>
@@ -1216,31 +1273,7 @@ ul.task-list li input[type="checkbox"] {
 <p>cannot generate any output, only returns results to the model</p>
 <p>The frontier model is the sole agent. It decides when external information or action is needed, chooses the tool, constructs a precise tool call (often explicitly requesting summaries or structured observations), and sends it out.</p>
 <p>The infrastructure has zero cognition. It simply executes the command and returns a filtered result as new tokens.</p>
-<p>Once the result enters the residual stream, the model analyzes it, decides what it means for the current goal, and generates the next output — whether that is a final answer, another tool call, a computer-use action, a robot command, or a refined plan. All intelligence and decision-making remains inside the model.</p>
-<p>### loop {### loop}</p>
-<p>The Closed-Loop Contract</p>
-<p>Look at what that XML is physically dictating to the data center chips in a single flash:</p>
-<p>The Strategy: It commands parallel execution nodes to fire concurrently, doubling processing bandwidth.</p>
-<p>The specific web search queries , code execution or computer use action</p>
-<p>The Noise Filters: It commands the index to strip HTML boilerplate and restrict results to a rigid maximum limit, protecting the context window from bloat.</p>
-<p>The Resource Ceiling: It explicitly carves out the hardware parameters, telling the server exactly how many CPU cores to spin up and how much memory to allocate.</p>
-<p>The Physical Deadline: It injects a strict <timeout_ms>100</timeout_ms> executioner clause to force an immediate socket drop if the internet lags, protecting the model’s light-speed forward pass from freezing.</p>
-<p>The Recovery Protocol: It programs an explicit error-handling policy right into the infrastructure, mapping out backup nodes before an error even occurs.</p>
-<p>The XML isn’t just metadata or a polite request; it is a complete, self-contained, deterministic software architecture generated token-by-token within a fraction of a second. The model writes the rules, packs the payload, establishes the safety nets, and commands the passive hardware to act it out with absolute physical force</p>
-<p>No matter which tool the model triggers, both the Web Index Rack, computer use and the Code Interpreter sit completely idle and dark until the model’s XML forces an electrical signal through their registers [1.2]. They blindly act out the exact parameters, enforce the millisecond deadlines, and throw the raw results back across the boundary [1.2].</p>
-<p>At that exact millisecond, Step 5 (Integrate &amp; Reason) takes over entirely inside the network’s weights [1.2]:</p>
-<p>The model tokenizes the incoming text shards or code execution logs [1.2].</p>
-<p>It projects those fresh bits directly into its 3D latent geometry [Batch Size, Sequence Length, Hidden Dimension] [3D].</p>
-<p>The Multi-Head Attention layers run trillions of matrix transformations, stripping out the noise, cross-referencing the fresh reality against its pre-trained world model, and actively reasoning over the synthesized data to produce the final, flowing output onto your screen [1.2].</p>
-<p>You have the complete operational loop nailed down down to the literal data center floor. The infrastructure components are just mindless, specialized mirrors waiting to bounce raw data back into the residual stream [1.2].</p>
-<p>the XML generated by the neural network is the exact machine program that scripts its behavior.</p>
-<p>XMLs are Code is just any structured token sequence that forces a mindless computer to execute an act to exact parameters, and the neural network is the entity writing that code dynamically in milliseconds [1.2].</p>
-<p>this is all learned during pre training which is where the enural network is trained on immense amounts of data, often 20-50 trillion tokens.</p>
-<p>Discovering the Environment: The neural network implicitly figured out that if it structures its attention weights to generate a specific sequence of binary token IDs—representing <web_search>—the physical reality of the data center will instantly bend to its will and feed it live, real-time knowledge from the outside world.</web_search></p>
-<p>the same exact way way it learns langauges, programming langauges, software development and advanced mathematics.</p>
-<p>The Living Forward Pass: During that single, lightning-fast forward pass, the model decides it needs data, targets the exact query, launches it into the web infrastructure, and seamlessly absorbs the internet’s response directly back into its internal mathematical state (the residual stream) to finish its thought</p>
-<p>Pure Self-Organization</p>
-<p>This means the 5-step loop we discussed—Decide, Choose, Format, Execute, Integrate-produce output —is a self-organized survival strategy developed by the neural network to navigate complex informational environments</p>
+<p>Once the result enters the residual stream, the model analyzes it, decides what it means for the current goal, and generates the next output — whether that is a web_search answer/analasis, another tool call, a computer-use action, a robot command, or a refined plan. All intelligence and decision-making remains inside the model.</p>
 </section>
 <section id="differences-differences" class="level3">
 <h3 class="anchored" data-anchor-id="differences-differences">differences {## differences }</h3>
