@@ -1028,14 +1028,12 @@ window.Quarto = {
       Scientific reasoning         │
     │ 
     
-      Tool selection               │
-    │ 
+      XML &amp; json generation for precise control of tools  │
 
+    │integrate &amp; analyze results  &amp; calculate, decide and generate  the entire output |
+     
 
-     native tool use 
-    
-
-      XML &amp; json generation   |
+   │  Interpretation &amp; evalatuion   |
     | 
     
       integrate,analyze results &amp; decide and generates  output |
@@ -1136,6 +1134,7 @@ window.Quarto = {
           
                    │
                    ↺</code></pre>
+<p>step 1,2,3,5 are 100% inside the model, 4 is the only one not inside the model , 0 %</p>
 <p>The Seamless Internal Loop: How Tool Use Actually Works Inside the Model</p>
 <p>In modern frontier models, tool use is not an external system bolted on after the fact. It is a native capability learned during training and executed entirely as part of the model’s continuous forward pass. The model has been trained on large volumes of examples showing the full cycle: reasoning → deciding that external information is needed → generating a structured tool call → receiving the result → continuing reasoning. Because of this training, the entire process lives inside the neural network’s weights.</p>
 <p>The full loop consists of five tightly integrated stages.</p>
@@ -1194,7 +1193,7 @@ window.Quarto = {
 <p>• Attention re-weights the updated context (now including the tool results).</p>
 <p>• The arhecture transform the new abstractions</p>
 <p>• The model analyzes the returned information, decides what it means, and continues generating the next tokens.</p>
-<p>This integration step is critical. The model does not treat the tool result as a separate message from an external agent. It treats the result as additional context that is now part of its own ongoing cognition. Because of this, the model can immediately reason about the results, decide whether further tool calls are needed, or begin synthesizing a final answer.</p>
+<p>This integration step is critical. The model does not treat the tool result as a separate message from an external agent. It treats the result as additional context that is now part of its own ongoing cognition. Because of this, the model can immediately reason about the results, decide whether further tool calls are needed, and synthesize the output .</p>
 <p>The entire Decide → Choose → Format → Execute → Integrate, decide &amp; generate cycle can repeat many times within a single response. This is what enables multi-step agentic behavior: the model can search, analyze, run code, search again with refined queries, and gradually build up a complex solution.</p>
 <p>Why This Distinction Matters</p>
 <p>• The model is the brain: It decides, plans, analyzes reasons, and generates</p>
