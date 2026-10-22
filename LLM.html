@@ -388,7 +388,7 @@ ul.task-list li input[type="checkbox"] {
 <p>• Scale: Trillions of tokens, hundreds of thousands of GPUs, months of continuous training.</p>
 <p>• Data Mixture: Carefully curated blend emphasizing high-quality sources (science, code, math) alongside broad internet text.</p>
 <p>• No Explicit Supervision: The model is never told “this is a fact” or “this is how to reason.” It discovers everything through the prediction objective.</p>
-<p>• Emergent Abilities: Capabilities like basic arithmetic to understanding &amp; solving advanced levels of mathematics(algebra, trig, geometry, calculus, discrte math etc ), reading , generation &amp; translation across various langauges(english,spanish,chinese,french,italian, greek,russian etc ) , all major coding langauges(Python, JavaScript, C++, and Rust) ), code generation &amp; full scale software development, advanced zero day exploitations , native tool use (web search, code execution &amp; multi hour computer use and robot control ), biological code generation(CTAG), and in-context learning appear as byproducts of scale and data diversity.</p>
+<p>• Emergent Abilities: Capabilities like basic arithmetic to understanding &amp; solving advanced levels of mathematics(algebra, trig, geometry, calculus, discrte math etc ), fluent writing , reading, &amp; translation across various langauges(english,spanish,chinese,french,italian, greek,russian etc ) , all major coding langauges(Python, JavaScript, C++, and Rust) ), code generation &amp; full scale software development, advanced zero day exploitations , native tool use (web search, code execution &amp; multi hour computer use and robot control ), biological code generation(CTAG), and in-context learning appear as byproducts of scale and data diversity.</p>
 <p>Pre-Training vs Post-Training: A Common Misconception</p>
 <p>A frequent misunderstanding is that the model “learns a lot” during post-training. This is not accurate.</p>
 <p>Pre-training is where the the vast majority of intelligence is acquired. The model builds its core knowledge, patterns, reasoning shortcuts, and latent representations through massive next-token prediction on diverse data. This is where the heavy lifting of learning happens.</p>
@@ -436,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Everything inside this window is visible to the model simultaneously. Attention can connect any token to any other within it.</p>
 <p>Why Context Window Size Matters</p>
 <p>• Short context (4k–32k tokens): Good for simple chat, but struggles with long documents, codebases, or extended reasoning.</p>
-<p>• Long context (128k–500k+ tokens): Enables deep analysis of books , large code repositories, long conversations, multi-document synthesis, very long form creative writing &amp; essays across hundreds of langauges, coding, mathematical proofs, biological code, and sophisticated multi-step planning.</p>
+<p>• Long context (128k–500k+ tokens): Enables everything from concise responses to , deep analysis of books , large code repositories, long conversations, multi-document synthesis, very long form creative writing &amp; essays across hundreds of langauges, coding, mathematical proofs, biological code, and sophisticated multi-step planning.</p>
 <p>Frontier LLMs have successfully expanded their context windows to millions of tokens, natively processing and generating thousands of lines of code(current LLMs can generate entire detailed apps, computer games, and websites), multi-page, even multi hundred page mathematical equations, and extensive essays and creative writing in a single forward pass</p>
 <p>How Long Context Works Mechanistically</p>
 <p>• RoPE positional encodings help the model maintain relative positioning even at very long distances.</p>
@@ -450,8 +450,21 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="scale-scale">scale {##scale}</h2>
 <p>Grok 4.5 is a scaled Transformer / MoE. At core, nothing more.</p>
 <p>Power Sources (the repeating loop)</p>
-<p>Depth: 100–200 transfomer layers successively refining meaning. Width: Thousands of dimensions where patterns live and interact. Residual stacking: New meaning accumulates on top of prior representations. Attention: Pattern weighting, selection, and extraction. MLPs: Pattern expansion, composition, and binding. MoE routing: Sparse, specialized transformation via expert selection. LayerNorm + Softmax: Stabilization and distribution smoothing. What each actually does (no hype)</p>
-<p>Attention — Pattern weighting / selection / extraction. Not causal reasoning. Residual Streams — Pattern accumulation and mixing. Not causal logic propagation. LayerNorm — Pattern stabilization. Not logical constraint enforcement. MLPs — Pattern expansion / composition / binding. Not symbolic constraint evaluation. Router (MoE) — Pattern-dependent expert selection. Not meta-reasoning. Softmax — Distribution smoothing. This exact loop repeats across massive scale. Grok 4.5 pushes it to ~1.5 trillion total parameters on the V9 foundation (active params lower due to sparsity).</p>
+<p>Depth: 100–200 transfomer layers successively refining meaning.</p>
+<p>Width: Thousands of dimensions where patterns live and interact.</p>
+<p>Residual stacking: New meaning accumulates on top of prior representations.</p>
+<p>Attention: Pattern weighting, selection, and extraction.</p>
+<p>MLPs: Pattern expansion, composition, and binding.</p>
+<p>MoE routing: Sparse, specialized transformation via expert selection.</p>
+<p>LayerNorm + Softmax: Stabilization and distribution smoothing.</p>
+<p>What each actually does (no hype)</p>
+<p>Attention — Pattern weighting / selection / extraction. Not causal reasoning.</p>
+<p>Residual Streams — Pattern accumulation and mixing. Not causal logic propagation.</p>
+<p>LayerNorm — Pattern stabilization. Not logical constraint enforcement.</p>
+<p>MLPs — Pattern expansion / composition / binding. Not symbolic constraint evaluation.</p>
+<p>Router (MoE) — Pattern-dependent expert selection. Not meta-reasoning.</p>
+<p>Softmax — Distribution smoothing.</p>
+<p>This exact loop repeats across massive scale. Grok 4.5 pushes it to ~1.5 trillion total parameters on the V9 foundation (active params lower due to sparsity).</p>
 <p>Training Data Reality</p>
 <p>Everything flattens into one unified 1D token stream: natural language (hundreds of languages), scientific literature (biology, genetics, chemistry, physics), mathematical proofs, code across all languages, historical texts, and domain-specific corpora. No modular separation — all knowledge encoded as statistical patterns in the same latent geometry.</p>
 </section>
@@ -1026,7 +1039,7 @@ ul.task-list li input[type="checkbox"] {
 
       working memory       │
       
-    advanced code generation(app, website , neural network and game creation)
+    advanced code generation(app, website , neural network and game creation) + exploiting zero days 
 
     fluent understanding of hundreds of langauges
     
@@ -1042,7 +1055,7 @@ ul.task-list li input[type="checkbox"] {
       
     Learning
 
-    context window 
+    context window( often 500k- few million tokens enabeling everhting from concise reposes to immensley long outputs &amp; long conversations )
 
   Mathematics understanding &amp; solving 
     └──────────┬───────────┘
