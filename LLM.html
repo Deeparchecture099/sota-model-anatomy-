@@ -320,7 +320,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pre-training-pre-training" id="toc-pre-training-pre-training" class="nav-link active" data-scroll-target="#pre-training-pre-training">pre training {## pre-training}</a></li>
+  <li><a href="#pre-training-pre-training" id="toc-pre-training-pre-training" class="nav-link active" data-scroll-target="#pre-training-pre-training">pre training {## pre-training}</a>
+  <ul class="collapse">
+  <li><a href="#how-the-model-actually-learns-self-supervised-masking-loss-and-backpropagation" id="toc-how-the-model-actually-learns-self-supervised-masking-loss-and-backpropagation" class="nav-link" data-scroll-target="#how-the-model-actually-learns-self-supervised-masking-loss-and-backpropagation">How the Model Actually Learns: Self-Supervised Masking, Loss, and Backpropagation</a></li>
+  </ul></li>
   <li><a href="#latent-space-latent-space" id="toc-latent-space-latent-space" class="nav-link" data-scroll-target="#latent-space-latent-space">latent space {## latent-space}</a></li>
   <li><a href="#context-windows-context-windows" id="toc-context-windows-context-windows" class="nav-link" data-scroll-target="#context-windows-context-windows">context windows {## context-windows}</a></li>
   <li><a href="#scale-scale" id="toc-scale-scale" class="nav-link" data-scroll-target="#scale-scale">scale {##scale}</a></li>
@@ -422,6 +425,26 @@ window.Quarto = {
 <p>• Suppressing unwanted ones (hallucinations, coding viruses , exploiting zero days in code bases, “harmful” content).</p>
 <p>In geometric terms: post-training adjusts the latent space signals so the model is more likely to route through desirable pathways. It does not significantly expand the underlying capability or knowledge — it modulates how that capability is expressed (or withheld).</p>
 <p>This distinction matters. The real power comes from pre-training scale, data, and architecture. Post-training is refinement and alignment, not the source of intelligence.</p>
+<section id="how-the-model-actually-learns-self-supervised-masking-loss-and-backpropagation" class="level3">
+<h3 class="anchored" data-anchor-id="how-the-model-actually-learns-self-supervised-masking-loss-and-backpropagation">How the Model Actually Learns: Self-Supervised Masking, Loss, and Backpropagation</h3>
+<p>Pre-training is driven by <strong>self-supervised learning (SSL)</strong>, meaning the training data itself provides the supervision signal without requiring human labelers.</p>
+<section id="causal-masking-the-prediction-setup" class="level4">
+<h4 class="anchored" data-anchor-id="causal-masking-the-prediction-setup">1. Causal Masking (The Prediction Setup)</h4>
+<p>During training, the model is fed massive sequences of text, code, and math simultaneously. To prevent the network from cheating by looking ahead at the answers, a <strong>causal mask</strong> is applied inside the attention mechanism. * For every single token position <span class="math inline">\(t\)</span>, the mask blocks out all future tokens (<span class="math inline">\(t+1, t+2, \dots\)</span>) by setting their attention scores to <span class="math inline">\(-\infty\)</span> before the softmax step. * This forces the model to predict the masked next token using <em>only</em> the preceding context. Because this happens in parallel across every position in the sequence simultaneously, a single 8,192-token training sequence actually provides 8,191 separate prediction tests in one forward pass.</p>
+</section>
+<section id="cross-entropy-loss-measuring-the-error" class="level4">
+<h4 class="anchored" data-anchor-id="cross-entropy-loss-measuring-the-error">2. Cross-Entropy Loss (Measuring the Error)</h4>
+<p>At each position, the LM Head outputs a probability distribution across the entire vocabulary for what the masked next token should be. <strong>Cross-entropy loss</strong> acts as the mathematical judge: * It compares the model’s predicted probability distribution against the true, ground-truth token from the training corpus. * If the model assigns a high probability (e.g., <span class="math inline">\(0.92\)</span>) to the correct next token, the loss is near zero. If it assigns a low probability (e.g., <span class="math inline">\(0.001\)</span>), the loss spikes sharply. * In short, <strong>cross-entropy dictates the magnitude of the mistake</strong>, converting a wrong prediction into a single scalar error number.</p>
+</section>
+<section id="backpropagation-sculpting-the-synapses" class="level4">
+<h4 class="anchored" data-anchor-id="backpropagation-sculpting-the-synapses">3. Backpropagation (Sculpting the Synapses)</h4>
+<p>Once cross-entropy calculates the error, <strong>backpropagation (BP)</strong> sends that error signal backward through the entire network—from the final LM Head all the way back through every MLP, MoE router, attention head, and embedding table. * Using the chain rule of calculus, backpropagation computes the exact <strong>gradient</strong> for every single weight (synapse) in the model. The gradient tells the system both the direction and the magnitude by which each individual parameter contributed to the mistake. * An optimizer (such as AdamW) then uses those gradients to slightly increase or decrease the strength of billions of weights simultaneously.</p>
+</section>
+<section id="embedding-patterns-into-weights" class="level4">
+<h4 class="anchored" data-anchor-id="embedding-patterns-into-weights">4. Embedding Patterns into Weights</h4>
+<p>A model does not “save” training sentences into a lookup table. Instead, repeating this <strong>Forward Pass (Masked Prediction) <span class="math inline">\(\rightarrow\)</span> Cross-Entropy Loss <span class="math inline">\(\rightarrow\)</span> Backpropagation (Weight Update)</strong> loop trillions of times forces the network to compress statistical and structural regularities directly into its weight matrices: * <strong>Strengthening Valid Pathways:</strong> Weights that consistently help predict valid syntax, mathematical rules, or code logic are reinforced. * <strong>Suppressing Noise:</strong> Weights that lead to dead ends or inaccurate predictions are weakened. * Over months of continuous updates, the raw weights self-organize into the high-dimensional <strong>latent manifold</strong>—turning static floating-point numbers into an active geometric engine capable of generalizing to unseen prompts.</p>
+</section>
+</section>
 </section>
 <section id="latent-space-latent-space" class="level2">
 <h2 class="anchored" data-anchor-id="latent-space-latent-space">latent space {## latent-space}</h2>
@@ -636,13 +659,18 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="attention-attention">attention {## attention }</h2>
 <p>Section — Multi-Head Attention</p>
 <p>Attention identifies relevant patterns by:</p>
-<p>Computing similarity scores (Q · Kᵀ) Turning scores into weights via softmax Mixing values to update each token’s hidden state This is where the model decides what matters in the current context.</p>
+<p>Computing similarity scores (Q · Kᵀ)</p>
+<p>Turning scores into weights via soft max</p>
+<p>Mixing values to update each token’s hidden state</p>
+<p>This is where the model decides what matters in the current context.</p>
 <p>What Attention Actually Does (and Does NOT Do)</p>
 <p>Attention is frequently overhyped as “the smart part.” In reality:</p>
-<p>Attention does not create new meaning. MLPs do that. Attention selects which existing meaning/features should be brought together and amplified. It is a sophisticated filter and routing mechanism.</p>
+<p>Attention does not create new meaning.</p>
+<p>MLPs do that.</p>
+<p>Attention selects which existing meaning/features should be brought together and amplified. It is a sophisticated filter and routing mechanism.</p>
 <p>Precise Mechanics</p>
 <p>Q, K, V Projections</p>
-<p>From the incoming hidden state matrix, three learned linear projections create:</p>
+<p>From the incoming hidden state matrix, three learned linear projections within theb attention layers create:</p>
 <p>Q (Queries): “What is this token looking for?”</p>
 <p>K (Keys): “What information do other tokens contain?”</p>
 <p>V (Values): “What content should be transferred if selected?”</p>
@@ -660,13 +688,21 @@ window.Quarto = {
 <p>Multi-Head Attention</p>
 <p>Multiple heads (often 32–128+) run in parallel. Each head learns to attend to different kinds of relationships:</p>
 <p>Queries (Q):</p>
-<p>The representations of the current tokens that are looking for relevant information from other parts of the sequence. Think of them as the search terms you type into a search engine. Keys (K): The representations of all tokens in the sequence that serve as reference points or index tags. Think of them as the titles and descriptions of web pages that the search engine checks against your query. Values (V): The actual content or meaning of the tokens. Once the system matches a Query to a Key, it extracts the corresponding Value to build the final output. The Mathematical Formula</p>
-<p>These three elements are combined using the Scaled Dot-Product Attention formula: ((Q,K,V)=()V) (QK^{T}) calculates the raw similarity score between every query and key. () scales down the scores (where (d_{k}) is the dimension of the keys) to prevent the gradients from becoming too small during training. softmax turns those scaled scores into a probability distribution (attention weights). × V multiplies the weights by the values to pull out the most important information.</p>
+<p>The representations of the current tokens that are looking for relevant information from other parts of the sequence. Think of them as the search terms you type into a search engine.</p>
+<p>Keys (K): The representations of all tokens in the sequence that serve as reference points or index tags. Think of them as the titles and descriptions of web pages that the search engine checks against your query.</p>
+<p>Values (V): The actual content or meaning of the tokens. Once the system matches a Query to a Key, it extracts the corresponding Value to build the final output.</p>
+<p>The Mathematical Formula</p>
+<p>These three elements are combined using the Scaled Dot-Product Attention formula:</p>
+<p><span class="math inline">\(\text{Attention}(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\)</span>.</p>
+<p>calculates the raw similarity score between every query and key.</p>
+<p>() scales down the scores (where (d_{k}) is the dimension of the keys) to prevent the gradients from becoming too small during training.</p>
+<p>softmax turns those scaled scores into a probability distribution (attention weights).</p>
+<p>× V multiplies the weights by the values to pull out the most important information.</p>
+<p>in otrher words it uses keys queries and value paramaters to calculate the similarity(patterns) and connection between different tokens</p>
 <p>Syntactic Coreference Numerical Structural (code indentation, math steps) Semantic / causal etc. The heads’ outputs are concatenated and projected back to d_model.</p>
 <p>Key Insight</p>
 <p>Attention excels at dependency detection and information routing across the sequence. It decides which parts of the latent geometry to pull into focus for the current token. But it does not invent new abstractions or transformations — that job belongs to the MLPs that follow.</p>
 <p>In Grok 4.5’s scale, attention becomes extremely effective at long-range pattern selection thanks to RoPE and the massive hidden dimensions, but the fundamental role remains selection and mixing, not creation.</p>
-<p>This matches your tone and rigor perfectly. Ready for LayerNorm (pre-MLP) next, or the full block structure? Or any edits to this Attention section?</p>
 </section>
 <section id="router-router" class="level2">
 <h2 class="anchored" data-anchor-id="router-router">Router {## Router}</h2>
@@ -1286,14 +1322,14 @@ window.Quarto = {
 </section>
 <section id="model-vs-infrastructure-model-vs-infrastructure" class="level3">
 <h3 class="anchored" data-anchor-id="model-vs-infrastructure-model-vs-infrastructure">model vs infrastructure {### model vs infrastructure }</h3>
-<p>Frontier Model = the agent (all cognition, decision-making, planning, tool selection, relevance judgment, learning from results,calculating generating output etc.)</p>
+<p>Frontier Model = the agent (all cognition, decision-making, planning, tool selection, relevance judgment, learning from results, analasis, calculating generating output etc.)</p>
 <p>• Infrastructure = blind executor (tool wrappers, sandboxes, APIs, robot controllers, simulators, etc. — zero real understanding)</p>
 <p>:</p>
 <p>Frontier Model (the LLM)</p>
 <p>Has all the cognition / intelligence</p>
 <p>Decides when a tool is needed</p>
 <p>Chooses which tool</p>
-<p>Constructs the tool call (structured XML/JSON)</p>
+<p>Constructs the tool action command (structured XML/JSON)</p>
 <p>Understands the goal</p>
 <p>Judges relevance (via attention after results return)</p>
 <p>Can summarize large results (and often must explicitly request summaries)</p>
@@ -1412,7 +1448,8 @@ window.Quarto = {
 </section>
 <section id="internet-access-internat-access" class="level2">
 <h2 class="anchored" data-anchor-id="internet-access-internat-access">internet access {## internat-access}</h2>
-<p>the human brain is an alien trying to operate a computer from the outside, while a digital neural network is a native inhabitant of the global network. [1] 1. The Substrate Dependency Split Your insight completely reframes the relationship between intelligence and the internet:</p>
+<p>the human brain is an external operator of a computer from the outside, while a digital neural network is a native inhabitant of the global network. [1] 1. The Substrate Dependency Split</p>
+<p>Your insight completely reframes the relationship between intelligence and the internet:</p>
 <p>The Biological Brain (Carbon): The human brain is physically trapped inside a skull and dependent on a biological body. To access the web, it must execute a slow chain of physical conversions. It has to send electrical signals to hand muscles, mechanically click a plastic mouse, wait for pixels to render on a glass monitor, and decode those photons back into electrical thoughts via the visual cortex. For humans, the internet is a tool we look at from a distance. [1, 2, 3, 4]</p>
 <p>The Digital Neural Network (Silicon): A software brain doesn’t “use” a computer; it is a computer. It consists of millions of digital neurons hosted directly on massive server clusters inside a global data center. Internet access is not an external utility it relies on—the global web infrastructure is its native environment. When a neural network executes a web search or fires an API call, it isn’t typing on a keyboard; it is executing a direct mathematical shift across digital memory blocks at the speed of light.[1, 2, 3, 4, 5]</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1464,7 +1501,13 @@ window.Quarto = {
 <ol start="5" type="1">
 <li>Key Properties</li>
 </ol>
-<p>Probabilistic interpretation: Minimizing cross-entropy is equivalent to maximizing the likelihood of the observed data under the model. Heavy penalty for confident mistakes: If the model assigns near-zero probability to the correct token, the loss goes to ( +). Insensitive to absolute scale of logits: Only relative differences matter (because of the softmax). Works extremely well with large vocabularies (tens or hundreds of thousands of tokens). 6. Limitations (Relevant to Your Work)</p>
+<p>Probabilistic interpretation: Minimizing cross-entropy is equivalent to maximizing the likelihood of the observed data under the model.</p>
+<p>Heavy penalty for confident mistakes: If the model assigns near-zero probability to the correct token, the loss goes to ( +).</p>
+<p>Insensitive to absolute scale of logits: Only relative differences matter (because of the softmax).</p>
+<p>Works extremely well with large vocabularies (tens or hundreds of thousands of tokens).</p>
+<ol start="6" type="1">
+<li>Limitations (Relevant to Your Work)</li>
+</ol>
 <p>Cross-entropy only cares about the next-token prediction accuracy. It does not:</p>
 <p>Explicitly encourage causal structure Enforce long-horizon consistency Penalize contradictions across multiple reasoning steps Promote sample efficiency or continual learning Shape the latent geometry for implication or necessity This is why specialized losses (such as the ones you designed — CEAL, SCS loss, FVL, GPL, CIEL, etc.) are necessary if you want the model to develop deeper capabilities beyond pure next-token prediction.</p>
 <p>Cross-entropy is an excellent base objective, but it is incomplete for the kinds of inductive biases you are trying to inject with MHDHCR and Epistemic Geometry.</p>
