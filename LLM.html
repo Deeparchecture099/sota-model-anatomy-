@@ -352,6 +352,8 @@ window.Quarto = {
   <li><a href="#steps-steps" id="toc-steps-steps" class="nav-link" data-scroll-target="#steps-steps">steps {## steps}</a></li>
   <li><a href="#native-native" id="toc-native-native" class="nav-link" data-scroll-target="#native-native">native (### native)</a></li>
   <li><a href="#model-vs-infrastructure-model-vs-infrastructure" id="toc-model-vs-infrastructure-model-vs-infrastructure" class="nav-link" data-scroll-target="#model-vs-infrastructure-model-vs-infrastructure">model vs infrastructure {### model vs infrastructure }</a></li>
+  <li><a href="#model-model" id="toc-model-model" class="nav-link" data-scroll-target="#model-model">model {### model}</a></li>
+  <li><a href="#infrastructure-infrastructure" id="toc-infrastructure-infrastructure" class="nav-link" data-scroll-target="#infrastructure-infrastructure">infrastructure {### infrastructure}</a></li>
   <li><a href="#differences-differences" id="toc-differences-differences" class="nav-link" data-scroll-target="#differences-differences">differences {## differences }</a></li>
   <li><a href="#control-robot-control-robot" id="toc-control-robot-control-robot" class="nav-link" data-scroll-target="#control-robot-control-robot">control robot {### control robot}</a></li>
   </ul></li>
@@ -522,7 +524,7 @@ window.Quarto = {
 </section>
 <section id="tensors-tensors" class="level2">
 <h2 class="anchored" data-anchor-id="tensors-tensors">tensors {## tensors}</h2>
-<p>Tensors: The Dimensional Scaffold of Latent Geometry</p>
+<p>Tensors: The Dimensional Scaffold of Latent Geometry: (encoding the size, shape, and structure of the geometry which determines what it’s able to learn and how)</p>
 <p>In frontier LLMs like Grok 4.5, tensors are the actual data structures that give shape to the latent geometry. Everything the model learns, processes, or generates flows through these multi-dimensional arrays. They are not abstract math — they are the concrete grid on which all patterns live.</p>
 <p>Core Tensor Shape in a Forward Pass</p>
 <p>Typical shape: (batch_size, sequence_length, hidden_dimension)</p>
@@ -1322,8 +1324,11 @@ window.Quarto = {
 </section>
 <section id="model-vs-infrastructure-model-vs-infrastructure" class="level3">
 <h3 class="anchored" data-anchor-id="model-vs-infrastructure-model-vs-infrastructure">model vs infrastructure {### model vs infrastructure }</h3>
-<p>Frontier Model = the agent (all cognition, decision-making, planning, tool selection, relevance judgment, learning from results, analasis, calculating generating output etc.)</p>
+<p>Frontier Model = the agent(the Brain) (all cognition, decision-making, planning, tool selection, relevance judgment, learning from results, analysis, calculating generating output etc.)</p>
 <p>• Infrastructure = blind executor (tool wrappers, sandboxes, APIs, robot controllers, simulators, etc. — zero real understanding)</p>
+</section>
+<section id="model-model" class="level3">
+<h3 class="anchored" data-anchor-id="model-model">model {### model}</h3>
 <p>:</p>
 <p>Frontier Model (the LLM)</p>
 <p>Has all the cognition / intelligence</p>
@@ -1341,8 +1346,11 @@ window.Quarto = {
 <p>Issues high-level commands for physical actions</p>
 <p>commands the format of sensory feedback it wants</p>
 <p>analzes results, calculates what to do next and generates output</p>
-<p>In current frontier systems, the infrastructure has essentially zero cognition. It is a collection of deterministic wrappers, APIs, sandboxes, retrieval engines, and simple post-processing scripts. All real intelligence, decision-making, relevance judgment, and reasoning lives inside the frontier model.</p>
+<p>The infrastructure has zero cognition. It is a collection of deterministic wrappers, APIs, sandboxes, retrieval engines, and simple post-processing scripts. All real intelligence( decision-making, relevance judgment, information aquiring, analasis, interfacing, integration &amp; use action , command generation(the models commands for the tools), reasoning and output generation) lives inside the frontier model.</p>
 <p>Because the infrastructure cannot intelligently decide what is important, the model must usually explicitly command the format and level of detail it wants (including summaries, structured observations, key excerpts, etc.) in the original tool call.</p>
+</section>
+<section id="infrastructure-infrastructure" class="level3">
+<h3 class="anchored" data-anchor-id="infrastructure-infrastructure">infrastructure {### infrastructure}</h3>
 <p>Infrastructure (tool wrappers, sandboxes, APIs)</p>
 <p>Has zero cognition</p>
 <p>Only parses and executes the tool call the model wrote</p>
